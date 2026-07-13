@@ -5,7 +5,7 @@
 **Player (DM-stated):** Jeremy  
 **Agent:** Atrok  
 **Phase covered:** **1 — Character Record only**  
-**Phase status:** Complete — **awaiting Christopher’s review before Phase 2**  
+**Phase status:** Complete — **awaiting the DM’s review before Phase 2**  
 **Date:** 2026-07-13  
 **Source integrity:** READ-ONLY against live Fantasy Grounds `db.xml`
 
@@ -57,13 +57,13 @@
 | STR | 18 | FG sheet | 🟢 |
 | DEX | 14 | FG sheet | 🟢 |
 | CON | 16 | FG sheet | 🟢 |
-| INT | **10** base / **19** with hat | Base confirmed by DM (Christopher); FG shows 19 while Hat of Disguised Intellect is worn | 🟢 base (oral/DM) · 🟢 hat-on (FG) |
+| INT | **10** base / **19** with hat | Base confirmed by the DM; FG shows 19 while Hat of Disguised Intellect is worn | 🟢 base (oral/DM) · 🟢 hat-on (FG) |
 | WIS | 12 | FG sheet | 🟢 |
 | CHA | 8 | FG sheet | 🟢 |
 
 **Hat of Disguised Intellect:**  
 Inventory includes **Hat of Disguised Intellect** (attunement). FG description sets Intelligence to 19 while worn (also carries Hat of Disguise–style language).  
-**DM confirmation (Christopher, 2026-07-13):** Thrain’s Intelligence is **10 without the hat**. FG’s displayed 19 is the disguised/hat-on value, not his natural score.
+**DM confirmation (2026-07-13):** Thrain’s Intelligence is **10 without the hat**. FG’s displayed 19 is the disguised/hat-on value, not his natural score.
 
 ### Defenses & vitality
 
@@ -163,5 +163,5 @@ Incidental observations while locating the record (e.g. empty ideals/bonds field
 > Atrok: I found Thrain Bearblood at `charsheet/id-00004`.  
 > Phase 1 mechanical record is complete and ready for review.
 
-**Stop here until Christopher reviews Phase 1.**  
+**Stop here until the DM reviews Phase 1.**  
 Do not open Phase 2 until approved.

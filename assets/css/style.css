@@ -554,7 +554,7 @@ main {
   display: block;
 }
 
-/* Placeholder until Christopher supplies a dedicated Active Campaign graphic */
+/* Dedicated Active Campaign graphic lives under assets/images/home/ */
 .campaign-art-slot {
   display: flex;
   flex-direction: column;
