@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Red - Tales of Salvation</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+.discovery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.discovery-card {
+  border: 1px solid rgba(180, 150, 90, 0.35);
+  border-radius: 10px;
+  padding: 1rem;
+  background: rgba(255, 248, 220, 0.04);
+}
+
+.discovery-card h4 {
+  margin-top: 0;
+}
+
+.player-line {
+  font-style: italic;
+  margin-top: 0.25rem;
+  opacity: 0.9;
+}
+
+.discovery-status {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-left: 4px solid #b8943c;
+  background: rgba(184, 148, 60, 0.08);
+}
+
+.note-box {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.04);
+  border: 1px dashed rgba(180,150,90,0.35);
+}
+
+.discovery-row-list {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 1rem;
+}
+
+.discovery-row {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 1rem;
+  align-items: start;
+  border: 1px solid rgba(180, 150, 90, 0.35);
+  border-radius: 10px;
+  padding: 1rem;
+  background: rgba(255, 248, 220, 0.04);
+}
+
+.discovery-row h4 {
+  margin: 0;
+}
+
+.discovery-row ul {
+  margin: 0;
+}
+
+.companion-link-card {
+  display: grid;
+  grid-template-columns: 95px 1fr;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(180,150,90,0.35);
+}
+
+.companion-link-card img {
+  width: 85px;
+  height: 85px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid rgba(180,150,90,0.55);
+}
+
+@media (max-width: 700px) {
+  .discovery-row,
+  .companion-link-card {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+<h1 class="site-title">Tales of Salvation</h1>
+<p class="site-subtitle">Mortal Ascension Companion Dossier</p>
+</header>
+
+<div class="layout">
+
+<nav>
+<div class="nav-section">Navigation</div>
+<a href="../index.html">Home</a>
+<a href="../descent-into-avernus/index.html">Mortal Ascension</a>
+
+<div class="nav-section">The Spice Boys</div>
+<a href="../characters/maximus-d-anthony.html">Maximus D'Anthony</a>
+<a href="#">Cedric Longstrider</a>
+<a href="../characters/malachi-cosgrove.html">Malachi Cosgrove</a>
+<a href="../characters/capn-ravenborne.html">Cap'n Ravenborne</a>
+<a href="#">Zhao Mao</a>
+
+<div class="nav-section">Companions</div>
+<a href="red.html">Red</a>
+</nav>
+
+<main>
+
+<div class="breadcrumbs">
+<a href="../index.html">Home</a> &gt;
+<a href="../descent-into-avernus/index.html">Mortal Ascension</a> &gt;
+Red
+</div>
+
+<div class="book-panel">
+
+<div class="hero">
+
+<div class="portrait-frame">
+<img src="../assets/images/characters/red.jpg" alt="Red">
+</div>
+
+<div class="nameplate">
+<h2>Red</h2>
+<div class="subtitle">Shapechanging Imp • Red Raven • Companion of Cap'n Ravenborne</div>
+<p class="player-line">Red is a campaign companion of Cap'n Ravenborne.</p>
+
+<p class="quote">
+"She would rather adventure with Ravenborne than be promoted. She believes she belongs with him."
+</p>
+
+<span class="badge">Companion</span>
+<span class="badge">Red Raven</span>
+<span class="badge">Imp</span>
+<span class="badge">Ravenborne</span>
+
+</div>
+
+</div>
+
+<div class="section">
+<h3>Companion Discovery</h3>
+
+<p>
+Red first entered the story as one of two ravens watching the Low Lantern on behalf of the Vanthampurs. One of those ravens became Red: a shapechanging imp who saw opportunity in Ravenborne and the adventurers opposing the Vanthampurs.
+</p>
+
+<p>
+Red was not remembered because she was powerful. She was remembered because she stayed. Across later remembrances of Ravenborne, Red increasingly became part of how he was remembered.
+</p>
+
+<div class="note-box">
+<strong>Atlas Observation</strong><br>
+Red is Atlas's first companion discovery centered on a relationship rather than an individual. Her story is inseparable from Ravenborne's, but she is not merely an accessory to him. She chose companionship over promotion.
+</div>
+
+</div>
+
+<div class="section">
+<h3>Discovery Path</h3>
+
+<div class="discovery-row-list">
+
+<div class="discovery-row">
+<h4>Origin</h4>
+<ul>
+<li>Began as one of two raven-shaped imps at the Low Lantern.</li>
+<li>One of those ravens began following Ravenborne.</li>
+<li>She earned her place before the reveal by seeming a little too sentient.</li>
+</ul>
+</div>
+
+<div class="discovery-row">
+<h4>Reveal</h4>
+<ul>
+<li>Red started following Ravenborne in raven form on May 19, 2020.</li>
+<li>Her true nature was revealed five sessions later, on June 23, 2020.</li>
+<li>The first impression was not “imp,” but “red raven.”</li>
+</ul>
+</div>
+
+<div class="discovery-row">
+<h4>Relationship</h4>
+<ul>
+<li>Ravenborne encouraged the raven to land on his shoulder.</li>
+<li>Ravenborne was a pirate without a parrot.</li>
+<li>Red was an imp who could tell these adventurers might stop the Vanthampurs.</li>
+<li>She wanted to impress Ravenborne.</li>
+</ul>
+</div>
+
+<div class="discovery-row">
+<h4>Continuity</h4>
+<ul>
+<li>In one telling, Red was killed by Trantolox and that Ravenborne never saw her again.</li>
+<li>In later tellings, Red returned with Ravenborne.</li>
+<li>The Raven Queen remembers Ravenborne differently each time, and lately that remembrance includes Red.</li>
+</ul>
+</div>
+
+</div>
+
+</div>
+
+<div class="section-grid">
+
+<div class="section">
+<h3>Known Companion</h3>
+<div class="companion-link-card">
+<img src="../assets/images/characters/capn-ravenborne.jpg" alt="Cap'n Ravenborne">
+<div>
+<strong>Cap'n Ravenborne</strong><br>
+Raven Queen witness and bearer of memories from the River Styx.<br>
+<a href="../characters/capn-ravenborne.html">View Character</a>
+</div>
+</div>
+</div>
+
+<div class="section">
+<h3>What Red Preserves</h3>
+<ul>
+<li>A relationship that began as opportunity and became belonging.</li>
+<li>A companion who respected Ravenborne's presence.</li>
+<li>A survivor who would do whatever it took to endure.</li>
+<li>A recurring memory carried through later versions of Ravenborne.</li>
+<li>The idea that some companions become part of how a character is remembered.</li>
+</ul>
+</div>
+
+</div>
+
+<div class="section">
+<h3>The Soul Before the Raven</h3>
+<p>
+Before Red was a raven on Ravenborne's shoulder, Atlas Portal 005.4B preserves the story of Cherrie Raven: a seventeen-year-old thief whose guilt survived the stripping away of mortal memory. After death, Cherrie became a lemure on the shores of the River Styx. When mocked and threatened by imps, the nameless lemure fought back, killed two of them, and was promoted into an imp.
+</p>
+<p>
+Red does not remember Cherrie Raven. But something remained beneath infernal instinct: survival, ambition, guilt, and the possibility of becoming something unexpected.
+</p>
+</div>
+
+<div class="section">
+<h3>Atlas Discovery Status</h3>
+<div class="discovery-status">
+<strong>Deep Memory Phase 1:</strong> Complete — evidence hunt confirmed Red through Ravenborne-associated archives and assets.<br>
+<strong>Phase 2:</strong> Complete — campaign evidence established Red as an individualized companion, not a generic imp.<br>
+<strong>Phase 3:</strong> Complete — interpretation centered on relationship, continuity, witness, and survival.<br>
+<strong>Phase 4:</strong> Complete — Atlas Portal 005.4 preserves origin, reveal timeline, death in one telling, and Cherrie Raven backstory.<br>
+<strong>Phase 5:</strong> Complete — Creator Oral History conducted with Christopher.
+</div>
+</div>
+
+<div class="evidence">
+<h3>Evidence & Discovery Sources</h3>
+<strong>🟢 Verified</strong><br>
+Red appears in campaign archive evidence as a named imp with linked artwork for Red and Red Raven, and she is associated with Ravenborne-specific campaign assets.<br><br>
+
+<strong>🟢 Atlas Portal</strong><br>
+Atlas Portal 005.4 preserves Red's Low Lantern origin, first-following date, reveal date, Trantolox death in one telling, and Cherrie Raven backstory.<br><br>
+
+<strong>🟡 Creator Oral History</strong><br>
+Christopher confirmed Red is female, first encountered Ravenborne as a red raven, wanted to impress him, and would rather adventure with Ravenborne than be promoted.<br><br>
+
+<strong>🟠 Discovery Note</strong><br>
+Red is not universal across all Descent into Avernus campaigns. She is specific to Ravenborne's continuing remembrances and does not appear in Heroes of Their Own Story.
+</div>
+
+</div>
+
+</main>
+
+</div>
+
+</body>
+</html>

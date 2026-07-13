@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cap'n Ravenborne - Tales of Salvation</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+.discovery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.discovery-card {
+  border: 1px solid rgba(180, 150, 90, 0.35);
+  border-radius: 10px;
+  padding: 1rem;
+  background: rgba(255, 248, 220, 0.04);
+}
+
+.discovery-card h4 {
+  margin-top: 0;
+}
+
+.player-line {
+  font-style: italic;
+  margin-top: 0.25rem;
+  opacity: 0.9;
+}
+
+.discovery-status {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-left: 4px solid #b8943c;
+  background: rgba(184, 148, 60, 0.08);
+}
+
+.gold-star {
+  color: #d6a637;
+  font-weight: bold;
+}
+
+.note-box {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.04);
+  border: 1px dashed rgba(180,150,90,0.35);
+}
+
+.discovery-row-list {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 1rem;
+}
+
+.discovery-row {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 1rem;
+  align-items: start;
+  border: 1px solid rgba(180, 150, 90, 0.35);
+  border-radius: 10px;
+  padding: 1rem;
+  background: rgba(255, 248, 220, 0.04);
+}
+
+.discovery-row h4 {
+  margin: 0;
+  color: #5b3a12;
+}
+
+.discovery-row ul {
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  .discovery-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.companion-reference {
+  display: grid;
+  grid-template-columns: 1fr 120px;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(180,150,90,0.35);
+}
+
+.companion-reference p {
+  margin: 0;
+}
+
+.companion-portrait {
+  text-align: center;
+}
+
+.companion-portrait img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid rgba(180,150,90,0.55);
+}
+
+.companion-portrait a {
+  text-decoration: none;
+}
+
+.companion-label {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+@media (max-width: 700px) {
+  .companion-reference {
+    grid-template-columns: 1fr;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+<h1 class="site-title">Tales of Salvation</h1>
+<p class="site-subtitle">Mortal Ascension Character Dossier</p>
+</header>
+
+<div class="layout">
+
+<nav>
+<div class="nav-section">Navigation</div>
+<a href="../index.html">Home</a>
+<a href="../descent-into-avernus/index.html">Mortal Ascension</a>
+
+<div class="nav-section">The Spice Boys</div>
+<a href="maximus-d-anthony.html">Maximus D'Anthony</a>
+<a href="#">Cedric Longstrider</a>
+<a href="malachi-cosgrove.html">Malachi Cosgrove</a>
+<a href="capn-ravenborne.html">Cap'n Ravenborne</a>
+<a href="#">Zhao Mao</a>
+
+<div class="nav-section">Companions</div>
+<a href="../companions/red.html">Red</a>
+</nav>
+
+<main>
+
+<div class="breadcrumbs">
+<a href="../index.html">Home</a> &gt;
+<a href="../descent-into-avernus/index.html">Mortal Ascension</a> &gt;
+Cap'n Ravenborne
+</div>
+
+<div class="book-panel">
+
+<div class="hero">
+
+<div class="portrait-frame">
+<img src="../assets/images/characters/capn-ravenborne.jpg" alt="Cap'n Ravenborne">
+</div>
+
+<div class="nameplate">
+<h2>Cap'n Ravenborne</h2>
+<div class="subtitle">Human: Mark of Passage / Fey • Rogue 3 / Warlock 10 • Raven Queen</div>
+<p class="player-line">Cap'n Ravenborne is played by Christian.</p>
+
+<p class="quote">
+"It's my deeds that should be remembered, not their instrument."
+</p>
+
+<span class="badge">The Spice Boys</span>
+<span class="badge">Raven Queen</span>
+<span class="badge">Memories from the River</span>
+<span class="badge">Neutral Baseline</span>
+
+</div>
+
+</div>
+
+<div class="sheet-card">
+
+<div class="sheet-title">
+Fantasy Grounds Character Record
+</div>
+
+<div class="abilities">
+
+<div class="ability"><div class="label">STR</div><div class="score">10</div><div class="mod">+0</div></div>
+<div class="ability"><div class="label">DEX</div><div class="score">14</div><div class="mod">+2</div></div>
+<div class="ability"><div class="label">CON</div><div class="score">14</div><div class="mod">+2</div></div>
+<div class="ability"><div class="label">INT</div><div class="score">12</div><div class="mod">+1</div></div>
+<div class="ability"><div class="label">WIS</div><div class="score">14</div><div class="mod">+2</div></div>
+<div class="ability"><div class="label">CHA</div><div class="score">18</div><div class="mod">+4</div></div>
+
+</div>
+
+<div class="quick-stats">
+
+<div class="stat-tile"><div class="label">AC</div><div class="value">17</div></div>
+<div class="stat-tile"><div class="label">HP</div><div class="value">94</div></div>
+<div class="stat-tile"><div class="label">Speed</div><div class="value">40</div></div>
+<div class="stat-tile"><div class="label">Init</div><div class="value">+2</div></div>
+<div class="stat-tile"><div class="label">Passive</div><div class="value">22</div></div>
+<div class="stat-tile"><div class="label">Class</div><div class="value">Rog/Wlk</div></div>
+
+</div>
+
+</div>
+
+<div class="section">
+<h3>Character Discovery</h3>
+
+<div class="discovery-row-list">
+
+<div class="discovery-row">
+<h4>Identity</h4>
+<ul>
+<li>Human: Mark of Passage / Fey</li>
+<li>Rogue 3 / Warlock 10</li>
+<li>Patron: The Raven Queen</li>
+<li>Served as the campaign's neutral baseline</li>
+</ul>
+</div>
+
+<div class="discovery-row">
+<h4>Character Sheet Voice</h4>
+<ul>
+<li>Treasures a memento of the person or instance that set him on his path</li>
+<li>Values anonymity over personal recognition</li>
+<li>Believes his deeds should be remembered, not the instrument</li>
+<li>Sees morality in black and white</li>
+</ul>
+</div>
+
+<div class="discovery-row">
+<h4>Campaign Identity</h4>
+<ul>
+<li>Connected to the Raven Queen as witness and agent</li>
+<li>Understood the difference between Law and Order</li>
+<li>Linked to Julian Storm and James Ravenborne</li>
+<li>Connected to the Gate of Automata</li>
+</ul>
+</div>
+
+<div class="discovery-row">
+<h4>Recovered Memories</h4>
+<ul>
+<li>Carried the custom feature <em>Memories from the River</em></li>
+<li>Descended into the River Styx at the Stygian Dock</li>
+<li>Recovered more than silted souls</li>
+<li>Became a bearer of forgotten memories</li>
+</ul>
+</div>
+
+</div>
+
+<div class="note-box">
+<strong>Atlas Discovery</strong><br>
+Ravenborne's character sheet became one of the strongest creative artifacts discovered so far. Together, the character sheet, campaign evidence, and Atlas Portal preserve a clear voice of anonymity, memory, judgment, balance, and witness.
+</div>
+
+</div>
+
+<div class="section-grid">
+
+<div class="section">
+<h3>Notable Equipment</h3>
+<p><em>Curated items selected by Atlas using Fantasy Grounds data, character sheet evidence, and campaign-specific meaning.</em></p>
+<ul>
+<li><strong>Hellfire Rapier</strong> — Pact weapon and infernal-era signature blade.</li>
+<li><strong>Black Tome</strong> — A thematically important object tied to Ravenborne's warlock identity.</li>
+<li><strong>Deck of Illusions</strong> — Reinforces Ravenborne's theatrical and deceptive edge.</li>
+<li><strong>Wand of Secrets</strong> — A fitting tool for a witness who moves through hidden truths.</li>
+<li><strong>Gold Ring of Capt Deadeye</strong> — A preserved item with strong personal or campaign-specific naming.</li>
+</ul>
+</div>
+
+<div class="section">
+<h3>Campaign Highlights</h3>
+<ul>
+<li>Served as the Neutral point within Mortal Ascension's alignment structure.</li>
+<li>Acted as a Raven Queen witness sent into Avernus to recover memory.</li>
+<li>Participated in Bazelsteen's bathysphere test at the Stygian Dock.</li>
+<li>Recovered memories from the sediment of the River Styx.</li>
+<li>Preserved links to Magnus and Vistani lineage through Atlas Portal notes.</li>
+</ul>
+
+<div class="companion-reference">
+<p><strong>Met and earned the respect of Red, a shapechanging imp who would accompany him through later remembrances.</strong></p>
+<div class="companion-portrait">
+<img src="../assets/images/characters/red-portrait.jpg" alt="Red">
+<span class="companion-label">Red</span>
+<span class="companion-label">Companion</span>
+<p style="margin-top:0.5rem;">
+<a href="../companions/red.html">View Companion</a>
+</p>
+</div>
+</div>
+</div>
+
+</div>
+
+<div class="section">
+<h3>Memories from the River</h3>
+<p>
+In the Tales of Salvation multiverse, the Raven Queen became aware of many groups descending into Avernus across many versions of the story. Each journey left memories behind. Ravenborne was sent not merely to survive Avernus, but to reach the River Styx and recover fragments of memory from its depths.
+</p>
+<p>
+At the Stygian Dock, Bazelsteen's bathysphere descended beneath the river to dredge silted souls. For Ravenborne, the descent became something deeper: he emerged carrying long-lost memories from the bottom of the Styx.
+</p>
+<div class="note-box">
+<strong>Discovered Memory</strong><br>
+Atlas identified <em>Memories from the River</em> as significant campaign evidence before its full meaning was recalled. The discovery helped recover a piece of campaign history that had slipped from immediate memory.
+</div>
+</div>
+
+<div class="section">
+<h3>Atlas Discovery Status</h3>
+<div class="discovery-status">
+<strong>Fantasy Grounds Character Record:</strong> Discovered<br>
+<strong>Character Sheet Notes:</strong> Discovered with strong authored content<br>
+<strong>Campaign Evidence:</strong> Discovered, including <em>Memories from the River</em><br>
+<strong>Atlas Portal Notes:</strong> Discovered, including Ravenborne's neutral baseline, Raven Queen role, Magnus lineage, and Red<br>
+<strong>Deep Memory:</strong> Not yet required; no session recording analyzed for this phase<br>
+<strong>Player Perspective:</strong> Not currently available; may be reopened if Christian becomes available
+</div>
+</div>
+
+<div class="evidence">
+<h3>Evidence & Discovery Sources</h3>
+<strong>🟢 Verified</strong><br>
+Core character statistics, class levels, race, patron evidence, features, and inventory are based on the Fantasy Grounds campaign archive.<br><br>
+
+<strong>🟢 Character Sheet Voice</strong><br>
+Ravenborne's ideal, trait, bond, flaw, custom notes, and custom features preserve unusually strong player-authored identity on the sheet itself.<br><br>
+
+<strong>🟢 Atlas Portal</strong><br>
+Ravenborne's role as neutral baseline, Raven Queen witness, Magnus connection, Vistani lineage, and Red's companion relationship were preserved through Atlas Portal notes, including Atlas Portal 005.4 — Red.<br><br>
+
+<strong>🟡 Discovery Gap</strong><br>
+Christian is not currently available for Oral History. This page is complete for now using available evidence and should be reopened if Phase 5 becomes possible.
+</div>
+
+</div>
+
+</main>
+
+</div>
+
+</body>
+</html>

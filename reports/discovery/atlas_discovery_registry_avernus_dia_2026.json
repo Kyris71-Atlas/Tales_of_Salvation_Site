@@ -1,0 +1,1464 @@
+{
+  "ok": true,
+  "file_size": 5614069,
+  "sha256_16": "26bd6756d7228f1c",
+  "encoding": "utf-8",
+  "root_tag": "root",
+  "root_attrib_keys": [
+    "dataversion",
+    "release",
+    "version"
+  ],
+  "top_level_sections": [
+    [
+      "MNMStats",
+      1
+    ],
+    [
+      "ShiftedState",
+      1
+    ],
+    [
+      "background",
+      1
+    ],
+    [
+      "battle",
+      1
+    ],
+    [
+      "calendar",
+      1
+    ],
+    [
+      "charsheet",
+      1
+    ],
+    [
+      "class",
+      1
+    ],
+    [
+      "combattracker",
+      1
+    ],
+    [
+      "currencies",
+      1
+    ],
+    [
+      "deathmanager",
+      1
+    ],
+    [
+      "effects",
+      1
+    ],
+    [
+      "encounter",
+      1
+    ],
+    [
+      "export",
+      1
+    ],
+    [
+      "feat",
+      1
+    ],
+    [
+      "image",
+      1
+    ],
+    [
+      "item",
+      1
+    ],
+    [
+      "languages",
+      1
+    ],
+    [
+      "library",
+      1
+    ],
+    [
+      "location",
+      1
+    ],
+    [
+      "modifiers",
+      1
+    ],
+    [
+      "motd",
+      1
+    ],
+    [
+      "notes",
+      1
+    ],
+    [
+      "npc",
+      1
+    ],
+    [
+      "oldTokenImage",
+      1
+    ],
+    [
+      "options",
+      1
+    ],
+    [
+      "partysheet",
+      1
+    ],
+    [
+      "picture",
+      1
+    ],
+    [
+      "quest",
+      1
+    ],
+    [
+      "race",
+      1
+    ],
+    [
+      "reference",
+      1
+    ],
+    [
+      "savedACArmor",
+      1
+    ],
+    [
+      "savedACDEX",
+      1
+    ],
+    [
+      "savedACShield",
+      1
+    ],
+    [
+      "savedCHR",
+      1
+    ],
+    [
+      "savedCON",
+      1
+    ],
+    [
+      "savedDEX",
+      1
+    ],
+    [
+      "savedINT",
+      1
+    ],
+    [
+      "savedSTR",
+      1
+    ],
+    [
+      "savedWIS",
+      1
+    ],
+    [
+      "settings",
+      1
+    ],
+    [
+      "skill",
+      1
+    ],
+    [
+      "spell",
+      1
+    ],
+    [
+      "spelltokens",
+      1
+    ],
+    [
+      "tables",
+      1
+    ],
+    [
+      "temp",
+      1
+    ],
+    [
+      "treasureparcels",
+      1
+    ],
+    [
+      "update_notifier",
+      1
+    ],
+    [
+      "vehicle",
+      1
+    ]
+  ],
+  "top_level_unique": [
+    "MNMStats",
+    "ShiftedState",
+    "background",
+    "battle",
+    "calendar",
+    "charsheet",
+    "class",
+    "combattracker",
+    "currencies",
+    "deathmanager",
+    "effects",
+    "encounter",
+    "export",
+    "feat",
+    "image",
+    "item",
+    "languages",
+    "library",
+    "location",
+    "modifiers",
+    "motd",
+    "notes",
+    "npc",
+    "oldTokenImage",
+    "options",
+    "partysheet",
+    "picture",
+    "quest",
+    "race",
+    "reference",
+    "savedACArmor",
+    "savedACDEX",
+    "savedACShield",
+    "savedCHR",
+    "savedCON",
+    "savedDEX",
+    "savedINT",
+    "savedSTR",
+    "savedWIS",
+    "settings",
+    "skill",
+    "spell",
+    "spelltokens",
+    "tables",
+    "temp",
+    "treasureparcels",
+    "update_notifier",
+    "vehicle"
+  ],
+  "tag_counts_top50": [
+    [
+      "public",
+      6779
+    ],
+    [
+      "name",
+      6385
+    ],
+    [
+      "holder",
+      5965
+    ],
+    [
+      "p",
+      5752
+    ],
+    [
+      "type",
+      3136
+    ],
+    [
+      "td",
+      2737
+    ],
+    [
+      "id",
+      2587
+    ],
+    [
+      "locked",
+      2503
+    ],
+    [
+      "b",
+      2301
+    ],
+    [
+      "bonus",
+      1922
+    ],
+    [
+      "link",
+      1859
+    ],
+    [
+      "id-00001",
+      1683
+    ],
+    [
+      "class",
+      1628
+    ],
+    [
+      "score",
+      1464
+    ],
+    [
+      "layer",
+      1228
+    ],
+    [
+      "parentid",
+      1228
+    ],
+    [
+      "desc",
+      1178
+    ],
+    [
+      "points",
+      1123
+    ],
+    [
+      "i",
+      1091
+    ],
+    [
+      "text",
+      1058
+    ],
+    [
+      "recordname",
+      1020
+    ],
+    [
+      "tr",
+      975
+    ],
+    [
+      "matrix",
+      974
+    ],
+    [
+      "description",
+      955
+    ],
+    [
+      "id-00002",
+      952
+    ],
+    [
+      "occluder",
+      847
+    ],
+    [
+      "level",
+      835
+    ],
+    [
+      "count",
+      748
+    ],
+    [
+      "shortcut",
+      738
+    ],
+    [
+      "stat",
+      699
+    ],
+    [
+      "linklist",
+      696
+    ],
+    [
+      "h",
+      680
+    ],
+    [
+      "actions",
+      676
+    ],
+    [
+      "bitmap",
+      663
+    ],
+    [
+      "prof",
+      655
+    ],
+    [
+      "total",
+      651
+    ],
+    [
+      "isidentified",
+      631
+    ],
+    [
+      "misc",
+      622
+    ],
+    [
+      "order",
+      611
+    ],
+    [
+      "record",
+      605
+    ],
+    [
+      "max",
+      571
+    ],
+    [
+      "source",
+      566
+    ],
+    [
+      "id-00003",
+      563
+    ],
+    [
+      "weight",
+      547
+    ],
+    [
+      "token",
+      530
+    ],
+    [
+      "used",
+      522
+    ],
+    [
+      "carried",
+      520
+    ],
+    [
+      "prepared",
+      468
+    ],
+    [
+      "cost",
+      462
+    ],
+    [
+      "cast",
+      460
+    ]
+  ],
+  "unique_tags": 3066,
+  "unique_path_shapes": 82074,
+  "total_nodes": 106917,
+  "text_nodes": 63468,
+  "attr_nodes": 50344,
+  "max_depth": 10,
+  "collections": {
+    "/root/ShiftedState": {
+      "collection_tag": "ShiftedState",
+      "record_count": 2414,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003",
+        "id-00004",
+        "id-00005",
+        "id-00006",
+        "id-00007",
+        "id-00008",
+        "id-00009",
+        "id-00010",
+        "id-00011",
+        "id-00012"
+      ]
+    },
+    "/root/background": {
+      "collection_tag": "background",
+      "record_count": 3,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003"
+      ]
+    },
+    "/root/background/id-00003/text/linklist": {
+      "collection_tag": "linklist",
+      "record_count": 4,
+      "child_tag": "link"
+    },
+    "/root/battle/category": {
+      "collection_tag": "category",
+      "record_count": 2,
+      "record_key_sample": [
+        "id-00025",
+        "id-00036"
+      ]
+    },
+    "/root/battle/category/id-00025/npclist": {
+      "collection_tag": "npclist",
+      "record_count": 8,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003",
+        "id-00004",
+        "id-00005",
+        "id-00006",
+        "id-00007",
+        "id-00008"
+      ]
+    },
+    "/root/battle/category/id-00036/npclist": {
+      "collection_tag": "npclist",
+      "record_count": 5,
+      "record_key_sample": [
+        "id-00002",
+        "id-00003",
+        "id-00004",
+        "id-00005",
+        "id-00006"
+      ]
+    },
+    "/root/battle/category/id-00036/npclist/id-00002/maplink": {
+      "collection_tag": "maplink",
+      "record_count": 4,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003",
+        "id-00004"
+      ]
+    },
+    "/root/battle/category/id-00036/npclist/id-00003/maplink": {
+      "collection_tag": "maplink",
+      "record_count": 2,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002"
+      ]
+    },
+    "/root/battle/category/id-00036/npclist/id-00004/maplink": {
+      "collection_tag": "maplink",
+      "record_count": 2,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002"
+      ]
+    },
+    "/root/battle/id-00001/npclist": {
+      "collection_tag": "npclist",
+      "record_count": 7,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003",
+        "id-00004",
+        "id-00005",
+        "id-00006",
+        "id-00007"
+      ]
+    },
+    "/root/battle/id-00001/npclist/id-00001/maplink": {
+      "collection_tag": "maplink",
+      "record_count": 2,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002"
+      ]
+    },
+    "/root/battle/id-00001/npclist/id-00004/maplink": {
+      "collection_tag": "maplink",
+      "record_count": 3,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003"
+      ]
+    },
+    "/root/battle/id-00002/npclist": {
+      "collection_tag": "npclist",
+      "record_count": 2,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002"
+      ]
+    },
+    "/root/battle/id-00003/npclist": {
+      "collection_tag": "npclist",
+      "record_count": 5,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003",
+        "id-00004",
+        "id-00006"
+      ]
+    },
+    "/root/battle/id-00004/npclist": {
+      "collection_tag": "npclist",
+      "record_count": 8,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003",
+        "id-00004",
+        "id-00005",
+        "id-00006",
+        "id-00007",
+        "id-00008"
+      ]
+    },
+    "/root/battle/id-00005/npclist": {
+      "collection_tag": "npclist",
+      "record_count": 6,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003",
+        "id-00004",
+        "id-00005",
+        "id-00006"
+      ]
+    },
+    "/root/battle/id-00006/npclist": {
+      "collection_tag": "npclist",
+      "record_count": 6,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003",
+        "id-00004",
+        "id-00005",
+        "id-00006"
+      ]
+    },
+    "/root/battle/id-00006/npclist/id-00002/maplink": {
+      "collection_tag": "maplink",
+      "record_count": 4,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003",
+        "id-00004"
+      ]
+    },
+    "/root/battle/id-00006/npclist/id-00003/maplink": {
+      "collection_tag": "maplink",
+      "record_count": 3,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003"
+      ]
+    },
+    "/root/battle/id-00006/npclist/id-00004/maplink": {
+      "collection_tag": "maplink",
+      "record_count": 3,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003"
+      ]
+    },
+    "/root/battle/id-00006/npclist/id-00005/maplink": {
+      "collection_tag": "maplink",
+      "record_count": 2,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002"
+      ]
+    },
+    "/root/battle/id-00006/npclist/id-00006/maplink": {
+      "collection_tag": "maplink",
+      "record_count": 6,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003",
+        "id-00004",
+        "id-00005",
+        "id-00006"
+      ]
+    },
+    "/root/battle/id-00007/npclist": {
+      "collection_tag": "npclist",
+      "record_count": 4,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003",
+        "id-00004"
+      ]
+    },
+    "/root/battle/id-00008/npclist": {
+      "collection_tag": "npclist",
+      "record_count": 5,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003",
+        "id-00004",
+        "id-00005"
+      ]
+    },
+    "/root/battle/id-00009/npclist": {
+      "collection_tag": "npclist",
+      "record_count": 2,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002"
+      ]
+    },
+    "/root/battle/id-00010/npclist": {
+      "collection_tag": "npclist",
+      "record_count": 8,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003",
+        "id-00004",
+        "id-00005",
+        "id-00006",
+        "id-00007",
+        "id-00013"
+      ]
+    },
+    "/root/battle/id-00010/npclist/id-00001/maplink": {
+      "collection_tag": "maplink",
+      "record_count": 2,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002"
+      ]
+    },
+    "/root/battle/id-00011/npclist/id-00001/maplink": {
+      "collection_tag": "maplink",
+      "record_count": 3,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003"
+      ]
+    },
+    "/root/battle/id-00012/npclist": {
+      "collection_tag": "npclist",
+      "record_count": 3,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003"
+      ]
+    },
+    "/root/battle/id-00012/npclist/id-00001/maplink": {
+      "collection_tag": "maplink",
+      "record_count": 2,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002"
+      ]
+    },
+    "/root/battle/id-00012/npclist/id-00003/maplink": {
+      "collection_tag": "maplink",
+      "record_count": 2,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002"
+      ]
+    },
+    "/root/battle/id-00013/npclist": {
+      "collection_tag": "npclist",
+      "record_count": 5,
+      "record_key_sample": [
+        "id-00002",
+        "id-00003",
+        "id-00004",
+        "id-00005",
+        "id-00007"
+      ]
+    },
+    "/root/battle/id-00014/npclist/id-00001/maplink": {
+      "collection_tag": "maplink",
+      "record_count": 3,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003"
+      ]
+    },
+    "/root/battle/id-00015/npclist": {
+      "collection_tag": "npclist",
+      "record_count": 4,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003",
+        "id-00005"
+      ]
+    },
+    "/root/battle/id-00016/npclist": {
+      "collection_tag": "npclist",
+      "record_count": 4,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003",
+        "id-00005"
+      ]
+    },
+    "/root/battle/id-00016/npclist/id-00002/maplink": {
+      "collection_tag": "maplink",
+      "record_count": 2,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002"
+      ]
+    },
+    "/root/battle/id-00017/npclist": {
+      "collection_tag": "npclist",
+      "record_count": 7,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003",
+        "id-00004",
+        "id-00005",
+        "id-00006",
+        "id-00007"
+      ]
+    },
+    "/root/battle/id-00017/npclist/id-00001/maplink": {
+      "collection_tag": "maplink",
+      "record_count": 2,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002"
+      ]
+    },
+    "/root/battle/id-00017/npclist/id-00002/maplink": {
+      "collection_tag": "maplink",
+      "record_count": 6,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003",
+        "id-00004",
+        "id-00005",
+        "id-00006"
+      ]
+    },
+    "/root/battle/id-00017/npclist/id-00003/maplink": {
+      "collection_tag": "maplink",
+      "record_count": 3,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003"
+      ]
+    },
+    "/root/battle/id-00017/npclist/id-00004/maplink": {
+      "collection_tag": "maplink",
+      "record_count": 3,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003"
+      ]
+    },
+    "/root/battle/id-00018/npclist": {
+      "collection_tag": "npclist",
+      "record_count": 8,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003",
+        "id-00004",
+        "id-00006",
+        "id-00007",
+        "id-00008",
+        "id-00010"
+      ]
+    },
+    "/root/battle/id-00018/npclist/id-00006/maplink": {
+      "collection_tag": "maplink",
+      "record_count": 2,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002"
+      ]
+    },
+    "/root/battle/id-00019/npclist": {
+      "collection_tag": "npclist",
+      "record_count": 4,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003",
+        "id-00004"
+      ]
+    },
+    "/root/battle/id-00020/npclist": {
+      "collection_tag": "npclist",
+      "record_count": 4,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003",
+        "id-00004"
+      ]
+    },
+    "/root/battle/id-00021/npclist": {
+      "collection_tag": "npclist",
+      "record_count": 9,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003",
+        "id-00004",
+        "id-00005",
+        "id-00006",
+        "id-00007",
+        "id-00008",
+        "id-00009"
+      ]
+    },
+    "/root/battle/id-00021/npclist/id-00001/maplink": {
+      "collection_tag": "maplink",
+      "record_count": 10,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003",
+        "id-00004",
+        "id-00005",
+        "id-00006",
+        "id-00007",
+        "id-00008",
+        "id-00009",
+        "id-00010"
+      ]
+    },
+    "/root/battle/id-00021/npclist/id-00008/maplink": {
+      "collection_tag": "maplink",
+      "record_count": 8,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003",
+        "id-00004",
+        "id-00005",
+        "id-00006",
+        "id-00007",
+        "id-00008"
+      ]
+    },
+    "/root/battle/id-00022/npclist": {
+      "collection_tag": "npclist",
+      "record_count": 2,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002"
+      ]
+    },
+    "/root/battle/id-00024/npclist": {
+      "collection_tag": "npclist",
+      "record_count": 4,
+      "record_key_sample": [
+        "id-00004",
+        "id-00008",
+        "id-00009",
+        "id-00010"
+      ]
+    },
+    "/root/battle/id-00026/npclist": {
+      "collection_tag": "npclist",
+      "record_count": 3,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003"
+      ]
+    },
+    "/root/battle/id-00027/npclist": {
+      "collection_tag": "npclist",
+      "record_count": 2,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002"
+      ]
+    },
+    "/root/battle/id-00028/npclist": {
+      "collection_tag": "npclist",
+      "record_count": 5,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003",
+        "id-00004",
+        "id-00005"
+      ]
+    },
+    "/root/battle/id-00029/npclist": {
+      "collection_tag": "npclist",
+      "record_count": 5,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003",
+        "id-00004",
+        "id-00005"
+      ]
+    },
+    "/root/battle/id-00029/npclist/id-00001/maplink": {
+      "collection_tag": "maplink",
+      "record_count": 5,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003",
+        "id-00004",
+        "id-00005"
+      ]
+    },
+    "/root/battle/id-00029/npclist/id-00002/maplink": {
+      "collection_tag": "maplink",
+      "record_count": 3,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003"
+      ]
+    },
+    "/root/battle/id-00029/npclist/id-00003/maplink": {
+      "collection_tag": "maplink",
+      "record_count": 2,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002"
+      ]
+    },
+    "/root/battle/id-00030/npclist/id-00001/maplink": {
+      "collection_tag": "maplink",
+      "record_count": 8,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003",
+        "id-00004",
+        "id-00005",
+        "id-00006",
+        "id-00007",
+        "id-00008"
+      ]
+    },
+    "/root/battle/id-00031/npclist/id-00001/maplink": {
+      "collection_tag": "maplink",
+      "record_count": 10,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003",
+        "id-00004",
+        "id-00005",
+        "id-00006",
+        "id-00007",
+        "id-00008",
+        "id-00009",
+        "id-00010"
+      ]
+    },
+    "/root/battle/id-00032/npclist/id-00001/maplink": {
+      "collection_tag": "maplink",
+      "record_count": 7,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003",
+        "id-00004",
+        "id-00005",
+        "id-00006",
+        "id-00007"
+      ]
+    },
+    "/root/battle/id-00033/npclist": {
+      "collection_tag": "npclist",
+      "record_count": 3,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003"
+      ]
+    },
+    "/root/battle/id-00034/npclist": {
+      "collection_tag": "npclist",
+      "record_count": 3,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003"
+      ]
+    },
+    "/root/battle/id-00035/npclist": {
+      "collection_tag": "npclist",
+      "record_count": 15,
+      "record_key_sample": [
+        "id-00007",
+        "id-00008",
+        "id-00009",
+        "id-00010",
+        "id-00011",
+        "id-00012",
+        "id-00013",
+        "id-00014",
+        "id-00015",
+        "id-00016",
+        "id-00017",
+        "id-00018"
+      ]
+    },
+    "/root/battle/id-00037/npclist": {
+      "collection_tag": "npclist",
+      "record_count": 8,
+      "record_key_sample": [
+        "id-00001",
+        "id-00002",
+        "id-00003",
+        "id-00004",
+        "id-00005",
+        "id-00006",
+        "id-00007",
+        "id-00008"
+      ]
+    },
+    "/root/charsheet/id-00001/inventorylist/id-00001/description/p": {
+      "collection_tag": "p",
+      "record_count": 2,
+      "child_tag": "i"
+    },
+    "/root/charsheet/id-00001/powers/id-00002/description": {
+      "collection_tag": "description",
+      "record_count": 2,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00001/powers/id-00004/description": {
+      "collection_tag": "description",
+      "record_count": 3,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00001/powers/id-00007/description/p": {
+      "collection_tag": "p",
+      "record_count": 2,
+      "child_tag": "i"
+    },
+    "/root/charsheet/id-00001/powers/id-00007/description/table": {
+      "collection_tag": "table",
+      "record_count": 5,
+      "child_tag": "tr"
+    },
+    "/root/charsheet/id-00001/powers/id-00007/description/table/tr": {
+      "collection_tag": "tr",
+      "record_count": 2,
+      "child_tag": "td"
+    },
+    "/root/charsheet/id-00001/powers/id-00009/description": {
+      "collection_tag": "description",
+      "record_count": 2,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00001/powers/id-00010/description/list": {
+      "collection_tag": "list",
+      "record_count": 3,
+      "child_tag": "li"
+    },
+    "/root/charsheet/id-00001/powers/id-00011/description": {
+      "collection_tag": "description",
+      "record_count": 2,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00001/powers/id-00012/description": {
+      "collection_tag": "description",
+      "record_count": 3,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00001/powers/id-00013/description": {
+      "collection_tag": "description",
+      "record_count": 9,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00001/powers/id-00016/description": {
+      "collection_tag": "description",
+      "record_count": 2,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00001/powers/id-00019/description": {
+      "collection_tag": "description",
+      "record_count": 4,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00001/powers/id-00021/description": {
+      "collection_tag": "description",
+      "record_count": 2,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00001/powers/id-00024/description": {
+      "collection_tag": "description",
+      "record_count": 6,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00002/featlist/id-00001/text/list": {
+      "collection_tag": "list",
+      "record_count": 2,
+      "child_tag": "li"
+    },
+    "/root/charsheet/id-00002/featurelist/id-00001/text/table": {
+      "collection_tag": "table",
+      "record_count": 7,
+      "child_tag": "tr"
+    },
+    "/root/charsheet/id-00002/featurelist/id-00001/text/table/tr": {
+      "collection_tag": "tr",
+      "record_count": 2,
+      "child_tag": "td"
+    },
+    "/root/charsheet/id-00002/featurelist/id-00003/text": {
+      "collection_tag": "text",
+      "record_count": 6,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00002/featurelist/id-00006/text/table": {
+      "collection_tag": "table",
+      "record_count": 6,
+      "child_tag": "tr"
+    },
+    "/root/charsheet/id-00002/featurelist/id-00006/text/table/tr": {
+      "collection_tag": "tr",
+      "record_count": 2,
+      "child_tag": "td"
+    },
+    "/root/charsheet/id-00002/featurelist/id-00007/text": {
+      "collection_tag": "text",
+      "record_count": 3,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00002/featurelist/id-00008/text": {
+      "collection_tag": "text",
+      "record_count": 3,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00002/featurelist/id-00011/text/table": {
+      "collection_tag": "table",
+      "record_count": 6,
+      "child_tag": "tr"
+    },
+    "/root/charsheet/id-00002/featurelist/id-00011/text/table/tr": {
+      "collection_tag": "tr",
+      "record_count": 2,
+      "child_tag": "td"
+    },
+    "/root/charsheet/id-00002/featurelist/id-00012/text/linklist": {
+      "collection_tag": "linklist",
+      "record_count": 10,
+      "child_tag": "link"
+    },
+    "/root/charsheet/id-00002/featurelist/id-00013/text/p": {
+      "collection_tag": "p",
+      "record_count": 3,
+      "child_tag": "i"
+    },
+    "/root/charsheet/id-00002/featurelist/id-00014/text/linklist": {
+      "collection_tag": "linklist",
+      "record_count": 10,
+      "child_tag": "link"
+    },
+    "/root/charsheet/id-00002/featurelist/id-00015/text": {
+      "collection_tag": "text",
+      "record_count": 3,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00002/featurelist/id-00016/text/p": {
+      "collection_tag": "p",
+      "record_count": 2,
+      "child_tag": "i"
+    },
+    "/root/charsheet/id-00002/featurelist/id-00017/text/linklist": {
+      "collection_tag": "linklist",
+      "record_count": 5,
+      "child_tag": "link"
+    },
+    "/root/charsheet/id-00002/featurelist/id-00018/text/table": {
+      "collection_tag": "table",
+      "record_count": 6,
+      "child_tag": "tr"
+    },
+    "/root/charsheet/id-00002/featurelist/id-00018/text/table/tr": {
+      "collection_tag": "tr",
+      "record_count": 2,
+      "child_tag": "td"
+    },
+    "/root/charsheet/id-00002/powers/id-00001/description": {
+      "collection_tag": "description",
+      "record_count": 3,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00002/powers/id-00002/description": {
+      "collection_tag": "description",
+      "record_count": 3,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00002/powers/id-00003/description": {
+      "collection_tag": "description",
+      "record_count": 4,
+      "child_tag": "p"
+    }
+  },
+  "known_collection_hits": {
+    "battle": 1,
+    "charsheet": 1,
+    "encounter": 1,
+    "image": 402,
+    "item": 1,
+    "modifiers": 1,
+    "npc": 2,
+    "quest": 1,
+    "tables": 1,
+    "treasureparcels": 1,
+    "vehicle": 1
+  },
+  "charsheet_name_previews": [
+    {
+      "record_key": "id-00001",
+      "name_text_preview": "Infernal Puzzle Box"
+    },
+    {
+      "record_key": "id-00002",
+      "name_text_preview": "Cleric"
+    },
+    {
+      "record_key": "id-00003",
+      "name_text_preview": "Paladin"
+    },
+    {
+      "record_key": "id-00004",
+      "name_text_preview": "0, My druid group is in conflict with these Shadow Druids in the Cloakwood fores"
+    },
+    {
+      "record_key": "id-00005",
+      "name_text_preview": "Rogue"
+    },
+    {
+      "record_key": "id-00006",
+      "name_text_preview": "Ranger"
+    },
+    {
+      "record_key": "id-00007",
+      "name_text_preview": "Monk"
+    },
+    {
+      "record_key": "id-00008",
+      "name_text_preview": "Sorcerer"
+    },
+    {
+      "record_key": "id-00009",
+      "name_text_preview": "Ranger"
+    },
+    {
+      "record_key": "id-00010",
+      "name_text_preview": "Druid"
+    },
+    {
+      "record_key": "id-00011",
+      "name_text_preview": "Wizard"
+    },
+    {
+      "record_key": "id-00012",
+      "name_text_preview": "Retainer"
+    },
+    {
+      "record_key": "id-00013",
+      "name_text_preview": "Retainer"
+    },
+    {
+      "record_key": "id-00014",
+      "name_text_preview": "Fighter"
+    },
+    {
+      "record_key": "id-00015",
+      "name_text_preview": "Fighter"
+    },
+    {
+      "record_key": "id-00016",
+      "name_text_preview": "Lulu"
+    },
+    {
+      "record_key": "id-00017",
+      "name_text_preview": "Artificer"
+    },
+    {
+      "record_key": "id-00018",
+      "name_text_preview": "Fighter"
+    },
+    {
+      "record_key": "id-00019",
+      "name_text_preview": "Homunculus: Artificer level"
+    },
+    {
+      "record_key": "id-00020",
+      "name_text_preview": "Cleric"
+    },
+    {
+      "record_key": "id-00021",
+      "name_text_preview": "Monk"
+    },
+    {
+      "record_key": "id-00022",
+      "name_text_preview": "Quotes: I don't hate uou, I am simply disapointed. You turned into everything th"
+    },
+    {
+      "record_key": "id-00023",
+      "name_text_preview": "x A Space x"
+    },
+    {
+      "record_key": "id-00024",
+      "name_text_preview": "Ranger"
+    },
+    {
+      "record_key": "id-00025",
+      "name_text_preview": "Warlock"
+    },
+    {
+      "record_key": "id-00026",
+      "name_text_preview": "Defender"
+    },
+    {
+      "record_key": "id-00027",
+      "name_text_preview": "Warlock"
+    },
+    {
+      "record_key": "id-00028",
+      "name_text_preview": "Fighter"
+    },
+    {
+      "record_key": "id-00029",
+      "name_text_preview": "Bard"
+    },
+    {
+      "record_key": "id-00030",
+      "name_text_preview": "Retainer"
+    },
+    {
+      "record_key": "id-00031",
+      "name_text_preview": "Fighter"
+    }
+  ],
+  "warnings": [
+    "Removed 2 invalid XML numeric character references for parseability"
+  ],
+  "collections_omitted": 1349
+}

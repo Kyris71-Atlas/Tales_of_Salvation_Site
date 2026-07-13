@@ -1,0 +1,26 @@
+# Local / private
+dm-private/
+*.env
+.env.*
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Editor / OS
+.idea/
+.vscode/
+*.swp
+*~
+
+# OneDrive / temp
+~$*
+
+# Optional: keep local survey scripts out if desired (currently allowed)
+# reports/discovery/_*.py

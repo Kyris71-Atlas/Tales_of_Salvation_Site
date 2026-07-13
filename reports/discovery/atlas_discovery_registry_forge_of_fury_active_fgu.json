@@ -1,0 +1,525 @@
+{
+  "ok": true,
+  "agent": "Atrok",
+  "campaign_role": "ACTIVE \u2014 user-designated living campaign",
+  "campaign_folder": "C:\\Users\\Owner\\AppData\\Roaming\\SmiteWorks\\FGU PC\\campaigns\\001 Forge of Fury (campaigns) Alpha",
+  "main_db": "C:\\Users\\Owner\\AppData\\Roaming\\SmiteWorks\\FGU PC\\campaigns\\001 Forge of Fury (campaigns) Alpha\\db.xml",
+  "file_size": 1649437,
+  "sha256": "080fede5a0b0a02c99c9c4e26966be9d05207e31ed27a54572844b9c97843bcb",
+  "sha256_16": "080fede5a0b0a02c",
+  "encoding": "utf-8",
+  "root_tag": "root",
+  "root_attrib": {
+    "dataversion": "20260124",
+    "release": "9|CoreRPG:7",
+    "version": "5.1"
+  },
+  "campaign_xml_meta": {
+    "root_tag": "root",
+    "root_attrib": {
+      "version": "5.1",
+      "dataversion": "20260124"
+    },
+    "fields": {
+      "ruleset": "5E",
+      "server": "cloud"
+    }
+  },
+  "total_nodes": 31850,
+  "unique_tags": 538,
+  "unique_path_shapes": 25665,
+  "text_nodes": 19342,
+  "attr_nodes": 16948,
+  "max_depth": 10,
+  "top_level_sections": [
+    [
+      "background",
+      1
+    ],
+    [
+      "battle",
+      1
+    ],
+    [
+      "calendar",
+      1
+    ],
+    [
+      "charsheet",
+      1
+    ],
+    [
+      "class",
+      1
+    ],
+    [
+      "class_specialization",
+      1
+    ],
+    [
+      "combattracker",
+      1
+    ],
+    [
+      "currencies",
+      1
+    ],
+    [
+      "deathmanager",
+      1
+    ],
+    [
+      "effects",
+      1
+    ],
+    [
+      "encounter",
+      1
+    ],
+    [
+      "export",
+      1
+    ],
+    [
+      "feat",
+      1
+    ],
+    [
+      "image",
+      1
+    ],
+    [
+      "item",
+      1
+    ],
+    [
+      "languages",
+      1
+    ],
+    [
+      "location",
+      1
+    ],
+    [
+      "modifiers",
+      1
+    ],
+    [
+      "motd",
+      1
+    ],
+    [
+      "notes",
+      1
+    ],
+    [
+      "npc",
+      1
+    ],
+    [
+      "options",
+      1
+    ],
+    [
+      "partysheet",
+      1
+    ],
+    [
+      "picture",
+      1
+    ],
+    [
+      "quest",
+      1
+    ],
+    [
+      "race",
+      1
+    ],
+    [
+      "reference",
+      1
+    ],
+    [
+      "settings",
+      1
+    ],
+    [
+      "spell",
+      1
+    ],
+    [
+      "spelltokens",
+      1
+    ],
+    [
+      "tables",
+      1
+    ],
+    [
+      "temp",
+      1
+    ],
+    [
+      "treasureparcels",
+      1
+    ]
+  ],
+  "known_collection_id_child_counts": {
+    "battle": 1,
+    "charsheet": 11,
+    "combat": 0,
+    "effect": 0,
+    "encounter": 0,
+    "image": 0,
+    "item": 0,
+    "modifiers": 0,
+    "notes": 0,
+    "npc": 1,
+    "parcel": 0,
+    "partysheet": 0,
+    "quest": 0,
+    "story": 0,
+    "tables": 0,
+    "treasureparcels": 0,
+    "vehicle": 0
+  },
+  "collection_like_count": 64,
+  "tag_counts_top50": [
+    [
+      "p",
+      2903
+    ],
+    [
+      "public",
+      2752
+    ],
+    [
+      "name",
+      1726
+    ],
+    [
+      "holder",
+      1647
+    ],
+    [
+      "td",
+      1404
+    ],
+    [
+      "b",
+      920
+    ],
+    [
+      "type",
+      779
+    ],
+    [
+      "locked",
+      630
+    ],
+    [
+      "bonus",
+      582
+    ],
+    [
+      "id-00001",
+      569
+    ],
+    [
+      "tr",
+      464
+    ],
+    [
+      "score",
+      450
+    ],
+    [
+      "description",
+      359
+    ],
+    [
+      "class",
+      347
+    ],
+    [
+      "link",
+      333
+    ],
+    [
+      "id-00002",
+      300
+    ],
+    [
+      "shortcut",
+      299
+    ],
+    [
+      "level",
+      286
+    ],
+    [
+      "recordname",
+      277
+    ],
+    [
+      "count",
+      263
+    ],
+    [
+      "i",
+      254
+    ],
+    [
+      "desc",
+      253
+    ],
+    [
+      "stat",
+      248
+    ],
+    [
+      "order",
+      237
+    ],
+    [
+      "text",
+      234
+    ],
+    [
+      "actions",
+      234
+    ],
+    [
+      "total",
+      225
+    ],
+    [
+      "misc",
+      220
+    ],
+    [
+      "prof",
+      210
+    ],
+    [
+      "max",
+      209
+    ],
+    [
+      "carried",
+      196
+    ],
+    [
+      "weight",
+      193
+    ],
+    [
+      "id",
+      192
+    ],
+    [
+      "id-00003",
+      184
+    ],
+    [
+      "prepared",
+      184
+    ],
+    [
+      "spell_token",
+      177
+    ],
+    [
+      "group",
+      176
+    ],
+    [
+      "cost",
+      174
+    ],
+    [
+      "attune",
+      157
+    ],
+    [
+      "label",
+      149
+    ],
+    [
+      "subtype",
+      146
+    ],
+    [
+      "layer",
+      143
+    ],
+    [
+      "parentid",
+      143
+    ],
+    [
+      "id-00004",
+      142
+    ],
+    [
+      "range",
+      140
+    ],
+    [
+      "linklist",
+      131
+    ],
+    [
+      "color",
+      122
+    ],
+    [
+      "dice",
+      118
+    ],
+    [
+      "duration",
+      118
+    ],
+    [
+      "isidentified",
+      113
+    ]
+  ],
+  "charsheet_records": [
+    {
+      "record_key": "id-00001",
+      "first_name_leaf_preview": "Sorcerer"
+    },
+    {
+      "record_key": "id-00002",
+      "first_name_leaf_preview": "Cleric"
+    },
+    {
+      "record_key": "id-00003",
+      "first_name_leaf_preview": "Infernal Puzzle Box"
+    },
+    {
+      "record_key": "id-00004",
+      "first_name_leaf_preview": "Fighter"
+    },
+    {
+      "record_key": "id-00005",
+      "first_name_leaf_preview": "Warlock"
+    },
+    {
+      "record_key": "id-00006",
+      "first_name_leaf_preview": "Barbarian"
+    },
+    {
+      "record_key": "id-00007",
+      "first_name_leaf_preview": "Vital Cartographer"
+    },
+    {
+      "record_key": "id-00009",
+      "first_name_leaf_preview": "Cleric"
+    },
+    {
+      "record_key": "id-00010",
+      "first_name_leaf_preview": "Bard"
+    },
+    {
+      "record_key": "id-00011",
+      "first_name_leaf_preview": "Monk"
+    },
+    {
+      "record_key": "id-00012",
+      "first_name_leaf_preview": "Sorcerer"
+    }
+  ],
+  "db_family_inventory": [
+    {
+      "name": "db.script.639066963585364088.xml",
+      "bytes": 791677,
+      "mtime": 1771117560.0,
+      "is_main_live_db": false,
+      "kind": "script"
+    },
+    {
+      "name": "db.session.20260518.xml",
+      "bytes": 1476157,
+      "mtime": 1778777202.690282,
+      "is_main_live_db": false,
+      "kind": "session_snapshot"
+    },
+    {
+      "name": "db.session.20260526.xml",
+      "bytes": 1450602,
+      "mtime": 1779133827.876791,
+      "is_main_live_db": false,
+      "kind": "session_snapshot"
+    },
+    {
+      "name": "db.session.20260529.xml",
+      "bytes": 1630738,
+      "mtime": 1779817713.3699121,
+      "is_main_live_db": false,
+      "kind": "session_snapshot"
+    },
+    {
+      "name": "db.session.20260530.xml",
+      "bytes": 1642019,
+      "mtime": 1780109774.6893904,
+      "is_main_live_db": false,
+      "kind": "session_snapshot"
+    },
+    {
+      "name": "db.session.20260628.xml",
+      "bytes": 1630733,
+      "mtime": 1780117732.2263439,
+      "is_main_live_db": false,
+      "kind": "session_snapshot"
+    },
+    {
+      "name": "db.session.20260629.xml",
+      "bytes": 1634045,
+      "mtime": 1782665883.7112267,
+      "is_main_live_db": false,
+      "kind": "session_snapshot"
+    },
+    {
+      "name": "db.session.20260630.xml",
+      "bytes": 1634423,
+      "mtime": 1782769157.6384127,
+      "is_main_live_db": false,
+      "kind": "session_snapshot"
+    },
+    {
+      "name": "db.session.20260701.xml",
+      "bytes": 1636266,
+      "mtime": 1782848912.3122272,
+      "is_main_live_db": false,
+      "kind": "session_snapshot"
+    },
+    {
+      "name": "db.session.20260705.xml",
+      "bytes": 1637677,
+      "mtime": 1782938971.4961529,
+      "is_main_live_db": false,
+      "kind": "session_snapshot"
+    },
+    {
+      "name": "db.session.20260706.xml",
+      "bytes": 1644880,
+      "mtime": 1783226034.194754,
+      "is_main_live_db": false,
+      "kind": "session_snapshot"
+    },
+    {
+      "name": "db.xml",
+      "bytes": 1649437,
+      "mtime": 1783374698.2741716,
+      "is_main_live_db": true,
+      "kind": "main"
+    }
+  ],
+  "warnings": [
+    "Removed 94 invalid XML numeric character references for parseability (in-memory only; source file untouched)"
+  ]
+}

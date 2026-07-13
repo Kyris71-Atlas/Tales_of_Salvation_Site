@@ -1,0 +1,10 @@
+{
+  "ok": false,
+  "error": "Could not read file bytes: [Errno 22] Invalid argument",
+  "file_size": 84483,
+  "sha256_16": null,
+  "encoding_tried": null,
+  "warnings": [
+    "File may be OneDrive cloud-only / provider offline (not hydrated locally)."
+  ]
+}

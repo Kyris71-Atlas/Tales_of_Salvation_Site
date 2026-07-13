@@ -1,0 +1,908 @@
+{
+  "ok": true,
+  "file_size": 853632,
+  "sha256_16": "6feddb778a58c2c1",
+  "encoding": "utf-8",
+  "root_tag": "root",
+  "root_attrib_keys": [
+    "dataversion",
+    "release",
+    "version"
+  ],
+  "top_level_sections": [
+    [
+      "background",
+      1
+    ],
+    [
+      "battle",
+      1
+    ],
+    [
+      "calendar",
+      1
+    ],
+    [
+      "charsheet",
+      1
+    ],
+    [
+      "class",
+      1
+    ],
+    [
+      "combattracker",
+      1
+    ],
+    [
+      "currencies",
+      1
+    ],
+    [
+      "deathmanager",
+      1
+    ],
+    [
+      "effects",
+      1
+    ],
+    [
+      "encounter",
+      1
+    ],
+    [
+      "feat",
+      1
+    ],
+    [
+      "image",
+      1
+    ],
+    [
+      "item",
+      1
+    ],
+    [
+      "languages",
+      1
+    ],
+    [
+      "location",
+      1
+    ],
+    [
+      "modifiers",
+      1
+    ],
+    [
+      "motd",
+      1
+    ],
+    [
+      "notes",
+      1
+    ],
+    [
+      "npc",
+      1
+    ],
+    [
+      "options",
+      1
+    ],
+    [
+      "partysheet",
+      1
+    ],
+    [
+      "picture",
+      1
+    ],
+    [
+      "quest",
+      1
+    ],
+    [
+      "race",
+      1
+    ],
+    [
+      "settings",
+      1
+    ],
+    [
+      "spell",
+      1
+    ],
+    [
+      "spelltokens",
+      1
+    ],
+    [
+      "temp",
+      1
+    ],
+    [
+      "treasureparcels",
+      1
+    ]
+  ],
+  "top_level_unique": [
+    "background",
+    "battle",
+    "calendar",
+    "charsheet",
+    "class",
+    "combattracker",
+    "currencies",
+    "deathmanager",
+    "effects",
+    "encounter",
+    "feat",
+    "image",
+    "item",
+    "languages",
+    "location",
+    "modifiers",
+    "motd",
+    "notes",
+    "npc",
+    "options",
+    "partysheet",
+    "picture",
+    "quest",
+    "race",
+    "settings",
+    "spell",
+    "spelltokens",
+    "temp",
+    "treasureparcels"
+  ],
+  "tag_counts_top50": [
+    [
+      "public",
+      1575
+    ],
+    [
+      "holder",
+      1035
+    ],
+    [
+      "p",
+      1025
+    ],
+    [
+      "name",
+      770
+    ],
+    [
+      "b",
+      637
+    ],
+    [
+      "td",
+      636
+    ],
+    [
+      "type",
+      380
+    ],
+    [
+      "tr",
+      302
+    ],
+    [
+      "bonus",
+      291
+    ],
+    [
+      "id-00001",
+      289
+    ],
+    [
+      "locked",
+      289
+    ],
+    [
+      "score",
+      234
+    ],
+    [
+      "link",
+      177
+    ],
+    [
+      "description",
+      174
+    ],
+    [
+      "class",
+      157
+    ],
+    [
+      "id-00002",
+      146
+    ],
+    [
+      "order",
+      144
+    ],
+    [
+      "i",
+      134
+    ],
+    [
+      "level",
+      127
+    ],
+    [
+      "shortcut",
+      127
+    ],
+    [
+      "recordname",
+      126
+    ],
+    [
+      "actions",
+      121
+    ],
+    [
+      "count",
+      117
+    ],
+    [
+      "desc",
+      114
+    ],
+    [
+      "stat",
+      106
+    ],
+    [
+      "text",
+      104
+    ],
+    [
+      "max",
+      95
+    ],
+    [
+      "prepared",
+      95
+    ],
+    [
+      "misc",
+      94
+    ],
+    [
+      "total",
+      92
+    ],
+    [
+      "label",
+      92
+    ],
+    [
+      "spell_token",
+      92
+    ],
+    [
+      "weight",
+      91
+    ],
+    [
+      "cast",
+      91
+    ],
+    [
+      "group",
+      91
+    ],
+    [
+      "used",
+      90
+    ],
+    [
+      "carried",
+      85
+    ],
+    [
+      "id-00003",
+      84
+    ],
+    [
+      "prof",
+      84
+    ],
+    [
+      "cost",
+      75
+    ],
+    [
+      "linklist",
+      75
+    ],
+    [
+      "savemodifier",
+      72
+    ],
+    [
+      "subtype",
+      68
+    ],
+    [
+      "id-00004",
+      65
+    ],
+    [
+      "attune",
+      64
+    ],
+    [
+      "durmod",
+      61
+    ],
+    [
+      "value",
+      61
+    ],
+    [
+      "dice",
+      58
+    ],
+    [
+      "duration",
+      57
+    ],
+    [
+      "ac",
+      56
+    ]
+  ],
+  "unique_tags": 400,
+  "unique_path_shapes": 12866,
+  "total_nodes": 15525,
+  "text_nodes": 9007,
+  "attr_nodes": 8688,
+  "max_depth": 9,
+  "collections": {
+    "/root/charsheet/id-00001/featurelist/id-00002/text": {
+      "collection_tag": "text",
+      "record_count": 2,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00001/featurelist/id-00003/text": {
+      "collection_tag": "text",
+      "record_count": 16,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00001/featurelist/id-00006/text/table": {
+      "collection_tag": "table",
+      "record_count": 6,
+      "child_tag": "tr"
+    },
+    "/root/charsheet/id-00001/featurelist/id-00006/text/table/tr": {
+      "collection_tag": "tr",
+      "record_count": 2,
+      "child_tag": "td"
+    },
+    "/root/charsheet/id-00001/featurelist/id-00007/text": {
+      "collection_tag": "text",
+      "record_count": 20,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00001/featurelist/id-00007/text/p": {
+      "collection_tag": "p",
+      "record_count": 4,
+      "child_tag": "i"
+    },
+    "/root/charsheet/id-00001/inventorylist/id-00001/description/linklist": {
+      "collection_tag": "linklist",
+      "record_count": 2,
+      "child_tag": "link"
+    },
+    "/root/charsheet/id-00001/powers/id-00004/description": {
+      "collection_tag": "description",
+      "record_count": 2,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00001/powers/id-00005/description": {
+      "collection_tag": "description",
+      "record_count": 2,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00001/powers/id-00006/description": {
+      "collection_tag": "description",
+      "record_count": 2,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00001/powers/id-00007/description": {
+      "collection_tag": "description",
+      "record_count": 2,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00001/powers/id-00008/description/table": {
+      "collection_tag": "table",
+      "record_count": 9,
+      "child_tag": "tr"
+    },
+    "/root/charsheet/id-00001/powers/id-00008/description/table/tr": {
+      "collection_tag": "tr",
+      "record_count": 2,
+      "child_tag": "td"
+    },
+    "/root/charsheet/id-00001/powers/id-00010/description": {
+      "collection_tag": "description",
+      "record_count": 2,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00001/powers/id-00011/description/table": {
+      "collection_tag": "table",
+      "record_count": 6,
+      "child_tag": "tr"
+    },
+    "/root/charsheet/id-00001/powers/id-00011/description/table/tr": {
+      "collection_tag": "tr",
+      "record_count": 2,
+      "child_tag": "td"
+    },
+    "/root/charsheet/id-00001/powers/id-00012/description": {
+      "collection_tag": "description",
+      "record_count": 4,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00001/powers/id-00015/description": {
+      "collection_tag": "description",
+      "record_count": 3,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00001/powers/id-00017/description/p": {
+      "collection_tag": "p",
+      "record_count": 4,
+      "child_tag": "i"
+    },
+    "/root/charsheet/id-00002/featurelist/id-00003/text": {
+      "collection_tag": "text",
+      "record_count": 5,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00002/featurelist/id-00004/text": {
+      "collection_tag": "text",
+      "record_count": 16,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00002/featurelist/id-00009/text/linklist": {
+      "collection_tag": "linklist",
+      "record_count": 10,
+      "child_tag": "link"
+    },
+    "/root/charsheet/id-00002/featurelist/id-00010/text": {
+      "collection_tag": "text",
+      "record_count": 7,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00002/featurelist/id-00011/text": {
+      "collection_tag": "text",
+      "record_count": 2,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00002/inventorylist/id-00010/description": {
+      "collection_tag": "description",
+      "record_count": 2,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00002/powers/id-00004/description": {
+      "collection_tag": "description",
+      "record_count": 6,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00002/powers/id-00005/description": {
+      "collection_tag": "description",
+      "record_count": 6,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00002/powers/id-00006/description": {
+      "collection_tag": "description",
+      "record_count": 6,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00002/powers/id-00008/description": {
+      "collection_tag": "description",
+      "record_count": 2,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00002/powers/id-00009/description": {
+      "collection_tag": "description",
+      "record_count": 2,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00002/powers/id-00010/description": {
+      "collection_tag": "description",
+      "record_count": 2,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00002/powers/id-00011/description": {
+      "collection_tag": "description",
+      "record_count": 2,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00002/powers/id-00012/description": {
+      "collection_tag": "description",
+      "record_count": 2,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00002/powers/id-00015/description": {
+      "collection_tag": "description",
+      "record_count": 2,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00002/powers/id-00016/description": {
+      "collection_tag": "description",
+      "record_count": 2,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00002/powers/id-00017/description": {
+      "collection_tag": "description",
+      "record_count": 2,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00003/inventorylist/id-00001/description/p": {
+      "collection_tag": "p",
+      "record_count": 2,
+      "child_tag": "i"
+    },
+    "/root/charsheet/id-00003/powers/id-00002/description": {
+      "collection_tag": "description",
+      "record_count": 2,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00003/powers/id-00004/description": {
+      "collection_tag": "description",
+      "record_count": 3,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00003/powers/id-00007/description/p": {
+      "collection_tag": "p",
+      "record_count": 2,
+      "child_tag": "i"
+    },
+    "/root/charsheet/id-00003/powers/id-00007/description/table": {
+      "collection_tag": "table",
+      "record_count": 5,
+      "child_tag": "tr"
+    },
+    "/root/charsheet/id-00003/powers/id-00007/description/table/tr": {
+      "collection_tag": "tr",
+      "record_count": 2,
+      "child_tag": "td"
+    },
+    "/root/charsheet/id-00003/powers/id-00009/description": {
+      "collection_tag": "description",
+      "record_count": 2,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00003/powers/id-00010/description/list": {
+      "collection_tag": "list",
+      "record_count": 3,
+      "child_tag": "li"
+    },
+    "/root/charsheet/id-00003/powers/id-00011/description": {
+      "collection_tag": "description",
+      "record_count": 2,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00003/powers/id-00012/description": {
+      "collection_tag": "description",
+      "record_count": 3,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00003/powers/id-00013/description": {
+      "collection_tag": "description",
+      "record_count": 9,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00003/powers/id-00016/description": {
+      "collection_tag": "description",
+      "record_count": 2,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00003/powers/id-00019/description": {
+      "collection_tag": "description",
+      "record_count": 4,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00003/powers/id-00021/description": {
+      "collection_tag": "description",
+      "record_count": 2,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00003/powers/id-00024/description": {
+      "collection_tag": "description",
+      "record_count": 6,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00004/featurelist/id-00002/text": {
+      "collection_tag": "text",
+      "record_count": 15,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00004/featurelist/id-00003/text": {
+      "collection_tag": "text",
+      "record_count": 2,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00004/featurelist/id-00004/text": {
+      "collection_tag": "text",
+      "record_count": 2,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00004/featurelist/id-00006/text/table": {
+      "collection_tag": "table",
+      "record_count": 17,
+      "child_tag": "tr"
+    },
+    "/root/charsheet/id-00004/featurelist/id-00006/text/table/tr": {
+      "collection_tag": "tr",
+      "record_count": 2,
+      "child_tag": "td"
+    },
+    "/root/charsheet/id-00004/inventorylist/id-00009/description": {
+      "collection_tag": "description",
+      "record_count": 2,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00004/inventorylist/id-00013/description/p": {
+      "collection_tag": "p",
+      "record_count": 2,
+      "child_tag": "i"
+    },
+    "/root/charsheet/id-00004/powers/id-00003/description/table": {
+      "collection_tag": "table",
+      "record_count": 17,
+      "child_tag": "tr"
+    },
+    "/root/charsheet/id-00004/powers/id-00003/description/table/tr": {
+      "collection_tag": "tr",
+      "record_count": 2,
+      "child_tag": "td"
+    },
+    "/root/charsheet/id-00004/powers/id-00004/description/table": {
+      "collection_tag": "table",
+      "record_count": 17,
+      "child_tag": "tr"
+    },
+    "/root/charsheet/id-00004/powers/id-00004/description/table/tr": {
+      "collection_tag": "tr",
+      "record_count": 2,
+      "child_tag": "td"
+    },
+    "/root/charsheet/id-00004/powers/id-00005/description": {
+      "collection_tag": "description",
+      "record_count": 4,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00004/powers/id-00005/description/p": {
+      "collection_tag": "p",
+      "record_count": 2,
+      "child_tag": "b"
+    },
+    "/root/charsheet/id-00004/powers/id-00006/description": {
+      "collection_tag": "description",
+      "record_count": 2,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00004/powers/id-00007/description": {
+      "collection_tag": "description",
+      "record_count": 2,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00004/powers/id-00008/description/table": {
+      "collection_tag": "table",
+      "record_count": 17,
+      "child_tag": "tr"
+    },
+    "/root/charsheet/id-00004/powers/id-00008/description/table/tr": {
+      "collection_tag": "tr",
+      "record_count": 2,
+      "child_tag": "td"
+    },
+    "/root/charsheet/id-00004/powers/id-00009/description/table": {
+      "collection_tag": "table",
+      "record_count": 17,
+      "child_tag": "tr"
+    },
+    "/root/charsheet/id-00004/powers/id-00009/description/table/tr": {
+      "collection_tag": "tr",
+      "record_count": 2,
+      "child_tag": "td"
+    },
+    "/root/charsheet/id-00004/powers/id-00010/description/table": {
+      "collection_tag": "table",
+      "record_count": 17,
+      "child_tag": "tr"
+    },
+    "/root/charsheet/id-00004/powers/id-00010/description/table/tr": {
+      "collection_tag": "tr",
+      "record_count": 2,
+      "child_tag": "td"
+    },
+    "/root/charsheet/id-00004/powers/id-00011/description/table/tr": {
+      "collection_tag": "tr",
+      "record_count": 2,
+      "child_tag": "td"
+    },
+    "/root/charsheet/id-00004/powers/id-00012/description/table": {
+      "collection_tag": "table",
+      "record_count": 2,
+      "child_tag": "tr"
+    },
+    "/root/charsheet/id-00004/powers/id-00012/description/table/tr": {
+      "collection_tag": "tr",
+      "record_count": 2,
+      "child_tag": "td"
+    },
+    "/root/charsheet/id-00004/powers/id-00013/description/table": {
+      "collection_tag": "table",
+      "record_count": 17,
+      "child_tag": "tr"
+    },
+    "/root/charsheet/id-00004/powers/id-00013/description/table/tr": {
+      "collection_tag": "tr",
+      "record_count": 2,
+      "child_tag": "td"
+    },
+    "/root/charsheet/id-00004/powers/id-00014/description/table": {
+      "collection_tag": "table",
+      "record_count": 17,
+      "child_tag": "tr"
+    },
+    "/root/charsheet/id-00004/powers/id-00014/description/table/tr": {
+      "collection_tag": "tr",
+      "record_count": 2,
+      "child_tag": "td"
+    },
+    "/root/charsheet/id-00004/powers/id-00015/description/table": {
+      "collection_tag": "table",
+      "record_count": 17,
+      "child_tag": "tr"
+    },
+    "/root/charsheet/id-00004/powers/id-00015/description/table/tr": {
+      "collection_tag": "tr",
+      "record_count": 2,
+      "child_tag": "td"
+    },
+    "/root/charsheet/id-00004/powers/id-00016/description/table": {
+      "collection_tag": "table",
+      "record_count": 17,
+      "child_tag": "tr"
+    },
+    "/root/charsheet/id-00004/powers/id-00016/description/table/tr": {
+      "collection_tag": "tr",
+      "record_count": 2,
+      "child_tag": "td"
+    },
+    "/root/charsheet/id-00004/powers/id-00017/description/table/tr": {
+      "collection_tag": "tr",
+      "record_count": 2,
+      "child_tag": "td"
+    },
+    "/root/charsheet/id-00004/powers/id-00018/description/table": {
+      "collection_tag": "table",
+      "record_count": 17,
+      "child_tag": "tr"
+    },
+    "/root/charsheet/id-00004/powers/id-00018/description/table/tr": {
+      "collection_tag": "tr",
+      "record_count": 2,
+      "child_tag": "td"
+    },
+    "/root/charsheet/id-00004/powers/id-00019/description/table": {
+      "collection_tag": "table",
+      "record_count": 17,
+      "child_tag": "tr"
+    },
+    "/root/charsheet/id-00004/powers/id-00019/description/table/tr": {
+      "collection_tag": "tr",
+      "record_count": 2,
+      "child_tag": "td"
+    },
+    "/root/charsheet/id-00004/powers/id-00020/description/table": {
+      "collection_tag": "table",
+      "record_count": 17,
+      "child_tag": "tr"
+    },
+    "/root/charsheet/id-00004/powers/id-00020/description/table/tr": {
+      "collection_tag": "tr",
+      "record_count": 2,
+      "child_tag": "td"
+    },
+    "/root/charsheet/id-00004/powers/id-00021/description/table": {
+      "collection_tag": "table",
+      "record_count": 17,
+      "child_tag": "tr"
+    },
+    "/root/charsheet/id-00004/powers/id-00021/description/table/tr": {
+      "collection_tag": "tr",
+      "record_count": 2,
+      "child_tag": "td"
+    },
+    "/root/charsheet/id-00005/featurelist/id-00003/text": {
+      "collection_tag": "text",
+      "record_count": 16,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00005/featurelist/id-00004/text/linklist": {
+      "collection_tag": "linklist",
+      "record_count": 10,
+      "child_tag": "link"
+    },
+    "/root/charsheet/id-00005/featurelist/id-00006/text/table": {
+      "collection_tag": "table",
+      "record_count": 2,
+      "child_tag": "tr"
+    },
+    "/root/charsheet/id-00005/featurelist/id-00006/text/table/tr": {
+      "collection_tag": "tr",
+      "record_count": 3,
+      "child_tag": "td"
+    },
+    "/root/charsheet/id-00005/inventorylist/id-00010/description": {
+      "collection_tag": "description",
+      "record_count": 2,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00005/powers/id-00002/description": {
+      "collection_tag": "description",
+      "record_count": 2,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00005/powers/id-00003/description": {
+      "collection_tag": "description",
+      "record_count": 7,
+      "child_tag": "p"
+    },
+    "/root/charsheet/id-00005/powers/id-00004/description": {
+      "collection_tag": "description",
+      "record_count": 2,
+      "child_tag": "p"
+    }
+  },
+  "known_collection_hits": {
+    "battle": 1,
+    "charsheet": 1,
+    "encounter": 1,
+    "image": 21,
+    "item": 1,
+    "modifiers": 1,
+    "npc": 2,
+    "quest": 1,
+    "treasureparcels": 1
+  },
+  "charsheet_name_previews": [
+    {
+      "record_key": "id-00001",
+      "name_text_preview": "Sorcerer"
+    },
+    {
+      "record_key": "id-00002",
+      "name_text_preview": "Cleric"
+    },
+    {
+      "record_key": "id-00003",
+      "name_text_preview": "Infernal Puzzle Box"
+    },
+    {
+      "record_key": "id-00004",
+      "name_text_preview": "Fighter"
+    },
+    {
+      "record_key": "id-00005",
+      "name_text_preview": "Warlock"
+    }
+  ],
+  "warnings": [
+    "Removed 16 invalid XML numeric character references for parseability"
+  ],
+  "collections_omitted": 54
+}
