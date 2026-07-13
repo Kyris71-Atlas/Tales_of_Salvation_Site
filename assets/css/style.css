@@ -545,6 +545,57 @@ main {
   box-shadow: none;
 }
 
+.campaign-banner-home img {
+  width: 100%;
+  height: auto;
+  max-height: 320px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Placeholder until Christopher supplies a dedicated Active Campaign graphic */
+.campaign-art-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 200px;
+  padding: 28px 20px;
+  text-align: center;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(216, 179, 95, .14), transparent 45%),
+    radial-gradient(circle at 80% 80%, rgba(90, 120, 160, .12), transparent 40%),
+    linear-gradient(160deg, #1a2030, #0c0e14 70%);
+  border-bottom: 1px solid #3d3423;
+}
+
+.campaign-art-slot-kicker {
+  font-size: .75rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.campaign-art-slot-title {
+  font-size: 1.65rem;
+  color: var(--gold);
+  letter-spacing: .04em;
+}
+
+.campaign-art-slot-sub {
+  font-size: 1.05rem;
+  color: var(--text);
+}
+
+.campaign-art-slot-hint {
+  margin-top: 8px;
+  font-size: .85rem;
+  font-style: italic;
+  color: var(--muted);
+}
+
 .campaign-feature-label {
   display: flex;
   flex-direction: column;
