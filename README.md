@@ -5,9 +5,11 @@ Campaign archive and knowledge site for tabletop campaigns preserved with **Atla
 > **Status:** Early published draft — incomplete and growing.  
 > Not every character dossier is finished. Soft links may 404 until discovery is complete.
 
-## Live site
+## Published site
 
-When GitHub Pages is enabled, this repo serves the static site from the repository root (`index.html`).
+**Live:** https://kyris71-atlas.github.io/Tales_of_Salvation_Site/
+
+Served from the repository root (`index.html`) via GitHub Pages (`main` branch).
 
 ## Local
 
