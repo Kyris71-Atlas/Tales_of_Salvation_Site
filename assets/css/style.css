@@ -402,10 +402,315 @@ main {
   font-size: .95rem;
 }
 
+/* Campaign home — theme tiles (mood, not spoilers) */
+.theme-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.theme-card {
+  display: block;
+  background: linear-gradient(180deg, #1c2230, #11141c);
+  border: 2px solid #544221;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+  transition: transform .15s ease, border-color .15s ease;
+}
+
+.theme-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--gold);
+}
+
+.theme-card img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  display: block;
+}
+
+.theme-card .theme-body {
+  padding: 12px 14px 14px;
+}
+
+.theme-card .theme-title {
+  color: var(--gold);
+  font-size: 1.05rem;
+  letter-spacing: .04em;
+  margin: 0 0 6px;
+}
+
+.theme-card .theme-line {
+  margin: 0;
+  color: var(--muted);
+  font-size: .88rem;
+  line-height: 1.4;
+}
+
+.status-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  margin: 16px 0 8px;
+  padding: 12px 16px;
+  background: rgba(19, 22, 30, .85);
+  border: 1px solid #3d3423;
+  border-radius: 10px;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.status-strip strong {
+  color: var(--gold);
+  font-weight: normal;
+}
+
+.enter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.enter-card {
+  display: block;
+  text-decoration: none;
+  color: var(--text);
+  background: linear-gradient(180deg, #1c2230, #11141c);
+  border: 2px solid #8a6a35;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+  transition: transform .15s ease, border-color .15s ease;
+}
+
+.enter-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--gold);
+}
+
+.enter-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  object-position: center 40%;
+  display: block;
+}
+
+.enter-card .enter-body {
+  padding: 14px 16px 16px;
+}
+
+.enter-card .enter-title {
+  color: var(--gold);
+  font-size: 1.15rem;
+  margin: 0 0 6px;
+}
+
+.enter-card .enter-line {
+  margin: 0;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+/* Home — active campaign feature (graphic + label) */
+.campaign-feature {
+  display: block;
+  text-decoration: none;
+  color: var(--text);
+  margin-top: 14px;
+  max-width: 720px;
+  border: 2px solid #544221;
+  border-radius: 14px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #1c2230, #11141c);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, .4);
+  transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+
+.campaign-feature:hover {
+  transform: translateY(-2px);
+  border-color: var(--gold);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .5);
+}
+
+.campaign-banner-home {
+  margin: 0;
+  max-width: none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.campaign-feature-label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 16px 14px;
+  background: #0d0d0e;
+  border-top: 1px solid #3d3423;
+}
+
+.campaign-feature-title {
+  color: var(--gold);
+  font-size: 1.2rem;
+  letter-spacing: .04em;
+}
+
+.campaign-feature-sub {
+  color: var(--muted);
+  font-size: .92rem;
+}
+
+.campaign-art-note {
+  margin: 8px 0 0;
+  max-width: 720px;
+  font-size: .85rem;
+}
+
+/* Be part of the Engine — player invite on home */
+.engine-invite {
+  margin: 28px 0 8px;
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at top right, rgba(216, 179, 95, .12), transparent 42%),
+    linear-gradient(180deg, #1c2230, #11141c);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, .4);
+}
+
+.engine-invite-inner {
+  padding: 22px 24px 20px;
+}
+
+.engine-kicker {
+  margin: 0 0 4px;
+  color: var(--muted);
+  font-size: .78rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.engine-invite h2 {
+  margin: 0 0 14px;
+  color: var(--gold);
+  font-size: 1.75rem;
+  letter-spacing: .03em;
+}
+
+.engine-invite p {
+  margin: 0 0 12px;
+  max-width: 52rem;
+}
+
+.engine-invite .pop-your {
+  color: var(--gold);
+  font-weight: bold;
+}
+
+.engine-question {
+  margin-top: 18px !important;
+  font-size: 1.2rem;
+  color: var(--text);
+}
+
+.engine-lead {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.engine-rank-hint {
+  margin: 18px 0 10px !important;
+  color: var(--gold);
+  font-size: .95rem;
+}
+
+.engine-directions {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.engine-directions li {
+  display: grid;
+  grid-template-columns: 2.25rem 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 14px 16px;
+  background: rgba(9, 11, 16, .55);
+  border: 1px solid #3d3423;
+  border-radius: 12px;
+}
+
+.engine-directions .dir-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(216, 179, 95, .12);
+  color: var(--gold);
+  font-weight: bold;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.engine-directions .dir-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.engine-directions .dir-body strong {
+  color: var(--gold);
+  font-size: 1.05rem;
+  letter-spacing: .02em;
+}
+
+.engine-directions .dir-detail {
+  color: var(--muted);
+  font-size: .92rem;
+  line-height: 1.45;
+}
+
+.engine-footer {
+  margin: 16px 0 0 !important;
+  font-size: .9rem;
+}
+
+/* Confidence Dots placeholder page */
+.confidence-legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.confidence-legend .dot-card {
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #3d3423;
+  background: rgba(9, 11, 16, .55);
+}
+
+.confidence-legend .dot-card strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--gold);
+}
+
 @media (max-width: 850px) {
   .layout { grid-template-columns: 1fr; }
   nav { border-right: 0; border-bottom: 1px solid #3d3423; }
   .hero { grid-template-columns: 1fr; }
   .abilities, .quick-stats { grid-template-columns: repeat(3, 1fr); }
   .section-grid { grid-template-columns: 1fr; }
+  .engine-invite-inner { padding: 18px 16px; }
 }
