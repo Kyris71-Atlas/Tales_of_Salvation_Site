@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Malcolm Sol — Company Character Sheet</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <h1 class="site-title">Tales of Salvation</h1>
+  <p class="site-subtitle">Character Sheet · Witness of the Deep Memory</p>
+</header>
+
+<div class="layout">
+<nav>
+  <div class="nav-section">Tales of Salvation</div>
+  <a href="../index.html">Home</a>
+  <a href="../deep-memory/index.html">Deep Memory (site)</a>
+  <a href="../forge-of-fury/index.html">Forge Campaign Home</a>
+
+  <div class="nav-section">Character Sheets</div>
+  <a href="thrain-bearblood-ccs.html">Thrain Bearblood</a>
+  <a href="benn-ccs.html">Benn</a>
+  <a href="mantis-ccs.html">Mantis</a>
+  <a href="malcolm-sol-ccs.html">Malcolm Sol</a>
+
+  <div class="nav-section">Discovery Reports</div>
+  <a href="thrain-bearblood.html">Thrain Bearblood</a>
+  <a href="benn.html">Benn</a>
+  <a href="qiran.html">Qiran</a>
+  <a href="mantis.html">Mantis</a>
+  <a href="lard-son-of-lard.html">Lard son of Lard</a>
+</nav>
+
+<main>
+<div class="breadcrumbs">
+  <a href="../index.html">Home</a> &gt;
+  <a href="../deep-memory/index.html">Deep Memory</a> &gt;
+  Malcolm Sol (CCS)
+</div>
+
+<div class="book-panel">
+  <div class="hero">
+    <div class="portrait-frame">
+      <img src="../assets/images/characters/Malcolm_Sol.jpg" alt="Malcolm Sol">
+    </div>
+    <div class="nameplate">
+      <div class="ccs-inspiration" data-ccs-inspiration data-character="malcolm-sol">
+        <span class="ccs-inspiration-label">Inspiration</span>
+        <button
+          type="button"
+          class="ccs-inspiration-toggle is-single"
+          data-ccs-inspiration-toggle
+          data-state="single"
+          aria-label="Inspiration: Single Inspiration. Click to change."
+        >Single Inspiration</button>
+      </div>
+      <h2>Malcolm Sol</h2>
+      <div class="subtitle">Half-Elf · Warlock 15 (The Great Old One) · Folk Hero</div>
+      <span class="badge">Deep Memory’s Witness</span>
+      <span class="badge">Patron: The Deep Memory</span>
+      <span class="badge">Character Sheet</span>
+      <p class="ccs-note" style="margin-top:12px">
+        A field guide to your hero. Fast at the table, easy to read, and always ready for the next roll:<br>
+        <em>designed by Atrok</em>
+      </p>
+      <p class="ccs-note" style="margin-top:8px">
+        <strong>The Deep Memory</strong> is Sol’s patron — a <strong>Great Old One (GOO)</strong>.
+        <strong>Sol</strong> is the Deep Memory’s <em>Witness</em>.
+      </p>
+    </div>
+  </div>
+
+  <div class="sheet-source">
+    <span><strong>Source</strong> Fantasy Grounds · PCs campaign</span>
+    <span><strong>Not</strong> Forge of Fury company roster</span>
+    <span><strong>Sheet reviewed</strong> 2026-07-15</span>
+    <span><strong>Confidence</strong> Verified from FG unless noted</span>
+  </div>
+
+  <!-- Teaching strip -->
+  <p class="ccs-hint" style="margin:14px 0 0">
+    <strong>Spells</strong> spend pact slots.
+    <strong>Invocations</strong> reshape how you cast or act (often without those slots).
+    <strong>Features</strong> are class powers (rests / reactions / always on).
+    <strong>Mystic Arcanum</strong> is a free high spell, once per rest — not a pact slot.
+  </p>
+
+  <!-- 1 · Core Stats -->
+  <section class="ccs-section" id="core-stats" aria-labelledby="core-stats-title">
+    <h3 id="core-stats-title">1 · Core Stats</h3>
+    <div class="ccs-core-board">
+      <div class="ccs-tile ccs-tile-hp ccs-core-hp" data-ccs-hp data-character="malcolm-sol" data-hp-max="123">
+        <span class="ccs-label">Hit Points</span>
+        <span class="ccs-sublabel">Current / Max</span>
+        <div class="ccs-hp-row" role="group" aria-label="Hit points">
+          <input type="number" class="ccs-hp-current" name="hp-current" inputmode="numeric" min="0" max="123" value="123" aria-label="Current hit points">
+          <span class="ccs-hp-sep" aria-hidden="true">/</span>
+          <span class="ccs-hp-max" aria-label="Maximum hit points">123</span>
+        </div>
+        <div class="ccs-hp-temp-row" role="group" aria-label="Temporary hit points">
+          <span class="ccs-hp-temp-label">Temp</span>
+          <input
+            type="number"
+            class="ccs-hp-temp"
+            name="hp-temp"
+            inputmode="numeric"
+            min="0"
+            value="0"
+            aria-label="Temporary hit points"
+            title="Temporary HP — does not stack; keep the higher"
+          >
+        </div>
+      </div>
+
+      <div class="ccs-tile ccs-tile-ac ccs-core-ac" data-ccs-ac data-character="malcolm-sol" data-ac-base="15">
+        <span class="ccs-label">Armor Class</span>
+        <div class="ccs-ac-row">
+          <span class="ccs-ac-total" aria-label="Total armor class">15</span>
+        </div>
+        <ul class="ccs-ac-breakdown">
+          <li><span class="ccs-ac-part">Unarmored + DEX</span><span class="ccs-ac-num">12</span></li>
+          <li><span class="ccs-ac-part">Bracers / Armor of Shadows (FG misc)</span><span class="ccs-ac-num">+3</span></li>
+          <li class="ccs-ac-misc-row">
+            <span class="ccs-ac-part">Misc</span>
+            <input type="number" class="ccs-ac-misc" name="ac-misc" inputmode="numeric" value="0" aria-label="Miscellaneous AC bonus">
+          </li>
+        </ul>
+      </div>
+
+      <div class="ccs-tile ccs-core-speed">
+        <span class="ccs-label">Speed</span>
+        <span class="ccs-value">30</span>
+        <span class="ccs-why">Base</span>
+      </div>
+
+      <div class="ccs-tile ccs-core-init">
+        <span class="ccs-label">Initiative</span>
+        <span class="ccs-value">+7</span>
+        <span class="ccs-why">DEX +2 · Alert +5</span>
+      </div>
+
+      <div class="ccs-tile ccs-core-prof">
+        <span class="ccs-label">Proficiency</span>
+        <span class="ccs-value">+5</span>
+        <span class="ccs-why">Level 15</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 · Abilities -->
+  <section class="ccs-section" id="abilities" aria-labelledby="abilities-title">
+    <h3 id="abilities-title">2 · Abilities</h3>
+    <div class="ccs-abilities">
+      <div class="ccs-ability">
+        <div class="ccs-ability-top"><span class="ccs-ability-label">STR</span><span class="ccs-ability-score">10</span></div>
+        <div class="ccs-ability-row"><span class="ccs-ability-row-label">Modifier</span><span class="ccs-ability-mod">+0</span></div>
+        <div class="ccs-ability-row"><span class="ccs-ability-row-label">Save</span><span class="ccs-ability-save">+0</span></div>
+      </div>
+      <div class="ccs-ability">
+        <div class="ccs-ability-top"><span class="ccs-ability-label">DEX</span><span class="ccs-ability-score">14</span></div>
+        <div class="ccs-ability-row"><span class="ccs-ability-row-label">Modifier</span><span class="ccs-ability-mod">+2</span></div>
+        <div class="ccs-ability-row"><span class="ccs-ability-row-label">Save</span><span class="ccs-ability-save">+2</span></div>
+      </div>
+      <div class="ccs-ability">
+        <div class="ccs-ability-top"><span class="ccs-ability-label">CON</span><span class="ccs-ability-score">16</span></div>
+        <div class="ccs-ability-row"><span class="ccs-ability-row-label">Modifier</span><span class="ccs-ability-mod">+3</span></div>
+        <div class="ccs-ability-row"><span class="ccs-ability-row-label">Save</span><span class="ccs-ability-save">+3</span></div>
+      </div>
+      <div class="ccs-ability">
+        <div class="ccs-ability-top"><span class="ccs-ability-label">INT</span><span class="ccs-ability-score">10</span></div>
+        <div class="ccs-ability-row"><span class="ccs-ability-row-label">Modifier</span><span class="ccs-ability-mod">+0</span></div>
+        <div class="ccs-ability-row"><span class="ccs-ability-row-label">Save</span><span class="ccs-ability-save">+0</span></div>
+      </div>
+      <div class="ccs-ability">
+        <div class="ccs-ability-top"><span class="ccs-ability-label">WIS</span><span class="ccs-ability-score">10</span></div>
+        <div class="ccs-ability-row"><span class="ccs-ability-row-label">Modifier</span><span class="ccs-ability-mod">+0</span></div>
+        <div class="ccs-ability-row"><span class="ccs-ability-row-label">Save</span><span class="ccs-ability-save">+5</span></div>
+      </div>
+      <div class="ccs-ability">
+        <div class="ccs-ability-top"><span class="ccs-ability-label">CHA</span><span class="ccs-ability-score">20</span></div>
+        <div class="ccs-ability-row"><span class="ccs-ability-row-label">Modifier</span><span class="ccs-ability-mod">+5</span></div>
+        <div class="ccs-ability-row"><span class="ccs-ability-row-label">Save</span><span class="ccs-ability-save">+10</span></div>
+      </div>
+    </div>
+    <p class="ccs-note">
+      Proficient saves: <strong>Wisdom</strong> and <strong>Charisma</strong> (warlock).
+      Spell attack <strong>+10</strong> · Spell save DC <strong>18</strong> (CHA).
+    </p>
+  </section>
+
+  <!-- 3 · Combat -->
+  <section class="ccs-section" id="combat" aria-labelledby="combat-title">
+    <h3 id="combat-title">3 · Combat</h3>
+    <p class="ccs-hint">Cantrips &amp; attack package first. Eldritch Blast is shaped by <strong>Invocations</strong> (below) — the bonus damage is not a separate spell.</p>
+    <ul class="ccs-weapon-list">
+      <li class="ccs-weapon">
+        <div class="ccs-weapon-name">Eldritch Blast</div>
+        <div class="ccs-weapon-line"><span class="ccs-weapon-label">Attack</span> <span class="ccs-weapon-stat">+10</span> <span class="ccs-weapon-detail">cantrip · 120 ft · <strong>3 beams</strong> (level 11+)</span></div>
+        <div class="ccs-weapon-line"><span class="ccs-weapon-label">Damage</span> <span class="ccs-weapon-stat">1d10 + 5</span> <span class="ccs-weapon-detail">force per beam · Agonizing Blast</span></div>
+        <div class="ccs-weapon-line ccs-weapon-extra"><span class="ccs-weapon-label">Push</span> <span class="ccs-weapon-detail">Repelling Blast: push 10 ft on hit (per beam)</span></div>
+      </li>
+      <li class="ccs-weapon">
+        <div class="ccs-weapon-name">Mind Sliver</div>
+        <div class="ccs-weapon-line"><span class="ccs-weapon-label">Save</span> <span class="ccs-weapon-stat">DC 18</span> <span class="ccs-weapon-detail">INT · cantrip · 60 ft</span></div>
+        <div class="ccs-weapon-line"><span class="ccs-weapon-label">Damage</span> <span class="ccs-weapon-stat">3d6</span> <span class="ccs-weapon-detail">psychic · −1d4 on next save before end of your next turn</span></div>
+      </li>
+      <li class="ccs-weapon">
+        <div class="ccs-weapon-name">Chill Touch</div>
+        <div class="ccs-weapon-line"><span class="ccs-weapon-label">Attack</span> <span class="ccs-weapon-stat">+10</span> <span class="ccs-weapon-detail">cantrip · 120 ft</span></div>
+        <div class="ccs-weapon-line"><span class="ccs-weapon-label">Damage</span> <span class="ccs-weapon-stat">3d8</span> <span class="ccs-weapon-detail">necrotic · can’t regain HP until start of your next turn</span></div>
+      </li>
+      <li class="ccs-weapon">
+        <div class="ccs-weapon-name">Hex</div>
+        <div class="ccs-weapon-line"><span class="ccs-weapon-label">Bonus</span> <span class="ccs-weapon-stat">1d6</span> <span class="ccs-weapon-detail">necrotic extra on hits · concentration · disads on chosen ability checks</span></div>
+      </li>
+    </ul>
+
+    <!-- Pact slots -->
+    <div class="ccs-spell-slots" data-ccs-spell-slots data-character="malcolm-sol">
+      <div class="ccs-action-name">Pact Magic · spell slots</div>
+      <p class="ccs-action-meta">
+        Warlock 15: <strong>three 5th-level slots</strong>.
+        Sol regains all expended pact slots when he finishes a <strong>short or long rest</strong>.
+      </p>
+      <div class="ccs-spell-slot-row">
+        <label class="ccs-spell-slot">
+          <span class="ccs-spell-slot-level">5th</span>
+          <input type="number" class="ccs-spell-slot-current" data-slot-level="5" data-slot-max="3" inputmode="numeric" min="0" max="3" value="3" aria-label="5th-level pact slots remaining">
+          <span class="ccs-spell-slot-max">/ 3</span>
+        </label>
+      </div>
+    </div>
+
+    <p class="ccs-note">
+      Also known (utility / control — spend a pact slot): Prestidigitation, Comprehend Languages, Protection from Evil and Good, Dissonant Whispers, Tasha’s Hideous Laughter, Cloud of Daggers, Darkness, Detect Thoughts, Clairvoyance, Sending, Dominate Beast, Evard’s Black Tentacles, Dominate Person, Telekinesis, Misty Step, Counterspell, Dispel Magic, Fly, Dimension Door, Contact Other Plane, Arcane Eye, Speak with Dead, Far Step, Jallarzi’s Storm of Radiance, and more on the FG record.
+    </p>
+  </section>
+
+  <!-- 4 · Skills -->
+  <section class="ccs-section" id="skills" aria-labelledby="skills-title">
+    <h3 id="skills-title">4 · Skills (proficient)</h3>
+    <div class="ccs-skills-header">
+      <p class="ccs-skills-lead">Malcolm Sol’s level 15 proficiency bonus is <strong>+5</strong></p>
+      <span class="ccs-skills-colhead ccs-skills-colhead-abil">Ability modifier</span>
+      <span class="ccs-skills-colhead ccs-skills-colhead-prof">Proficiency bonus</span>
+      <span class="ccs-skills-colhead ccs-skills-colhead-total"></span>
+    </div>
+    <ul class="ccs-skill-list">
+      <li class="ccs-skill-row">
+        <span class="ccs-skill-name">Animal Handling</span>
+        <span class="ccs-skill-modpair"><span class="ccs-skill-abil">(WIS)</span><span class="ccs-skill-abilmod">+0</span></span>
+        <span class="ccs-skill-prof">+5</span>
+        <span class="ccs-skill-result"><span class="ccs-skill-eq">=</span><span class="ccs-skill-total">+5</span></span>
+      </li>
+      <li class="ccs-skill-row">
+        <span class="ccs-skill-name">Arcana</span>
+        <span class="ccs-skill-modpair"><span class="ccs-skill-abil">(INT)</span><span class="ccs-skill-abilmod">+0</span></span>
+        <span class="ccs-skill-prof">+5</span>
+        <span class="ccs-skill-result"><span class="ccs-skill-eq">=</span><span class="ccs-skill-total">+5</span></span>
+      </li>
+      <li class="ccs-skill-row">
+        <span class="ccs-skill-name">Deception</span>
+        <span class="ccs-skill-modpair"><span class="ccs-skill-abil">(CHA)</span><span class="ccs-skill-abilmod">+5</span></span>
+        <span class="ccs-skill-prof">+5</span>
+        <span class="ccs-skill-result"><span class="ccs-skill-eq">=</span><span class="ccs-skill-total">+10</span></span>
+      </li>
+      <li class="ccs-skill-row">
+        <span class="ccs-skill-name">Intimidation</span>
+        <span class="ccs-skill-modpair"><span class="ccs-skill-abil">(CHA)</span><span class="ccs-skill-abilmod">+5</span></span>
+        <span class="ccs-skill-prof">+5</span>
+        <span class="ccs-skill-result"><span class="ccs-skill-eq">=</span><span class="ccs-skill-total">+10</span></span>
+      </li>
+      <li class="ccs-skill-row">
+        <span class="ccs-skill-name">Perception</span>
+        <span class="ccs-skill-modpair"><span class="ccs-skill-abil">(WIS)</span><span class="ccs-skill-abilmod">+0</span></span>
+        <span class="ccs-skill-prof">+5</span>
+        <span class="ccs-skill-result"><span class="ccs-skill-eq">=</span><span class="ccs-skill-total">+5</span></span>
+      </li>
+      <li class="ccs-skill-row">
+        <span class="ccs-skill-name">Survival</span>
+        <span class="ccs-skill-modpair"><span class="ccs-skill-abil">(WIS)</span><span class="ccs-skill-abilmod">+0</span></span>
+        <span class="ccs-skill-prof">+5</span>
+        <span class="ccs-skill-result"><span class="ccs-skill-eq">=</span><span class="ccs-skill-total">+5</span></span>
+      </li>
+    </ul>
+    <p class="ccs-note">Skills without proficiency: Roll 1d20 + Ability Modifier (e.g. Insight = WIS +0).</p>
+  </section>
+
+  <!-- 5 · Actions: Invocations / Features / Arcanum -->
+  <section class="ccs-section" id="actions" aria-labelledby="actions-title">
+    <h3 id="actions-title">5 · Actions</h3>
+
+    <!-- Invocations -->
+    <div class="ccs-superiority" style="margin-bottom:14px">
+      <div class="ccs-superiority-head">
+        <div class="ccs-action-name">Eldritch Invocations</div>
+        <p class="ccs-action-meta">Not spells. Always available unless the text says otherwise. They may change cantrips or grant free casts.</p>
+      </div>
+      <div class="ccs-maneuver-grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+        <div class="ccs-maneuver">
+          <div class="ccs-action-name">Agonizing Blast</div>
+          <div class="ccs-action-meta">On Eldritch Blast</div>
+          <p class="ccs-action-body">Add CHA (+5) to EB damage rolls.</p>
+        </div>
+        <div class="ccs-maneuver">
+          <div class="ccs-action-name">Repelling Blast</div>
+          <div class="ccs-action-meta">On Eldritch Blast hit</div>
+          <p class="ccs-action-body">Push the target 10 feet away.</p>
+        </div>
+        <div class="ccs-maneuver">
+          <div class="ccs-action-name">Eldritch Mind</div>
+          <div class="ccs-action-meta">Always</div>
+          <p class="ccs-action-body">Advantage on Constitution saves to maintain concentration.</p>
+        </div>
+        <div class="ccs-maneuver">
+          <div class="ccs-action-name">Armor of Shadows</div>
+          <div class="ccs-action-meta">At will</div>
+          <p class="ccs-action-body">Cast Mage Armor on yourself without a slot.</p>
+        </div>
+        <div class="ccs-maneuver">
+          <div class="ccs-action-name">Devil’s Sight</div>
+          <div class="ccs-action-meta">Always</div>
+          <p class="ccs-action-body">See normally in darkness, magical and nonmagical, to 120 feet.</p>
+        </div>
+        <div class="ccs-maneuver">
+          <div class="ccs-action-name">Fiendish Vigor</div>
+          <div class="ccs-action-meta">At will</div>
+          <p class="ccs-action-body">Cast False Life on yourself at will as a 1st-level spell.</p>
+        </div>
+        <div class="ccs-maneuver">
+          <div class="ccs-action-name">One with Shadows</div>
+          <div class="ccs-action-meta">Action · dim light / darkness</div>
+          <p class="ccs-action-body">Become invisible until you move, act, or react.</p>
+        </div>
+        <div class="ccs-maneuver">
+          <div class="ccs-action-name">Whispers of the Grave</div>
+          <div class="ccs-action-meta">At will · Speak with Dead</div>
+          <p class="ccs-action-body">
+            Cast <em>Speak with Dead</em> without a slot.
+            <strong>Ref:</strong> 1 action · 10 ft · 10 min · up to <strong>5 questions</strong> to a corpse with a mouth (not undead).
+            Answers brief/cryptic; knows only life knowledge; no duty to tell truth if hostile.
+            Same corpse can’t be targeted again for <strong>10 days</strong>.
+          </p>
+        </div>
+        <div class="ccs-maneuver">
+          <div class="ccs-action-name">Visions of Distant Realms</div>
+          <div class="ccs-action-meta">At will · Arcane Eye</div>
+          <p class="ccs-action-body">
+            Cast <em>Arcane Eye</em> without a slot.
+            <strong>Ref:</strong> 1 action · concentration up to 1 hr · invisible floating eye within 30 ft.
+            Darkvision 30 ft · bonus action move 30 ft · passes 1-inch openings · can’t pass solid barriers or leave the plane.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features -->
+    <div class="ccs-superiority" style="margin-bottom:14px">
+      <div class="ccs-superiority-head">
+        <div class="ccs-action-name">Features</div>
+        <p class="ccs-action-meta">Class / feat powers — not invocations, not pact-slot spells.</p>
+      </div>
+      <div class="ccs-maneuver-grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+        <div class="ccs-maneuver">
+          <div class="ccs-action-name">Awakened Mind</div>
+          <div class="ccs-action-meta">GOO · always</div>
+          <p class="ccs-action-body">Telepathy 30 ft with any creature you can see (they need one language).</p>
+        </div>
+        <div class="ccs-maneuver">
+          <div class="ccs-action-name">Entropic Ward</div>
+          <div class="ccs-action-meta">Reaction · 1 / short or long rest</div>
+          <p class="ccs-action-body">Impose disadvantage on an attack against you; if it misses, advantage on your next attack vs that creature before end of your next turn.</p>
+        </div>
+        <div class="ccs-maneuver">
+          <div class="ccs-action-name">Thought Shield</div>
+          <div class="ccs-action-meta">GOO 10 · always</div>
+          <p class="ccs-action-body">Thoughts can’t be read unless you allow it. Resistance to psychic; attacker takes the psychic damage you take.</p>
+        </div>
+        <div class="ccs-maneuver">
+          <div class="ccs-action-name">Create Thrall</div>
+          <div class="ccs-action-meta">GOO 14 · action</div>
+          <p class="ccs-action-body">Charm a humanoid; telepathic bond while on the same plane (see FG full text).</p>
+        </div>
+        <div class="ccs-maneuver">
+          <div class="ccs-action-name">Alert</div>
+          <div class="ccs-action-meta">Feat</div>
+          <p class="ccs-action-body">+5 initiative (already in Core Stats). Can’t be surprised while conscious; hidden attackers don’t gain advantage from being unseen (2014 Alert).</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mystic Arcanum -->
+    <div class="ccs-superiority">
+      <div class="ccs-superiority-head">
+        <div class="ccs-action-top">
+          <div class="ccs-action-name">Mystic Arcanum</div>
+          <button type="button" class="ccs-use-toggle is-ready" data-ccs-use-toggle data-character="malcolm-sol" data-feature="arcanum-block" aria-pressed="false">Ready</button>
+        </div>
+        <p class="ccs-action-meta">
+          Each arcanum: cast <strong>once without a pact slot</strong>.
+          You regain expended arcanum uses when you finish a <strong>long rest</strong>.
+          Track each below (or use Ready/Used as a block reminder).
+        </p>
+      </div>
+      <div class="ccs-maneuver-grid">
+        <div class="ccs-maneuver">
+          <div class="ccs-action-top">
+            <div class="ccs-action-name">Arcane Gate</div>
+            <button type="button" class="ccs-use-toggle is-ready" data-ccs-use-toggle data-character="malcolm-sol" data-feature="arcanum-6" aria-pressed="false">Ready</button>
+          </div>
+          <div class="ccs-action-meta">6th · 1 / long rest</div>
+          <p class="ccs-action-body">Linked portals within range (see spell).</p>
+        </div>
+        <div class="ccs-maneuver">
+          <div class="ccs-action-top">
+            <div class="ccs-action-name">Etherealness</div>
+            <button type="button" class="ccs-use-toggle is-ready" data-ccs-use-toggle data-character="malcolm-sol" data-feature="arcanum-7" aria-pressed="false">Ready</button>
+          </div>
+          <div class="ccs-action-meta">7th · 1 / long rest · Mystic Arcanum (not a pact slot)</div>
+          <p class="ccs-action-body">
+            <strong>Ref:</strong> 1 action · self · up to 8 hours · Border Ethereal.
+            See/hear Material within 60 ft; only interact with ethereal creatures.
+            Move any direction (extra movement cost); pass through Material objects as difficult terrain — ending a turn inside an object is bad (force damage + shove out).
+            Ends: return to the plane you left.
+          </p>
+        </div>
+        <div class="ccs-maneuver">
+          <div class="ccs-action-top">
+            <div class="ccs-action-name">Befuddlement</div>
+            <button type="button" class="ccs-use-toggle is-ready" data-ccs-use-toggle data-character="malcolm-sol" data-feature="arcanum-8" aria-pressed="false">Ready</button>
+          </div>
+          <div class="ccs-action-meta">8th · 1 / long rest</div>
+          <p class="ccs-action-body">Mind-breaking curse (see spell; formerly Feeblemind-class effect).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 · Senses & notes -->
+  <section class="ccs-section" id="senses" aria-labelledby="senses-title">
+    <h3 id="senses-title">6 · Senses &amp; notes</h3>
+    <ul class="ccs-list">
+      <li><span class="ccs-item-name">Darkvision</span><span class="ccs-item-meta">120 ft · Devil’s Sight for magical darkness</span></li>
+      <li><span class="ccs-item-name">Languages</span><span class="ccs-item-meta">Common · Elvish · Deep Speech</span></li>
+      <li><span class="ccs-item-name">Patron</span><span class="ccs-item-meta">The Deep Memory — a Great Old One (GOO) · Sol is its Witness</span></li>
+      <li><span class="ccs-item-name">Key items</span><span class="ccs-item-meta">Bracers of Defense · Cape of the Mountebank · Necklace of Adaptation · Ring of Spell Storing · Bag of Holding</span></li>
+      <li><span class="ccs-item-name">Hit dice</span><span class="ccs-item-meta">15d8</span></li>
+    </ul>
+    <div class="portrait-frame" style="max-width:280px;margin-top:16px">
+      <img src="../assets/images/characters/Sol_Full.jpg" alt="Malcolm Sol full figure">
+    </div>
+  </section>
+</div>
+
+<p class="note" style="margin-top:18px">
+  Not a Forge of Fury company sheet — Witness archive character.
+  <a href="../deep-memory/index.html">Deep Memory (site)</a>.
+</p>
+
+</main>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  function bindCounter(rootSel, inputSel, keyPrefix, defaultMaxAttr, fallbackMax) {
+    var root = document.querySelector(rootSel);
+    if (!root) return;
+    var input = root.querySelector(inputSel);
+    if (!input) return;
+    var character = root.getAttribute("data-character") || "character";
+    var maxVal = parseInt(root.getAttribute(defaultMaxAttr), 10);
+    if (isNaN(maxVal)) maxVal = fallbackMax;
+    var key = keyPrefix + character;
+    input.max = String(maxVal);
+    input.min = "0";
+    function clamp(n) {
+      if (isNaN(n)) return maxVal;
+      if (n < 0) return 0;
+      if (n > maxVal) return maxVal;
+      return n;
+    }
+    function load() {
+      try {
+        var raw = localStorage.getItem(key);
+        input.value = (raw === null || raw === "") ? String(maxVal) : String(clamp(parseInt(raw, 10)));
+      } catch (e) {
+        input.value = String(maxVal);
+      }
+    }
+    function save() {
+      var n = clamp(parseInt(input.value, 10));
+      input.value = String(n);
+      try { localStorage.setItem(key, String(n)); } catch (e) { /* private */ }
+    }
+    input.addEventListener("change", save);
+    input.addEventListener("blur", save);
+    input.addEventListener("keydown", function (ev) {
+      if (ev.key === "Enter") { save(); input.blur(); }
+    });
+    load();
+  }
+
+  bindCounter("[data-ccs-hp]", ".ccs-hp-current", "ccs-hp-current:", "data-hp-max", 123);
+
+  (function () {
+    var root = document.querySelector("[data-ccs-hp]");
+    var input = root && root.querySelector(".ccs-hp-temp");
+    if (!root || !input) return;
+    var character = root.getAttribute("data-character") || "character";
+    var key = "ccs-hp-temp:" + character;
+    function clamp(n) {
+      if (isNaN(n) || n < 0) return 0;
+      return n;
+    }
+    function load() {
+      try {
+        var raw = localStorage.getItem(key);
+        input.value = (raw === null || raw === "") ? "0" : String(clamp(parseInt(raw, 10)));
+      } catch (e) {
+        input.value = "0";
+      }
+    }
+    function save() {
+      var n = clamp(parseInt(input.value, 10));
+      input.value = String(n);
+      try { localStorage.setItem(key, String(n)); } catch (e) { /* private */ }
+    }
+    input.addEventListener("change", save);
+    input.addEventListener("blur", save);
+    input.addEventListener("keydown", function (ev) {
+      if (ev.key === "Enter") { save(); input.blur(); }
+    });
+    load();
+  })();
+
+  (function () {
+    var root = document.querySelector("[data-ccs-spell-slots]");
+    if (!root) return;
+    var character = root.getAttribute("data-character") || "character";
+    root.querySelectorAll(".ccs-spell-slot-current").forEach(function (input) {
+      var level = input.getAttribute("data-slot-level") || "0";
+      var maxVal = parseInt(input.getAttribute("data-slot-max"), 10) || 0;
+      var key = "ccs-spell-slot:" + character + ":" + level;
+      input.max = String(maxVal);
+      input.min = "0";
+      function clamp(n) {
+        if (isNaN(n)) return maxVal;
+        if (n < 0) return 0;
+        if (n > maxVal) return maxVal;
+        return n;
+      }
+      function load() {
+        try {
+          var raw = localStorage.getItem(key);
+          input.value = (raw === null || raw === "") ? String(maxVal) : String(clamp(parseInt(raw, 10)));
+        } catch (e) {
+          input.value = String(maxVal);
+        }
+      }
+      function save() {
+        var n = clamp(parseInt(input.value, 10));
+        input.value = String(n);
+        try { localStorage.setItem(key, String(n)); } catch (e) { /* private */ }
+      }
+      input.addEventListener("change", save);
+      input.addEventListener("blur", save);
+      input.addEventListener("keydown", function (ev) {
+        if (ev.key === "Enter") { save(); input.blur(); }
+      });
+      load();
+    });
+  })();
+
+  (function () {
+    var root = document.querySelector("[data-ccs-ac]");
+    if (!root) return;
+    var totalEl = root.querySelector(".ccs-ac-total");
+    var miscInput = root.querySelector(".ccs-ac-misc");
+    if (!totalEl || !miscInput) return;
+    var character = root.getAttribute("data-character") || "character";
+    var baseAc = parseInt(root.getAttribute("data-ac-base"), 10) || 15;
+    var key = "ccs-ac-misc:" + character;
+    function parseMisc(raw) {
+      if (raw === null || raw === "" || raw === "-") return 0;
+      var n = parseInt(raw, 10);
+      return isNaN(n) ? 0 : n;
+    }
+    function formatMisc(n) { return n > 0 ? "+" + n : String(n); }
+    function refresh() {
+      var misc = parseMisc(miscInput.value);
+      miscInput.value = formatMisc(misc);
+      totalEl.textContent = String(baseAc + misc);
+      try { localStorage.setItem(key, String(misc)); } catch (e) { /* private */ }
+    }
+    function load() {
+      try {
+        var raw = localStorage.getItem(key);
+        miscInput.value = (raw === null || raw === "") ? "0" : formatMisc(parseMisc(raw));
+      } catch (e) {
+        miscInput.value = "0";
+      }
+      totalEl.textContent = String(baseAc + parseMisc(miscInput.value));
+    }
+    miscInput.addEventListener("change", refresh);
+    miscInput.addEventListener("blur", refresh);
+    miscInput.addEventListener("input", function () {
+      totalEl.textContent = String(baseAc + parseMisc(miscInput.value));
+    });
+    load();
+  })();
+
+  document.querySelectorAll("[data-ccs-use-toggle]").forEach(function (btn) {
+    var character = btn.getAttribute("data-character") || "character";
+    var feature = btn.getAttribute("data-feature") || "feature";
+    var key = "ccs-use:" + character + ":" + feature;
+    function apply(used) {
+      btn.textContent = used ? "Used" : "Ready";
+      btn.setAttribute("aria-pressed", used ? "true" : "false");
+      btn.classList.toggle("is-ready", !used);
+      btn.classList.toggle("is-used", used);
+    }
+    try {
+      apply(localStorage.getItem(key) === "used");
+    } catch (e) {
+      apply(false);
+    }
+    btn.addEventListener("click", function () {
+      var used = btn.getAttribute("aria-pressed") !== "true";
+      apply(used);
+      try { localStorage.setItem(key, used ? "used" : "ready"); } catch (e) { /* private */ }
+    });
+  });
+
+  (function () {
+    var root = document.querySelector("[data-ccs-inspiration]");
+    var btn = root && root.querySelector("[data-ccs-inspiration-toggle]");
+    if (!root || !btn) return;
+    var character = root.getAttribute("data-character") || "character";
+    var key = "ccs-inspiration:" + character;
+    var order = ["none", "single", "double"];
+    var labels = { double: "Double Inspiration!", single: "Single Inspiration", none: "None" };
+    function apply(state) {
+      if (order.indexOf(state) === -1) state = "single";
+      btn.textContent = labels[state];
+      btn.classList.remove("is-double", "is-single", "is-none");
+      btn.classList.add("is-" + state);
+      btn.setAttribute("data-state", state);
+      btn.setAttribute("aria-label", "Inspiration: " + labels[state] + ". Click to change.");
+    }
+    function load() {
+      var state = "single";
+      try {
+        var raw = localStorage.getItem(key);
+        if (raw && order.indexOf(raw) !== -1) state = raw;
+      } catch (e) { /* ignore */ }
+      apply(state);
+    }
+    btn.addEventListener("click", function () {
+      var i = order.indexOf(btn.getAttribute("data-state") || "single");
+      if (i < 0) i = 0;
+      var next = order[(i + 1) % order.length];
+      apply(next);
+      try { localStorage.setItem(key, next); } catch (e) { /* private */ }
+    });
+    load();
+  })();
+})();
+</script>
+</body>
+</html>

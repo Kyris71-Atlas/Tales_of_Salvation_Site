@@ -25,6 +25,7 @@
   <a href="thrain-bearblood-ccs.html">Thrain Bearblood</a>
   <a href="benn-ccs.html">Benn</a>
   <a href="mantis-ccs.html">Mantis</a>
+  <a href="malcolm-sol-ccs.html">Malcolm Sol</a>
 
   <div class="nav-section">Discovery Reports</div>
   <a href="thrain-bearblood.html">Thrain Bearblood</a>
@@ -102,6 +103,19 @@
           >
           <span class="ccs-hp-sep" aria-hidden="true">/</span>
           <span class="ccs-hp-max" aria-label="Maximum hit points">48</span>
+        </div>
+        <div class="ccs-hp-temp-row" role="group" aria-label="Temporary hit points">
+          <span class="ccs-hp-temp-label">Temp</span>
+          <input
+            type="number"
+            class="ccs-hp-temp"
+            name="hp-temp"
+            inputmode="numeric"
+            min="0"
+            value="0"
+            aria-label="Temporary hit points"
+            title="Temporary HP — does not stack; keep the higher"
+          >
         </div>
       </div>
 
@@ -559,6 +573,37 @@
   }
 
   bindCounter("[data-ccs-hp]", ".ccs-hp-current", "ccs-hp-current:", "data-hp-max", 48);
+
+  (function () {
+    var root = document.querySelector("[data-ccs-hp]");
+    var input = root && root.querySelector(".ccs-hp-temp");
+    if (!root || !input) return;
+    var character = root.getAttribute("data-character") || "character";
+    var key = "ccs-hp-temp:" + character;
+    function clamp(n) {
+      if (isNaN(n) || n < 0) return 0;
+      return n;
+    }
+    function load() {
+      try {
+        var raw = localStorage.getItem(key);
+        input.value = (raw === null || raw === "") ? "0" : String(clamp(parseInt(raw, 10)));
+      } catch (e) {
+        input.value = "0";
+      }
+    }
+    function save() {
+      var n = clamp(parseInt(input.value, 10));
+      input.value = String(n);
+      try { localStorage.setItem(key, String(n)); } catch (e) { /* private */ }
+    }
+    input.addEventListener("change", save);
+    input.addEventListener("blur", save);
+    input.addEventListener("keydown", function (ev) {
+      if (ev.key === "Enter") { save(); input.blur(); }
+    });
+    load();
+  })();
 
   (function () {
     var root = document.querySelector("[data-ccs-spell-slots]");

@@ -906,7 +906,7 @@ a.campaign-banner-door:focus {
 }
 
 .engine-invite h2 {
-  margin: 0 0 14px;
+  margin: 0 0 8px;
   color: var(--gold);
   font-size: 1.75rem;
   letter-spacing: .03em;
@@ -931,6 +931,78 @@ a.campaign-banner-door:focus {
 .engine-lead {
   color: var(--muted);
   font-style: italic;
+}
+
+.engine-memories-coming {
+  margin: 0 0 14px !important;
+  color: var(--gold);
+  font-size: 1.2rem;
+  font-style: italic;
+  letter-spacing: .03em;
+}
+
+/* Home — quiet Deep Memory door (advanced / DM; ADE is for the audience) */
+.deep-memory-door {
+  margin: 20px 0 12px;
+  border: 1px solid #3d3423;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(28, 34, 48, .65), rgba(17, 20, 28, .85));
+  opacity: .92;
+}
+
+.deep-memory-door-inner {
+  padding: 16px 18px 14px;
+}
+
+.deep-memory-door-kicker {
+  margin: 0 0 4px;
+  color: var(--muted);
+  font-size: .72rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.deep-memory-door h2 {
+  margin: 0 0 8px;
+  color: #c4b48a;
+  font-size: 1.25rem;
+  letter-spacing: .03em;
+  font-weight: normal;
+}
+
+.deep-memory-door-lead {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: .95rem;
+  max-width: 40rem;
+}
+
+.deep-memory-door-link {
+  color: var(--gold);
+  font-size: .95rem;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(216, 179, 95, .35);
+}
+
+.deep-memory-door-link:hover {
+  border-bottom-color: var(--gold);
+}
+
+.deep-memory-door-note {
+  margin: 12px 0 0;
+  color: #8a8070;
+  font-size: .82rem;
+  max-width: 40rem;
+  line-height: 1.4;
+}
+
+a.nav-advanced {
+  color: var(--muted);
+  font-size: .92rem;
+}
+
+a.nav-advanced:hover {
+  color: var(--gold);
 }
 
 .engine-rank-hint {
@@ -1650,6 +1722,7 @@ a.campaign-banner-door:focus {
 
 .ccs-bubble-interactive,
 .ccs-hp-current,
+.ccs-hp-temp,
 .ccs-ac-misc,
 .ccs-sup-dice-current,
 .ccs-spell-slot-current {
@@ -1684,6 +1757,7 @@ a.campaign-banner-door:focus {
 }
 
 .ccs-hp-current:focus,
+.ccs-hp-temp:focus,
 .ccs-ac-misc:focus,
 .ccs-sup-dice-current:focus,
 .ccs-spell-slot-current:focus {
@@ -1708,6 +1782,39 @@ a.campaign-banner-door:focus {
   font-size: 1.45rem;
   text-align: center;
   opacity: 1;
+}
+
+/* Temporary HP — optional in play; standard on every CCS */
+.ccs-hp-temp-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.ccs-hp-temp-label {
+  font-size: .72rem;
+  font-weight: bold;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--ccs-ink-olive);
+}
+
+.ccs-hp-temp {
+  width: 2.6em;
+  margin: 0;
+  padding: 2px 4px;
+  font-size: 1.15rem;
+  text-align: center;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.ccs-hp-temp::-webkit-outer-spin-button,
+.ccs-hp-temp::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .ccs-hp-hint {
