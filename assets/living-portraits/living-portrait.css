@@ -1,0 +1,117 @@
+/**
+ * Living Portrait v1.0 — stage, not GIF
+ * Character-agnostic shell. Assets + modules live under each character folder.
+ */
+
+.living-portrait {
+  --lp-size: 220px;
+  width: var(--lp-size);
+  height: var(--lp-size);
+  flex-shrink: 0;
+}
+
+.living-portrait[data-size="180"] { --lp-size: 180px; }
+.living-portrait[data-size="220"] { --lp-size: 220px; }
+.living-portrait[data-size="280"] { --lp-size: 280px; }
+
+.lp-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #0a0c10;
+  border: 3px ridge #8a6a35;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, .45);
+}
+
+/* Stacked production layers — future cutouts plug into these slots */
+.lp-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.lp-layer.is-ready {
+  opacity: 1;
+}
+
+.lp-layer[data-layer="composite"] {
+  z-index: 5;
+}
+
+/* Module frame overlay (phase 2+) — sits above composite when a strip plays */
+.lp-module-frame {
+  position: absolute;
+  inset: 0;
+  z-index: 80;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.lp-module-frame.is-active {
+  opacity: 1;
+}
+
+/* Ambient FX layer (embers / fire) — phase 2 */
+.lp-ambient {
+  position: absolute;
+  inset: 0;
+  z-index: 70;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.lp-ambient.is-ready {
+  opacity: 1;
+}
+
+.lp-fallback {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* Recap card: fixed stage, flexible text (portrait size does not follow recap length) */
+.recap-card {
+  grid-template-columns: var(--lp-size, 220px) 1fr;
+}
+
+.recap-card .living-portrait {
+  /* stage is the portrait */
+}
+
+.recap-card .recap-portrait {
+  /* legacy wrapper — when using living portrait, hide empty fixed box rules */
+  width: auto;
+  height: auto;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.recap-card .recap-portrait .living-portrait {
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .living-portrait {
+    --lp-size: 180px;
+  }
+
+  .recap-card {
+    grid-template-columns: 180px 1fr;
+  }
+}

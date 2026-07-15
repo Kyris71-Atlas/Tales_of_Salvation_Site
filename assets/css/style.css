@@ -7,6 +7,25 @@
   --text: #f4eddf;
   --gold: #d8b35f;
   --line: #6e5930;
+
+  /* Company Character Sheet — template palette (save with Thrain pilot) */
+  --ccs-ink: #20180f;
+  --ccs-ink-strong: #3D2E14;   /* section headers on parchment */
+  --ccs-ink-olive: #344A35;    /* hints, column labels */
+  --ccs-ink-olive-deep: #2F3C2F; /* notes, emphasis on paper */
+  --ccs-ink-ash: #5C5346;      /* meta / secondary on paper */
+  --ccs-border: #6e5930;
+  --ccs-border-soft: rgba(110, 89, 48, .55);
+  /* Locked bubbles = stamps; interactive = input slots */
+  --ccs-bubble-fill: rgba(232, 212, 164, .65);
+  --ccs-bubble-border: rgba(110, 89, 48, .5);
+  --ccs-bubble-interactive-fill: #fff8e8;
+  --ccs-bubble-interactive-border: #6e5930;
+  --ccs-row-fill: rgba(255, 255, 255, .22);
+  --ccs-accent-ember: #8B3A1F; /* combat / stress later */
+  --ccs-accent-storm: #2C3E50; /* magic / info later */
+  --ccs-accent-moss: #4A5D3A;  /* equipped / nature later */
+  --ccs-lantern: #F3E6C8;      /* soft fill option */
 }
 
 * { box-sizing: border-box; }
@@ -120,6 +139,7 @@ main {
 }
 
 .nameplate {
+  position: relative;
   border: 2px solid var(--line);
   background: linear-gradient(180deg, #f1e4c8, #cbb688);
   padding: 18px;
@@ -128,6 +148,86 @@ main {
 .nameplate h2 {
   margin: 0;
   font-size: 2.6rem;
+  padding-right: 11rem; /* room for inspiration control */
+}
+
+/* Inspiration control — upper-right of nameplate */
+.ccs-inspiration {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  z-index: 1;
+}
+
+.ccs-inspiration-label {
+  font-size: .72rem;
+  font-weight: bold;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--ccs-ink-olive);
+}
+
+.ccs-inspiration-toggle {
+  flex-shrink: 0;
+  min-width: 9.5rem;
+  margin: 0;
+  padding: 4px 12px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: .9rem;
+  font-weight: bold;
+  letter-spacing: .03em;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid var(--ccs-border);
+  transition: background .15s ease, color .15s ease, border-color .15s ease;
+}
+
+/* Single = same as Ready */
+.ccs-inspiration-toggle.is-single {
+  color: #1a2e1a;
+  background: linear-gradient(180deg, #e4efd8, #c5d9b0);
+  border-color: #4a6b3a;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .45);
+}
+
+/* Double = happier green */
+.ccs-inspiration-toggle.is-double {
+  color: #0f2a12;
+  background: linear-gradient(180deg, #e8ffd4, #8ed86a);
+  border-color: #2f7a32;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .55),
+    0 0 0 1px rgba(80, 160, 70, .25);
+}
+
+/* None = same as Used */
+.ccs-inspiration-toggle.is-none {
+  color: #3a1510;
+  background: linear-gradient(180deg, #f0d0c4, #d4a090);
+  border-color: var(--ccs-accent-ember);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35);
+}
+
+.ccs-inspiration-toggle:focus {
+  outline: 2px solid #6e5930;
+  outline-offset: 2px;
+}
+
+@media (max-width: 850px) {
+  .nameplate h2 {
+    padding-right: 0;
+    padding-top: 3.2rem; /* stack under inspiration */
+  }
+
+  .ccs-inspiration {
+    top: 12px;
+    right: 12px;
+  }
 }
 
 .subtitle {
@@ -329,6 +429,148 @@ main {
   object-fit: contain;
 }
 
+/* Tempest Company mural = clickable door to session recaps */
+a.campaign-banner-door {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+  cursor: pointer;
+}
+
+a.campaign-banner-door:hover {
+  transform: translateY(-2px);
+  border-color: var(--gold);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .55);
+}
+
+a.campaign-banner-door:focus {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.campaign-banner-hint {
+  display: block;
+  padding: 10px 14px;
+  background: linear-gradient(180deg, #1a1510, #0d0b09);
+  border-top: 1px solid #3d3423;
+  color: var(--gold);
+  font-size: .9rem;
+  letter-spacing: .04em;
+  text-align: center;
+  line-height: 1.35;
+}
+
+.doorway-sessions {
+  margin-top: 22px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.doorway-click-cue {
+  margin: 12px 0 0;
+  padding: 10px 14px;
+  border-left: 3px solid var(--gold);
+  background: rgba(216, 179, 95, .08);
+  color: var(--text);
+  font-size: .95rem;
+}
+
+/* Deep Memory page — themed with deep-memory.jpg */
+.page-deep-memory main {
+  position: relative;
+}
+
+.deep-memory-hero {
+  position: relative;
+  margin: 0 0 20px;
+  border: 2px solid #8a6a35;
+  border-radius: 14px;
+  overflow: hidden;
+  min-height: 220px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, .5);
+  background: #05060a;
+}
+
+.deep-memory-hero img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  filter: saturate(.9) brightness(.72);
+}
+
+.deep-memory-hero-veil {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(5, 6, 10, .15) 0%, rgba(5, 6, 10, .55) 55%, rgba(5, 6, 10, .88) 100%),
+    radial-gradient(ellipse at 30% 40%, rgba(216, 179, 95, .12), transparent 55%);
+  pointer-events: none;
+}
+
+.deep-memory-hero-title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 20px 22px 22px;
+  z-index: 1;
+}
+
+.deep-memory-hero-title h2 {
+  margin: 0;
+  color: var(--gold);
+  font-size: 2rem;
+  letter-spacing: .04em;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, .8);
+}
+
+.deep-memory-hero-title p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 1rem;
+  letter-spacing: .02em;
+}
+
+.page-deep-memory .book-panel.deep-memory-intro {
+  /* Dark panel — do not inherit parchment ink (unreadable) */
+  background:
+    linear-gradient(180deg, rgba(20, 24, 34, .96), rgba(12, 14, 20, .98)),
+    url("../images/forge-of-fury/deep-memory.jpg") center / cover;
+  border-color: #8a6a35;
+  color: var(--text);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, .48), inset 0 0 0 1px rgba(216, 179, 95, .2);
+}
+
+.page-deep-memory .book-panel.deep-memory-intro p {
+  color: #f4eddf;
+}
+
+.page-deep-memory .book-panel.deep-memory-intro .roster-lead {
+  color: #d8d0c0;
+}
+
+.page-deep-memory .book-panel.deep-memory-intro strong {
+  color: var(--gold);
+}
+
+.page-deep-memory .deep-memory-shelf .section-label {
+  text-shadow: 0 1px 8px rgba(0, 0, 0, .5);
+}
+
+@media (max-width: 600px) {
+  .deep-memory-hero img {
+    height: 180px;
+  }
+
+  .deep-memory-hero-title h2 {
+    font-size: 1.55rem;
+  }
+}
+
 /* Secondary companion strip — present, but not party-weight */
 .companion-strip {
   margin-top: 28px;
@@ -351,12 +593,18 @@ main {
   color: var(--muted);
 }
 
+.companion-strip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+}
+
 .companion-strip .companion-card {
   display: grid;
   grid-template-columns: 72px 1fr;
   gap: 12px;
   align-items: center;
-  max-width: 320px;
+  max-width: 340px;
   text-decoration: none;
   color: var(--text);
   background: rgba(17, 20, 28, .75);
@@ -400,6 +648,18 @@ main {
   margin: 6px 0 0;
   color: var(--muted);
   font-size: .95rem;
+}
+
+/* Parchment panels: muted is too light — use dark secondary ink */
+.book-panel .roster-lead,
+.book-panel .session-meta,
+.book-panel .note {
+  color: #4a3f30;
+}
+
+.book-panel .roster-lead strong,
+.book-panel .session-meta strong {
+  color: var(--ink);
 }
 
 /* Campaign home — theme tiles (mood, not spoilers) */
@@ -736,6 +996,388 @@ main {
   font-size: .9rem;
 }
 
+/* ---------- Forge of Fury campaign home ---------- */
+
+/* Last time on… — fixed Thrain portrait, flexible recap text */
+.last-time {
+  margin-top: 8px;
+}
+
+.recap-card {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 18px;
+  align-items: start;
+  margin-top: 14px;
+  padding: 16px 18px;
+  background: linear-gradient(180deg, #1c2230, #11141c);
+  border: 2px solid #544221;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+}
+
+.recap-portrait {
+  width: auto;
+  height: auto;
+  flex-shrink: 0;
+  border: 0;
+  border-radius: 0;
+  overflow: visible;
+  background: transparent;
+  box-shadow: none;
+}
+
+.recap-portrait img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  border-radius: 10px;
+  border: 3px ridge #8a6a35;
+  background: #0d0d0e;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, .4);
+}
+
+.recap-credit {
+  margin: 0 0 8px;
+  font-size: .8rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.recap-text {
+  color: var(--text);
+  line-height: 1.55;
+}
+
+.recap-text p {
+  margin: 0 0 0.85em;
+}
+
+.recap-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* Optional length bands — image size never changes */
+.recap-card[data-recap-length="short"] .recap-text {
+  font-size: 1.08rem;
+}
+
+.recap-card[data-recap-length="medium"] .recap-text {
+  font-size: 1rem;
+}
+
+.recap-card[data-recap-length="long"] .recap-text {
+  font-size: 0.94rem;
+}
+
+/* Company Character Sheets portal */
+.company-sheets {
+  margin-top: 28px;
+}
+
+.company-sheets-grid {
+  margin-top: 14px;
+}
+
+.company-sheets-grid .roster-card img {
+  height: 180px;
+}
+
+/* Recap → archive link under front recap */
+.recap-archive-link {
+  margin: 12px 0 0;
+  font-size: .88rem;
+  color: var(--muted);
+}
+
+.recap-archive-link a {
+  color: var(--gold);
+}
+
+/* Deep Memory hub shelves */
+.deep-memory-intro {
+  margin-top: 18px;
+}
+
+.deep-memory-shelf {
+  margin-top: 28px;
+}
+
+.session-index {
+  display: grid;
+  gap: 12px;
+  margin-top: 14px;
+  max-width: 640px;
+}
+
+.session-index-card {
+  display: block;
+  text-decoration: none;
+  color: var(--text);
+  background: linear-gradient(180deg, #1c2230, #11141c);
+  border: 2px solid #544221;
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .3);
+  transition: transform .15s ease, border-color .15s ease;
+}
+
+.session-index-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--gold);
+}
+
+.session-index-num {
+  font-size: 1.2rem;
+  color: var(--gold);
+  letter-spacing: .03em;
+}
+
+.session-index-date {
+  margin-top: 2px;
+  font-size: .9rem;
+  color: var(--muted);
+}
+
+.session-index-voices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.session-voice-tag {
+  display: inline-block;
+  font-size: .72rem;
+  font-weight: bold;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 999px;
+  border: 1px solid #544221;
+}
+
+.session-voice-recap {
+  color: #1a2e1a;
+  background: linear-gradient(180deg, #e4efd8, #c5d9b0);
+  border-color: #4a6b3a;
+}
+
+.session-voice-notes {
+  color: #e8eef4;
+  background: linear-gradient(180deg, #3a4a5c, #2C3E50);
+  border-color: #5a6a7a;
+}
+
+.session-index-blurb {
+  margin: 10px 0 0;
+  font-size: .9rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* Session page — two voices side by side */
+.session-meta {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: .95rem;
+}
+
+/* Session page title block sits on parchment */
+.book-panel > h2 {
+  color: var(--ink);
+}
+
+.session-dual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 18px;
+  align-items: start;
+}
+
+.session-panel {
+  border: 2px solid #544221;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #1c2230, #11141c);
+  overflow: hidden;
+  min-width: 0;
+}
+
+.session-panel-recap {
+  border-color: #4a6b3a;
+}
+
+.session-panel-notes {
+  border-color: #3d4f63;
+}
+
+.session-panel-head {
+  padding: 12px 14px;
+  border-bottom: 1px solid #3d3423;
+  background: rgba(0, 0, 0, .25);
+}
+
+.session-panel-recap .session-panel-head {
+  background: linear-gradient(180deg, rgba(74, 107, 58, .35), rgba(0, 0, 0, .2));
+}
+
+.session-panel-notes .session-panel-head {
+  background: linear-gradient(180deg, rgba(44, 62, 80, .55), rgba(0, 0, 0, .2));
+}
+
+.session-panel-head h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--gold);
+  letter-spacing: .02em;
+}
+
+.session-panel-credit {
+  margin: 4px 0 0;
+  font-size: .78rem;
+  color: var(--muted);
+}
+
+.session-panel-body {
+  padding: 14px 16px 16px;
+  font-size: .95rem;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.session-panel-body p {
+  margin: 0 0 12px;
+}
+
+.session-panel-body p:last-child {
+  margin-bottom: 0;
+}
+
+.session-notes-lead {
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.session-notes-sub {
+  margin: 14px 0 6px;
+  font-size: .82rem;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.session-panel-body ul {
+  margin: 0 0 4px;
+  padding-left: 1.2rem;
+}
+
+.session-panel-body li {
+  margin-bottom: 6px;
+}
+
+.session-notes-foot {
+  margin-top: 14px !important;
+  font-size: .85rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+@media (max-width: 900px) {
+  .session-dual {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Enter: Deep Memory */
+.deep-memory-enter {
+  margin-top: 32px;
+  margin-bottom: 24px;
+}
+
+.deep-memory-card {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 0;
+  align-items: stretch;
+  margin-top: 14px;
+  max-width: 640px;
+  text-decoration: none;
+  color: var(--text);
+  background: linear-gradient(180deg, #1c2230, #11141c);
+  border: 2px solid #8a6a35;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+  transition: transform .15s ease, border-color .15s ease;
+}
+
+.deep-memory-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--gold);
+}
+
+.deep-memory-symbol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 140px;
+  padding: 0;
+  background: #0a0c10;
+  border-right: 1px solid #3d3423;
+  overflow: hidden;
+}
+
+.deep-memory-symbol img {
+  width: 100%;
+  height: 100%;
+  min-height: 140px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.deep-memory-body {
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.deep-memory-title-line {
+  margin: 0 0 6px;
+  color: var(--gold);
+  font-size: 1.25rem;
+  letter-spacing: .03em;
+}
+
+.deep-memory-line {
+  margin: 0;
+  color: var(--muted);
+  font-size: .92rem;
+}
+
+@media (max-width: 600px) {
+  .recap-card {
+    grid-template-columns: 120px 1fr;
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .deep-memory-card {
+    grid-template-columns: 1fr;
+  }
+
+  .deep-memory-symbol {
+    min-height: 100px;
+    border-right: 0;
+    border-bottom: 1px solid #3d3423;
+  }
+}
+
 /* Confidence Dots placeholder page */
 .confidence-legend {
   display: grid;
@@ -757,6 +1399,871 @@ main {
   color: var(--gold);
 }
 
+/* ---------- Company Character Sheets (table sheet) ---------- */
+.sheet-source {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin: 14px 0 0;
+  padding: 10px 14px;
+  font-size: .88rem;
+  color: var(--muted);
+  background: rgba(9, 11, 16, .35);
+  border: 1px solid #3d3423;
+  border-radius: 10px;
+}
+
+.sheet-source strong {
+  color: var(--gold);
+  font-weight: normal;
+}
+
+.ccs-section {
+  margin-top: 22px;
+}
+
+.ccs-section h3 {
+  margin: 0 0 8px;
+  /* Dark bronze on parchment — gold was too light to read */
+  color: var(--ccs-ink-strong);
+  font-size: 1.15rem;
+  letter-spacing: .04em;
+  border-bottom: 1px solid rgba(61, 46, 20, .35);
+  padding-bottom: 4px;
+}
+
+.ccs-section .ccs-hint {
+  margin: 0 0 12px;
+  /* Dark olive on parchment — readable; was too light (--muted) */
+  color: var(--ccs-ink-olive);
+  font-size: .9rem;
+  font-weight: 500;
+}
+
+.ccs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+}
+
+.ccs-tile {
+  text-align: center;
+  padding: 12px 8px;
+  background: rgba(255, 255, 255, .28);
+  border: 2px solid rgba(110, 89, 48, .7);
+  border-radius: 12px;
+}
+
+.ccs-tile .ccs-label {
+  display: block;
+  font-size: .78rem;
+  font-weight: bold;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #5b4421;
+}
+
+.ccs-tile .ccs-value {
+  display: block;
+  margin-top: 4px;
+  font-size: 1.45rem;
+  font-weight: bold;
+  color: var(--ink);
+}
+
+/* Core Stats board:
+   [ HP   ] [     AC      ] [ Speed ]
+   [ Init ] [ (tall why)  ] [ Prof  ]
+*/
+.ccs-core-board {
+  display: grid;
+  grid-template-columns: 1.15fr 1.35fr 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "hp ac speed"
+    "init ac prof";
+  gap: 10px;
+  margin-top: 4px;
+  align-items: stretch;
+}
+
+.ccs-core-hp { grid-area: hp; }
+.ccs-core-ac {
+  grid-area: ac;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.ccs-ac-breakdown {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 12px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  flex: 1;
+  align-content: start;
+}
+
+.ccs-ac-breakdown li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 4px 6px;
+  background: rgba(255, 255, 255, .28);
+  border: 1px solid rgba(110, 89, 48, .4);
+  border-radius: 6px;
+  font-size: .78rem;
+  line-height: 1.25;
+}
+
+.ccs-ac-part {
+  color: var(--ccs-ink-olive-deep);
+  font-weight: normal;
+  text-align: left;
+}
+
+.ccs-ac-num {
+  flex-shrink: 0;
+  font-weight: bold;
+  color: var(--ccs-ink-strong);
+  font-variant-numeric: tabular-nums;
+}
+
+.ccs-core-speed { grid-area: speed; }
+.ccs-core-init { grid-area: init; }
+.ccs-core-prof { grid-area: prof; }
+
+.ccs-sublabel {
+  display: block;
+  margin-top: 2px;
+  font-size: .72rem;
+  font-weight: normal;
+  letter-spacing: .02em;
+  text-transform: none;
+  color: var(--ccs-ink-olive);
+}
+
+.ccs-why {
+  display: block;
+  margin-top: 8px;
+  font-size: .72rem;
+  line-height: 1.3;
+  color: var(--ccs-ink-olive);
+  font-weight: normal;
+  text-transform: none;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.ccs-ac-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.ccs-ac-total {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.8em;
+  min-height: calc(1.45rem + 6px);
+  padding: 2px 8px;
+  font-size: 1.45rem;
+  text-align: center;
+}
+
+.ccs-ac-misc-row {
+  grid-column: 1 / -1;
+  margin-top: 2px;
+}
+
+.ccs-ac-misc {
+  width: 2.8em;
+  margin: 0;
+  padding: 2px 4px;
+  font-size: 1.1rem;
+  text-align: center;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.ccs-ac-misc::-webkit-outer-spin-button,
+.ccs-ac-misc::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+@media (max-width: 850px) {
+  .ccs-core-board {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "hp hp"
+      "ac ac"
+      "speed init"
+      "prof prof";
+  }
+
+  .ccs-core-ac .ccs-why {
+    margin-top: 10px;
+  }
+}
+
+/* Interactive HP: Current (editable) / Max (fixed) */
+.ccs-tile-hp {
+  grid-column: span 1;
+  min-width: 0;
+}
+
+.ccs-hp-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 4px;
+  line-height: 1.1;
+}
+
+/* A = locked stamps · B = interactive input slots */
+.ccs-bubble-locked,
+.ccs-ability-mod,
+.ccs-skill-total,
+.ccs-weapon-stat,
+.ccs-hp-max,
+.ccs-ac-total {
+  box-sizing: border-box;
+  border: 1px solid var(--ccs-bubble-border);
+  border-radius: 8px;
+  background: var(--ccs-bubble-fill);
+  color: var(--ccs-ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: bold;
+  font-variant-numeric: tabular-nums;
+  user-select: none;
+  pointer-events: none;
+  cursor: default;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .2);
+}
+
+.ccs-bubble-interactive,
+.ccs-hp-current,
+.ccs-ac-misc,
+.ccs-sup-dice-current,
+.ccs-spell-slot-current {
+  box-sizing: border-box;
+  border: 2px solid var(--ccs-bubble-interactive-border);
+  border-radius: 8px;
+  background: var(--ccs-bubble-interactive-fill);
+  color: var(--ccs-ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: bold;
+  font-variant-numeric: tabular-nums;
+  box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, .65),
+    0 1px 0 rgba(61, 46, 20, .12);
+  cursor: text;
+}
+
+.ccs-hp-current {
+  width: 2.6em;
+  margin: 0;
+  padding: 2px 4px;
+  font-size: 1.45rem;
+  text-align: center;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.ccs-hp-current::-webkit-outer-spin-button,
+.ccs-hp-current::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.ccs-hp-current:focus,
+.ccs-ac-misc:focus,
+.ccs-sup-dice-current:focus,
+.ccs-spell-slot-current:focus {
+  outline: 2px solid #6e5930;
+  outline-offset: 1px;
+  background: #fffef6;
+}
+
+.ccs-hp-sep {
+  font-size: 1.45rem;
+  font-weight: bold;
+  color: var(--ccs-ink);
+}
+
+.ccs-hp-max {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.6em;
+  min-height: calc(1.45rem + 6px);
+  padding: 2px 6px;
+  font-size: 1.45rem;
+  text-align: center;
+  opacity: 1;
+}
+
+.ccs-hp-hint {
+  display: block;
+  margin-top: 6px;
+  font-size: .68rem;
+  letter-spacing: .02em;
+  color: var(--ccs-ink-olive);
+  font-weight: normal;
+  text-transform: none;
+}
+
+.ccs-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ccs-list li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 12px;
+  margin-bottom: 6px;
+  background: rgba(255, 255, 255, .22);
+  border: 1px solid rgba(110, 89, 48, .55);
+  border-radius: 10px;
+}
+
+.ccs-list .ccs-item-name {
+  font-weight: bold;
+  color: var(--ink);
+}
+
+.ccs-list .ccs-item-meta {
+  color: #5b4421;
+  font-size: .92rem;
+}
+
+.ccs-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.ccs-note {
+  margin-top: 10px;
+  font-size: .9rem;
+  color: var(--ccs-ink-olive-deep);
+  font-style: italic;
+}
+
+/* Ability cards — STR 18 / modifier bubble / Save */
+.ccs-abilities {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.ccs-ability {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
+  padding: 10px 8px 12px;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(255, 255, 255, .35), transparent 55%),
+    linear-gradient(180deg, #f0e4c4, #c9b07e);
+  border: 2px solid var(--ccs-border);
+  border-radius: 16px;
+  box-shadow:
+    0 3px 0 rgba(61, 46, 20, .2),
+    inset 0 1px 0 rgba(255, 255, 255, .4);
+}
+
+.ccs-ability-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 8px;
+}
+
+.ccs-ability-label {
+  font-size: .85rem;
+  font-weight: bold;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ccs-ink-strong);
+}
+
+.ccs-ability-score {
+  font-size: 1.75rem;
+  font-weight: bold;
+  line-height: 1;
+  color: var(--ccs-ink);
+}
+
+.ccs-ability-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.ccs-ability-row-label {
+  font-size: .72rem;
+  font-weight: bold;
+  letter-spacing: .02em;
+  color: var(--ccs-ink-olive);
+}
+
+.ccs-ability-mod {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.6em;
+  min-height: calc(1.45rem + 6px);
+  margin: 0;
+  padding: 2px 8px;
+  font-size: 1.45rem;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.ccs-ability-save {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--ccs-ink-strong);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Actions — fingertip features (short how + when) */
+.ccs-action-block {
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  background: var(--ccs-row-fill);
+  border: 1px solid var(--ccs-border-soft);
+  border-radius: 10px;
+}
+
+.ccs-action-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 12px;
+}
+
+.ccs-action-name {
+  font-weight: bold;
+  font-size: 1.05rem;
+  color: var(--ccs-ink);
+}
+
+/* Ready (green) / Used (red) — parchment-friendly */
+.ccs-use-toggle {
+  flex-shrink: 0;
+  min-width: 4.5rem;
+  margin: 0;
+  padding: 4px 12px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: .95rem;
+  font-weight: bold;
+  letter-spacing: .04em;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid var(--ccs-border);
+  transition: background .15s ease, color .15s ease, border-color .15s ease;
+}
+
+.ccs-use-toggle.is-ready {
+  color: #1a2e1a;
+  background: linear-gradient(180deg, #e4efd8, #c5d9b0);
+  border-color: #4a6b3a;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .45);
+}
+
+.ccs-use-toggle.is-used {
+  color: #3a1510;
+  background: linear-gradient(180deg, #f0d0c4, #d4a090);
+  border-color: var(--ccs-accent-ember);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35);
+}
+
+.ccs-use-toggle:focus {
+  outline: 2px solid #6e5930;
+  outline-offset: 2px;
+}
+
+.ccs-action-meta {
+  margin-top: 2px;
+  font-size: .88rem;
+  color: var(--ccs-ink-olive-deep);
+}
+
+.ccs-action-body {
+  margin: 8px 0 0;
+  font-size: .95rem;
+  color: var(--ccs-ink);
+  line-height: 1.45;
+}
+
+.ccs-action-body strong {
+  color: var(--ccs-ink-strong);
+}
+
+/* Combat Superiority = one section: banner + 3 maneuver columns */
+.ccs-superiority {
+  margin-bottom: 12px;
+  border: 2px solid var(--ccs-border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, .18);
+  box-shadow: 0 2px 0 rgba(61, 46, 20, .12);
+}
+
+.ccs-superiority-head {
+  padding: 12px 14px 14px;
+  background: linear-gradient(180deg, rgba(255, 248, 220, .55), rgba(232, 212, 164, .35));
+  border-bottom: 1px solid var(--ccs-border-soft);
+}
+
+.ccs-superiority-head .ccs-action-name {
+  font-size: 1.15rem;
+  letter-spacing: .02em;
+}
+
+.ccs-sup-dice-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
+  margin-top: 6px;
+}
+
+.ccs-sup-dice-current,
+.ccs-spell-slot-current {
+  width: 2.6em;
+  margin: 0;
+  padding: 2px 4px;
+  font-size: 1.45rem;
+  text-align: center;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.ccs-sup-dice-current::-webkit-outer-spin-button,
+.ccs-sup-dice-current::-webkit-inner-spin-button,
+.ccs-spell-slot-current::-webkit-outer-spin-button,
+.ccs-spell-slot-current::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Spell slots — same counter language as superiority dice */
+.ccs-spell-slots {
+  margin-top: 14px;
+  padding: 12px 14px 14px;
+  border: 2px solid var(--ccs-border);
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(255, 248, 220, .55), rgba(232, 212, 164, .35));
+  box-shadow: 0 2px 0 rgba(61, 46, 20, .12);
+}
+
+.ccs-spell-slots .ccs-action-name {
+  margin: 0;
+}
+
+.ccs-spell-slots .ccs-action-meta {
+  margin-top: 2px;
+}
+
+.ccs-spell-slot-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+  margin-top: 10px;
+}
+
+.ccs-spell-slot {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: text;
+}
+
+.ccs-spell-slot-level {
+  font-weight: bold;
+  color: var(--ccs-ink-olive);
+  font-size: .9rem;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  min-width: 2.2em;
+}
+
+.ccs-spell-slot-max {
+  font-weight: bold;
+  color: var(--ccs-ink);
+  font-size: 1.2rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.ccs-maneuver-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+
+.ccs-maneuver {
+  padding: 12px 12px 14px;
+  border-right: 1px solid var(--ccs-border-soft);
+  background: var(--ccs-row-fill);
+}
+
+.ccs-maneuver:last-child {
+  border-right: 0;
+}
+
+.ccs-maneuver .ccs-action-name {
+  font-size: 1rem;
+}
+
+.ccs-maneuver .ccs-action-body {
+  font-size: .9rem;
+}
+
+@media (max-width: 850px) {
+  .ccs-maneuver-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ccs-maneuver {
+    border-right: 0;
+    border-bottom: 1px solid var(--ccs-border-soft);
+  }
+
+  .ccs-maneuver:last-child {
+    border-bottom: 0;
+  }
+}
+
+/* Combat weapons — attack & damage front and center */
+.ccs-weapon-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ccs-weapon {
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  background: var(--ccs-row-fill);
+  border: 1px solid var(--ccs-border-soft);
+  border-radius: 10px;
+}
+
+.ccs-weapon-name {
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-size: 1.05rem;
+  color: var(--ccs-ink);
+}
+
+.ccs-weapon-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 10px;
+  margin-top: 4px;
+  font-size: .95rem;
+}
+
+.ccs-weapon-label {
+  min-width: 4.2rem;
+  font-weight: bold;
+  color: var(--ccs-ink-olive);
+  font-size: .82rem;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.ccs-weapon-stat {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.6em;
+  padding: 2px 8px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.ccs-weapon-detail {
+  color: var(--ccs-ink-ash);
+  font-size: .9rem;
+}
+
+.ccs-weapon-extra .ccs-weapon-detail {
+  color: var(--ccs-ink-olive-deep);
+}
+
+.ccs-weapon-feature-text {
+  margin: 0;
+  color: var(--ccs-ink);
+  font-size: .95rem;
+  line-height: 1.45;
+}
+
+/* Skills — Name | (STR)+4 plain | +3 plain | = +7bubble */
+.ccs-skills-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(5.5rem, 0.85fr) minmax(4.5rem, 0.7fr) minmax(4.2rem, 0.65fr);
+  align-items: end;
+  column-gap: 10px;
+  margin: 0 0 8px;
+}
+
+.ccs-skills-lead {
+  margin: 0;
+  grid-column: 1;
+  font-size: .95rem;
+  color: var(--ccs-ink-olive-deep);
+}
+
+.ccs-skills-lead strong {
+  color: var(--ccs-ink-strong);
+}
+
+.ccs-skills-colhead {
+  font-size: .72rem;
+  font-weight: bold;
+  letter-spacing: .02em;
+  text-align: center;
+  color: var(--ccs-ink-olive);
+  line-height: 1.2;
+}
+
+.ccs-skills-colhead-abil { grid-column: 2; }
+.ccs-skills-colhead-prof { grid-column: 3; }
+.ccs-skills-colhead-total { grid-column: 4; }
+
+.ccs-skill-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ccs-skill-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(5.5rem, 0.85fr) minmax(4.5rem, 0.7fr) minmax(4.2rem, 0.65fr);
+  align-items: center;
+  column-gap: 10px;
+  padding: 10px 12px;
+  margin-bottom: 6px;
+  background: var(--ccs-row-fill);
+  border: 1px solid var(--ccs-border-soft);
+  border-radius: 10px;
+}
+
+.ccs-skill-name {
+  font-weight: bold;
+  color: var(--ink);
+  min-width: 0;
+}
+
+/* (STR) tight to plain +4 */
+.ccs-skill-modpair {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+  font-variant-numeric: tabular-nums;
+}
+
+.ccs-skill-abil {
+  font-weight: normal;
+  color: var(--ccs-ink-ash);
+  font-size: .92rem;
+  white-space: nowrap;
+}
+
+.ccs-skill-abilmod {
+  font-weight: bold;
+  font-size: 1.15rem;
+  color: var(--ccs-ink-strong);
+}
+
+.ccs-skill-prof {
+  justify-self: center;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.15rem;
+  color: var(--ccs-ink-olive-deep);
+  font-variant-numeric: tabular-nums;
+}
+
+/* = glued to the left of the total bubble */
+.ccs-skill-result {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  justify-self: end;
+}
+
+.ccs-skill-eq {
+  color: var(--ccs-ink-ash);
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Skill totals = locked stamps */
+.ccs-skill-total {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.6em;
+  min-height: calc(1.45rem + 6px);
+  padding: 2px 6px;
+  font-size: 1.45rem;
+  line-height: 1.1;
+  text-align: center;
+}
+
+@media (max-width: 850px) {
+  .ccs-abilities {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .ccs-skills-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 12px;
+    align-items: baseline;
+  }
+
+  .ccs-skills-colhead {
+    font-size: .65rem;
+  }
+
+  .ccs-skill-row {
+    grid-template-columns: minmax(0, 1fr) auto auto auto;
+    column-gap: 6px;
+    padding: 10px 8px;
+    font-size: .9rem;
+  }
+
+  .ccs-skill-total {
+    font-size: 1.2rem;
+    min-width: 2.4em;
+  }
+}
+
 @media (max-width: 850px) {
   .layout { grid-template-columns: 1fr; }
   nav { border-right: 0; border-bottom: 1px solid #3d3423; }
@@ -764,4 +2271,5 @@ main {
   .abilities, .quick-stats { grid-template-columns: repeat(3, 1fr); }
   .section-grid { grid-template-columns: 1fr; }
   .engine-invite-inner { padding: 18px 16px; }
+  .ccs-two-col { grid-template-columns: 1fr; }
 }
