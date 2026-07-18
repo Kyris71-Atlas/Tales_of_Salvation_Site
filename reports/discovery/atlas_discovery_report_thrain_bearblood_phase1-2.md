@@ -21,7 +21,7 @@
 | Record key | `charsheet/id-00004` |
 | Identity node | `<name type="string">Thrain Bearblood</name>` (direct child of record) |
 | Portrait path (FG) | `portraits/01 Forger of Fury/Thrain Bearblood 01.jpg` |
-| Site portrait | `assets/images/characters/Thrain Bearblood.jpg` |
+| Site portrait | `assets/images/characters/thrain.jpg` |
 
 **Locate method:** Exact name match `Thrain Bearblood` under `charsheet`, not first generic `name` leaf (class labels live deeper in the tree).
 
