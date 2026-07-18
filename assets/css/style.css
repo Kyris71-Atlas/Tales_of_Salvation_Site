@@ -131,6 +131,7 @@ main {
   border: 7px ridge #8a6a35;
   padding: 5px;
   box-shadow: 0 6px 20px rgba(0,0,0,.45);
+  transition: border-color .2s ease, box-shadow .2s ease;
 }
 
 .portrait-frame img {
@@ -143,12 +144,48 @@ main {
   border: 2px solid var(--line);
   background: linear-gradient(180deg, #f1e4c8, #cbb688);
   padding: 18px;
+  transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
 }
 
 .nameplate h2 {
   margin: 0;
   font-size: 2.6rem;
   padding-right: 11rem; /* room for inspiration control */
+}
+
+/* Rage status — nameplate + portrait (Lard CCS) */
+.nameplate.is-raging {
+  border-color: #a84a28;
+  background: linear-gradient(180deg, #f3dfc0, #d4a878);
+  box-shadow:
+    inset 0 0 0 1px rgba(180, 70, 30, .35),
+    0 0 0 1px rgba(168, 74, 40, .2);
+}
+
+.portrait-frame.is-raging {
+  border-color: #a84a28;
+  box-shadow:
+    0 6px 20px rgba(0,0,0,.45),
+    0 0 0 2px rgba(168, 74, 40, .45);
+}
+
+.ccs-rage-banner {
+  display: inline-block;
+  margin: 8px 0 4px;
+  padding: 3px 12px;
+  font-size: .82rem;
+  font-weight: bold;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #3a1510;
+  background: linear-gradient(180deg, #f0c4a8, #d47848);
+  border: 1px solid #a84a28;
+  border-radius: 6px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35);
+}
+
+.ccs-rage-banner[hidden] {
+  display: none !important;
 }
 
 /* Inspiration control — upper-right of nameplate */
@@ -372,9 +409,16 @@ main {
   background: #0d0d0e;
   color: var(--gold);
   text-align: center;
-  padding: 10px;
+  padding: 10px 12px;
   font-size: 1.08rem;
   letter-spacing: .04em;
+  line-height: 1.25;
+  /* Keep 1- and 2-line names (e.g. Lard son of Lard) optically centered */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.9em;
+  text-wrap: balance;
 }
 
 /* Discovered dossiers — full gold weight */
@@ -635,6 +679,9 @@ a.campaign-banner-door:focus {
   padding: 0;
   font-size: .95rem;
   color: #c4b48a;
+  display: block;
+  min-height: 0;
+  justify-content: flex-start;
 }
 
 .section-label {
@@ -1156,6 +1203,14 @@ a.nav-advanced:hover {
 
 .company-sheets-grid .roster-card img {
   height: 180px;
+}
+
+/* Long full names on the CCS portal — stay centered when they wrap */
+.company-sheets-grid .roster-name {
+  min-height: 3.1em;
+  padding: 12px 10px;
+  font-size: 1.02rem;
+  letter-spacing: .03em;
 }
 
 /* Recap → archive link under front recap */
@@ -2005,6 +2060,236 @@ a.nav-advanced:hover {
 .ccs-use-toggle:focus {
   outline: 2px solid #6e5930;
   outline-offset: 2px;
+}
+
+/* Multi-use countdown bubble (PB-scaled features e.g. Stone’s Endurance) */
+.ccs-use-count {
+  flex-shrink: 0;
+  min-width: 3.4rem;
+  margin: 0;
+  padding: 4px 12px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.05rem;
+  font-weight: bold;
+  letter-spacing: .04em;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid var(--ccs-border);
+  transition: background .15s ease, color .15s ease, border-color .15s ease;
+}
+
+.ccs-use-count.is-ready {
+  color: #1a2e1a;
+  background: linear-gradient(180deg, #e4efd8, #c5d9b0);
+  border-color: #4a6b3a;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .45);
+}
+
+.ccs-use-count.is-used {
+  color: #3a1510;
+  background: linear-gradient(180deg, #f0d0c4, #d4a090);
+  border-color: var(--ccs-accent-ember);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35);
+}
+
+.ccs-use-count:focus {
+  outline: 2px solid #6e5930;
+  outline-offset: 2px;
+}
+
+/* Rage Calm / Raging toggle */
+.ccs-rage-toggle {
+  flex-shrink: 0;
+  min-width: 5.2rem;
+  margin: 0;
+  padding: 4px 14px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: .95rem;
+  font-weight: bold;
+  letter-spacing: .04em;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid var(--ccs-border);
+  transition: background .15s ease, color .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+
+.ccs-rage-toggle.is-calm {
+  color: #1a2e1a;
+  background: linear-gradient(180deg, #e4efd8, #c5d9b0);
+  border-color: #4a6b3a;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .45);
+}
+
+.ccs-rage-toggle.is-raging {
+  color: #3a1510;
+  background: linear-gradient(180deg, #f5d0b0, #e07840);
+  border-color: #a84a28;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .4),
+    0 0 0 1px rgba(168, 74, 40, .25);
+}
+
+.ccs-rage-toggle:focus {
+  outline: 2px solid #6e5930;
+  outline-offset: 2px;
+}
+
+.ccs-rage-block.is-raging {
+  border-color: rgba(168, 74, 40, .55);
+  box-shadow: inset 0 0 0 1px rgba(168, 74, 40, .2);
+}
+
+.ccs-rage-block.is-rage-denied .ccs-sup-dice-current,
+.ccs-sup-dice-current.is-rage-denied {
+  animation: ccs-rage-shake .45s ease;
+  border-color: #a84a28;
+}
+
+@keyframes ccs-rage-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  75% { transform: translateX(3px); }
+}
+
+/* Rage-linked highlights (Ancestral Protectors, Athletics, STR, …) */
+[data-ccs-rage-feature] .ccs-rage-active-tag {
+  display: none;
+  margin-left: 6px;
+  padding: 1px 7px;
+  font-size: .72rem;
+  font-weight: bold;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  vertical-align: middle;
+  color: #3a1510;
+  background: linear-gradient(180deg, #f0c4a8, #d47848);
+  border: 1px solid #a84a28;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+[data-ccs-rage-feature].is-rage-active .ccs-rage-active-tag {
+  display: inline-block;
+}
+
+.ccs-maneuver[data-ccs-rage-feature].is-rage-active {
+  background: linear-gradient(90deg, rgba(212, 120, 72, .22), transparent 70%);
+  border-left: 3px solid #a84a28;
+  padding-left: 10px;
+  margin-left: -2px;
+}
+
+/* Athletics skill — same ember outline language */
+.ccs-skill-row[data-ccs-rage-feature] {
+  transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+
+.ccs-skill-row[data-ccs-rage-feature].is-rage-active {
+  border-color: #a84a28;
+  background: linear-gradient(90deg, rgba(212, 120, 72, .28), var(--ccs-row-fill) 65%);
+  box-shadow: inset 3px 0 0 #a84a28;
+}
+
+.ccs-skill-row[data-ccs-rage-feature] .ccs-skill-name {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 0;
+}
+
+.ccs-skill-row[data-ccs-rage-feature] .ccs-rage-active-tag {
+  margin-left: 0;
+}
+
+/* STR ability — full card outline + save row emphasis */
+.ccs-ability[data-ccs-rage-feature] {
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.ccs-ability[data-ccs-rage-feature] .ccs-ability-rage-tag {
+  display: none;
+  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: fit-content;
+  max-width: 100%;
+  white-space: normal;
+  line-height: 1.2;
+  letter-spacing: .03em;
+}
+
+.ccs-ability[data-ccs-rage-feature].is-rage-active {
+  border-color: #a84a28;
+  box-shadow:
+    0 3px 0 rgba(61, 46, 20, .2),
+    inset 0 0 0 1px rgba(168, 74, 40, .4),
+    0 0 0 2px rgba(168, 74, 40, .3);
+}
+
+.ccs-ability[data-ccs-rage-feature].is-rage-active .ccs-ability-rage-tag {
+  display: block;
+}
+
+.ccs-ability[data-ccs-rage-feature].is-rage-active .ccs-ability-save-row {
+  margin-top: 2px;
+  padding: 3px 6px;
+  border-radius: 8px;
+  background: rgba(212, 120, 72, .28);
+  box-shadow: inset 0 0 0 1px rgba(168, 74, 40, .45);
+}
+
+.ccs-ability[data-ccs-rage-feature].is-rage-active .ccs-ability-save {
+  color: #3a1510;
+}
+
+/* Combat — rage +2 damage (hint + damage lines only) */
+.ccs-hint[data-ccs-rage-feature] {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  padding: 8px 12px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+
+.ccs-hint[data-ccs-rage-feature] .ccs-rage-active-tag {
+  margin-left: 0;
+}
+
+.ccs-hint[data-ccs-rage-feature].is-rage-active {
+  border-color: #a84a28;
+  background: linear-gradient(90deg, rgba(212, 120, 72, .28), transparent 70%);
+  box-shadow: inset 3px 0 0 #a84a28;
+  color: var(--ccs-ink-olive-deep);
+}
+
+.ccs-weapon-line[data-ccs-rage-feature] {
+  padding: 4px 8px;
+  margin-left: -8px;
+  margin-right: -8px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+
+.ccs-weapon-line[data-ccs-rage-feature].is-rage-active {
+  border-color: #a84a28;
+  background: linear-gradient(90deg, rgba(212, 120, 72, .28), transparent 75%);
+  box-shadow: inset 3px 0 0 #a84a28;
+}
+
+.ccs-weapon-line[data-ccs-rage-feature].is-rage-active .ccs-weapon-stat {
+  border-color: rgba(168, 74, 40, .55);
+  background: rgba(240, 196, 168, .65);
+}
+
+.ccs-weapon-line[data-ccs-rage-feature] .ccs-rage-active-tag {
+  margin-left: 0;
 }
 
 .ccs-action-meta {
