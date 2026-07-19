@@ -601,8 +601,282 @@ a.campaign-banner-door:focus {
   color: var(--gold);
 }
 
+/* Dark vault panel — never parchment ink (invisible on near-black) */
+.page-deep-memory .book-panel.deep-memory-intro h2,
+.page-deep-memory .book-panel.deep-memory-intro .deep-memory-intro-title {
+  margin-top: 0;
+  color: var(--gold);
+  letter-spacing: .03em;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, .55);
+}
+
+/*
+ * Vault whisper — intentional near-invisibility (dark ink on dark panel).
+ * Readable only by selection / highlight. Easter-egg copy only.
+ */
+.page-deep-memory .vault-whisper {
+  color: #1a1520;
+  text-shadow: none;
+  font-weight: normal;
+  user-select: text;
+}
+
+.page-deep-memory .vault-whisper::selection {
+  color: var(--gold);
+  background: rgba(74, 45, 107, .85);
+}
+
 .page-deep-memory .deep-memory-shelf .section-label {
   text-shadow: 0 1px 8px rgba(0, 0, 0, .5);
+}
+
+/*
+ * Deep Memory vault links only:
+ * gold lettering on deep purple — readable on dark gray panels.
+ * Exclude full-card anchors (session/roster/companion/chamber doors keep their own look).
+ */
+.page-deep-memory main a:not(.session-index-card):not(.roster-card):not(.companion-card):not(.deep-memory-card):not(.chamber-door):not(.campaign-banner-door) {
+  color: var(--gold);
+  background: linear-gradient(180deg, #4a2d6b 0%, #2a183f 100%);
+  border: 1px solid #7a5a9e;
+  text-decoration: none;
+  padding: 0.12em 0.55em;
+  border-radius: 999px;
+  display: inline;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  line-height: 1.55;
+  box-shadow: 0 1px 0 rgba(216, 179, 95, .12);
+  transition: background .15s ease, border-color .15s ease, color .15s ease, box-shadow .15s ease;
+}
+
+.page-deep-memory main a:not(.session-index-card):not(.roster-card):not(.companion-card):not(.deep-memory-card):not(.chamber-door):not(.campaign-banner-door):visited {
+  color: var(--gold);
+}
+
+.page-deep-memory main a:not(.session-index-card):not(.roster-card):not(.companion-card):not(.deep-memory-card):not(.chamber-door):not(.campaign-banner-door):hover,
+.page-deep-memory main a:not(.session-index-card):not(.roster-card):not(.companion-card):not(.deep-memory-card):not(.chamber-door):not(.campaign-banner-door):focus-visible {
+  color: #f5e6b8;
+  background: linear-gradient(180deg, #5c3a82 0%, #3a2460 100%);
+  border-color: var(--gold);
+  box-shadow: 0 0 0 1px rgba(216, 179, 95, .4);
+}
+
+.page-deep-memory main a:not(.session-index-card):not(.roster-card):not(.companion-card):not(.deep-memory-card):not(.chamber-door):not(.campaign-banner-door) strong {
+  color: inherit;
+  font-weight: bold;
+}
+
+/* —— Witness hub block (vault-native; not a campaign door) —— */
+.witness-block {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 0;
+  margin-top: 14px;
+  max-width: 720px;
+  background: linear-gradient(180deg, #1a1628, #0e0c14);
+  border: 2px solid #6a4a8a;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, .4), inset 0 0 0 1px rgba(122, 90, 158, .25);
+}
+
+.witness-block-portrait {
+  background: #0a0810;
+  border-right: 1px solid #3d2a50;
+  min-height: 180px;
+}
+
+.witness-block-portrait img {
+  width: 100%;
+  height: 100%;
+  min-height: 180px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: saturate(.92) brightness(.88);
+}
+
+.witness-block-body {
+  padding: 16px 18px 18px;
+}
+
+.witness-block-name {
+  margin: 0;
+  color: var(--gold);
+  font-size: 1.35rem;
+  letter-spacing: .03em;
+}
+
+.witness-block-role {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: .95rem;
+}
+
+.witness-block-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.witness-block-blurb {
+  margin: 12px 0 0;
+  color: #d8d0c0;
+  font-size: .95rem;
+  line-height: 1.45;
+}
+
+.witness-block-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  margin: 14px 0 0;
+}
+
+/* —— Chamber doors (campaign portals on hub) —— */
+.chamber-door-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+  margin-top: 16px;
+  max-width: 900px;
+}
+
+a.chamber-door {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--text);
+  background: linear-gradient(180deg, #1c2230, #11141c);
+  border: 2px solid #544221;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+  transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+
+a.chamber-door:hover,
+a.chamber-door:focus-visible {
+  transform: translateY(-3px);
+  border-color: var(--gold);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .5);
+  outline: none;
+}
+
+a.chamber-door:visited {
+  color: var(--text);
+}
+
+.chamber-door-image {
+  position: relative;
+  height: 160px;
+  background: #05060a;
+  overflow: hidden;
+}
+
+.chamber-door-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  filter: saturate(.85) brightness(.75);
+  transition: filter .15s ease, transform .2s ease;
+}
+
+a.chamber-door:hover .chamber-door-image img {
+  filter: saturate(.95) brightness(.88);
+  transform: scale(1.03);
+}
+
+.chamber-door-status {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: .72rem;
+  font-weight: bold;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid;
+}
+
+.chamber-door-status-active {
+  color: #0f2a12;
+  background: linear-gradient(180deg, #e4efd8, #c5d9b0);
+  border-color: #4a6b3a;
+}
+
+.chamber-door-status-archive {
+  color: #e8eef4;
+  background: linear-gradient(180deg, #3a4a5c, #2C3E50);
+  border-color: #5a6a7a;
+}
+
+.chamber-door-body {
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.chamber-door-title {
+  margin: 0;
+  color: var(--gold);
+  font-size: 1.2rem;
+  letter-spacing: .03em;
+}
+
+.chamber-door-party {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.chamber-door-line {
+  margin: 10px 0 0;
+  color: #c8c0b0;
+  font-size: .9rem;
+  line-height: 1.4;
+  flex: 1;
+}
+
+.chamber-door-cta {
+  display: inline-block;
+  margin-top: 14px;
+  color: var(--gold);
+  font-size: .95rem;
+  letter-spacing: .02em;
+  border-bottom: 1px solid rgba(216, 179, 95, .35);
+  align-self: flex-start;
+}
+
+a.chamber-door:hover .chamber-door-cta {
+  border-bottom-color: var(--gold);
+}
+
+@media (max-width: 600px) {
+  .witness-block {
+    grid-template-columns: 1fr;
+  }
+
+  .witness-block-portrait {
+    border-right: 0;
+    border-bottom: 1px solid #3d2a50;
+    max-height: 200px;
+  }
+
+  .witness-block-portrait img {
+    min-height: 160px;
+    max-height: 200px;
+  }
+
+  .chamber-door-image {
+    height: 130px;
+  }
 }
 
 @media (max-width: 600px) {
