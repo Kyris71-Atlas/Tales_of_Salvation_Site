@@ -49,6 +49,12 @@
   Mantis (CCS)
 </div>
 
+<nav class="sol-play-tabs mantis-sheet-tabs" id="mantis-tabs" aria-label="Mantis sheet sections">
+  <a href="#mantis-combat" class="mantis-tab mantis-tab-combat is-current" data-mantis-jump>Combat</a>
+  <a href="#mantis-skills" class="mantis-tab mantis-tab-skills" data-mantis-jump>Skills</a>
+  <a href="#mantis-actions" class="mantis-tab mantis-tab-actions" data-mantis-jump>Metamagic</a>
+</nav>
+
 <div class="book-panel">
 <p class="ccs-product-banner" style="margin:0 0 14px;padding:10px 14px;border:1px solid #6e5930;border-radius:10px;background:rgba(216,179,95,.08);font-size:.95rem"><strong>Company Character Sheet</strong> — table play sheet for Tempest Company. Not a Discovery Report. Archive &amp; story: <a href="mantis.html">Mantis — Discovery Report</a>.</p>
 
@@ -86,7 +92,7 @@
     <span><strong>Confidence</strong> Verified from FG unless noted</span>
   </div>
 
-  <!-- 1 · Core Stats -->
+  <!-- 1 · Core Stats (no combat outline) -->
   <section class="ccs-section" id="core-stats" aria-labelledby="core-stats-title">
     <h3 id="core-stats-title">1 · Core Stats</h3>
     <div class="ccs-core-board">
@@ -261,9 +267,83 @@
     </p>
   </section>
 
-  <!-- 3 · Combat -->
-  <section class="ccs-section" id="combat" aria-labelledby="combat-title">
-    <h3 id="combat-title">3 · Combat</h3>
+  <!-- 3 · Skills -->
+  <section class="ccs-section mantis-zone mantis-zone-skills" id="mantis-skills" aria-labelledby="skills-title">
+    <h3 id="skills-title">3 · Skills (proficient)</h3>
+    <div class="ccs-skills-header">
+      <p class="ccs-skills-lead">Mantis’s level 5 proficiency bonus is <strong>+3</strong></p>
+      <span class="ccs-skills-colhead ccs-skills-colhead-abil">Ability modifier</span>
+      <span class="ccs-skills-colhead ccs-skills-colhead-prof">Proficiency bonus</span>
+      <span class="ccs-skills-colhead ccs-skills-colhead-total"></span>
+    </div>
+    <ul class="ccs-skill-list">
+      <li class="ccs-skill-row">
+        <span class="ccs-skill-name">Acrobatics</span>
+        <span class="ccs-skill-modpair">
+          <span class="ccs-skill-abil">(DEX)</span>
+          <span class="ccs-skill-abilmod">+2</span>
+        </span>
+        <span class="ccs-skill-prof">+3</span>
+        <span class="ccs-skill-result">
+          <span class="ccs-skill-eq">=</span>
+          <span class="ccs-skill-total">+5</span>
+        </span>
+      </li>
+      <li class="ccs-skill-row">
+        <span class="ccs-skill-name">Insight</span>
+        <span class="ccs-skill-modpair">
+          <span class="ccs-skill-abil">(WIS)</span>
+          <span class="ccs-skill-abilmod">+0</span>
+        </span>
+        <span class="ccs-skill-prof">+3</span>
+        <span class="ccs-skill-result">
+          <span class="ccs-skill-eq">=</span>
+          <span class="ccs-skill-total">+3</span>
+        </span>
+      </li>
+      <li class="ccs-skill-row">
+        <span class="ccs-skill-name">Religion</span>
+        <span class="ccs-skill-modpair">
+          <span class="ccs-skill-abil">(INT)</span>
+          <span class="ccs-skill-abilmod">−1</span>
+        </span>
+        <span class="ccs-skill-prof">+3</span>
+        <span class="ccs-skill-result">
+          <span class="ccs-skill-eq">=</span>
+          <span class="ccs-skill-total">+2</span>
+        </span>
+      </li>
+      <li class="ccs-skill-row">
+        <span class="ccs-skill-name">Sleight of Hand</span>
+        <span class="ccs-skill-modpair">
+          <span class="ccs-skill-abil">(DEX)</span>
+          <span class="ccs-skill-abilmod">+2</span>
+        </span>
+        <span class="ccs-skill-prof">+3</span>
+        <span class="ccs-skill-result">
+          <span class="ccs-skill-eq">=</span>
+          <span class="ccs-skill-total">+5</span>
+        </span>
+      </li>
+      <li class="ccs-skill-row">
+        <span class="ccs-skill-name">Stealth</span>
+        <span class="ccs-skill-modpair">
+          <span class="ccs-skill-abil">(DEX)</span>
+          <span class="ccs-skill-abilmod">+2</span>
+        </span>
+        <span class="ccs-skill-prof">+3</span>
+        <span class="ccs-skill-result">
+          <span class="ccs-skill-eq">=</span>
+          <span class="ccs-skill-total">+5</span>
+        </span>
+      </li>
+    </ul>
+    <p class="ccs-note">Skills without proficiency: Roll 1d20 + Ability Modifier (e.g. CHA skills +4 unaided).</p>
+  </section>
+
+  <!-- 4 · Combat only — red outline -->
+  <section class="ccs-section mantis-zone mantis-zone-combat" id="mantis-combat" aria-labelledby="combat-title">
+    <h3 id="combat-title">4 · Combat</h3>
     <p class="ccs-hint">Spell attack <strong>+7</strong> · Spell save DC <strong>15</strong> (CHA). Elemental Adept (Lightning): ignore lightning resistance; treat 1s as 2s on lightning spell damage dice.</p>
     <ul class="ccs-weapon-list">
       <li class="ccs-weapon">
@@ -276,10 +356,29 @@
         <div class="ccs-weapon-line"><span class="ccs-weapon-label">Attack</span> <span class="ccs-weapon-stat">+7</span> <span class="ccs-weapon-detail">cantrip · touch · adv vs metal armor</span></div>
         <div class="ccs-weapon-line"><span class="ccs-weapon-label">Damage</span> <span class="ccs-weapon-stat">2d8</span> <span class="ccs-weapon-detail">lightning · no reactions until next turn</span></div>
       </li>
-      <li class="ccs-weapon">
+      <li class="ccs-weapon" data-mantis-chaos>
         <div class="ccs-weapon-name">Chaos Bolt</div>
         <div class="ccs-weapon-line"><span class="ccs-weapon-label">Attack</span> <span class="ccs-weapon-stat">+7</span> <span class="ccs-weapon-detail">1st+ · 120 ft</span></div>
-        <div class="ccs-weapon-line"><span class="ccs-weapon-label">Damage</span> <span class="ccs-weapon-stat">2d8 + 1d6</span> <span class="ccs-weapon-detail">type from d8 · leap on doubles</span></div>
+        <div class="ccs-weapon-line"><span class="ccs-weapon-label">Damage</span> <span class="ccs-weapon-stat">2d8 + 1d6</span> <span class="ccs-weapon-detail">type from one d8 · leap if both d8s match</span></div>
+        <div class="mantis-chaos-type" style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:10px;padding:10px 12px;border:1px solid rgba(110,89,48,.45);border-radius:10px;background:rgba(255,255,255,.35)">
+          <label for="mantis-chaos-d8" style="font-size:.82rem;font-weight:bold;letter-spacing:.04em;text-transform:uppercase;color:#3D2E14">
+            d8 type
+          </label>
+          <input
+            id="mantis-chaos-d8"
+            type="text"
+            inputmode="numeric"
+            maxlength="1"
+            placeholder="?"
+            aria-label="Chaos Bolt damage type d8 (1 through 8)"
+            title="Enter the d8 result (1–8) that sets the damage type"
+            autocomplete="off"
+            style="width:2.6em;padding:6px 8px;font-family:Georgia,serif;font-size:1.15rem;font-weight:bold;text-align:center;border:2px solid #6e5930;border-radius:8px;background:#fff8e8;color:#20180f"
+          >
+          <span class="mantis-chaos-reveal" data-mantis-chaos-reveal aria-live="polite" style="font-size:1.05rem;font-weight:bold;color:#3D2E14;min-height:1.4em">
+            <!-- type appears here -->
+          </span>
+        </div>
       </li>
       <li class="ccs-weapon">
         <div class="ccs-weapon-name">Lightning Bolt</div>
@@ -361,98 +460,39 @@
     </p>
   </section>
 
-  <!-- 4 · Skills -->
-  <section class="ccs-section" id="skills" aria-labelledby="skills-title">
-    <h3 id="skills-title">4 · Skills (proficient)</h3>
-    <div class="ccs-skills-header">
-      <p class="ccs-skills-lead">Mantis’s level 5 proficiency bonus is <strong>+3</strong></p>
-      <span class="ccs-skills-colhead ccs-skills-colhead-abil">Ability modifier</span>
-      <span class="ccs-skills-colhead ccs-skills-colhead-prof">Proficiency bonus</span>
-      <span class="ccs-skills-colhead ccs-skills-colhead-total"></span>
-    </div>
-    <ul class="ccs-skill-list">
-      <li class="ccs-skill-row">
-        <span class="ccs-skill-name">Acrobatics</span>
-        <span class="ccs-skill-modpair">
-          <span class="ccs-skill-abil">(DEX)</span>
-          <span class="ccs-skill-abilmod">+2</span>
-        </span>
-        <span class="ccs-skill-prof">+3</span>
-        <span class="ccs-skill-result">
-          <span class="ccs-skill-eq">=</span>
-          <span class="ccs-skill-total">+5</span>
-        </span>
-      </li>
-      <li class="ccs-skill-row">
-        <span class="ccs-skill-name">Insight</span>
-        <span class="ccs-skill-modpair">
-          <span class="ccs-skill-abil">(WIS)</span>
-          <span class="ccs-skill-abilmod">+0</span>
-        </span>
-        <span class="ccs-skill-prof">+3</span>
-        <span class="ccs-skill-result">
-          <span class="ccs-skill-eq">=</span>
-          <span class="ccs-skill-total">+3</span>
-        </span>
-      </li>
-      <li class="ccs-skill-row">
-        <span class="ccs-skill-name">Religion</span>
-        <span class="ccs-skill-modpair">
-          <span class="ccs-skill-abil">(INT)</span>
-          <span class="ccs-skill-abilmod">−1</span>
-        </span>
-        <span class="ccs-skill-prof">+3</span>
-        <span class="ccs-skill-result">
-          <span class="ccs-skill-eq">=</span>
-          <span class="ccs-skill-total">+2</span>
-        </span>
-      </li>
-      <li class="ccs-skill-row">
-        <span class="ccs-skill-name">Sleight of Hand</span>
-        <span class="ccs-skill-modpair">
-          <span class="ccs-skill-abil">(DEX)</span>
-          <span class="ccs-skill-abilmod">+2</span>
-        </span>
-        <span class="ccs-skill-prof">+3</span>
-        <span class="ccs-skill-result">
-          <span class="ccs-skill-eq">=</span>
-          <span class="ccs-skill-total">+5</span>
-        </span>
-      </li>
-      <li class="ccs-skill-row">
-        <span class="ccs-skill-name">Stealth</span>
-        <span class="ccs-skill-modpair">
-          <span class="ccs-skill-abil">(DEX)</span>
-          <span class="ccs-skill-abilmod">+2</span>
-        </span>
-        <span class="ccs-skill-prof">+3</span>
-        <span class="ccs-skill-result">
-          <span class="ccs-skill-eq">=</span>
-          <span class="ccs-skill-total">+5</span>
-        </span>
-      </li>
-    </ul>
-    <p class="ccs-note">Skills without proficiency: Roll 1d20 + Ability Modifier (e.g. CHA skills +4 unaided).</p>
-  </section>
 
   <!-- 5 · Actions -->
-  <section class="ccs-section" id="actions" aria-labelledby="actions-title">
-    <h3 id="actions-title">5 · Actions</h3>
-    <p class="ccs-hint">Sorcery points and storm tricks — same spirit as FG’s feature list under spells.</p>
+  <section class="ccs-section" id="mantis-actions" aria-labelledby="actions-title">
+    <h3 id="actions-title">5 · Metamagic <span class="mantis-h3-sub">Font of Magic</span></h3>
+    <p class="ccs-hint">
+      Mantis has <strong>two different fuels</strong>. Don’t mix them up:
+    </p>
 
-    <div class="ccs-superiority">
+    <div class="mantis-fuel-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:10px 0 14px">
+      <div class="ccs-maneuver" style="margin:0">
+        <div class="ccs-action-name">1 · Spell slots</div>
+        <div class="ccs-action-meta">Track above under Combat</div>
+        <p class="ccs-action-body">
+          Spend a slot to <strong>cast a spell</strong> of that level (or lower).
+          Example: Lightning Bolt needs a <strong>3rd</strong>-level slot.
+          <strong>Long rest</strong> → all slots back.
+        </p>
+      </div>
+      <div class="ccs-maneuver" style="margin:0">
+        <div class="ccs-action-name">2 · Sorcery points</div>
+        <div class="ccs-action-meta">This section · max 5 at level 5</div>
+        <p class="ccs-action-body">
+          Spend points for <strong>metamagic</strong> (cooler casts) or
+          <strong>Flexible Casting</strong> (trade points ↔ slots).
+          <strong>Long rest</strong> → all points back.
+        </p>
+      </div>
+    </div>
+
+    <div class="ccs-superiority mantis-zone mantis-zone-sorcery">
       <div class="ccs-superiority-head">
         <div class="ccs-action-top">
-          <div class="ccs-action-name">Font of Magic</div>
-          <button
-            type="button"
-            class="ccs-use-toggle"
-            data-ccs-use-toggle
-            data-character="mantis"
-            data-feature="combat-superiority"
-            data-linked-sup-dice="1"
-            aria-pressed="false"
-          >Ready</button>
+          <div class="ccs-action-name">Sorcery points</div>
         </div>
         <div
           class="ccs-action-meta ccs-sup-dice-line"
@@ -460,7 +500,7 @@
           data-character="mantis"
           data-sup-max="5"
         >
-          Sorcery points:
+          Points left:
           <input
             type="number"
             class="ccs-sup-dice-current"
@@ -470,35 +510,84 @@
             max="5"
             value="5"
             aria-label="Sorcery points remaining"
-            title="Points remaining"
+            title="Spend for metamagic or Flexible Casting"
           >
           / 5
         </div>
         <p class="ccs-action-body">
-          Spend points for metamagic or to create spell slots (bonus action). Convert a spell slot into points (bonus action).
-          <strong>You regain all expended sorcery points when you finish a long rest.</strong>
+          Start each day at <strong>5</strong>. Tap the number down when you spend.
+          <strong>Long rest → set back to 5.</strong>
+          (No Ready/Used button — the number <em>is</em> the track.)
         </p>
       </div>
-      <div class="ccs-maneuver-grid">
+
+      <div class="ccs-maneuver-grid" style="grid-template-columns:1fr 1fr;margin-top:12px">
         <div class="ccs-maneuver">
-          <div class="ccs-action-name">Empowered Spell</div>
-          <div class="ccs-action-meta">When you roll damage · 1 point</div>
+          <div class="ccs-action-name">Flexible Casting · Create a slot</div>
+          <div class="ccs-action-meta">Bonus action · spend points → gain a spell slot</div>
           <p class="ccs-action-body">
-            Reroll up to <strong>CHA mod (4)</strong> damage dice; must use the new rolls.
+            Out of slots but need to cast? Buy a slot with points:
+          </p>
+          <ul class="ccs-list" style="margin-top:8px">
+            <li><span class="ccs-item-name">1st-level slot</span><span class="ccs-item-meta">costs <strong>2</strong> points</span></li>
+            <li><span class="ccs-item-name">2nd-level slot</span><span class="ccs-item-meta">costs <strong>3</strong> points</span></li>
+            <li><span class="ccs-item-name">3rd-level slot</span><span class="ccs-item-meta">costs <strong>5</strong> points</span></li>
+          </ul>
+          <p class="ccs-note" style="margin-top:8px">
+            Then cast your spell and spend that new slot as usual.
+            Created slots vanish if unused when you finish a long rest.
           </p>
         </div>
         <div class="ccs-maneuver">
-          <div class="ccs-action-name">Twinned Spell</div>
-          <div class="ccs-action-meta">Cast single-target spell · points = level</div>
+          <div class="ccs-action-name">Flexible Casting · Slot → points</div>
+          <div class="ccs-action-meta">Bonus action · burn a spell slot → gain points</div>
           <p class="ccs-action-body">
-            Target a second creature in range with the same spell (1 point if cantrip). Spell must not be able to target more than one creature at its current level.
+            Need points for metamagic? Convert a slot you aren’t using:
+          </p>
+          <ul class="ccs-list" style="margin-top:8px">
+            <li><span class="ccs-item-name">1st-level slot</span><span class="ccs-item-meta">gives <strong>2</strong> points</span></li>
+            <li><span class="ccs-item-name">2nd-level slot</span><span class="ccs-item-meta">gives <strong>3</strong> points</span></li>
+            <li><span class="ccs-item-name">3rd-level slot</span><span class="ccs-item-meta">gives <strong>5</strong> points</span></li>
+          </ul>
+          <p class="ccs-note" style="margin-top:8px">
+            Lower the slot track above, raise sorcery points here (max 5).
+            You can’t go over 5 points.
+          </p>
+        </div>
+      </div>
+
+      <p class="ccs-hint" style="margin-top:14px">
+        <strong>Quick recipes (level 5)</strong><br>
+        · Need one more 1st-level cast? <strong>−2 points → +1 1st slot → cast</strong><br>
+        · Need points for Twinned 1st? <strong>burn a 1st slot (+2 pts) or 2nd (+3)</strong><br>
+        · Want Empowered Lightning Bolt? Cast with a 3rd slot, then spend <strong>1 point</strong> to reroll damage dice
+      </p>
+
+      <div class="ccs-maneuver-grid" style="margin-top:12px">
+        <div class="ccs-maneuver">
+          <div class="ccs-action-name">Metamagic · Empowered Spell</div>
+          <div class="ccs-action-meta">When you roll damage · <strong>1 point</strong></div>
+          <p class="ccs-action-body">
+            Reroll up to <strong>4</strong> damage dice (CHA mod); must use the new rolls.
+            Great with Lightning Bolt / Chaos Bolt.
+          </p>
+        </div>
+        <div class="ccs-maneuver">
+          <div class="ccs-action-name">Metamagic · Twinned Spell</div>
+          <div class="ccs-action-meta">When you cast · points = <strong>spell level</strong> (cantrip = 1)</div>
+          <p class="ccs-action-body">
+            Spell must target <strong>only one creature</strong>.
+            Twin it onto a second creature in range.
+            Example: twin a 1st-level single-target spell → spend <strong>1 point</strong> + the slot.
           </p>
         </div>
         <div class="ccs-maneuver">
           <div class="ccs-action-name">Tempestuous Magic</div>
-          <div class="ccs-action-meta">Bonus action · after casting 1st+</div>
+          <div class="ccs-action-meta">Bonus action · after casting a 1st+ spell · <strong>free</strong> (not points)</div>
           <p class="ccs-action-body">
-            Fly up to <strong>10 ft</strong> without provoking opportunity attacks (table note: BG3-style 30 ft if using that house rule).
+            Fly up to <strong>10 ft</strong> without opportunity attacks
+            (table note: BG3-style 30 ft if using that house rule).
+            This is storm sorcerer, not Font of Magic — no sorcery points.
           </p>
         </div>
       </div>
@@ -751,17 +840,15 @@
     load();
   })();
 
-  /* Sorcery points + Ready/Used (0 points can mark Used) */
+  /* Sorcery points only (no Ready/Used — the number is the track) */
   (function () {
     var root = document.querySelector("[data-ccs-sup-dice]");
     var input = root && root.querySelector(".ccs-sup-dice-current");
-    var btn = document.querySelector('[data-ccs-use-toggle][data-feature="combat-superiority"]');
     if (!root || !input) return;
 
     var character = root.getAttribute("data-character") || "character";
     var maxVal = parseInt(root.getAttribute("data-sup-max"), 10) || 5;
     var diceKey = "ccs-sup-dice:" + character;
-    var useKey = "ccs-use:" + character + ":combat-superiority";
     input.max = String(maxVal);
     input.min = "0";
 
@@ -771,27 +858,16 @@
       if (n > maxVal) return maxVal;
       return n;
     }
-
-    function setToggle(used) {
-      if (!btn) return;
-      btn.textContent = used ? "Used" : "Ready";
-      btn.setAttribute("aria-pressed", used ? "true" : "false");
-      btn.classList.toggle("is-ready", !used);
-      btn.classList.toggle("is-used", used);
-      try {
-        localStorage.setItem(useKey, used ? "used" : "ready");
-      } catch (e) { /* private mode */ }
+    function paint() {
+      var n = clamp(parseInt(input.value, 10));
+      input.classList.toggle("is-zero", n === 0);
     }
-
-    function setDice(n, skipToggleSync) {
+    function setDice(n) {
       n = clamp(n);
       input.value = String(n);
-      try {
-        localStorage.setItem(diceKey, String(n));
-      } catch (e) { /* private mode */ }
-      if (!skipToggleSync && n === 0) setToggle(true);
+      paint();
+      try { localStorage.setItem(diceKey, String(n)); } catch (e) { /* private */ }
     }
-
     function load() {
       var dice = maxVal;
       try {
@@ -799,43 +875,15 @@
         if (raw !== null && raw !== "") dice = clamp(parseInt(raw, 10));
       } catch (e) { /* ignore */ }
       input.value = String(dice);
-      var used = false;
-      try {
-        used = localStorage.getItem(useKey) === "used";
-      } catch (e) { /* ignore */ }
-      if (dice === 0) used = true;
-      setToggle(used);
+      paint();
     }
 
-    input.addEventListener("change", function () {
-      setDice(parseInt(input.value, 10));
-    });
-    input.addEventListener("blur", function () {
-      setDice(parseInt(input.value, 10));
-    });
-    input.addEventListener("input", function () {
-      var n = parseInt(input.value, 10);
-      if (!isNaN(n) && n === 0) setToggle(true);
-    });
+    input.addEventListener("change", function () { setDice(parseInt(input.value, 10)); });
+    input.addEventListener("blur", function () { setDice(parseInt(input.value, 10)); });
+    input.addEventListener("input", paint);
     input.addEventListener("keydown", function (ev) {
-      if (ev.key === "Enter") {
-        setDice(parseInt(input.value, 10));
-        input.blur();
-      }
+      if (ev.key === "Enter") { setDice(parseInt(input.value, 10)); input.blur(); }
     });
-
-    if (btn) {
-      btn.addEventListener("click", function () {
-        var goingUsed = btn.getAttribute("aria-pressed") !== "true";
-        if (goingUsed) {
-          setToggle(true);
-        } else {
-          setToggle(false);
-          if (clamp(parseInt(input.value, 10)) === 0) setDice(maxVal, true);
-        }
-      });
-    }
-
     load();
   })();
 
@@ -923,6 +971,117 @@
     });
 
     load();
+  })();
+
+  /* Chaos Bolt — enter d8 1–8, reveal damage type */
+  (function () {
+    var root = document.querySelector("[data-mantis-chaos]");
+    var input = root && root.querySelector("#mantis-chaos-d8");
+    var out = root && root.querySelector("[data-mantis-chaos-reveal]");
+    if (!root || !input || !out) return;
+
+    /* Official type chart + table colors for the reveal */
+    var types = {
+      1: { name: "Acid", color: "#4a7c23", glow: "rgba(74, 124, 35, .35)" },
+      2: { name: "Cold", color: "#3a7ca5", glow: "rgba(58, 124, 165, .35)" },
+      3: { name: "Fire", color: "#c44a1a", glow: "rgba(196, 74, 26, .4)" },
+      4: { name: "Force", color: "#6b4c9a", glow: "rgba(107, 76, 154, .4)" },
+      5: { name: "Lightning", color: "#0d7ab8", glow: "rgba(46, 184, 255, .45)" },
+      6: { name: "Poison", color: "#5a7a28", glow: "rgba(120, 140, 40, .4)" },
+      7: { name: "Psychic", color: "#a8388a", glow: "rgba(168, 56, 138, .4)" },
+      8: { name: "Thunder", color: "#8a7020", glow: "rgba(216, 179, 95, .45)" }
+    };
+
+    function clearLook() {
+      out.textContent = "";
+      out.style.color = "#3D2E14";
+      out.style.textShadow = "none";
+      input.style.borderColor = "#6e5930";
+      input.style.boxShadow = "none";
+      input.style.color = "#20180f";
+    }
+
+    function paint() {
+      var raw = (input.value || "").trim();
+      if (raw === "" || raw === "?") {
+        clearLook();
+        return;
+      }
+      var n = parseInt(raw, 10);
+      if (isNaN(n) || n < 1 || n > 8) {
+        out.textContent = "Use 1–8";
+        out.style.color = "#8B3A1F";
+        out.style.textShadow = "none";
+        input.style.borderColor = "#8B3A1F";
+        input.style.boxShadow = "none";
+        return;
+      }
+      var t = types[n];
+      out.style.color = t.color;
+      out.style.textShadow = "0 0 10px " + t.glow;
+      input.style.borderColor = t.color;
+      input.style.boxShadow = "0 0 0 2px " + t.glow;
+      input.style.color = t.color;
+      if (n === 5) {
+        out.textContent = t.name + " · Elemental Adept applies";
+      } else {
+        out.textContent = t.name;
+      }
+    }
+
+    input.addEventListener("input", function () {
+      /* keep only one digit 1–8 if typed */
+      var v = input.value.replace(/[^1-8]/g, "");
+      if (v.length > 1) v = v.charAt(0);
+      input.value = v;
+      paint();
+    });
+    input.addEventListener("change", paint);
+    input.addEventListener("blur", function () {
+      var n = parseInt(input.value, 10);
+      if (input.value !== "" && (isNaN(n) || n < 1 || n > 8)) input.value = "";
+      paint();
+    });
+  })();
+
+  /* Combat / Skills / Actions — scroll jumps on this one page */
+  (function () {
+    var tabs = document.querySelectorAll("[data-mantis-jump]");
+    if (!tabs.length) return;
+
+    function setCurrent(hash) {
+      tabs.forEach(function (a) {
+        var on = a.getAttribute("href") === hash;
+        a.classList.toggle("is-current", on);
+        if (on) a.setAttribute("aria-current", "page");
+        else a.removeAttribute("aria-current");
+      });
+    }
+
+    tabs.forEach(function (a) {
+      a.addEventListener("click", function (ev) {
+        var href = a.getAttribute("href");
+        if (!href || href.charAt(0) !== "#") return;
+        var target = document.querySelector(href);
+        if (!target) return;
+        ev.preventDefault();
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+        setCurrent(href);
+        try {
+          history.replaceState(null, "", href);
+        } catch (e) { /* ignore */ }
+      });
+    });
+
+    if (location.hash && document.querySelector(location.hash)) {
+      setCurrent(location.hash);
+      setTimeout(function () {
+        var t = document.querySelector(location.hash);
+        if (t) t.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 50);
+    } else {
+      setCurrent("#mantis-combat");
+    }
   })();
 })();
 </script>
