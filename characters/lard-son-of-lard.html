@@ -11,6 +11,68 @@
 .discovery-card h4{margin-top:0}
 .abilities{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;text-align:center}
 .abilities div{background:rgba(255,255,255,.2);border:1px solid rgba(110,89,48,.65);border-radius:10px;padding:8px 4px}
+
+
+.interview-hero{margin-top:1.4rem;padding:1.3rem 1.4rem;border:1px solid rgba(180,150,90,.45);border-radius:14px;background:linear-gradient(135deg,rgba(216,179,95,.10),rgba(255,255,255,.025))}
+.interview-kicker{font-size:.78rem;letter-spacing:.13em;text-transform:uppercase;opacity:.78;margin-bottom:.45rem}
+.interview-hero h3{margin:.15rem 0 .5rem;font-size:1.55rem}
+.interview-hero p{max-width:72ch}
+.phase-badge{display:inline-block;margin-top:.55rem;padding:.32rem .62rem;border:1px solid rgba(180,150,90,.55);border-radius:999px;font-size:.78rem;letter-spacing:.04em;background:rgba(216,179,95,.08)}
+.dm-message{margin-top:1.2rem;padding:1.2rem 1.3rem;border-left:4px solid rgba(216,179,95,.75);background:rgba(255,248,220,.035);border-radius:0 10px 10px 0}
+.dm-message h3{margin-top:0}
+.interview-list{margin-top:1.25rem;display:grid;gap:1rem}
+.interview-item{border:1px solid rgba(180,150,90,.35);border-radius:12px;overflow:hidden;background:rgba(255,248,220,.025)}
+.interview-question{padding:1rem 1.1rem;background:rgba(216,179,95,.07);border-bottom:1px solid rgba(180,150,90,.25)}
+.interview-question .label{display:block;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;opacity:.72;margin-bottom:.35rem}
+.interview-question h4{margin:.1rem 0 .45rem;font-size:1.1rem}
+.interview-question p{margin:.35rem 0}
+.player-answer{padding:1rem 1.1rem 1.05rem}
+.player-answer .label{display:block;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;opacity:.72;margin-bottom:.45rem}
+.player-answer blockquote{margin:0;padding:.85rem 1rem;border-left:3px solid rgba(216,179,95,.85);background:rgba(255,255,255,.035);font-style:italic;border-radius:0 8px 8px 0}
+/* Q5 · roper memory token heading into the answer */
+.player-answer-with-memory{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:10px 14px;
+  align-items:start;
+}
+.player-answer-with-memory > .label{grid-column:1 / -1;margin-bottom:0}
+.roper-memory{
+  margin:0;
+  width:92px;
+  text-align:center;
+}
+.roper-memory img{
+  display:block;
+  width:92px;
+  height:auto;
+  border-radius:50%;
+  border:2px solid rgba(180,150,90,.55);
+  box-shadow:0 2px 10px rgba(0,0,0,.22);
+  background:rgba(20,16,10,.2);
+}
+.roper-memory figcaption{
+  margin-top:6px;
+  font-size:.66rem;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  line-height:1.25;
+  opacity:.74;
+  font-style:normal;
+  color:var(--ccs-ink-olive, inherit);
+}
+.understanding{margin-top:1.3rem;padding:1.25rem 1.3rem;border:1px solid rgba(180,150,90,.5);border-radius:14px;background:linear-gradient(180deg,rgba(216,179,95,.09),rgba(255,248,220,.025))}
+.understanding h3{margin-top:0}
+.understanding .core-line{font-size:1.12rem;line-height:1.6;margin:.8rem 0 0;padding:.85rem 1rem;border-left:4px solid rgba(216,179,95,.85);background:rgba(255,255,255,.035)}
+.atlas-signoff{text-align:right;margin-top:1rem;font-style:italic;opacity:.8}
+@media(max-width:720px){
+  .abilities{grid-template-columns:repeat(3,1fr)}
+  .interview-hero,.dm-message,.understanding{padding:1rem}
+  .interview-question,.player-answer{padding:.9rem}
+  .player-answer-with-memory{grid-template-columns:72px 1fr;gap:8px 10px}
+  .roper-memory{width:72px}
+  .roper-memory img{width:72px}
+}
 </style>
 </head>
 <body>
@@ -63,6 +125,7 @@ Lard son of Lard
 <div class="nameplate">
 <h2>Lard son of Lard</h2>
 <div class="subtitle">Stone Goliath · Ancestral Guardian Barbarian 5 · Folk Hero</div>
+<p class="quote">"His strength isn't defined by the enemies he defeats, but by the friends he protects."</p>
 <span class="badge">Tempest Company</span>
 <span class="badge">Ancestral Guardian</span>
 <span class="badge">Folk Hero</span>
@@ -85,6 +148,78 @@ Lard son of Lard
 <div class="discovery-card"><h4>Combat Kit (names)</h4><p>Greataxe, handaxes, Morningstar, Fine Warhammer, Pariah's Shield, Gauntlets of Ogre Power, potions of healing, smith's tools, T. TeaLeaf's Journal, field kit.</p></div>
 </div>
 </div>
+
+
+<div class="interview-hero">
+  <div class="interview-kicker">Atlas Discovery Engine</div>
+  <h3>Atlas Interview: Lard son of Lard</h3>
+  <p>After examining Lard's character record, campaign history, relationships, equipment, and the context provided by The DM, Atlas prepared a set of questions designed to reach beyond what the campaign files alone could reveal.</p>
+  <span class="phase-badge">Phase 5 · Human Validation</span>
+</div>
+
+<section class="dm-message">
+  <h3>A Message from The DM</h3>
+  <p>The questions you're about to read are a little different.</p>
+  <p>Rather than writing them myself, I asked <em>Atlas</em>, the Tales of Salvation Archive and Atlas Discovery Engine, to study Lard's journey first.</p>
+  <p>Before asking a single question, Atlas discovered Lard's story through the Fantasy Grounds campaign records, notable events, relationships, equipment, and the history that unfolded throughout the adventure. Atlas then combined those discoveries with context provided by The DM to build its own understanding of Lard.</p>
+  <p>These are not random interview prompts. They are questions Atlas believed were worth asking after discovering Lard's story.</p>
+  <p>Some may surprise you. Some may remind you of moments you'd forgotten. And perhaps one or two may make you wonder: <em>How did Atlas know to ask that?</em></p>
+</section>
+
+<section class="interview-list" aria-label="Atlas interview with Lard's player">
+  <article class="interview-item">
+    <div class="interview-question"><span class="label">Question 1 · Identity</span><p>The DM explored Lard's mixed heritage during his creation, but his story has ultimately been shaped by his choices more than his ancestry.</p><h4>Looking back, has Lard's Goliath or Drow heritage influenced him more than you expected, or has it become less important as his journey has unfolded?</h4></div>
+    <div class="player-answer"><span class="label">Player Response</span><blockquote>I would say it's become less important as time has gone on. The attributes he got from his heritage simply serve as tools for him to protect his party and carry out his goals.</blockquote></div>
+  </article>
+
+  <article class="interview-item">
+    <div class="interview-question"><span class="label">Question 2 · Leadership</span><p>As the adventure unfolded, others naturally began looking to Lard during difficult moments, even though no one ever formally named him the group's leader.</p><h4>Was there a particular moment when you realized Lard had become someone others trusted to step forward?</h4></div>
+    <div class="player-answer"><span class="label">Player Response</span><blockquote>I don't think there was one specific moment, just a slow building of trust over time with the small things like taking damage from others with the shield or taking the lead when exploring a potentially dangerous area.</blockquote></div>
+  </article>
+
+  <article class="interview-item">
+    <div class="interview-question"><span class="label">Question 3 · Nimira</span><p>One of Atlas's most unexpected discoveries was the mutual respect that developed between Lard and Nimira.</p><h4>Did that relationship surprise you, and what do you think Nimira recognized in Lard that others may have overlooked?</h4></div>
+    <div class="player-answer"><span class="label">Player Response</span><blockquote>To others Lard might not seem to be the smartest person, but he is very emotionally intelligent, I'd say, and maybe she saw that in him. Lard leads with his heart, but also has wits.</blockquote></div>
+  </article>
+
+  <article class="interview-item">
+    <div class="interview-question"><span class="label">Question 4 · Growth</span><p>Every long-running character grows in ways their creator never planned.</p><h4>What aspect of Lard's personality developed naturally through play that wasn't part of your original vision for him?</h4></div>
+    <div class="player-answer"><span class="label">Player Response</span><blockquote>I think he is learning that there are more important things than wiping out undead from the world. Like he's learning that love for his friends is more important than hate for his enemies.</blockquote></div>
+  </article>
+
+  <article class="interview-item">
+    <div class="interview-question"><span class="label">Question 5 · Reflection</span><p>Every adventure leaves behind one memory that refuses to fade.</p><h4>If you could relive one moment from Lard's journey—not to change it, but simply to experience it again—which moment would you choose, and why?</h4></div>
+    <div class="player-answer player-answer-with-memory">
+      <span class="label">Player Response</span>
+      <figure class="roper-memory">
+        <img
+          src="../assets/images/forge-of-fury/ropermemorytravling%20right.jpg"
+          alt="A roper token — the Sink Hole’s hungry ‘stalagmite’"
+          width="92"
+          height="92"
+        >
+        <figcaption>The Sink Hole</figcaption>
+      </figure>
+      <blockquote>I'm always a fan of battles and the character development and trust building that happens within them. Maybe the fight with the thing that was grappling us and pulling it into the water—I forget what it was called, lol—but that was a fun fight.</blockquote>
+    </div>
+  </article>
+
+  <article class="interview-item">
+    <div class="interview-question"><span class="label">One Final Question</span><p>One pattern Atlas noticed throughout Lard's journey was his willingness to step forward when difficult decisions had to be made.</p><h4>Do you think Lard sees himself as protecting the people around him, or is he simply the kind of person who can't stand by when action is needed?</h4></div>
+    <div class="player-answer"><span class="label">Player Response</span><blockquote>Lard believes his main value in the world comes from being a protector of his friends, like his father before him. If someone he's loyal to is in danger, he simply can't stand by without doing his best to protect them.</blockquote></div>
+  </article>
+</section>
+
+<section class="understanding">
+  <div class="interview-kicker">Atlas Character Understanding</div>
+  <h3>The Protector at Lard's Center</h3>
+  <p>Lard's heritage, strength, equipment, and battlefield role are not the center of his identity. They are tools placed in service of something more important: protecting the people to whom he has given his loyalty.</p>
+  <p>His leadership did not begin with a title or a single defining moment. It grew through repeated acts of courage—taking the danger first, carrying pain meant for someone else, and stepping forward when uncertainty made others hesitate.</p>
+  <p class="core-line"><strong>Lard's defining transformation is the gradual replacement of hatred with love.</strong> What began as a desire to wipe out undead has become a deeper calling to preserve the lives and trust of his friends.</p>
+  <p>He leads with his heart, but not without judgment. Nimira's respect suggests that she recognized what others might miss: Lard's emotional intelligence, his steadiness, and the inherited example of a father who taught him that a protector's value is measured by whom he refuses to abandon.</p>
+  <div class="atlas-signoff">— Atlas, Keeper of the Tales of Salvation Archive</div>
+</section>
+
 
 </div>
 </main>
