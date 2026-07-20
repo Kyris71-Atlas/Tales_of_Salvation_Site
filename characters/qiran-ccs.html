@@ -38,6 +38,7 @@
   <div class="nav-section">Companions</div>
   <a href="../companions/brennar-tallowick.html">Brennar Tallowick</a>
   <a href="../companions/rug-of-smothering.html">Thrain's Rug of Smothering</a>
+  <a href="../companions/sir-kluth.html">Sir Kluth</a>
 </nav>
 
 <main>
@@ -52,7 +53,7 @@
 <p class="ccs-product-banner" style="margin:0 0 14px;padding:10px 14px;border:1px solid #6e5930;border-radius:10px;background:rgba(216,179,95,.08);font-size:.95rem"><strong>Company Character Sheet</strong> — table play sheet for Tempest Company. Not a Discovery Report. Archive &amp; story: <a href="qiran.html">Qiran — Discovery Report</a>.</p>
 
   <div class="hero">
-    <div class="portrait-frame">
+    <div class="portrait-frame" data-ccs-shadows-portrait>
       <img src="../assets/images/characters/Qiran.jpg" alt="Qiran">
     </div>
     <div class="nameplate">
@@ -101,11 +102,22 @@
           <input type="number" class="ccs-hp-temp" name="hp-temp" inputmode="numeric" min="0" value="0" aria-label="Temporary hit points" title="Temporary HP — does not stack; keep the higher">
         </div>
       </div>
-      <div class="ccs-tile ccs-tile-ac ccs-core-ac" data-ccs-ac data-character="qiran" data-ac-base="12">
+      <div
+        class="ccs-tile ccs-tile-ac ccs-core-ac"
+        data-ccs-ac
+        data-character="qiran"
+        data-ac-base="12"
+        data-ac-mage="15"
+        data-ac-base-label="DEX (unarmored)"
+        data-ac-mage-label="Mage Armor + DEX"
+      >
         <span class="ccs-label">Armor Class</span>
         <div class="ccs-ac-row"><span class="ccs-ac-total" aria-label="Total armor class">12</span></div>
         <ul class="ccs-ac-breakdown">
-          <li><span class="ccs-ac-part">Leather + DEX (FG total)</span><span class="ccs-ac-num">12</span></li>
+          <li>
+            <span class="ccs-ac-part" data-ccs-ac-base-label>DEX (unarmored)</span>
+            <span class="ccs-ac-num" data-ccs-ac-base-num>12</span>
+          </li>
           <li class="ccs-ac-misc-row">
             <span class="ccs-ac-part">Misc</span>
             <input type="number" class="ccs-ac-misc" name="ac-misc" inputmode="numeric" value="0" aria-label="Miscellaneous AC bonus">
@@ -152,6 +164,7 @@
         <div class="ccs-weapon-name">Kluth's Blade (+1 longsword)</div>
         <div class="ccs-weapon-line"><span class="ccs-weapon-label">Attack</span> <span class="ccs-weapon-stat">+3</span> <span class="ccs-weapon-detail">melee · STR</span></div>
         <div class="ccs-weapon-line"><span class="ccs-weapon-label">Damage</span> <span class="ccs-weapon-stat">1d8</span> <span class="ccs-weapon-detail">slashing · +1 weapon (STR −1 + prof + magic)</span></div>
+        <div class="ccs-weapon-line"><span class="ccs-weapon-label">Companion</span> <span class="ccs-weapon-detail"><a href="../companions/sir-kluth.html">Sir Kluth</a> · spectral knight · 1 / long rest</span></div>
       </li>
       <li class="ccs-weapon">
         <div class="ccs-weapon-name">Dagger of Warning</div>
@@ -205,10 +218,19 @@
           <div class="ccs-action-meta">On Eldritch Blast</div>
           <p class="ccs-action-body">Add CHA (+4) to EB damage.</p>
         </div>
-        <div class="ccs-maneuver">
-          <div class="ccs-action-name">Armor of Shadows</div>
-          <div class="ccs-action-meta">At will</div>
-          <p class="ccs-action-body">Cast <em>Mage Armor</em> on yourself at will (no slot, no material components).</p>
+        <div class="ccs-maneuver" data-ccs-shadows data-character="qiran">
+          <div class="ccs-action-top">
+            <div class="ccs-action-name">Armor of Shadows</div>
+            <button
+              type="button"
+              class="ccs-shadows-toggle is-down"
+              data-ccs-shadows-toggle
+              aria-pressed="false"
+              title="Armor of Shadows — Mage Armor at will"
+            >Shield Down</button>
+          </div>
+          <div class="ccs-action-meta">At will · Mage Armor (8 hours)</div>
+          <p class="ccs-action-body">Cast <em>Mage Armor</em> on yourself at will (no slot, no material components). <strong>Shield Up</strong> sets AC to 13 + DEX.</p>
         </div>
         <div class="ccs-maneuver">
           <div class="ccs-action-name">Mask of Many Faces</div>
@@ -241,15 +263,14 @@
     <h3 id="senses-title">6 · Senses &amp; notes</h3>
     <ul class="ccs-list">
       <li><span class="ccs-item-name">Darkvision</span><span class="ccs-item-meta">60 ft</span></li>
-      <li><span class="ccs-item-name">Languages</span><span class="ccs-item-meta">Common · Elvish · Dwarvish</span></li>
-      <li><span class="ccs-item-name">Deity</span><span class="ccs-item-meta">Mask</span></li>
       <li><span class="ccs-item-name">Pact of the Tome</span><span class="ccs-item-meta">Book of Shadows · extra cantrips (Guidance, Mage Hand, etc.) and ritual options per FG</span></li>
       <li><span class="ccs-item-name">Hit dice</span><span class="ccs-item-meta">5d8</span></li>
       <li><span class="ccs-item-name">Campaign finds</span><span class="ccs-item-meta">Obsidian Idol Fragment · Charred Parchment · Dwarven Signet · Silver Helmet</span></li>
+      <li><span class="ccs-item-name">Companion</span><span class="ccs-item-meta"><a href="../companions/sir-kluth.html">Sir Kluth</a> · bound to Kluth’s Blade</span></li>
     </ul>
   </section>
 </div>
-<p class="note" style="margin-top:18px"><a href="qiran.html">Qiran’s Discovery Report</a></p>
+<p class="note" style="margin-top:18px"><a href="qiran.html">Qiran’s Discovery Report</a> · <a href="../companions/sir-kluth.html">Sir Kluth</a></p>
 </main>
 </div>
 
@@ -259,7 +280,79 @@ function bindCounter(rootSel,inputSel,keyPrefix,defaultMaxAttr,fallbackMax){var 
 bindCounter("[data-ccs-hp]",".ccs-hp-current","ccs-hp-current:","data-hp-max",38);
 (function(){var root=document.querySelector("[data-ccs-hp]");var input=root&&root.querySelector(".ccs-hp-temp");if(!root||!input)return;var character=root.getAttribute("data-character")||"character";var key="ccs-hp-temp:"+character;function clamp(n){if(isNaN(n)||n<0)return 0;return n}function load(){try{var raw=localStorage.getItem(key);input.value=(raw===null||raw==="")?"0":String(clamp(parseInt(raw,10)))}catch(e){input.value="0"}}function save(){var n=clamp(parseInt(input.value,10));input.value=String(n);try{localStorage.setItem(key,String(n))}catch(e){}}input.addEventListener("change",save);input.addEventListener("blur",save);input.addEventListener("keydown",function(ev){if(ev.key==="Enter"){save();input.blur()}});load()})();
 (function(){var root=document.querySelector("[data-ccs-spell-slots]");if(!root)return;var character=root.getAttribute("data-character")||"character";root.querySelectorAll(".ccs-spell-slot-current").forEach(function(input){var level=input.getAttribute("data-slot-level")||"0";var maxVal=parseInt(input.getAttribute("data-slot-max"),10)||0;var key="ccs-spell-slot:"+character+":"+level;input.max=String(maxVal);input.min="0";function clamp(n){if(isNaN(n))return maxVal;if(n<0)return 0;if(n>maxVal)return maxVal;return n}function load(){try{var raw=localStorage.getItem(key);input.value=(raw===null||raw==="")?String(maxVal):String(clamp(parseInt(raw,10)))}catch(e){input.value=String(maxVal)}}function save(){var n=clamp(parseInt(input.value,10));input.value=String(n);try{localStorage.setItem(key,String(n))}catch(e){}}input.addEventListener("change",save);input.addEventListener("blur",save);input.addEventListener("keydown",function(ev){if(ev.key==="Enter"){save();input.blur()}});load()})})();
-(function(){var root=document.querySelector("[data-ccs-ac]");if(!root)return;var totalEl=root.querySelector(".ccs-ac-total");var miscInput=root.querySelector(".ccs-ac-misc");if(!totalEl||!miscInput)return;var character=root.getAttribute("data-character")||"character";var baseAc=parseInt(root.getAttribute("data-ac-base"),10)||12;var key="ccs-ac-misc:"+character;function parseMisc(raw){if(raw===null||raw===""||raw==="-")return 0;var n=parseInt(raw,10);return isNaN(n)?0:n}function formatMisc(n){return n>0?"+"+n:String(n)}function refresh(){var misc=parseMisc(miscInput.value);miscInput.value=formatMisc(misc);totalEl.textContent=String(baseAc+misc);try{localStorage.setItem(key,String(misc))}catch(e){}}function load(){try{var raw=localStorage.getItem(key);miscInput.value=(raw===null||raw==="")?"0":formatMisc(parseMisc(raw))}catch(e){miscInput.value="0"}totalEl.textContent=String(baseAc+parseMisc(miscInput.value))}miscInput.addEventListener("change",refresh);miscInput.addEventListener("blur",refresh);miscInput.addEventListener("input",function(){totalEl.textContent=String(baseAc+parseMisc(miscInput.value))});load()})();
+/* AC + Armor of Shadows (Shield Up / Down) — Mage Armor toggles base 12 ↔ 15 */
+(function(){
+  var acRoot=document.querySelector("[data-ccs-ac]");
+  var shadowsRoot=document.querySelector("[data-ccs-shadows]");
+  var portrait=document.querySelector("[data-ccs-shadows-portrait]");
+  var btn=shadowsRoot&&shadowsRoot.querySelector("[data-ccs-shadows-toggle]");
+  if(!acRoot)return;
+  var totalEl=acRoot.querySelector(".ccs-ac-total");
+  var miscInput=acRoot.querySelector(".ccs-ac-misc");
+  var baseLabelEl=acRoot.querySelector("[data-ccs-ac-base-label]");
+  var baseNumEl=acRoot.querySelector("[data-ccs-ac-base-num]");
+  if(!totalEl||!miscInput)return;
+  var character=acRoot.getAttribute("data-character")||"qiran";
+  var acDown=parseInt(acRoot.getAttribute("data-ac-base"),10)||12;
+  var acUp=parseInt(acRoot.getAttribute("data-ac-mage"),10)||15;
+  var labelDown=acRoot.getAttribute("data-ac-base-label")||"DEX (unarmored)";
+  var labelUp=acRoot.getAttribute("data-ac-mage-label")||"Mage Armor + DEX";
+  var miscKey="ccs-ac-misc:"+character;
+  var shadowsKey="ccs-shadows:"+character;
+  var shieldUp=false;
+  function parseMisc(raw){if(raw===null||raw===""||raw==="-")return 0;var n=parseInt(raw,10);return isNaN(n)?0:n}
+  function formatMisc(n){return n>0?"+"+n:String(n)}
+  function baseAc(){return shieldUp?acUp:acDown}
+  function refreshTotal(){
+    var misc=parseMisc(miscInput.value);
+    totalEl.textContent=String(baseAc()+misc);
+  }
+  function applyShield(up){
+    shieldUp=!!up;
+    var base=baseAc();
+    acRoot.classList.toggle("is-shadows-up",shieldUp);
+    if(shadowsRoot)shadowsRoot.classList.toggle("is-shadows-up",shieldUp);
+    if(portrait)portrait.classList.toggle("is-shadows-up",shieldUp);
+    if(baseLabelEl)baseLabelEl.textContent=shieldUp?labelUp:labelDown;
+    if(baseNumEl)baseNumEl.textContent=String(base);
+    if(btn){
+      btn.textContent=shieldUp?"Shield Up":"Shield Down";
+      btn.setAttribute("aria-pressed",shieldUp?"true":"false");
+      btn.classList.toggle("is-up",shieldUp);
+      btn.classList.toggle("is-down",!shieldUp);
+      btn.setAttribute("aria-label",shieldUp?"Shield Up — Mage Armor active. Click for Shield Down.":"Shield Down — click for Shield Up (Mage Armor).");
+    }
+    refreshTotal();
+    try{localStorage.setItem(shadowsKey,shieldUp?"1":"0")}catch(e){}
+  }
+  function saveMisc(){
+    var misc=parseMisc(miscInput.value);
+    miscInput.value=formatMisc(misc);
+    refreshTotal();
+    try{localStorage.setItem(miscKey,String(misc))}catch(e){}
+  }
+  function loadMisc(){
+    try{
+      var raw=localStorage.getItem(miscKey);
+      miscInput.value=(raw===null||raw==="")?"0":formatMisc(parseMisc(raw));
+    }catch(e){miscInput.value="0"}
+  }
+  function loadShield(){
+    var up=false;
+    try{up=localStorage.getItem(shadowsKey)==="1"}catch(e){}
+    applyShield(up);
+  }
+  miscInput.addEventListener("change",saveMisc);
+  miscInput.addEventListener("blur",saveMisc);
+  miscInput.addEventListener("input",function(){refreshTotal()});
+  if(btn){
+    btn.addEventListener("click",function(){
+      applyShield(!(btn.getAttribute("aria-pressed")==="true"));
+    });
+  }
+  loadMisc();
+  loadShield();
+})();
 document.querySelectorAll("[data-ccs-use-toggle]").forEach(function(btn){var character=btn.getAttribute("data-character")||"character";var feature=btn.getAttribute("data-feature")||"feature";var key="ccs-use:"+character+":"+feature;function apply(used){btn.textContent=used?"Used":"Ready";btn.setAttribute("aria-pressed",used?"true":"false");btn.classList.toggle("is-ready",!used);btn.classList.toggle("is-used",used)}try{apply(localStorage.getItem(key)==="used")}catch(e){apply(false)}btn.addEventListener("click",function(){var used=btn.getAttribute("aria-pressed")!=="true";apply(used);try{localStorage.setItem(key,used?"used":"ready")}catch(e){}})});
 (function(){var root=document.querySelector("[data-ccs-inspiration]");var btn=root&&root.querySelector("[data-ccs-inspiration-toggle]");if(!root||!btn)return;var character=root.getAttribute("data-character")||"character";var key="ccs-inspiration:"+character;var order=["none","single","double"];var labels={double:"Double Inspiration!",single:"Single Inspiration",none:"None"};function apply(state){if(order.indexOf(state)===-1)state="single";btn.textContent=labels[state];btn.classList.remove("is-double","is-single","is-none");btn.classList.add("is-"+state);btn.setAttribute("data-state",state)}function load(){var state="single";try{var raw=localStorage.getItem(key);if(raw&&order.indexOf(raw)!==-1)state=raw}catch(e){}apply(state)}btn.addEventListener("click",function(){var i=order.indexOf(btn.getAttribute("data-state")||"single");if(i<0)i=0;var next=order[(i+1)%order.length];apply(next);try{localStorage.setItem(key,next)}catch(e){}});load()})();
 })();

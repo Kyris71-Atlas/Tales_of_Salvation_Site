@@ -15,6 +15,96 @@
 .stat-plate{margin-top:16px;border:2px solid var(--line);border-radius:12px;overflow:hidden;background:#111}
 .stat-plate img{width:100%;height:auto;display:block}
 .book-panel .note{color:#4a3f30}
+/* Portia — two even rows of three (do not use ccs-core grid-area names) */
+.portia-board{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  grid-template-rows:auto auto;
+  grid-template-areas:
+    "hp ac speed"
+    "role skills challenge";
+  gap:12px;
+  margin-top:8px;
+  align-items:stretch;
+}
+.portia-board > *{
+  grid-area:auto; /* kill inherited ccs-core-hp / ccs-core-ac areas */
+  min-width:0;
+}
+.portia-board .portia-cell-hp{grid-area:hp}
+.portia-board .portia-cell-ac{grid-area:ac}
+.portia-board .portia-cell-speed{grid-area:speed}
+.portia-board .portia-cell-role{grid-area:role}
+.portia-board .portia-cell-skills{grid-area:skills}
+.portia-board .portia-cell-challenge{grid-area:challenge}
+.portia-board .ccs-tile,
+.portia-board .portia-info-tile{
+  min-height:100%;
+  height:100%;
+}
+.portia-info-tile{
+  display:flex;
+  flex-direction:column;
+  padding:12px 14px;
+  background:rgba(255,255,255,.22);
+  border:1px solid rgba(110,89,48,.55);
+  border-radius:10px;
+  color:#20180f;
+}
+.portia-info-tile h4{
+  margin:0 0 8px;
+  color:#3D2E14;
+  font-size:.95rem;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+.portia-info-tile p{
+  margin:0;
+  flex:1;
+  font-size:.92rem;
+  line-height:1.4;
+  color:#20180f;
+}
+@media (max-width:700px){
+  .portia-board{
+    grid-template-columns:1fr;
+    grid-template-rows:none;
+    grid-template-areas:
+      "hp"
+      "ac"
+      "speed"
+      "role"
+      "skills"
+      "challenge";
+  }
+}
+/* Weapon cards — outline tracks FG tiered HP color on this page */
+.discovery-card.portia-weapon-outline{
+  border-width:3px;
+  border-style:solid;
+  border-color:rgba(110,89,48,.45);
+  transition:border-color .15s ease, box-shadow .15s ease;
+}
+.discovery-card.portia-weapon-outline.fg-hp-full{
+  border-color:#1f7a1f;
+  box-shadow:0 0 0 1px rgba(31,122,31,.35);
+}
+.discovery-card.portia-weapon-outline.fg-hp-high{
+  border-color:#7bc043;
+  box-shadow:0 0 0 1px rgba(123,192,67,.4);
+}
+.discovery-card.portia-weapon-outline.fg-hp-mid{
+  border-color:#e0c020;
+  box-shadow:0 0 0 1px rgba(224,192,32,.4);
+}
+.discovery-card.portia-weapon-outline.fg-hp-low{
+  border-color:#e07820;
+  box-shadow:0 0 0 1px rgba(224,120,32,.4);
+}
+.discovery-card.portia-weapon-outline.fg-hp-critical{
+  border-color:#c02828;
+  box-shadow:0 0 0 1px rgba(192,40,40,.4);
+}
 </style>
 </head>
 <body>
@@ -37,6 +127,7 @@
   <div class="nav-section">Companions</div>
   <a href="brennar-tallowick.html">Brennar Tallowick</a>
   <a href="rug-of-smothering.html">Thrain's Rug of Smothering</a>
+<a href="sir-kluth.html">Sir Kluth</a>
   <a href="red.html">Red</a>
   <a href="portia-dzuth.html">Portia Dzuth</a>
 </nav>
@@ -77,46 +168,136 @@
       <div><strong>WIS</strong><br>14 (+2)</div>
       <div><strong>CHA</strong><br>12 (+1)</div>
     </div>
-    <div class="discovery-grid">
-      <div class="discovery-card">
-        <h4>Defenses</h4>
-        <p>143 HP (22d8 + 44) · AC 18 (plate) · Speed 30 · Proficiency +4 · Passive Perception 16</p>
+
+    <!-- Defenses + identity — two aligned rows of three -->
+    <section class="ccs-section" id="portia-defenses" aria-labelledby="portia-defenses-title">
+      <h3 id="portia-defenses-title">Defenses</h3>
+      <p class="ccs-hint">Interactive like a Company Character Sheet — mark uses at the table. Not a Tempest CCS.</p>
+
+      <div class="portia-board">
+        <!-- Row 1: Hit Points · Armor Class · Speed/Prof/PP -->
+        <div class="ccs-tile ccs-tile-hp portia-cell-hp" data-ccs-hp data-fg-hp-tiered data-character="portia" data-hp-max="143">
+          <span class="ccs-label">Hit Points</span>
+          <span class="ccs-sublabel">Wounds / Max · FG tiered colors</span>
+          <div class="ccs-hp-row" role="group" aria-label="Hit points">
+            <input
+              type="number"
+              class="ccs-hp-current"
+              name="hp-current"
+              inputmode="numeric"
+              min="0"
+              max="143"
+              value="143"
+              aria-label="Wounds"
+              title="Wounds (current HP)"
+            >
+            <span class="ccs-hp-sep" aria-hidden="true">/</span>
+            <span class="ccs-hp-max" aria-label="Maximum hit points">143</span>
+          </div>
+          <div class="ccs-hp-temp-row" role="group" aria-label="Temporary hit points">
+            <span class="ccs-hp-temp-label">Temp</span>
+            <input
+              type="number"
+              class="ccs-hp-temp"
+              name="hp-temp"
+              inputmode="numeric"
+              min="0"
+              value="0"
+              aria-label="Temporary hit points"
+            >
+          </div>
+          <p class="ccs-note" style="margin-top:8px;text-align:center">22d8 + 44 · half = 71</p>
+        </div>
+
+        <div class="ccs-tile ccs-tile-ac portia-cell-ac">
+          <span class="ccs-label">Armor Class</span>
+          <div class="ccs-ac-row">
+            <span class="ccs-ac-total" aria-label="Total armor class">18</span>
+          </div>
+          <ul class="ccs-ac-breakdown">
+            <li><span class="ccs-ac-part">Plate</span><span class="ccs-ac-num">18</span></li>
+          </ul>
+        </div>
+
+        <div class="ccs-tile portia-cell-speed">
+          <span class="ccs-label">Speed · Prof · PP</span>
+          <div class="ccs-value" style="font-size:1.1rem;margin-top:10px;line-height:1.45">
+            30 ft<br>
+            Prof +4<br>
+            Passive Perc 16
+          </div>
+        </div>
+
+        <!-- Row 2: Role · Skills · Challenge -->
+        <div class="portia-info-tile portia-cell-role">
+          <h4>Role</h4>
+          <p>Champion-frame combatant — steel and grit beside Sol’s warlock craft. Saves: STR +9, CON +6.</p>
+        </div>
+        <div class="portia-info-tile portia-cell-skills">
+          <h4>Skills</h4>
+          <p>Athletics +9 · Intimidation +5 · Perception +6</p>
+        </div>
+        <div class="portia-info-tile portia-cell-challenge">
+          <h4>Challenge</h4>
+          <p>CR 9 (5,000 XP) · Medium humanoid (any race) · Any alignment (set at table)</p>
+        </div>
       </div>
-      <div class="discovery-card">
-        <h4>Role</h4>
-        <p>Champion-frame combatant — steel and grit beside Sol’s warlock craft. Saves: STR +9, CON +6.</p>
-      </div>
-      <div class="discovery-card">
-        <h4>Skills</h4>
-        <p>Athletics +9 · Intimidation +5 · Perception +6</p>
-      </div>
-      <div class="discovery-card">
-        <h4>Challenge</h4>
-        <p>CR 9 (5,000 XP) · Medium humanoid (any race) · Any alignment (set at table)</p>
-      </div>
-    </div>
+    </section>
   </div>
 
   <div class="sheet-card" style="margin-top:16px">
     <div class="sheet-title">Features &amp; actions</div>
-    <div class="discovery-grid">
-      <div class="discovery-card">
-        <h4>Indomitable (2/Day)</h4>
-        <p>Reroll a failed saving throw.</p>
+
+    <div class="ccs-action-block" data-portia-indomitable data-character="portia" data-indom-max="2">
+      <div class="ccs-action-top">
+        <div class="ccs-action-name">Indomitable</div>
+        <div class="ccs-action-meta ccs-sup-dice-line" style="margin:0">
+          Uses:
+          <input
+            type="number"
+            class="ccs-sup-dice-current"
+            name="indomitable"
+            inputmode="numeric"
+            min="0"
+            max="2"
+            value="2"
+            data-portia-indom-input
+            aria-label="Indomitable uses remaining"
+            title="Uses remaining (0 turns red)"
+          >
+          / 2
+        </div>
       </div>
-      <div class="discovery-card">
-        <h4>Second Wind</h4>
-        <p>Bonus action · recharges after short or long rest · regain 20 hit points.</p>
+      <div class="ccs-action-meta">2 / day · long rest</div>
+      <p class="ccs-action-body">Reroll a failed saving throw. You must use the new roll.</p>
+    </div>
+
+    <div class="ccs-action-block">
+      <div class="ccs-action-top">
+        <div class="ccs-action-name">Second Wind</div>
+        <button
+          type="button"
+          class="ccs-use-toggle is-ready"
+          data-ccs-use-toggle
+          data-character="portia"
+          data-feature="second-wind"
+          aria-pressed="false"
+        >Ready</button>
       </div>
+      <div class="ccs-action-meta">Bonus action · short or long rest</div>
+      <p class="ccs-action-body">Regain <strong>20</strong> hit points.</p>
+    </div>
+
+    <div class="discovery-grid" style="margin-top:14px">
       <div class="discovery-card">
         <h4>Multiattack</h4>
         <p>Three attacks with greatsword or shortbow.</p>
       </div>
-      <div class="discovery-card">
+      <div class="discovery-card portia-weapon-outline" data-portia-weapon-outline>
         <h4>Greatsword</h4>
         <p>+9 to hit · 2d6 + 5 slashing · plus 2d6 if more than half HP remaining.</p>
       </div>
-      <div class="discovery-card">
+      <div class="discovery-card portia-weapon-outline" data-portia-weapon-outline>
         <h4>Shortbow</h4>
         <p>+6 to hit · 80/320 ft · 1d6 + 2 piercing · plus 2d6 if more than half HP remaining.</p>
       </div>
@@ -138,5 +319,180 @@
 </div>
 </main>
 </div>
+
+<script src="../assets/js/fg-hp-tiered.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  /* HP wounds — localStorage + FG 5E tiered colors (Portia only) */
+  (function () {
+    var root = document.querySelector("[data-ccs-hp]");
+    var input = root && root.querySelector(".ccs-hp-current");
+    if (!root || !input) return;
+    var character = root.getAttribute("data-character") || "portia";
+    var maxVal = parseInt(root.getAttribute("data-hp-max"), 10) || 143;
+    var key = "ccs-hp-current:" + character;
+    input.max = String(maxVal);
+    input.min = "0";
+
+    function clamp(n) {
+      if (isNaN(n)) return maxVal;
+      if (n < 0) return 0;
+      if (n > maxVal) return maxVal;
+      return n;
+    }
+    var weaponCards = document.querySelectorAll("[data-portia-weapon-outline]");
+    var tierClasses = ["fg-hp-full", "fg-hp-high", "fg-hp-mid", "fg-hp-low", "fg-hp-critical"];
+
+    function paintWeapons(tier) {
+      weaponCards.forEach(function (card) {
+        for (var i = 0; i < tierClasses.length; i++) {
+          card.classList.toggle(tierClasses[i], tierClasses[i] === tier);
+        }
+      });
+    }
+
+    function currentTier(n) {
+      var ratio = n / maxVal;
+      if (n <= 0) return "fg-hp-critical";
+      if (ratio < 0.25) return "fg-hp-low";
+      if (ratio < 0.5) return "fg-hp-mid";
+      if (ratio < 0.75) return "fg-hp-high";
+      return "fg-hp-full";
+    }
+
+    function paint() {
+      var n = clamp(parseInt(input.value, 10));
+      if (window.FgHpTiered) {
+        window.FgHpTiered.paint(input, n, maxVal);
+      }
+      paintWeapons(currentTier(n));
+    }
+    function load() {
+      try {
+        var raw = localStorage.getItem(key);
+        input.value = (raw === null || raw === "") ? String(maxVal) : String(clamp(parseInt(raw, 10)));
+      } catch (e) {
+        input.value = String(maxVal);
+      }
+      paint();
+    }
+    function save() {
+      var n = clamp(parseInt(input.value, 10));
+      input.value = String(n);
+      paint();
+      try { localStorage.setItem(key, String(n)); } catch (e) { /* private */ }
+    }
+    input.addEventListener("change", save);
+    input.addEventListener("input", paint);
+    input.addEventListener("blur", save);
+    input.addEventListener("keydown", function (ev) {
+      if (ev.key === "Enter") { save(); input.blur(); }
+    });
+    load();
+  })();
+
+  /* Temp HP */
+  (function () {
+    var root = document.querySelector("[data-ccs-hp]");
+    var input = root && root.querySelector(".ccs-hp-temp");
+    if (!root || !input) return;
+    var character = root.getAttribute("data-character") || "portia";
+    var key = "ccs-hp-temp:" + character;
+    function clamp(n) { if (isNaN(n) || n < 0) return 0; return n; }
+    function load() {
+      try {
+        var raw = localStorage.getItem(key);
+        input.value = (raw === null || raw === "") ? "0" : String(clamp(parseInt(raw, 10)));
+      } catch (e) { input.value = "0"; }
+    }
+    function save() {
+      var n = clamp(parseInt(input.value, 10));
+      input.value = String(n);
+      try { localStorage.setItem(key, String(n)); } catch (e) { /* private */ }
+    }
+    input.addEventListener("change", save);
+    input.addEventListener("blur", save);
+    input.addEventListener("keydown", function (ev) {
+      if (ev.key === "Enter") { save(); input.blur(); }
+    });
+    load();
+  })();
+
+  /* Indomitable 0–2 · red at zero */
+  (function () {
+    var root = document.querySelector("[data-portia-indomitable]");
+    var input = root && root.querySelector("[data-portia-indom-input]");
+    if (!root || !input) return;
+    var character = root.getAttribute("data-character") || "portia";
+    var maxVal = parseInt(root.getAttribute("data-indom-max"), 10) || 2;
+    var key = "ccs-indomitable:" + character;
+    input.max = String(maxVal);
+    input.min = "0";
+
+    function clamp(n) {
+      if (isNaN(n)) return maxVal;
+      if (n < 0) return 0;
+      if (n > maxVal) return maxVal;
+      return n;
+    }
+    function paintZero() {
+      var n = clamp(parseInt(input.value, 10));
+      input.classList.toggle("is-zero", n === 0);
+    }
+    function load() {
+      try {
+        var raw = localStorage.getItem(key);
+        input.value = (raw === null || raw === "") ? String(maxVal) : String(clamp(parseInt(raw, 10)));
+      } catch (e) {
+        input.value = String(maxVal);
+      }
+      paintZero();
+    }
+    function save() {
+      var n = clamp(parseInt(input.value, 10));
+      input.value = String(n);
+      paintZero();
+      try { localStorage.setItem(key, String(n)); } catch (e) { /* private */ }
+    }
+    input.addEventListener("change", save);
+    input.addEventListener("input", paintZero);
+    input.addEventListener("blur", save);
+    input.addEventListener("keydown", function (ev) {
+      if (ev.key === "Enter") { save(); input.blur(); }
+    });
+    load();
+  })();
+
+  /* Second Wind Ready / Used */
+  document.querySelectorAll("[data-ccs-use-toggle]").forEach(function (btn) {
+    var character = btn.getAttribute("data-character") || "character";
+    var feature = btn.getAttribute("data-feature") || "feature";
+    var key = "ccs-use:" + character + ":" + feature;
+
+    function apply(used) {
+      btn.textContent = used ? "Used" : "Ready";
+      btn.setAttribute("aria-pressed", used ? "true" : "false");
+      btn.classList.toggle("is-ready", !used);
+      btn.classList.toggle("is-used", used);
+    }
+
+    try {
+      apply(localStorage.getItem(key) === "used");
+    } catch (e) {
+      apply(false);
+    }
+
+    btn.addEventListener("click", function () {
+      var used = btn.getAttribute("aria-pressed") !== "true";
+      apply(used);
+      try {
+        localStorage.setItem(key, used ? "used" : "ready");
+      } catch (e) { /* private mode */ }
+    });
+  });
+})();
+</script>
 </body>
 </html>

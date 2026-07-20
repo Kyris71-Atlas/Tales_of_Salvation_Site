@@ -87,9 +87,9 @@
   <section class="ccs-section" id="core-stats" aria-labelledby="core-stats-title">
     <h3 id="core-stats-title">1 · Core Stats</h3>
     <div class="ccs-core-board">
-      <div class="ccs-tile ccs-tile-hp ccs-core-hp" data-ccs-hp data-character="malcolm-sol" data-hp-max="123">
+      <div class="ccs-tile ccs-tile-hp ccs-core-hp" data-ccs-hp data-fg-hp-tiered data-character="malcolm-sol" data-hp-max="123">
         <span class="ccs-label">Hit Points</span>
-        <span class="ccs-sublabel">Wounds / Max</span>
+        <span class="ccs-sublabel">Wounds / Max · FG tiered colors</span>
         <div class="ccs-hp-row" role="group" aria-label="Hit points">
           <input type="number" class="ccs-hp-current" name="hp-current" inputmode="numeric" min="0" max="123" value="123" aria-label="Wounds" title="Wounds (Fantasy Grounds)">
           <span class="ccs-hp-sep" aria-hidden="true">/</span>
@@ -459,6 +459,7 @@
 </main>
 </div>
 
+<script src="../assets/js/fg-hp-tiered.js"></script>
 <script>
 (function () {
   "use strict";
@@ -502,6 +503,22 @@
   }
 
   bindCounter("[data-ccs-hp]", ".ccs-hp-current", "ccs-hp-current:", "data-hp-max", 123);
+
+  /* FG 5E Tiered health colors — Sol test only (not all CCS) */
+  (function () {
+    var root = document.querySelector("[data-ccs-hp][data-fg-hp-tiered]");
+    var input = root && root.querySelector(".ccs-hp-current");
+    if (!root || !input || !window.FgHpTiered) return;
+    var maxVal = parseInt(root.getAttribute("data-hp-max"), 10) || 123;
+    function paint() {
+      var n = parseInt(input.value, 10);
+      if (isNaN(n)) n = maxVal;
+      window.FgHpTiered.paint(input, n, maxVal);
+    }
+    input.addEventListener("input", paint);
+    input.addEventListener("change", paint);
+    paint();
+  })();
 
   (function () {
     var root = document.querySelector("[data-ccs-hp]");

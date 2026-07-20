@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sir Kluth - Tales of Salvation</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+.discovery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}
+.discovery-card{border:1px solid rgba(180,150,90,.35);border-radius:10px;padding:1rem;background:rgba(255,248,220,.04)}
+.discovery-card h4{margin-top:0}
+.discovery-status{margin-top:1.5rem;padding:1rem;border-left:4px solid #b8943c;background:rgba(184,148,60,.08)}
+.note-box{margin-top:1rem;padding:1rem;border-radius:10px;background:rgba(255,255,255,.04);border:1px dashed rgba(180,150,90,.35)}
+.weapon-callout{margin-top:1rem;padding:1rem;border-left:4px solid #d6a637;background:rgba(214,166,55,.08)}
+.quote-list li{margin-bottom:.45rem}
+/*
+ * Parchment vault-whisper — fully invisible until selected.
+ * color: transparent matches “same as the page” better than guessing cream
+ * (book-panel uses paper + gradient, so a solid hex never matches everywhere).
+ * Still a real link: select, find-in-page, keyboard focus.
+ */
+.kluth-terms-fineprint{
+  margin:.35rem 0 0;
+  text-align:right;
+  font-size:.62rem;
+  line-height:1.2;
+  user-select:text;
+}
+.kluth-terms-fineprint a{
+  color:transparent; /* gone until selection */
+  text-decoration:none;
+  text-shadow:none;
+  border:none;
+  background:transparent;
+  padding:0;
+  border-radius:0;
+  box-shadow:none;
+  cursor:default;
+}
+.kluth-terms-fineprint a:hover{
+  color:transparent;
+  text-decoration:none;
+  background:transparent;
+}
+.kluth-terms-fineprint a:visited{
+  color:transparent;
+}
+.kluth-terms-fineprint a:focus-visible{
+  color:#5c4a28;
+  outline:1px dotted rgba(92,74,40,.45);
+  outline-offset:2px;
+  cursor:pointer;
+}
+.kluth-terms-fineprint a::selection{
+  color:#20180f;
+  background:rgba(216,179,95,.75);
+}
+.kluth-terms-fineprint a::-moz-selection{
+  color:#20180f;
+  background:rgba(216,179,95,.75);
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+<h1 class="site-title">Tales of Salvation</h1>
+<p class="site-subtitle">Companion · Forge of Fury · Qiran’s spectral knight</p>
+</header>
+
+<div class="layout">
+<nav>
+<div class="nav-section">Tales of Salvation</div>
+<a href="../index.html">Home</a>
+<a href="../deep-memory/index.html">Deep Memory (site)</a>
+
+<div class="nav-section">Forge of Fury</div>
+<a href="../forge-of-fury/index.html">Campaign Home</a>
+<a href="../forge-of-fury/deep-memory.html">Deep Memory · Forge chamber</a>
+<a href="../forge-of-fury/index.html#company-character-sheets">Tempest Company Character Sheets</a>
+<a href="../characters/qiran-ccs.html">Qiran · CCS</a>
+<a href="../characters/qiran.html">Qiran · Discovery Report</a>
+
+<div class="nav-section">Companions</div>
+<a href="brennar-tallowick.html">Brennar Tallowick</a>
+<a href="rug-of-smothering.html">Thrain's Rug of Smothering</a>
+<a href="sir-kluth.html">Sir Kluth</a>
+<a href="red.html">Red</a>
+<a href="portia-dzuth.html">Portia Dzuth</a>
+</nav>
+
+<main>
+<div class="breadcrumbs">
+<a href="../index.html">Home</a> &gt;
+<a href="../deep-memory/index.html">Deep Memory</a> &gt;
+<a href="../forge-of-fury/deep-memory.html">Forge chamber</a> &gt;
+Sir Kluth
+</div>
+
+<div class="book-panel">
+<div class="hero">
+<div class="portrait-frame">
+<img src="../assets/images/characters/sir-kluth.jpg" alt="Sir Kluth, spectral knight">
+</div>
+
+<div class="nameplate">
+<h2>Sir Kluth</h2>
+<div class="subtitle">Medium Celestial (Spirit) • Lawful Good • Spectral Knight</div>
+<p class="quote">“Stand firm. Fear not.”</p>
+<span class="badge">Companion</span>
+<span class="badge">Tempest Company</span>
+<span class="badge">Qiran’s companion</span>
+<span class="badge">Kluth's Blade</span>
+<span class="badge">Spectral Knight</span>
+</div>
+</div>
+
+<div class="sheet-card">
+<div class="sheet-title">Fantasy Grounds NPC Record</div>
+
+<div class="abilities">
+<div class="ability"><div class="label">STR</div><div class="score">16</div><div class="mod">+3</div></div>
+<div class="ability"><div class="label">DEX</div><div class="score">12</div><div class="mod">+1</div></div>
+<div class="ability"><div class="label">CON</div><div class="score">14</div><div class="mod">+2</div></div>
+<div class="ability"><div class="label">INT</div><div class="score">10</div><div class="mod">+0</div></div>
+<div class="ability"><div class="label">WIS</div><div class="score">12</div><div class="mod">+1</div></div>
+<div class="ability"><div class="label">CHA</div><div class="score">14</div><div class="mod">+2</div></div>
+</div>
+
+<div class="quick-stats">
+<div class="stat-tile"><div class="label">AC</div><div class="value">16</div></div>
+<div class="stat-tile"><div class="label">HP</div><div class="value">30</div></div>
+<div class="stat-tile"><div class="label">Speed</div><div class="value">30 ft.</div></div>
+<div class="stat-tile"><div class="label">Fly</div><div class="value">30 ft.</div></div>
+<div class="stat-tile"><div class="label">Reach</div><div class="value">5 ft.</div></div>
+<div class="stat-tile"><div class="label">Darkvision</div><div class="value">60 ft.</div></div>
+</div>
+</div>
+
+<div class="section">
+<h3>Character Discovery</h3>
+
+<div class="discovery-grid">
+<div class="discovery-card">
+<h4>Identity</h4>
+<ul>
+<li>Celestial spirit</li>
+<li>Lawful good</li>
+<li>Sworn defender of the innocent</li>
+<li>Spirit bound to Kluth's Blade</li>
+</ul>
+</div>
+
+<div class="discovery-card">
+<h4>Defenses</h4>
+<ul>
+<li>Resistance to nonmagical bludgeoning damage</li>
+<li>Resistance to nonmagical piercing damage</li>
+<li>Resistance to nonmagical slashing damage</li>
+<li>Immune to charmed, frightened, and grappled</li>
+</ul>
+</div>
+
+<div class="discovery-card">
+<h4>Communication</h4>
+<ul>
+<li>Understands Common</li>
+<li>Speaks telepathically to the wielder</li>
+<li>Frequently offers encouragement</li>
+<li>Becomes audibly disappointed by unjustified retreat</li>
+</ul>
+</div>
+
+<div class="discovery-card">
+<h4>Manifestation</h4>
+<ul>
+<li>Called forth as a bonus action</li>
+<li>Appears within 5 feet of the wielder</li>
+<li>Acts immediately after the wielder</li>
+<li>Remains for up to 1 minute</li>
+</ul>
+</div>
+</div>
+
+<div class="note-box">
+<strong>Forge of Fury Portrayal</strong><br>
+Sir Kluth is brave, loyal, honorable, and enthusiastic. Unlike his more comedic Ravenloft portrayal, his Forge of Fury incarnation does not emphasize clumsiness.
+</div>
+</div>
+
+<div class="section-grid">
+<div class="section">
+<h3>Actions &amp; Reactions</h3>
+<p><strong>Spectral Longsword.</strong> Melee Weapon Attack: +5 to hit, reach 5 feet, one target. Hit: 1d8 + 3 radiant damage.</p>
+<p><strong>Knightly Intercession.</strong> Once per manifestation, when a creature within 5 feet of Sir Kluth is hit by an attack, he may impose disadvantage on that attack roll.</p>
+
+<div class="weapon-callout">
+<strong>Scaling Note</strong><br>
+The Fantasy Grounds NPC record also notes: “Attack = primary skill Mod + Pro Bonus.” This allows Sir Kluth's attack bonus to scale with the wielder when that version of the rule is used.
+</div>
+</div>
+
+<div class="section">
+<h3>Voice of the Knight</h3>
+<ul class="quote-list">
+<li>“A bold strike! Well done!”</li>
+<li>“Stand fast, my liege!”</li>
+<li>“Face me, villain!”</li>
+</ul>
+<p>Sir Kluth does not merely lend strength. He expects courage, loyalty, and protection of those who cannot protect themselves.</p>
+</div>
+</div>
+
+<div class="section-grid">
+<div class="section">
+<h3>Kluth's Blade</h3>
+<p><strong>Weapon:</strong> Longsword, rare, requires attunement by a non-evil creature.</p>
+<ul>
+<li>Grants a +1 bonus to attack and damage rolls.</li>
+<li>Sheds dim light in a 10-foot radius while drawn.</li>
+<li>Bears a rearing lion sigil and the words, “Stand firm. Fear not.”</li>
+<li>Allows Sir Kluth to manifest once per long rest.</li>
+</ul>
+<p class="kluth-terms-fineprint">
+<a href="sir-kluth-terms.html" class="parchment-whisper">Terms and conditions may apply.</a>
+</p>
+</div>
+
+<div class="section">
+<h3>Campaign Role</h3>
+<ul>
+<li>Serves as Qiran's spectral companion through Kluth's Blade.</li>
+<li>Provides martial support without replacing the wielder's turn.</li>
+<li>Acts as an encouraging moral presence within Tempest Company.</li>
+<li>Represents steadfast honor rather than comic relief in Forge of Fury.</li>
+</ul>
+</div>
+</div>
+
+<div class="section">
+<h3>Atlas Discovery Status</h3>
+<div class="discovery-status">
+<strong>Fantasy Grounds NPC Record:</strong> Discovered<br>
+<strong>Kluth's Blade Player Note:</strong> Discovered<br>
+<strong>Campaign Portrayal:</strong> Confirmed by Christopher<br>
+<strong>Atlas Portal Notes:</strong> Not yet discovered for Sir Kluth
+</div>
+</div>
+
+<div class="evidence">
+<h3>Evidence &amp; Discovery Sources</h3>
+<strong>🟢 Verified</strong><br>
+Sir Kluth's statistics, defenses, senses, attack, manifestation rules, personality prompts, and connection to Kluth's Blade are based on the Fantasy Grounds campaign database.<br><br>
+
+<strong>🟡 Campaign Knowledge</strong><br>
+Sir Kluth's Forge of Fury portrayal emphasizes sincere honor rather than the clumsy comic-relief role used for Sir Klutz in Ravenloft.<br><br>
+
+<strong>🟠 Discovery Gap</strong><br>
+Sir Kluth's mortal life, original oath, death, and the circumstances that bound his spirit to the blade have not yet been discovered.
+</div>
+
+<p class="note" style="margin-top:1.25rem">
+Companion of <a href="../characters/qiran-ccs.html">Qiran</a> through <strong>Kluth's Blade</strong> —
+with the company, not a PC dossier.
+Discovery report: <a href="../characters/qiran.html">Qiran</a> ·
+Forge archive: <a href="../forge-of-fury/deep-memory.html">Deep Memory · Forge chamber</a>.
+</p>
+
+</div>
+</main>
+</div>
+</body>
+</html>

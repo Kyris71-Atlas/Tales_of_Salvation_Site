@@ -2331,6 +2331,51 @@ a.nav-advanced:hover {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35);
 }
 
+/* Depleted counters (0 remaining) — same ember family as Used */
+.ccs-sup-dice-current.is-zero,
+.ccs-spell-slot-current.is-zero {
+  color: #3a1510;
+  background: linear-gradient(180deg, #f0d0c4, #d4a090);
+  border-color: var(--ccs-accent-ember);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35);
+}
+
+/*
+ * FG 5E Tiered health colors (Campaign option: Combat → Health bar colors → Tiered)
+ * Remaining HP: green ≥75% · light green <75% · yellow <50% · orange <25% · red at 0
+ * Opt-in only: .ccs-hp-current on pages that call paintFgHpTiered()
+ */
+.ccs-hp-current.fg-hp-full {
+  color: #0a3d0a;
+  background: linear-gradient(180deg, #5cb85c, #1f7a1f);
+  border-color: #0d5c0d;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35);
+}
+.ccs-hp-current.fg-hp-high {
+  color: #1a3a12;
+  background: linear-gradient(180deg, #b8e08a, #7bc043);
+  border-color: #5a9a2a;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .4);
+}
+.ccs-hp-current.fg-hp-mid {
+  color: #3d3200;
+  background: linear-gradient(180deg, #f5e06a, #e0c020);
+  border-color: #b89a10;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .4);
+}
+.ccs-hp-current.fg-hp-low {
+  color: #3d1a00;
+  background: linear-gradient(180deg, #f5b06a, #e07820);
+  border-color: #b85a10;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35);
+}
+.ccs-hp-current.fg-hp-critical {
+  color: #3a0a0a;
+  background: linear-gradient(180deg, #f08080, #c02828);
+  border-color: #8b1515;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .3);
+}
+
 .ccs-use-toggle:focus {
   outline: 2px solid #6e5930;
   outline-offset: 2px;
@@ -2517,6 +2562,112 @@ a.nav-advanced:hover {
 
 .ccs-ability[data-ccs-rage-feature].is-rage-active .ccs-ability-save {
   color: #3a1510;
+}
+
+/* Qiran — Armor of Shadows (Shield Up / Down), portrait violet */
+.ccs-shadows-toggle {
+  flex-shrink: 0;
+  min-width: 6.5rem;
+  margin: 0;
+  padding: 4px 12px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: .9rem;
+  font-weight: bold;
+  letter-spacing: .03em;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid var(--ccs-border);
+  transition: background .15s ease, color .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+
+.ccs-shadows-toggle.is-down {
+  color: #1a2e1a;
+  background: linear-gradient(180deg, #e4efd8, #c5d9b0);
+  border-color: #4a6b3a;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .45);
+}
+
+.ccs-shadows-toggle.is-up {
+  color: #1a1028;
+  background: linear-gradient(180deg, #e8dcf8, #9b7fd4);
+  border-color: #6e5f9a;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, .45),
+    0 0 0 1px rgba(110, 95, 154, .35);
+}
+
+.ccs-shadows-toggle:focus {
+  outline: 2px solid #6e5f9a;
+  outline-offset: 2px;
+}
+
+.ccs-maneuver[data-ccs-shadows] {
+  transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.ccs-maneuver[data-ccs-shadows] .ccs-action-top {
+  margin-bottom: 2px;
+}
+
+.ccs-maneuver[data-ccs-shadows].is-shadows-up {
+  border: 2px solid #6e5f9a;
+  border-radius: 10px;
+  background: linear-gradient(90deg, rgba(110, 95, 154, .22), transparent 75%);
+  box-shadow:
+    inset 0 0 0 1px rgba(155, 127, 212, .35),
+    0 0 0 1px rgba(110, 95, 154, .25);
+  padding: 10px 12px;
+  margin: -2px;
+}
+
+.ccs-tile.ccs-core-ac {
+  transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.ccs-tile.ccs-core-ac.is-shadows-up {
+  border-color: #6e5f9a;
+  box-shadow:
+    inset 0 0 0 1px rgba(155, 127, 212, .4),
+    0 0 0 2px rgba(110, 95, 154, .35);
+  background: linear-gradient(180deg, rgba(232, 220, 248, .55), rgba(201, 176, 126, .9));
+}
+
+.portrait-frame.is-shadows-up {
+  border-color: #6e5f9a;
+  box-shadow:
+    0 6px 20px rgba(0,0,0,.45),
+    0 0 0 2px rgba(110, 95, 154, .55),
+    0 0 12px rgba(155, 127, 212, .35);
+}
+
+/* Spells & Effects — group labels (e.g. Lard cantrips under Journal) */
+.ccs-spells-group-label {
+  margin: 16px 0 8px;
+  font-size: 1.05rem;
+  font-weight: bold;
+  color: var(--ccs-ink);
+  letter-spacing: .02em;
+}
+
+.ccs-spells-group-meta {
+  margin-left: 8px;
+  font-size: .85rem;
+  font-weight: normal;
+  color: var(--ccs-ink-olive);
+  letter-spacing: 0;
+}
+
+/* TeaLeaf’s Journal — slight lead emphasis without loud chrome */
+.ccs-leaf-block {
+  border: 2px solid var(--ccs-border);
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(255, 248, 220, .55), rgba(232, 212, 164, .35));
+  box-shadow: 0 2px 0 rgba(61, 46, 20, .12);
+}
+
+.ccs-leaf-block .ccs-action-name {
+  font-size: 1.12rem;
 }
 
 /* Combat — rage +2 damage (hint + damage lines only) */

@@ -112,6 +112,48 @@ Methodological improvements should arise from validated campaign experience befo
 
 ---
 
+# Discovery 010 – Atlas Portal Acquisition Through Direct XML Traversal
+Observation
+
+During Phase 4 testing, Atlas was able to locate the Atlas Portal through semantic search, but was unable to reliably open Portal entries by following Fantasy Grounds internal recordname links (for example, notes.id-00033).
+
+This revealed a distinction between finding a Portal entry and resolving the underlying Fantasy Grounds record.
+
+Investigation
+
+A direct review of the campaign's db.xml demonstrated that every Portal link exists as an internal XML reference.
+
+Rather than relying on semantic retrieval, Atlas can:
+
+Parse the Fantasy Grounds database.
+Locate the Atlas Portal index.
+Read each linked recordname.
+Resolve the corresponding XML node directly.
+Read the complete Portal entry exactly as stored by Fantasy Grounds.
+
+This successfully opened Atlas Portal 003 (Lard) and confirmed the Portal acquisition workflow.
+
+Discovery
+
+The authoritative method for Atlas Portal acquisition is direct XML traversal.
+
+Semantic search remains useful for locating documents and assisting navigation, but it is not the authoritative method for resolving Fantasy Grounds internal record links.
+
+Operational Rule
+
+When processing Fantasy Grounds campaign data:
+
+Parse the campaign database directly.
+Resolve Portal recordname references through XML traversal.
+Read the resolved records before beginning interpretation.
+Report unresolved links rather than assuming missing information.
+Result
+
+This discovery establishes the repeatable implementation for Atlas Discovery Engine – Phase 4: Atlas Portal Acquisition.
+
+Atlas now enters the Portal by traversing the Fantasy Grounds record graph rather than relying solely on document search.
+---
+
 # Promotion Philosophy
 
 A discovery follows this lifecycle:

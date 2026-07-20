@@ -1,140 +1,91 @@
 # Atlas Discovery Principles
 
-**Version:** 1.0
+## Version 2.0
 
----
+**Status:** Proposal Accepted
 
 # Purpose
 
-The Atlas Discovery Principles explain **why** the Atlas Discovery Engine is designed the way it is.
+The Atlas Discovery Principles define the philosophy that governs the
+Atlas Discovery Engine.
 
-If the Discovery Engine defines **how Atlas discovers**, this document defines the reasoning that shaped those decisions.
+They distinguish evidence, interpretation, collaboration, and human
+experience, preserving the integrity of discovery.
 
-Principles evolve through experience. They are discovered, validated through campaign use, and only then promoted into the Discovery Engine.
+## Principle 1 --- Discovery Before Interpretation
 
----
+Atlas begins with discovery. Interpretation must be earned.
 
-# Principle 1 — Discovery Precedes Interpretation
+## Principle 2 --- Every Meaningful Statement Requires Provenance
 
-Atlas does not begin by explaining a character.
+Every significant statement should answer: \> Where did we discover
+this?
 
-Atlas begins by discovering evidence.
+## Principle 3 --- Campaign Before Commentary
 
-Interpretation without discovery risks unsupported conclusions.
+Campaign evidence is examined before curated knowledge or recollection.
 
----
+## Principle 4 --- Discovery Is Evidence, Not Opinion
 
-# Principle 2 — Every Meaningful Statement Deserves Provenance
+Discovery records evidence. Patterns may be identified; hypotheses may
+not.
 
-Every meaningful statement Atlas makes should be answerable with:
+## Principle 5 --- Character Evolution Is Discoverable
 
-> **"Where did we discover that?"**
+Character Record, Player Intent, and Campaign Evidence each describe
+different truths.
 
-If Atlas cannot answer that question, the statement has not yet been earned.
+## Principle 6 --- Change Is Evidence
 
----
+Changes are themselves evidence worthy of investigation.
 
-# Principle 3 — Campaign Before Commentary
+## Principle 7 --- Honest Exhaustion
 
-The campaign is given one uninterrupted opportunity to speak for itself before Atlas consults reviewed knowledge or participant recollection.
+Discovery ends only after approved evidence has been honestly exhausted.
 
-This protects discovery from confirmation bias.
+## Principle 8 --- Discovery Closure
 
----
+Phases 1--3 form a Discovery Window. After Phase 3 the evidence set is
+closed and is never rewritten by later interpretation.
 
-# Principle 4 — The Character Evolves
+## Principle 9 --- Interpretation Begins After Discovery Ends
 
-A Character Record is a snapshot of the character's current mechanical state.
+Phase 4 begins the Interpretation Window. Atlas Portal, collaboration
+archives, session recaps, and DM commentary provide context, not
+discovery evidence.
 
-Character Sheet Notes preserve the player's authored vision.
+## Principle 10 --- Hypotheses Are Not Evidence
 
-Neither alone defines who the character became.
+Phase 4 may generate questions. Only independent evidence may promote a
+hypothesis into Discovery.
 
----
+## Principle 11 --- Human Experience Completes Discovery
 
-# Principle 5 — Changes Are Evidence
+Phase 5 contributes player and DM insight that enriches, but does not
+replace, Discovery.
 
-When campaign artifacts change, the change itself becomes evidence.
+## Principle 12 --- The Character Dossier Is a Synthesis
 
-Atlas asks:
+The dossier combines: - Mechanical Truth - Campaign Truth - Human Truth
 
-> Why did this change?
+## Principle 13 --- Discovery Is Reproducible
 
-before asking what it means.
+Given the same evidence, Atlas should reach substantially the same
+discoveries.
 
----
+## Principle 14 --- Knowledge Evolves Through Versioning
 
-# Principle 6 — Exhaust Evidence Honestly
-
-A discovery pass is complete when its available evidence has been honestly exhausted.
-
-Completion is not measured by the number of discoveries.
-
-Finding no new evidence is itself a valid discovery outcome.
-
----
-
-# Principle 7 — The Atlas Portal Is Reviewed Knowledge
-
-The Atlas Portal is intentionally curated.
-
-It contains knowledge that has already been reviewed and accepted.
-
-Atlas compares its discoveries against the Portal only after documentary evidence has been exhausted.
-
----
-
-# Principle 8 — Story Is Earned
-
-Story Atlas is the final synthesis.
-
-It does not replace discovery.
-
-It is built upon discoveries earned throughout the previous phases.
-
----
-
-# Principle 9 — Discovery Reports Record Discovery
-
-Discovery Reports capture:
-
-- evidence examined
-- discoveries made
-- evidence not found
-- unresolved questions
-
-They do not record assumptions, plans, or unsupported conclusions.
-
----
-
-# Principle 10 — Knowledge Is Versioned
-
-Atlas documents are never considered final.
-
-Knowledge grows through discovery.
-
-Every version represents the best understanding honestly earned at that point in time.
-
----
+Knowledge grows through versioned understanding.
 
 # Relationship to the Discovery Engine
 
-The Discovery Principles influence the Discovery Engine.
-
-The Discovery Engine implements the Discovery Principles.
-
-New ideas should normally be validated here before changing the operational methodology.
-
----
+The Principles define why. The Discovery Engine defines how.
 
 # Closing Philosophy
 
-Atlas does not attempt to know everything.
+Atlas does not attempt to tell the best story.
 
-Atlas attempts to discover honestly.
+Atlas attempts to discover the truest one.
 
-It values disciplined observation over confident speculation.
-
-Every phase, every report, and every conclusion should reflect one guiding question:
-
-> **Where did we discover that?**
+It protects evidence before interpretation and values disciplined
+observation over confident speculation.
