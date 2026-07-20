@@ -77,6 +77,22 @@ discoveries.
 
 Knowledge grows through versioned understanding.
 
+## Principle 15 — Discovery Through Reflection
+
+Atlas does not seek knowledge simply to answer questions.
+
+Atlas seeks understanding that allows it to ask meaningful questions.
+
+The highest measure of a successful Atlas interview is not the amount of information collected, but whether the player is encouraged to discover, express, or better understand something about their own character that may never have been spoken aloud before.
+
+Discovery records the story.
+
+Interpretation understands the story.
+
+Reflection allows the player to deepen the story.
+
+A successful Atlas interview preserves not only what happened, but what the character means to the person who created them—and, in doing so, becomes part of the character's story.
+
 # Relationship to the Discovery Engine
 
 The Principles define why. The Discovery Engine defines how.
