@@ -3,13 +3,261 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Malcolm Sol Moonstar — Company Character Sheet</title>
+<title>Malcolm Sol Moonstar — Play Sheet · Witness</title>
 <link rel="stylesheet" href="../assets/css/style.css">
+<style>
+/* Sol concentration — table face */
+.sol-concentration{
+  margin:0 0 16px;
+  padding:14px 16px;
+  border:2px solid var(--ccs-border);
+  border-radius:12px;
+  background:rgba(255,255,255,.28);
+}
+.sol-concentration-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.sol-concentration.is-concentrating{
+  border-color:#4d8fb3;
+  background:linear-gradient(180deg, rgba(77,143,179,.22), rgba(255,255,255,.28));
+  box-shadow:inset 0 0 0 1px rgba(77,143,179,.45);
+}
+.sol-concentration.is-concentrating .sol-conc-toggle.is-used{
+  /* Yes = concentrating — focus blue #4d8fb3 */
+  color:#0f2a38;
+  background:linear-gradient(180deg, #a8d0e8, #4d8fb3);
+  border-color:#3a7294;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.4);
+}
+.sol-conc-status{margin:8px 0 10px}
+.sol-conc-label{
+  display:block;
+  font-size:.82rem;
+  font-weight:bold;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:var(--ccs-ink-olive);
+  margin:0 0 6px;
+}
+.sol-conc-spell{
+  display:block;
+  width:100%;
+  box-sizing:border-box;
+  margin:0;
+  padding:10px 12px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:1.05rem;
+  color:var(--ccs-ink);
+  border:2px solid var(--ccs-bubble-interactive-border);
+  border-radius:8px;
+  background:var(--ccs-bubble-interactive-fill);
+}
+.sol-conc-spell:focus{
+  outline:2px solid #6e5930;
+  outline-offset:1px;
+  background:#fffef6;
+}
+.sol-concentration:not(.is-concentrating) .sol-conc-spell{
+  opacity:.72;
+}
+/* Gear · attunement · bag */
+.sol-gear-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  margin-top:10px;
+}
+@media (max-width:700px){
+  .sol-gear-grid{grid-template-columns:1fr}
+}
+.sol-gear-card{
+  padding:12px 14px;
+  border:1px solid rgba(110,89,48,.5);
+  border-radius:12px;
+  background:rgba(255,255,255,.28);
+}
+.sol-gear-heading{
+  margin:0 0 10px;
+  color:var(--ccs-ink-strong);
+  font-size:1.05rem;
+  letter-spacing:.03em;
+}
+.sol-gear-count{
+  font-size:.8rem;
+  font-weight:normal;
+  color:var(--ccs-ink-olive);
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+.sol-gear-list{margin-top:0}
+.sol-bag{
+  margin-top:16px;
+  padding:14px 16px;
+  border:2px solid #5a4a28;
+  border-radius:14px;
+  background:
+    linear-gradient(180deg, rgba(90,60,30,.12), rgba(255,255,255,.2)),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 11px,
+      rgba(110,89,48,.06) 11px,
+      rgba(110,89,48,.06) 12px
+    );
+  box-shadow:inset 0 0 0 1px rgba(216,179,95,.2);
+}
+.sol-bag-top{margin-bottom:10px}
+.sol-bag-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  gap:8px;
+}
+.sol-bag-list li{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:8px;
+  align-items:center;
+}
+.sol-bag-list input[type="text"]{
+  width:100%;
+  box-sizing:border-box;
+  padding:8px 10px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:.95rem;
+  color:var(--ccs-ink);
+  border:1px solid rgba(110,89,48,.55);
+  border-radius:8px;
+  background:rgba(255,248,232,.85);
+}
+.sol-bag-list input[type="text"]:focus{
+  outline:2px solid #6e5930;
+  outline-offset:1px;
+}
+.sol-bag-remove{
+  flex-shrink:0;
+  min-width:2.2rem;
+  padding:4px 8px;
+  font-family:Georgia,serif;
+  font-size:.85rem;
+  font-weight:bold;
+  color:#3a1510;
+  background:linear-gradient(180deg,#f0d0c4,#d4a090);
+  border:1px solid var(--ccs-accent-ember);
+  border-radius:8px;
+  cursor:pointer;
+}
+.sol-bag-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:12px;
+}
+.sol-bag-notes{
+  display:block;
+  width:100%;
+  box-sizing:border-box;
+  margin-top:6px;
+  padding:10px 12px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:.95rem;
+  color:var(--ccs-ink);
+  border:2px solid var(--ccs-bubble-interactive-border);
+  border-radius:8px;
+  background:var(--ccs-bubble-interactive-fill);
+  resize:vertical;
+  min-height:4rem;
+}
+.sol-bag-notes:focus{
+  outline:2px solid #6e5930;
+  outline-offset:1px;
+  background:#fffef6;
+}
+/* Bottom row: ring + portrait */
+.sol-footer-row{
+  display:grid;
+  grid-template-columns:1fr minmax(180px,280px);
+  gap:16px;
+  align-items:start;
+  margin-top:16px;
+}
+@media (max-width:700px){
+  .sol-footer-row{grid-template-columns:1fr}
+}
+.sol-ring{
+  padding:14px 16px;
+  border:2px solid #4a6a8a;
+  border-radius:14px;
+  background:
+    linear-gradient(180deg, rgba(77,143,179,.14), rgba(255,255,255,.3));
+  box-shadow:inset 0 0 0 1px rgba(77,143,179,.25);
+}
+.sol-ring-top{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:8px;
+  margin-bottom:8px;
+}
+.sol-ring-budget{
+  font-size:1.05rem;
+  font-weight:bold;
+  color:var(--ccs-ink-strong);
+  font-variant-numeric:tabular-nums;
+}
+.sol-ring-budget.is-full{
+  color:#8B3A1F;
+}
+.sol-ring-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  gap:8px;
+}
+.sol-ring-list li{
+  display:grid;
+  grid-template-columns:1fr 3.2rem auto;
+  gap:6px;
+  align-items:center;
+}
+.sol-ring-list input[type="text"],
+.sol-ring-list input[type="number"]{
+  box-sizing:border-box;
+  width:100%;
+  padding:6px 8px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:.92rem;
+  color:var(--ccs-ink);
+  border:1px solid rgba(110,89,48,.55);
+  border-radius:8px;
+  background:rgba(255,248,232,.9);
+}
+.sol-ring-list input[type="number"]{
+  text-align:center;
+}
+.sol-ring-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:10px;
+}
+.sol-footer-row .portrait-frame{
+  max-width:100%;
+  margin:0;
+}
+</style>
 </head>
 <body>
 <header class="site-header">
   <h1 class="site-title">Tales of Salvation</h1>
-  <p class="site-subtitle">Character Sheet · Witness of the Deep Memory</p>
+  <p class="site-subtitle">Play sheet · Combat · Witness of the Deep Memory</p>
 </header>
 
 <div class="layout">
@@ -19,8 +267,9 @@
   <a href="../deep-memory/index.html">Deep Memory</a>
   <a href="../deep-memory/index.html#witness">Witness of the Deep Memory</a>
 
-  <div class="nav-section">Witness sheet</div>
-  <a href="malcolm-sol-ccs.html">Malcolm Sol Moonstar</a>
+  <div class="nav-section">Sol · Play (not CCS)</div>
+  <a href="malcolm-sol-ccs.html">Combat</a>
+  <a href="malcolm-sol-magic.html">Magic</a>
 
   <div class="nav-section">Companions</div>
   <a href="../companions/portia-dzuth.html">Portia Dzuth</a>
@@ -33,8 +282,14 @@
 <div class="breadcrumbs">
   <a href="../index.html">Home</a> &gt;
   <a href="../deep-memory/index.html">Deep Memory</a> &gt;
-  Malcolm Sol Moonstar (CCS)
+  Malcolm Sol Moonstar · Combat
 </div>
+
+<nav class="sol-play-tabs" aria-label="Sol play pages">
+  <a class="is-current" href="malcolm-sol-ccs.html" aria-current="page">Combat</a>
+  <a href="malcolm-sol-magic.html">Magic</a>
+  <p class="sol-play-tabs-note">Witness play sheet · not a Company Character Sheet · local play experiment</p>
+</nav>
 
 <div class="book-panel">
   <div class="hero">
@@ -56,10 +311,12 @@
       <div class="subtitle">Half-Elf · Warlock 15 (The Great Old One) · Folk Hero</div>
       <span class="badge">Deep Memory’s Witness</span>
       <span class="badge">Patron: The Deep Memory</span>
-      <span class="badge">Character Sheet</span>
+      <span class="badge">Play · Combat</span>
+      <span class="badge">Not CCS</span>
       <p class="ccs-note" style="margin-top:12px">
-        A field guide to your hero. Fast at the table, easy to read, and always ready for the next roll:<br>
-        <em>designed by Atrok</em>
+        Combat face for the table. Spells, invocations, and arcanum live on
+        <a href="malcolm-sol-magic.html"><strong>Magic →</strong></a><br>
+        <em>designed by Atrok · local play experiment</em>
       </p>
       <p class="ccs-note" style="margin-top:8px">
         <strong>The Deep Memory</strong> is Sol’s patron — a <strong>Great Old One (GOO)</strong>.
@@ -69,18 +326,18 @@
   </div>
 
   <div class="sheet-source">
-    <span><strong>Source</strong> Fantasy Grounds · PCs campaign</span>
-    <span><strong>Not</strong> Forge of Fury company roster</span>
-    <span><strong>Sheet reviewed</strong> 2026-07-15</span>
-    <span><strong>Confidence</strong> Verified from FG unless noted</span>
+    <span><strong>Source</strong> Fantasy Grounds · cleaned L15 export</span>
+    <span><strong>Not</strong> Company Character Sheet</span>
+    <span><strong>Synced</strong> 2026-07-20</span>
+    <span><strong>Build</strong> 4 cantrips · 13 known · 3×5th slots · 7 invocations · 3 arcanum</span>
   </div>
 
   <!-- Teaching strip -->
   <p class="ccs-hint" style="margin:14px 0 0">
-    <strong>Spells</strong> spend pact slots.
-    <strong>Invocations</strong> reshape how you cast or act (often without those slots).
-    <strong>Features</strong> are class powers (rests / reactions / always on).
-    <strong>Mystic Arcanum</strong> is a free high spell, once per rest — not a pact slot.
+    <strong>Combat</strong> = this page.
+    <strong>Magic</strong> = pact spells, invocations, GOO features, arcanum
+    (<a href="malcolm-sol-magic.html">open Magic →</a>).
+    Expanded List does not grant free known spells.
   </p>
 
   <!-- 1 · Core Stats -->
@@ -89,9 +346,9 @@
     <div class="ccs-core-board">
       <div class="ccs-tile ccs-tile-hp ccs-core-hp" data-ccs-hp data-fg-hp-tiered data-character="malcolm-sol" data-hp-max="123">
         <span class="ccs-label">Hit Points</span>
-        <span class="ccs-sublabel">Wounds / Max · FG tiered colors</span>
-        <div class="ccs-hp-row" role="group" aria-label="Hit points">
-          <input type="number" class="ccs-hp-current" name="hp-current" inputmode="numeric" min="0" max="123" value="123" aria-label="Wounds" title="Wounds (Fantasy Grounds)">
+        <span class="ccs-sublabel">Wounds / Max · FG (0 = full · high = red)</span>
+        <div class="ccs-hp-row" role="group" aria-label="Hit points as wounds">
+          <input type="number" class="ccs-hp-current" name="hp-wounds" inputmode="numeric" min="0" max="123" value="0" aria-label="Wounds (damage taken)" title="Fantasy Grounds wounds — damage taken, not HP remaining. 0 = healthy (green).">
           <span class="ccs-hp-sep" aria-hidden="true">/</span>
           <span class="ccs-hp-max" aria-label="Maximum hit points">123</span>
         </div>
@@ -110,19 +367,32 @@
         </div>
       </div>
 
-      <div class="ccs-tile ccs-tile-ac ccs-core-ac" data-ccs-ac data-character="malcolm-sol" data-ac-base="15">
+      <div
+        class="ccs-tile ccs-tile-ac ccs-core-ac"
+        data-ccs-ac
+        data-character="malcolm-sol"
+        data-ac-base="12"
+        data-ac-mage="15"
+        data-ac-base-label="DEX (unarmored)"
+        data-ac-mage-label="Mage Armor + DEX"
+      >
         <span class="ccs-label">Armor Class</span>
         <div class="ccs-ac-row">
-          <span class="ccs-ac-total" aria-label="Total armor class">15</span>
+          <span class="ccs-ac-total" aria-label="Total armor class">12</span>
         </div>
         <ul class="ccs-ac-breakdown">
-          <li><span class="ccs-ac-part">Unarmored + DEX</span><span class="ccs-ac-num">12</span></li>
-          <li><span class="ccs-ac-part">Bracers / Armor of Shadows (FG misc)</span><span class="ccs-ac-num">+3</span></li>
+          <li>
+            <span class="ccs-ac-part" data-ccs-ac-base-label>DEX (unarmored)</span>
+            <span class="ccs-ac-num" data-ccs-ac-base-num>12</span>
+          </li>
           <li class="ccs-ac-misc-row">
             <span class="ccs-ac-part">Misc</span>
             <input type="number" class="ccs-ac-misc" name="ac-misc" inputmode="numeric" value="0" aria-label="Miscellaneous AC bonus">
           </li>
         </ul>
+        <p class="ccs-note" style="margin-top:8px;text-align:center;font-size:.78rem">
+          No bracers equipped — they’re in the Bag of Holding.
+        </p>
       </div>
 
       <div class="ccs-tile ccs-core-speed">
@@ -182,34 +452,67 @@
     </div>
     <p class="ccs-note">
       Proficient saves: <strong>Wisdom</strong> and <strong>Charisma</strong> (warlock).
-      Spell attack <strong>+10</strong> · Spell save DC <strong>18</strong> (CHA).
+      Spell attack <strong>+13</strong> · Spell save DC <strong>21</strong>
+      (CHA +5 · PB +5 · <strong>Rod of the Pact Keeper +3 always on</strong>).
     </p>
   </section>
 
   <!-- 3 · Combat -->
   <section class="ccs-section" id="combat" aria-labelledby="combat-title">
     <h3 id="combat-title">3 · Combat</h3>
-    <p class="ccs-hint">Cantrips &amp; attack package first. Eldritch Blast is shaped by <strong>Invocations</strong> (below) — the bonus damage is not a separate spell.</p>
+    <p class="ccs-hint">Attack package first. EB uses Agonizing / Repelling (see <a href="malcolm-sol-magic.html">Magic</a>). Numbers include the Rod. Full spell list on Magic.</p>
+
+    <!-- Concentration — table critical for warlock -->
+    <div class="sol-concentration" data-sol-concentration data-character="malcolm-sol">
+      <div class="sol-concentration-top">
+        <div class="ccs-action-name">Concentration</div>
+        <button
+          type="button"
+          class="ccs-use-toggle is-ready sol-conc-toggle"
+          data-sol-conc-toggle
+          aria-pressed="false"
+          aria-label="Is Sol concentrating? Click to toggle."
+        >No</button>
+      </div>
+      <p class="ccs-action-meta sol-conc-status" data-sol-conc-status>Sol is <strong>not</strong> concentrating.</p>
+      <label class="sol-conc-label" for="sol-conc-spell">
+        Spell or effect Sol is concentrating on
+      </label>
+      <input
+        type="text"
+        id="sol-conc-spell"
+        class="sol-conc-spell"
+        data-sol-conc-spell
+        placeholder="e.g. Hex · target: … · or leave blank if none"
+        autocomplete="off"
+        spellcheck="true"
+      >
+      <p class="ccs-note" style="margin-top:8px">
+        Eldritch Mind: advantage on CON saves to maintain concentration.
+        Starting a new concentration spell ends the previous one — clear or replace the line when you switch.
+      </p>
+    </div>
+
     <ul class="ccs-weapon-list">
       <li class="ccs-weapon">
         <div class="ccs-weapon-name">Eldritch Blast</div>
-        <div class="ccs-weapon-line"><span class="ccs-weapon-label">Attack</span> <span class="ccs-weapon-stat">+10</span> <span class="ccs-weapon-detail">cantrip · 120 ft · <strong>3 beams</strong> (level 11+)</span></div>
+        <div class="ccs-weapon-line"><span class="ccs-weapon-label">Attack</span> <span class="ccs-weapon-stat">+13</span> <span class="ccs-weapon-detail">cantrip · 120 ft · <strong>3 beams</strong> (level 11+) · Rod +3</span></div>
         <div class="ccs-weapon-line"><span class="ccs-weapon-label">Damage</span> <span class="ccs-weapon-stat">1d10 + 5</span> <span class="ccs-weapon-detail">force per beam · Agonizing Blast</span></div>
         <div class="ccs-weapon-line ccs-weapon-extra"><span class="ccs-weapon-label">Push</span> <span class="ccs-weapon-detail">Repelling Blast: push 10 ft on hit (per beam)</span></div>
       </li>
       <li class="ccs-weapon">
         <div class="ccs-weapon-name">Mind Sliver</div>
-        <div class="ccs-weapon-line"><span class="ccs-weapon-label">Save</span> <span class="ccs-weapon-stat">DC 18</span> <span class="ccs-weapon-detail">INT · cantrip · 60 ft</span></div>
+        <div class="ccs-weapon-line"><span class="ccs-weapon-label">Save</span> <span class="ccs-weapon-stat">DC 21</span> <span class="ccs-weapon-detail">INT · cantrip · 60 ft · Rod +3</span></div>
         <div class="ccs-weapon-line"><span class="ccs-weapon-label">Damage</span> <span class="ccs-weapon-stat">3d6</span> <span class="ccs-weapon-detail">psychic · −1d4 on next save before end of your next turn</span></div>
       </li>
       <li class="ccs-weapon">
         <div class="ccs-weapon-name">Chill Touch</div>
-        <div class="ccs-weapon-line"><span class="ccs-weapon-label">Attack</span> <span class="ccs-weapon-stat">+10</span> <span class="ccs-weapon-detail">cantrip · 120 ft</span></div>
+        <div class="ccs-weapon-line"><span class="ccs-weapon-label">Attack</span> <span class="ccs-weapon-stat">+13</span> <span class="ccs-weapon-detail">cantrip · 120 ft · Rod +3</span></div>
         <div class="ccs-weapon-line"><span class="ccs-weapon-label">Damage</span> <span class="ccs-weapon-stat">3d8</span> <span class="ccs-weapon-detail">necrotic · can’t regain HP until start of your next turn</span></div>
       </li>
       <li class="ccs-weapon">
         <div class="ccs-weapon-name">Hex</div>
-        <div class="ccs-weapon-line"><span class="ccs-weapon-label">Bonus</span> <span class="ccs-weapon-stat">1d6</span> <span class="ccs-weapon-detail">necrotic extra on hits · concentration · disads on chosen ability checks</span></div>
+        <div class="ccs-weapon-line"><span class="ccs-weapon-label">Bonus</span> <span class="ccs-weapon-stat">1d6</span> <span class="ccs-weapon-detail">necrotic extra on hits · <strong>concentration</strong> · disads on chosen ability checks</span></div>
       </li>
     </ul>
 
@@ -230,7 +533,8 @@
     </div>
 
     <p class="ccs-note">
-      Also known (utility / control — spend a pact slot): Prestidigitation, Comprehend Languages, Protection from Evil and Good, Dissonant Whispers, Tasha’s Hideous Laughter, Cloud of Daggers, Darkness, Detect Thoughts, Clairvoyance, Sending, Dominate Beast, Evard’s Black Tentacles, Dominate Person, Telekinesis, Misty Step, Counterspell, Dispel Magic, Fly, Dimension Door, Contact Other Plane, Arcane Eye, Speak with Dead, Far Step, Jallarzi’s Storm of Radiance, and more on the FG record.
+      Pact spells, invocations, GOO features, and Mystic Arcanum:
+      <a href="malcolm-sol-magic.html"><strong>Open Magic page →</strong></a>
     </p>
   </section>
 
@@ -284,176 +588,148 @@
     <p class="ccs-note">Skills without proficiency: Roll 1d20 + Ability Modifier (e.g. Insight = WIS +0).</p>
   </section>
 
-  <!-- 5 · Actions: Invocations / Features / Arcanum -->
+  <!-- 5 · Table toggles (full Magic toolbox on Magic page) -->
   <section class="ccs-section" id="actions" aria-labelledby="actions-title">
-    <h3 id="actions-title">5 · Actions</h3>
+    <h3 id="actions-title">5 · Table toggles</h3>
+    <p class="ccs-hint">
+      Keep these on Combat for speed.
+      Invocations, GOO features, arcanum, and the full spell list:
+      <a href="malcolm-sol-magic.html"><strong>Magic →</strong></a>
+    </p>
 
-    <!-- Invocations -->
-    <div class="ccs-superiority" style="margin-bottom:14px">
-      <div class="ccs-superiority-head">
-        <div class="ccs-action-name">Eldritch Invocations</div>
-        <p class="ccs-action-meta">Not spells. Always available unless the text says otherwise. They may change cantrips or grant free casts.</p>
-      </div>
-      <div class="ccs-maneuver-grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
-        <div class="ccs-maneuver">
-          <div class="ccs-action-name">Agonizing Blast</div>
-          <div class="ccs-action-meta">On Eldritch Blast</div>
-          <p class="ccs-action-body">Add CHA (+5) to EB damage rolls.</p>
-        </div>
-        <div class="ccs-maneuver">
-          <div class="ccs-action-name">Repelling Blast</div>
-          <div class="ccs-action-meta">On Eldritch Blast hit</div>
-          <p class="ccs-action-body">Push the target 10 feet away.</p>
-        </div>
-        <div class="ccs-maneuver">
-          <div class="ccs-action-name">Eldritch Mind</div>
-          <div class="ccs-action-meta">Always</div>
-          <p class="ccs-action-body">Advantage on Constitution saves to maintain concentration.</p>
-        </div>
-        <div class="ccs-maneuver">
-          <div class="ccs-action-name">Armor of Shadows</div>
-          <div class="ccs-action-meta">At will</div>
-          <p class="ccs-action-body">Cast Mage Armor on yourself without a slot.</p>
-        </div>
-        <div class="ccs-maneuver">
-          <div class="ccs-action-name">Devil’s Sight</div>
-          <div class="ccs-action-meta">Always</div>
-          <p class="ccs-action-body">See normally in darkness, magical and nonmagical, to 120 feet.</p>
-        </div>
-        <div class="ccs-maneuver">
-          <div class="ccs-action-name">Fiendish Vigor</div>
-          <div class="ccs-action-meta">At will</div>
-          <p class="ccs-action-body">Cast False Life on yourself at will as a 1st-level spell.</p>
-        </div>
-        <div class="ccs-maneuver">
-          <div class="ccs-action-name">One with Shadows</div>
-          <div class="ccs-action-meta">Action · dim light / darkness</div>
-          <p class="ccs-action-body">Become invisible until you move, act, or react.</p>
-        </div>
-        <div class="ccs-maneuver">
-          <div class="ccs-action-name">Whispers of the Grave</div>
-          <div class="ccs-action-meta">At will · Speak with Dead</div>
-          <p class="ccs-action-body">
-            Cast <em>Speak with Dead</em> without a slot.
-            <strong>Ref:</strong> 1 action · 10 ft · 10 min · up to <strong>5 questions</strong> to a corpse with a mouth (not undead).
-            Answers brief/cryptic; knows only life knowledge; no duty to tell truth if hostile.
-            Same corpse can’t be targeted again for <strong>10 days</strong>.
-          </p>
-        </div>
-        <div class="ccs-maneuver">
-          <div class="ccs-action-name">Visions of Distant Realms</div>
-          <div class="ccs-action-meta">At will · Arcane Eye</div>
-          <p class="ccs-action-body">
-            Cast <em>Arcane Eye</em> without a slot.
-            <strong>Ref:</strong> 1 action · concentration up to 1 hr · invisible floating eye within 30 ft.
-            Darkvision 30 ft · bonus action move 30 ft · passes 1-inch openings · can’t pass solid barriers or leave the plane.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Features -->
-    <div class="ccs-superiority" style="margin-bottom:14px">
-      <div class="ccs-superiority-head">
-        <div class="ccs-action-name">Features</div>
-        <p class="ccs-action-meta">Class / feat powers — not invocations, not pact-slot spells.</p>
-      </div>
-      <div class="ccs-maneuver-grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
-        <div class="ccs-maneuver">
-          <div class="ccs-action-name">Awakened Mind</div>
-          <div class="ccs-action-meta">GOO · always</div>
-          <p class="ccs-action-body">Telepathy 30 ft with any creature you can see (they need one language).</p>
-        </div>
-        <div class="ccs-maneuver">
-          <div class="ccs-action-name">Entropic Ward</div>
-          <div class="ccs-action-meta">Reaction · 1 / short or long rest</div>
-          <p class="ccs-action-body">Impose disadvantage on an attack against you; if it misses, advantage on your next attack vs that creature before end of your next turn.</p>
-        </div>
-        <div class="ccs-maneuver">
-          <div class="ccs-action-name">Thought Shield</div>
-          <div class="ccs-action-meta">GOO 10 · always</div>
-          <p class="ccs-action-body">Thoughts can’t be read unless you allow it. Resistance to psychic; attacker takes the psychic damage you take.</p>
-        </div>
-        <div class="ccs-maneuver">
-          <div class="ccs-action-name">Create Thrall</div>
-          <div class="ccs-action-meta">GOO 14 · action</div>
-          <p class="ccs-action-body">Charm a humanoid; telepathic bond while on the same plane (see FG full text).</p>
-        </div>
-        <div class="ccs-maneuver">
-          <div class="ccs-action-name">Alert</div>
-          <div class="ccs-action-meta">Feat</div>
-          <p class="ccs-action-body">+5 initiative (already in Core Stats). Can’t be surprised while conscious; hidden attackers don’t gain advantage from being unseen (2014 Alert).</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Mystic Arcanum -->
-    <div class="ccs-superiority">
-      <div class="ccs-superiority-head">
+    <div class="ccs-maneuver-grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+      <div class="ccs-maneuver" data-ccs-shadows data-character="malcolm-sol">
         <div class="ccs-action-top">
-          <div class="ccs-action-name">Mystic Arcanum</div>
-          <button type="button" class="ccs-use-toggle is-ready" data-ccs-use-toggle data-character="malcolm-sol" data-feature="arcanum-block" aria-pressed="false">Ready</button>
+          <div class="ccs-action-name">Armor of Shadows</div>
+          <button
+            type="button"
+            class="ccs-shadows-toggle is-down"
+            data-ccs-shadows-toggle
+            aria-pressed="false"
+            title="Armor of Shadows — Mage Armor at will"
+          >Shield Down</button>
         </div>
-        <p class="ccs-action-meta">
-          Each arcanum: cast <strong>once without a pact slot</strong>.
-          You regain expended arcanum uses when you finish a <strong>long rest</strong>.
-          Track each below (or use Ready/Used as a block reminder).
+        <div class="ccs-action-meta">At will · Mage Armor · updates AC tile</div>
+        <p class="ccs-action-body">
+          <strong>Shield Up</strong> = AC <strong>15</strong> + Misc (13 + DEX).
+          Bracers stay in the Bag of Holding.
         </p>
       </div>
-      <div class="ccs-maneuver-grid">
-        <div class="ccs-maneuver">
-          <div class="ccs-action-top">
-            <div class="ccs-action-name">Arcane Gate</div>
-            <button type="button" class="ccs-use-toggle is-ready" data-ccs-use-toggle data-character="malcolm-sol" data-feature="arcanum-6" aria-pressed="false">Ready</button>
-          </div>
-          <div class="ccs-action-meta">6th · 1 / long rest</div>
-          <p class="ccs-action-body">Linked portals within range (see spell).</p>
+      <div class="ccs-action-block" style="margin:0">
+        <div class="ccs-action-top">
+          <div class="ccs-action-name">Entropic Ward</div>
+          <button type="button" class="ccs-use-toggle is-ready" data-ccs-use-toggle data-character="malcolm-sol" data-feature="entropic-ward" aria-pressed="false">Ready</button>
         </div>
-        <div class="ccs-maneuver">
-          <div class="ccs-action-top">
-            <div class="ccs-action-name">Etherealness</div>
-            <button type="button" class="ccs-use-toggle is-ready" data-ccs-use-toggle data-character="malcolm-sol" data-feature="arcanum-7" aria-pressed="false">Ready</button>
-          </div>
-          <div class="ccs-action-meta">7th · 1 / long rest · Mystic Arcanum (not a pact slot)</div>
-          <p class="ccs-action-body">
-            <strong>Ref:</strong> 1 action · self · up to 8 hours · Border Ethereal.
-            See/hear Material within 60 ft; only interact with ethereal creatures.
-            Move any direction (extra movement cost); pass through Material objects as difficult terrain — ending a turn inside an object is bad (force damage + shove out).
-            Ends: return to the plane you left.
-          </p>
-        </div>
-        <div class="ccs-maneuver">
-          <div class="ccs-action-top">
-            <div class="ccs-action-name">Befuddlement</div>
-            <button type="button" class="ccs-use-toggle is-ready" data-ccs-use-toggle data-character="malcolm-sol" data-feature="arcanum-8" aria-pressed="false">Ready</button>
-          </div>
-          <div class="ccs-action-meta">8th · 1 / long rest</div>
-          <p class="ccs-action-body">Mind-breaking curse (see spell; formerly Feeblemind-class effect).</p>
-        </div>
+        <div class="ccs-action-meta">Reaction · 1 / short or long rest</div>
+        <p class="ccs-action-body">Disadvantage on an attack vs you; if it misses, advantage on your next attack vs that creature before end of your next turn.</p>
       </div>
     </div>
   </section>
 
-  <!-- 6 · Senses & notes -->
+  <!-- 6 · Gear · Attunement · Bag of Holding -->
+  <section class="ccs-section" id="gear" aria-labelledby="gear-title">
+    <h3 id="gear-title">6 · Gear · Attunement · Bag of Holding</h3>
+    <p class="ccs-hint">
+      Most characters have <strong>3 attunement slots</strong> (Artificer is the usual exception).
+      Sol’s three are full. Equipped gear that doesn’t need attunement is listed separately.
+    </p>
+
+    <div class="sol-gear-grid">
+      <div class="sol-gear-card">
+        <h4 class="sol-gear-heading">Attuned <span class="sol-gear-count">3 / 3</span></h4>
+        <ul class="ccs-list sol-gear-list">
+          <li><span class="ccs-item-name">Rod of the Pact Keeper +3</span><span class="ccs-item-meta">Always on · spell atk +13 · DC 21</span></li>
+          <li><span class="ccs-item-name">Necklace of Adaptation</span><span class="ccs-item-meta">Breathe anywhere · ignore some inhaled hazards</span></li>
+          <li><span class="ccs-item-name">Ring of Spell Storing</span><span class="ccs-item-meta">Attuned · track contents beside portrait ↓</span></li>
+        </ul>
+      </div>
+      <div class="sol-gear-card">
+        <h4 class="sol-gear-heading">Equipped <span class="sol-gear-count">no attunement</span></h4>
+        <div class="ccs-action-block" style="margin:0 0 10px;background:rgba(255,255,255,.25)">
+          <div class="ccs-action-top">
+            <div class="ccs-action-name">Cape of the Mountebank</div>
+            <button
+              type="button"
+              class="ccs-use-toggle is-ready"
+              data-ccs-use-toggle
+              data-character="malcolm-sol"
+              data-feature="cape-mountebank"
+              aria-pressed="false"
+            >Ready</button>
+          </div>
+          <div class="ccs-action-meta">Worn · <strong>1 / dawn</strong> · cast <em>Dimension Door</em> (cape) · no attunement</div>
+          <p class="ccs-action-body">
+            Property can’t be used again until the <strong>next dawn</strong>.
+            Mark <strong>Used</strong> when you activate it; reset to Ready at dawn.
+          </p>
+        </div>
+        <ul class="ccs-list sol-gear-list">
+          <li><span class="ccs-item-name">Bag of Holding</span><span class="ccs-item-meta">Worn / carried · extradimensional storage · no attunement</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sol-bag" data-sol-bag data-character="malcolm-sol">
+      <div class="sol-bag-top">
+        <h4 class="sol-gear-heading" style="margin:0">Bag of Holding · contents</h4>
+        <p class="ccs-action-meta" style="margin:4px 0 0">Extradimensional — not worn on the body. Edit freely at the table; saves on this device.</p>
+      </div>
+      <ul class="sol-bag-list" data-sol-bag-list>
+        <!-- filled by script defaults + localStorage -->
+      </ul>
+      <div class="sol-bag-actions">
+        <button type="button" class="ccs-use-toggle is-ready" data-sol-bag-add>Add item</button>
+        <button type="button" class="ccs-use-toggle is-ready" data-sol-bag-reset title="Restore default stowed list">Reset defaults</button>
+      </div>
+      <label class="sol-conc-label" for="sol-bag-notes" style="margin-top:12px">Bag notes (loot, “update FG later,” whatever)</label>
+      <textarea id="sol-bag-notes" class="sol-bag-notes" data-sol-bag-notes rows="3" placeholder="e.g. pulled bracers for one fight — put back after"></textarea>
+    </div>
+  </section>
+
+  <!-- 7 · Senses & notes · Ring · portrait -->
   <section class="ccs-section" id="senses" aria-labelledby="senses-title">
-    <h3 id="senses-title">6 · Senses &amp; notes</h3>
+    <h3 id="senses-title">7 · Senses &amp; notes</h3>
     <ul class="ccs-list">
       <li><span class="ccs-item-name">Darkvision</span><span class="ccs-item-meta">120 ft · Devil’s Sight for magical darkness</span></li>
       <li><span class="ccs-item-name">Languages</span><span class="ccs-item-meta">Common · Elvish · Deep Speech</span></li>
       <li><span class="ccs-item-name">Patron</span><span class="ccs-item-meta">The Deep Memory — a Great Old One (GOO) · Sol is its Witness</span></li>
-      <li><span class="ccs-item-name">Key items</span><span class="ccs-item-meta">Bracers of Defense · Cape of the Mountebank · Necklace of Adaptation · Ring of Spell Storing · Bag of Holding</span></li>
       <li><span class="ccs-item-name">Companion</span><span class="ccs-item-meta"><a href="../companions/portia-dzuth.html">Portia Dzuth</a> · Champion</span></li>
       <li><span class="ccs-item-name">Hit dice</span><span class="ccs-item-meta">15d8</span></li>
     </ul>
-    <div class="portrait-frame" style="max-width:280px;margin-top:16px">
-      <img src="../assets/images/characters/Sol_Full.jpg" alt="Malcolm Sol Moonstar full figure">
+
+    <div class="sol-footer-row">
+      <div class="sol-ring" data-sol-ring data-character="malcolm-sol" data-ring-max-levels="5">
+        <div class="sol-ring-top">
+          <h4 class="sol-gear-heading" style="margin:0">Ring of Spell Storing</h4>
+          <span class="sol-ring-budget" data-sol-ring-budget>0 / 5 levels</span>
+        </div>
+        <p class="ccs-action-meta" style="margin:0 0 10px">
+          Holds up to <strong>5 levels</strong> of spells (any caster can store; you cast them out).
+          Not on the 13 known. Cast one → remove the row.
+        </p>
+        <ul class="sol-ring-list" data-sol-ring-list></ul>
+        <div class="sol-ring-actions">
+          <button type="button" class="ccs-use-toggle is-ready" data-sol-ring-add>Add spell</button>
+          <button type="button" class="ccs-use-toggle is-ready" data-sol-ring-clear title="Empty the ring">Clear all</button>
+        </div>
+        <p class="ccs-note" style="margin-top:10px;margin-bottom:0">
+          FG still shows <em>Mass Cure Wounds (Ring)</em> when something is stored — mirror here at the table.
+        </p>
+      </div>
+      <div class="portrait-frame">
+        <img src="../assets/images/characters/Sol_Full.jpg" alt="Malcolm Sol Moonstar full figure">
+      </div>
     </div>
   </section>
 </div>
 
 <p class="note" style="margin-top:18px">
-  Not a Forge of Fury company sheet — Witness archive character.
-  <a href="../deep-memory/index.html">Deep Memory (site)</a>.
+  Witness <strong>play sheet</strong> — not a Company Character Sheet.
+  <a href="malcolm-sol-magic.html">Magic page →</a>
+  ·
+  <a href="../deep-memory/index.html">Deep Memory</a>
+  ·
+  <a href="../companions/portia-dzuth.html">Portia</a>
 </p>
 
 </main>
@@ -502,22 +778,48 @@
     load();
   }
 
-  bindCounter("[data-ccs-hp]", ".ccs-hp-current", "ccs-hp-current:", "data-hp-max", 123);
-
-  /* FG 5E Tiered health colors — Sol test only (not all CCS) */
+  /* Wounds (FG damage taken) — default 0 = full health; new key so old “current HP” saves don’t invert colors */
   (function () {
-    var root = document.querySelector("[data-ccs-hp][data-fg-hp-tiered]");
+    var root = document.querySelector("[data-ccs-hp]");
     var input = root && root.querySelector(".ccs-hp-current");
-    if (!root || !input || !window.FgHpTiered) return;
+    if (!root || !input) return;
+    var character = root.getAttribute("data-character") || "malcolm-sol";
     var maxVal = parseInt(root.getAttribute("data-hp-max"), 10) || 123;
-    function paint() {
-      var n = parseInt(input.value, 10);
-      if (isNaN(n)) n = maxVal;
-      window.FgHpTiered.paint(input, n, maxVal);
+    var key = "ccs-hp-wounds:" + character;
+    input.max = String(maxVal);
+    input.min = "0";
+
+    function clamp(n) {
+      if (isNaN(n) || n < 0) return 0;
+      if (n > maxVal) return maxVal;
+      return n;
     }
+    function paint() {
+      var n = clamp(parseInt(input.value, 10));
+      if (window.FgHpTiered) window.FgHpTiered.paint(input, n, maxVal);
+    }
+    function load() {
+      try {
+        var raw = localStorage.getItem(key);
+        input.value = (raw === null || raw === "") ? "0" : String(clamp(parseInt(raw, 10)));
+      } catch (e) {
+        input.value = "0";
+      }
+      paint();
+    }
+    function save() {
+      var n = clamp(parseInt(input.value, 10));
+      input.value = String(n);
+      paint();
+      try { localStorage.setItem(key, String(n)); } catch (e) { /* private */ }
+    }
+    input.addEventListener("change", save);
     input.addEventListener("input", paint);
-    input.addEventListener("change", paint);
-    paint();
+    input.addEventListener("blur", save);
+    input.addEventListener("keydown", function (ev) {
+      if (ev.key === "Enter") { save(); input.blur(); }
+    });
+    load();
   })();
 
   (function () {
@@ -589,42 +891,319 @@
     });
   })();
 
+  /* AC + Armor of Shadows (Shield Up / Down) — no bracers (in bag) */
   (function () {
-    var root = document.querySelector("[data-ccs-ac]");
-    if (!root) return;
-    var totalEl = root.querySelector(".ccs-ac-total");
-    var miscInput = root.querySelector(".ccs-ac-misc");
+    var acRoot = document.querySelector("[data-ccs-ac]");
+    var shadowsRoot = document.querySelector("[data-ccs-shadows]");
+    var btn = shadowsRoot && shadowsRoot.querySelector("[data-ccs-shadows-toggle]");
+    if (!acRoot) return;
+    var totalEl = acRoot.querySelector(".ccs-ac-total");
+    var miscInput = acRoot.querySelector(".ccs-ac-misc");
+    var baseLabelEl = acRoot.querySelector("[data-ccs-ac-base-label]");
+    var baseNumEl = acRoot.querySelector("[data-ccs-ac-base-num]");
     if (!totalEl || !miscInput) return;
-    var character = root.getAttribute("data-character") || "character";
-    var baseAc = parseInt(root.getAttribute("data-ac-base"), 10) || 15;
-    var key = "ccs-ac-misc:" + character;
+
+    var character = acRoot.getAttribute("data-character") || "malcolm-sol";
+    var acDown = parseInt(acRoot.getAttribute("data-ac-base"), 10) || 12;
+    var acUp = parseInt(acRoot.getAttribute("data-ac-mage"), 10) || 15;
+    var labelDown = acRoot.getAttribute("data-ac-base-label") || "DEX (unarmored)";
+    var labelUp = acRoot.getAttribute("data-ac-mage-label") || "Mage Armor + DEX";
+    var miscKey = "ccs-ac-misc:" + character;
+    var shadowsKey = "ccs-shadows:" + character;
+    var shieldUp = false;
+
     function parseMisc(raw) {
       if (raw === null || raw === "" || raw === "-") return 0;
       var n = parseInt(raw, 10);
       return isNaN(n) ? 0 : n;
     }
     function formatMisc(n) { return n > 0 ? "+" + n : String(n); }
-    function refresh() {
+    function baseAc() { return shieldUp ? acUp : acDown; }
+    function refreshTotal() {
+      totalEl.textContent = String(baseAc() + parseMisc(miscInput.value));
+    }
+    function applyShield(up) {
+      shieldUp = !!up;
+      var base = baseAc();
+      acRoot.classList.toggle("is-shadows-up", shieldUp);
+      if (shadowsRoot) shadowsRoot.classList.toggle("is-shadows-up", shieldUp);
+      if (baseLabelEl) baseLabelEl.textContent = shieldUp ? labelUp : labelDown;
+      if (baseNumEl) baseNumEl.textContent = String(base);
+      if (btn) {
+        btn.textContent = shieldUp ? "Shield Up" : "Shield Down";
+        btn.setAttribute("aria-pressed", shieldUp ? "true" : "false");
+        btn.classList.toggle("is-up", shieldUp);
+        btn.classList.toggle("is-down", !shieldUp);
+        btn.setAttribute(
+          "aria-label",
+          shieldUp
+            ? "Shield Up — Mage Armor active (AC 15 + misc). Click for Shield Down."
+            : "Shield Down — click for Shield Up (Mage Armor, AC 15 + misc)."
+        );
+      }
+      refreshTotal();
+      try { localStorage.setItem(shadowsKey, shieldUp ? "1" : "0"); } catch (e) { /* private */ }
+    }
+    function saveMisc() {
       var misc = parseMisc(miscInput.value);
       miscInput.value = formatMisc(misc);
-      totalEl.textContent = String(baseAc + misc);
-      try { localStorage.setItem(key, String(misc)); } catch (e) { /* private */ }
+      refreshTotal();
+      try { localStorage.setItem(miscKey, String(misc)); } catch (e) { /* private */ }
     }
-    function load() {
+    function loadMisc() {
       try {
-        var raw = localStorage.getItem(key);
+        var raw = localStorage.getItem(miscKey);
         miscInput.value = (raw === null || raw === "") ? "0" : formatMisc(parseMisc(raw));
       } catch (e) {
         miscInput.value = "0";
       }
-      totalEl.textContent = String(baseAc + parseMisc(miscInput.value));
     }
-    miscInput.addEventListener("change", refresh);
-    miscInput.addEventListener("blur", refresh);
-    miscInput.addEventListener("input", function () {
-      totalEl.textContent = String(baseAc + parseMisc(miscInput.value));
-    });
-    load();
+    function loadShield() {
+      var up = false;
+      try { up = localStorage.getItem(shadowsKey) === "1"; } catch (e) { /* private */ }
+      applyShield(up);
+    }
+
+    miscInput.addEventListener("change", saveMisc);
+    miscInput.addEventListener("blur", saveMisc);
+    miscInput.addEventListener("input", refreshTotal);
+    if (btn) {
+      btn.addEventListener("click", function () {
+        applyShield(!(btn.getAttribute("aria-pressed") === "true"));
+      });
+    }
+    loadMisc();
+    loadShield();
+  })();
+
+  /* Bag of Holding — editable contents */
+  (function () {
+    var root = document.querySelector("[data-sol-bag]");
+    var listEl = root && root.querySelector("[data-sol-bag-list]");
+    var notesEl = root && root.querySelector("[data-sol-bag-notes]");
+    var addBtn = root && root.querySelector("[data-sol-bag-add]");
+    var resetBtn = root && root.querySelector("[data-sol-bag-reset]");
+    if (!root || !listEl) return;
+
+    var character = root.getAttribute("data-character") || "malcolm-sol";
+    var keyItems = "sol-bag-items:" + character;
+    var keyNotes = "sol-bag-notes:" + character;
+    var defaults = [
+      "Bracers of Defense (not equipped — stowed)",
+      "Potion of Superior Healing",
+      "Potion of Superior Healing",
+      "Potion of Healing",
+      "Potion of Healing",
+      "Backpack kit · ink · pen · parchment · small knife",
+      "Book (sand) / odds and ends"
+    ];
+
+    function saveItems(items) {
+      try { localStorage.setItem(keyItems, JSON.stringify(items)); } catch (e) { /* private */ }
+    }
+    function loadItems() {
+      try {
+        var raw = localStorage.getItem(keyItems);
+        if (raw) {
+          var parsed = JSON.parse(raw);
+          if (Array.isArray(parsed) && parsed.length) return parsed;
+        }
+      } catch (e) { /* private */ }
+      return defaults.slice();
+    }
+    function collectItems() {
+      var items = [];
+      listEl.querySelectorAll("input[type='text']").forEach(function (inp) {
+        items.push(inp.value);
+      });
+      return items;
+    }
+    function render(items) {
+      listEl.innerHTML = "";
+      items.forEach(function (text, idx) {
+        var li = document.createElement("li");
+        var input = document.createElement("input");
+        input.type = "text";
+        input.value = text;
+        input.setAttribute("aria-label", "Bag item " + (idx + 1));
+        input.addEventListener("change", function () { saveItems(collectItems()); });
+        input.addEventListener("blur", function () { saveItems(collectItems()); });
+        var rm = document.createElement("button");
+        rm.type = "button";
+        rm.className = "sol-bag-remove";
+        rm.textContent = "×";
+        rm.title = "Remove item";
+        rm.setAttribute("aria-label", "Remove item " + (idx + 1));
+        rm.addEventListener("click", function () {
+          li.remove();
+          saveItems(collectItems());
+        });
+        li.appendChild(input);
+        li.appendChild(rm);
+        listEl.appendChild(li);
+      });
+    }
+
+    if (addBtn) {
+      addBtn.addEventListener("click", function () {
+        var items = collectItems();
+        items.push("");
+        render(items);
+        saveItems(items);
+        var inputs = listEl.querySelectorAll("input[type='text']");
+        if (inputs.length) inputs[inputs.length - 1].focus();
+      });
+    }
+    if (resetBtn) {
+      resetBtn.addEventListener("click", function () {
+        if (!confirm("Reset Bag of Holding list to defaults?")) return;
+        render(defaults.slice());
+        saveItems(defaults.slice());
+      });
+    }
+    if (notesEl) {
+      try {
+        notesEl.value = localStorage.getItem(keyNotes) || "";
+      } catch (e) { notesEl.value = ""; }
+      function saveNotes() {
+        try { localStorage.setItem(keyNotes, notesEl.value || ""); } catch (e) { /* private */ }
+      }
+      notesEl.addEventListener("change", saveNotes);
+      notesEl.addEventListener("blur", saveNotes);
+    }
+
+    render(loadItems());
+  })();
+
+  /* Ring of Spell Storing — up to 5 levels beside portrait */
+  (function () {
+    var root = document.querySelector("[data-sol-ring]");
+    var listEl = root && root.querySelector("[data-sol-ring-list]");
+    var budgetEl = root && root.querySelector("[data-sol-ring-budget]");
+    var addBtn = root && root.querySelector("[data-sol-ring-add]");
+    var clearBtn = root && root.querySelector("[data-sol-ring-clear]");
+    if (!root || !listEl || !budgetEl) return;
+
+    var character = root.getAttribute("data-character") || "malcolm-sol";
+    var maxLevels = parseInt(root.getAttribute("data-ring-max-levels"), 10) || 5;
+    var key = "sol-ring-spells:" + character;
+
+    function load() {
+      try {
+        var raw = localStorage.getItem(key);
+        if (raw) {
+          var parsed = JSON.parse(raw);
+          if (Array.isArray(parsed)) return parsed;
+        }
+      } catch (e) { /* private */ }
+      return [];
+    }
+    function save(items) {
+      try { localStorage.setItem(key, JSON.stringify(items)); } catch (e) { /* private */ }
+    }
+    function collect() {
+      var items = [];
+      listEl.querySelectorAll("li").forEach(function (li) {
+        var nameInp = li.querySelector('input[type="text"]');
+        var lvlInp = li.querySelector('input[type="number"]');
+        if (!nameInp || !lvlInp) return;
+        var level = parseInt(lvlInp.value, 10);
+        if (isNaN(level) || level < 1) level = 1;
+        if (level > 9) level = 9;
+        items.push({ name: nameInp.value, level: level });
+      });
+      return items;
+    }
+    function usedLevels(items) {
+      return items.reduce(function (sum, it) {
+        var n = parseInt(it.level, 10);
+        return sum + (isNaN(n) ? 0 : n);
+      }, 0);
+    }
+    function paintBudget(items) {
+      var used = usedLevels(items);
+      budgetEl.textContent = used + " / " + maxLevels + " levels";
+      budgetEl.classList.toggle("is-full", used >= maxLevels);
+    }
+    function render(items) {
+      listEl.innerHTML = "";
+      if (!items.length) {
+        var empty = document.createElement("li");
+        empty.style.display = "block";
+        empty.style.fontStyle = "italic";
+        empty.style.color = "#5C5346";
+        empty.textContent = "Empty — add a spell when someone stores one.";
+        listEl.appendChild(empty);
+        paintBudget([]);
+        return;
+      }
+      items.forEach(function (it, idx) {
+        var li = document.createElement("li");
+        var nameInp = document.createElement("input");
+        nameInp.type = "text";
+        nameInp.value = it.name || "";
+        nameInp.placeholder = "Spell name";
+        nameInp.setAttribute("aria-label", "Stored spell " + (idx + 1));
+        var lvlInp = document.createElement("input");
+        lvlInp.type = "number";
+        lvlInp.min = "1";
+        lvlInp.max = "9";
+        lvlInp.value = String(it.level || 1);
+        lvlInp.title = "Spell level (counts toward 5)";
+        lvlInp.setAttribute("aria-label", "Spell level " + (idx + 1));
+        function persist() {
+          var next = collect();
+          save(next);
+          paintBudget(next);
+        }
+        nameInp.addEventListener("change", persist);
+        nameInp.addEventListener("blur", persist);
+        lvlInp.addEventListener("change", persist);
+        lvlInp.addEventListener("blur", persist);
+        var rm = document.createElement("button");
+        rm.type = "button";
+        rm.className = "sol-bag-remove";
+        rm.textContent = "×";
+        rm.title = "Cast / remove";
+        rm.setAttribute("aria-label", "Remove stored spell " + (idx + 1));
+        rm.addEventListener("click", function () {
+          li.remove();
+          if (!listEl.querySelector('input[type="text"]')) {
+            render([]);
+            save([]);
+          } else {
+            var next = collect();
+            save(next);
+            paintBudget(next);
+          }
+        });
+        li.appendChild(nameInp);
+        li.appendChild(lvlInp);
+        li.appendChild(rm);
+        listEl.appendChild(li);
+      });
+      paintBudget(items);
+    }
+
+    if (addBtn) {
+      addBtn.addEventListener("click", function () {
+        var items = listEl.querySelector('input[type="text"]') ? collect() : [];
+        items.push({ name: "", level: 1 });
+        render(items);
+        save(items);
+        var inputs = listEl.querySelectorAll('input[type="text"]');
+        if (inputs.length) inputs[inputs.length - 1].focus();
+      });
+    }
+    if (clearBtn) {
+      clearBtn.addEventListener("click", function () {
+        if (!confirm("Clear all spells from the Ring of Spell Storing?")) return;
+        render([]);
+        save([]);
+      });
+    }
+
+    render(load());
   })();
 
   document.querySelectorAll("[data-ccs-use-toggle]").forEach(function (btn) {
@@ -680,6 +1259,79 @@
       apply(next);
       try { localStorage.setItem(key, next); } catch (e) { /* private */ }
     });
+    load();
+  })();
+
+  /* Concentration: Yes/No + spell/effect name */
+  (function () {
+    var root = document.querySelector("[data-sol-concentration]");
+    var btn = root && root.querySelector("[data-sol-conc-toggle]");
+    var statusEl = root && root.querySelector("[data-sol-conc-status]");
+    var spellInput = root && root.querySelector("[data-sol-conc-spell]");
+    if (!root || !btn || !statusEl || !spellInput) return;
+
+    var character = root.getAttribute("data-character") || "malcolm-sol";
+    var keyOn = "sol-conc-on:" + character;
+    var keySpell = "sol-conc-spell:" + character;
+
+    function apply(on, spell) {
+      root.classList.toggle("is-concentrating", on);
+      btn.textContent = on ? "Yes" : "No";
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+      btn.classList.toggle("is-ready", !on);
+      btn.classList.toggle("is-used", on);
+      btn.setAttribute(
+        "aria-label",
+        on
+          ? "Sol is concentrating. Click to set No."
+          : "Sol is not concentrating. Click to set Yes."
+      );
+      if (on) {
+        var label = (spell && spell.trim()) ? spell.trim() : "(name the spell or effect)";
+        statusEl.innerHTML = "Sol <strong>is concentrating</strong> on: <strong></strong>";
+        statusEl.querySelector("strong:last-child").textContent = label;
+      } else {
+        statusEl.innerHTML = "Sol is <strong>not</strong> concentrating.";
+      }
+      spellInput.value = spell || "";
+    }
+
+    function load() {
+      var on = false;
+      var spell = "";
+      try {
+        on = localStorage.getItem(keyOn) === "yes";
+        spell = localStorage.getItem(keySpell) || "";
+      } catch (e) { /* private */ }
+      apply(on, spell);
+    }
+
+    function saveOn(on) {
+      try { localStorage.setItem(keyOn, on ? "yes" : "no"); } catch (e) { /* private */ }
+    }
+    function saveSpell() {
+      try { localStorage.setItem(keySpell, spellInput.value || ""); } catch (e) { /* private */ }
+    }
+
+    btn.addEventListener("click", function () {
+      var on = btn.getAttribute("aria-pressed") !== "true";
+      apply(on, spellInput.value);
+      saveOn(on);
+      saveSpell();
+    });
+
+    spellInput.addEventListener("input", function () {
+      var on = btn.getAttribute("aria-pressed") === "true";
+      if (spellInput.value.trim() && !on) {
+        on = true;
+        saveOn(true);
+      }
+      apply(on, spellInput.value);
+      saveSpell();
+    });
+    spellInput.addEventListener("change", saveSpell);
+    spellInput.addEventListener("blur", saveSpell);
+
     load();
   })();
 })();

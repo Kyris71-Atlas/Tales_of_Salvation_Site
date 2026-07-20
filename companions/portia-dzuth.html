@@ -121,7 +121,8 @@
 
   <div class="nav-section">Witness</div>
   <a href="../deep-memory/index.html#witness">Deep Memory · Witness</a>
-  <a href="../characters/malcolm-sol-ccs.html">Malcolm Sol Moonstar · sheet</a>
+  <a href="../characters/malcolm-sol-ccs.html">Sol · Combat</a>
+  <a href="../characters/malcolm-sol-magic.html">Sol · Magic</a>
   <a href="portia-dzuth.html">Portia Dzuth</a>
 
   <div class="nav-section">Companions</div>
@@ -178,18 +179,18 @@
         <!-- Row 1: Hit Points · Armor Class · Speed/Prof/PP -->
         <div class="ccs-tile ccs-tile-hp portia-cell-hp" data-ccs-hp data-fg-hp-tiered data-character="portia" data-hp-max="143">
           <span class="ccs-label">Hit Points</span>
-          <span class="ccs-sublabel">Wounds / Max · FG tiered colors</span>
-          <div class="ccs-hp-row" role="group" aria-label="Hit points">
+          <span class="ccs-sublabel">Wounds / Max · FG (0 = full · high = red)</span>
+          <div class="ccs-hp-row" role="group" aria-label="Hit points as wounds">
             <input
               type="number"
               class="ccs-hp-current"
-              name="hp-current"
+              name="hp-wounds"
               inputmode="numeric"
               min="0"
               max="143"
-              value="143"
-              aria-label="Wounds"
-              title="Wounds (current HP)"
+              value="0"
+              aria-label="Wounds (damage taken)"
+              title="Fantasy Grounds wounds — damage taken. 0 = healthy (green). 143 = out."
             >
             <span class="ccs-hp-sep" aria-hidden="true">/</span>
             <span class="ccs-hp-max" aria-label="Maximum hit points">143</span>
@@ -206,7 +207,9 @@
               aria-label="Temporary hit points"
             >
           </div>
-          <p class="ccs-note" style="margin-top:8px;text-align:center">22d8 + 44 · half = 71</p>
+          <p class="ccs-note" style="margin-top:8px;text-align:center">
+            Max 143 · half HP at <strong>71 wounds</strong> · extra 2d6 while wounds &lt; 72
+          </p>
         </div>
 
         <div class="ccs-tile ccs-tile-ac portia-cell-ac">
@@ -295,11 +298,11 @@
       </div>
       <div class="discovery-card portia-weapon-outline" data-portia-weapon-outline>
         <h4>Greatsword</h4>
-        <p>+9 to hit · 2d6 + 5 slashing · plus 2d6 if more than half HP remaining.</p>
+        <p>+9 to hit · 2d6 + 5 slashing · plus 2d6 while <strong>wounds &lt; 72</strong> (more than half HP left).</p>
       </div>
       <div class="discovery-card portia-weapon-outline" data-portia-weapon-outline>
         <h4>Shortbow</h4>
-        <p>+6 to hit · 80/320 ft · 1d6 + 2 piercing · plus 2d6 if more than half HP remaining.</p>
+        <p>+6 to hit · 80/320 ft · 1d6 + 2 piercing · plus 2d6 while <strong>wounds &lt; 72</strong>.</p>
       </div>
     </div>
   </div>
@@ -325,20 +328,19 @@
 (function () {
   "use strict";
 
-  /* HP wounds — localStorage + FG 5E tiered colors (Portia only) */
+  /* FG wounds (damage taken) + tiered colors + weapon outlines */
   (function () {
     var root = document.querySelector("[data-ccs-hp]");
     var input = root && root.querySelector(".ccs-hp-current");
     if (!root || !input) return;
     var character = root.getAttribute("data-character") || "portia";
     var maxVal = parseInt(root.getAttribute("data-hp-max"), 10) || 143;
-    var key = "ccs-hp-current:" + character;
+    var key = "ccs-hp-wounds:" + character;
     input.max = String(maxVal);
     input.min = "0";
 
     function clamp(n) {
-      if (isNaN(n)) return maxVal;
-      if (n < 0) return 0;
+      if (isNaN(n) || n < 0) return 0;
       if (n > maxVal) return maxVal;
       return n;
     }
@@ -353,28 +355,20 @@
       });
     }
 
-    function currentTier(n) {
-      var ratio = n / maxVal;
-      if (n <= 0) return "fg-hp-critical";
-      if (ratio < 0.25) return "fg-hp-low";
-      if (ratio < 0.5) return "fg-hp-mid";
-      if (ratio < 0.75) return "fg-hp-high";
-      return "fg-hp-full";
-    }
-
     function paint() {
       var n = clamp(parseInt(input.value, 10));
-      if (window.FgHpTiered) {
-        window.FgHpTiered.paint(input, n, maxVal);
-      }
-      paintWeapons(currentTier(n));
+      var tier = window.FgHpTiered
+        ? window.FgHpTiered.tierClass(n, maxVal)
+        : "fg-hp-full";
+      if (window.FgHpTiered) window.FgHpTiered.paint(input, n, maxVal);
+      paintWeapons(tier);
     }
     function load() {
       try {
         var raw = localStorage.getItem(key);
-        input.value = (raw === null || raw === "") ? String(maxVal) : String(clamp(parseInt(raw, 10)));
+        input.value = (raw === null || raw === "") ? "0" : String(clamp(parseInt(raw, 10)));
       } catch (e) {
-        input.value = String(maxVal);
+        input.value = "0";
       }
       paint();
     }

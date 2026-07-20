@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Malcolm Sol Moonstar — Play Sheet · Magic</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+.sol-concentration{
+  margin:0;
+  padding:14px 16px;
+  border:2px solid var(--ccs-border);
+  border-radius:12px;
+  background:rgba(255,255,255,.28);
+}
+.sol-concentration-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.sol-concentration.is-concentrating{
+  border-color:#4d8fb3;
+  background:linear-gradient(180deg, rgba(77,143,179,.22), rgba(255,255,255,.28));
+  box-shadow:inset 0 0 0 1px rgba(77,143,179,.45);
+}
+.sol-concentration.is-concentrating .sol-conc-toggle.is-used{
+  color:#0f2a38;
+  background:linear-gradient(180deg, #a8d0e8, #4d8fb3);
+  border-color:#3a7294;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.4);
+}
+.sol-conc-status{margin:8px 0 10px}
+.sol-conc-label{
+  display:block;
+  font-size:.82rem;
+  font-weight:bold;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:var(--ccs-ink-olive);
+  margin:0 0 6px;
+}
+.sol-conc-spell{
+  display:block;
+  width:100%;
+  box-sizing:border-box;
+  margin:0;
+  padding:10px 12px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:1.05rem;
+  color:var(--ccs-ink);
+  border:2px solid var(--ccs-bubble-interactive-border);
+  border-radius:8px;
+  background:var(--ccs-bubble-interactive-fill);
+}
+.sol-conc-spell:focus{
+  outline:2px solid #6e5930;
+  outline-offset:1px;
+  background:#fffef6;
+}
+.sol-concentration:not(.is-concentrating) .sol-conc-spell{opacity:.72}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <h1 class="site-title">Tales of Salvation</h1>
+  <p class="site-subtitle">Play sheet · Magic · Witness of the Deep Memory</p>
+</header>
+
+<div class="layout">
+<nav>
+  <div class="nav-section">Tales of Salvation</div>
+  <a href="../index.html">Home</a>
+  <a href="../deep-memory/index.html">Deep Memory</a>
+  <a href="../deep-memory/index.html#witness">Witness of the Deep Memory</a>
+
+  <div class="nav-section">Sol · Play (not CCS)</div>
+  <a href="malcolm-sol-ccs.html">Combat</a>
+  <a href="malcolm-sol-magic.html">Magic</a>
+
+  <div class="nav-section">Companions</div>
+  <a href="../companions/portia-dzuth.html">Portia Dzuth</a>
+
+  <div class="nav-section">Active table</div>
+  <a href="../forge-of-fury/index.html">Forge Campaign Home</a>
+</nav>
+
+<main>
+<div class="breadcrumbs">
+  <a href="../index.html">Home</a> &gt;
+  <a href="../deep-memory/index.html">Deep Memory</a> &gt;
+  <a href="malcolm-sol-ccs.html">Sol · Combat</a> &gt;
+  Magic
+</div>
+
+<nav class="sol-play-tabs" aria-label="Sol play pages">
+  <a href="malcolm-sol-ccs.html">Combat</a>
+  <a class="is-current" href="malcolm-sol-magic.html" aria-current="page">Magic</a>
+  <p class="sol-play-tabs-note">Spell atk <strong>+13</strong> · Save DC <strong>21</strong></p>
+</nav>
+
+<div class="sheet-source" style="margin-bottom:14px">
+  <span><strong>Source</strong> FG L15 download (cleaned)</span>
+  <span><strong>Spells known</strong> 13 / 13</span>
+  <span><strong>Invocations</strong> 7 / 7</span>
+  <span><strong>Synced</strong> 2026-07-20</span>
+</div>
+
+<div class="book-panel">
+  <!-- Shared strip: slots + concentration -->
+  <div class="sol-magic-strip">
+    <div class="ccs-spell-slots" data-ccs-spell-slots data-character="malcolm-sol" style="margin:0">
+      <div class="ccs-action-name">Pact Magic · spell slots</div>
+      <p class="ccs-action-meta">
+        Three <strong>5th-level</strong> slots · regain all on a <strong>short or long rest</strong>
+      </p>
+      <div class="ccs-spell-slot-row">
+        <label class="ccs-spell-slot">
+          <span class="ccs-spell-slot-level">5th</span>
+          <input type="number" class="ccs-spell-slot-current" data-slot-level="5" data-slot-max="3" inputmode="numeric" min="0" max="3" value="3" aria-label="5th-level pact slots remaining">
+          <span class="ccs-spell-slot-max">/ 3</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="sol-concentration" data-sol-concentration data-character="malcolm-sol">
+      <div class="sol-concentration-top">
+        <div class="ccs-action-name">Concentration</div>
+        <button
+          type="button"
+          class="ccs-use-toggle is-ready sol-conc-toggle"
+          data-sol-conc-toggle
+          aria-pressed="false"
+        >No</button>
+      </div>
+      <p class="ccs-action-meta sol-conc-status" data-sol-conc-status>Sol is <strong>not</strong> concentrating.</p>
+      <label class="sol-conc-label" for="sol-conc-spell-magic">Spell or effect</label>
+      <input
+        type="text"
+        id="sol-conc-spell-magic"
+        class="sol-conc-spell"
+        data-sol-conc-spell
+        placeholder="e.g. Hex · or Evard’s Black Tentacles"
+        autocomplete="off"
+      >
+    </div>
+  </div>
+
+  <!-- Cantrips -->
+  <section class="ccs-section" id="cantrips" aria-labelledby="cantrips-title">
+    <h3 id="cantrips-title">1 · Cantrips</h3>
+    <p class="ccs-hint">No slot. Attack / DC already include Rod (+13 / DC 21).</p>
+    <div class="sol-spell-grid">
+      <div class="sol-spell-card">
+        <h4>Eldritch Blast</h4>
+        <p>+13 · 120 ft · 3 beams · 1d10+5 force each · Agonizing · Repelling push 10 ft</p>
+      </div>
+      <div class="sol-spell-card">
+        <h4>Mind Sliver</h4>
+        <p>DC 21 INT · 60 ft · 3d6 psychic · −1d4 on next save</p>
+      </div>
+      <div class="sol-spell-card">
+        <h4>Chill Touch</h4>
+        <p>+13 · 120 ft · 3d8 necrotic · no HP regain until your next turn starts</p>
+      </div>
+      <div class="sol-spell-card">
+        <h4>Prestidigitation</h4>
+        <p>Utility cantrip · minor magic tricks</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pact spells — exactly 13 known (Warlock 15) from cleaned FG export -->
+  <section class="ccs-section" id="pact-spells" aria-labelledby="pact-title">
+    <h3 id="pact-title">2 · Pact spells known <span style="font-weight:normal;font-size:.9rem">(13 / 13)</span></h3>
+    <p class="ccs-hint">Cast with a pact slot (always 5th level at L15). Expanded List does <strong>not</strong> grant free known spells.</p>
+
+    <div class="sol-spell-grid">
+      <div class="sol-spell-card"><h4>Hex</h4><p>Bonus · concentration · +1d6 necrotic on hits · disads on chosen ability checks</p></div>
+      <div class="sol-spell-card"><h4>Protection from Evil and Good</h4><p>Concentration · protection vs certain creature types</p></div>
+      <div class="sol-spell-card"><h4>Darkness</h4><p>Concentration · 15-ft sphere · Devil’s Sight sees through magical dark</p></div>
+      <div class="sol-spell-card"><h4>Misty Step</h4><p>Bonus · 30 ft teleport (visible space)</p></div>
+      <div class="sol-spell-card"><h4>Counterspell</h4><p>Reaction · interrupt a spell</p></div>
+      <div class="sol-spell-card"><h4>Dispel Magic</h4><p>End spells on a target</p></div>
+      <div class="sol-spell-card"><h4>Fly</h4><p>Concentration · flying speed</p></div>
+      <div class="sol-spell-card"><h4>Dimension Door</h4><p>Teleport self (+ one willing) up to 500 ft</p></div>
+      <div class="sol-spell-card"><h4>Dominate Beast</h4><p>Concentration · control a beast</p></div>
+      <div class="sol-spell-card" style="grid-column:1 / -1">
+        <h4>Evard’s Black Tentacles</h4>
+        <p>
+          <strong>4th</strong> (cast at 5th with pact) · 1 action · concentration up to <strong>1 minute</strong> ·
+          range <strong>90 ft</strong> · area <strong>20-ft square</strong> on the ground.
+        </p>
+        <p style="margin-top:6px">
+          When the area appears, each creature there makes a <strong>DEX save (DC 21)</strong>.
+          <strong>Fail:</strong> takes <strong>3d6 bludgeoning</strong> and is <strong>restrained</strong> by tentacles until the spell ends.
+          <strong>Success:</strong> half damage, not restrained.
+        </p>
+        <p style="margin-top:6px">
+          A creature that <strong>enters</strong> the area or <strong>ends its turn</strong> there also makes the save (same effects).
+          Restrained creature: action to try to escape — <strong>Athletics or Acrobatics check vs DC 21</strong>.
+          Area is <strong>difficult terrain</strong>.
+        </p>
+      </div>
+      <div class="sol-spell-card"><h4>Dominate Person</h4><p>Concentration · control a humanoid</p></div>
+      <div class="sol-spell-card"><h4>Telekinesis</h4><p>Concentration · move creatures/objects</p></div>
+      <div class="sol-spell-card"><h4>Far Step</h4><p>Concentration · bonus teleport repeatedly</p></div>
+    </div>
+    <p class="ccs-note" style="margin-top:12px">
+      <strong>Not among the 13:</strong> Arcane Eye (invocation) · Cape / Ring item powers · Mystic Arcanum.
+    </p>
+  </section>
+
+  <!-- Invocations -->
+  <section class="ccs-section" id="invocations" aria-labelledby="inv-title">
+    <h3 id="inv-title">3 · Eldritch Invocations <span style="font-weight:normal;font-size:.9rem">(7 / 7)</span></h3>
+    <p class="ccs-hint">Not spells. <strong>Shield Up</strong> for Armor of Shadows is on <a href="malcolm-sol-ccs.html">Combat</a> (updates AC).</p>
+    <div class="ccs-maneuver-grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+      <div class="ccs-maneuver">
+        <div class="ccs-action-name">Agonizing Blast</div>
+        <div class="ccs-action-meta">On Eldritch Blast</div>
+        <p class="ccs-action-body">Add CHA (+5) to EB damage rolls.</p>
+      </div>
+      <div class="ccs-maneuver">
+        <div class="ccs-action-name">Repelling Blast</div>
+        <div class="ccs-action-meta">On Eldritch Blast hit</div>
+        <p class="ccs-action-body">Push the target 10 feet away (per beam).</p>
+      </div>
+      <div class="ccs-maneuver">
+        <div class="ccs-action-name">Eldritch Mind</div>
+        <div class="ccs-action-meta">Always</div>
+        <p class="ccs-action-body">Advantage on Constitution saves to maintain concentration.</p>
+      </div>
+      <div class="ccs-maneuver">
+        <div class="ccs-action-name">Armor of Shadows</div>
+        <div class="ccs-action-meta">At will · AC control on Combat</div>
+        <p class="ccs-action-body">Mage Armor at will. Use <strong>Shield Up / Down</strong> on Combat so AC stays correct.</p>
+      </div>
+      <div class="ccs-maneuver">
+        <div class="ccs-action-name">Devil’s Sight</div>
+        <div class="ccs-action-meta">Always</div>
+        <p class="ccs-action-body">See normally in darkness, magical and nonmagical, to 120 feet.</p>
+      </div>
+      <div class="ccs-maneuver">
+        <div class="ccs-action-name">Fiendish Vigor</div>
+        <div class="ccs-action-meta">At will</div>
+        <p class="ccs-action-body">Cast False Life on yourself at will as a 1st-level spell.</p>
+      </div>
+      <div class="ccs-maneuver">
+        <div class="ccs-action-name">Visions of Distant Realms</div>
+        <div class="ccs-action-meta">At will · Arcane Eye</div>
+        <p class="ccs-action-body">
+          Cast <em>Arcane Eye</em> without a slot · concentration up to 1 hr · invisible eye.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="ccs-section" id="features" aria-labelledby="feat-title">
+    <h3 id="feat-title">4 · Features (GOO · class · feat)</h3>
+    <div class="ccs-maneuver-grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+      <div class="ccs-maneuver">
+        <div class="ccs-action-name">Awakened Mind</div>
+        <div class="ccs-action-meta">GOO · always</div>
+        <p class="ccs-action-body">Telepathy 30 ft with any creature you can see (they need one language).</p>
+      </div>
+      <div class="ccs-action-block" style="margin:0">
+        <div class="ccs-action-top">
+          <div class="ccs-action-name">Entropic Ward</div>
+          <button type="button" class="ccs-use-toggle is-ready" data-ccs-use-toggle data-character="malcolm-sol" data-feature="entropic-ward" aria-pressed="false">Ready</button>
+        </div>
+        <div class="ccs-action-meta">Reaction · 1 / short or long rest · also on Combat</div>
+        <p class="ccs-action-body">Disadvantage on an attack vs you; miss → advantage on your next attack vs that creature.</p>
+      </div>
+      <div class="ccs-maneuver">
+        <div class="ccs-action-name">Thought Shield</div>
+        <div class="ccs-action-meta">GOO 10 · always</div>
+        <p class="ccs-action-body">Thoughts can’t be read unless you allow it. Resistance to psychic; attacker takes the psychic you take.</p>
+      </div>
+      <div class="ccs-maneuver">
+        <div class="ccs-action-name">Create Thrall</div>
+        <div class="ccs-action-meta">GOO 14 · action</div>
+        <p class="ccs-action-body">Charm a humanoid; telepathic bond while on the same plane (see FG full text).</p>
+      </div>
+      <div class="ccs-maneuver">
+        <div class="ccs-action-name">Alert</div>
+        <div class="ccs-action-meta">Feat</div>
+        <p class="ccs-action-body">+5 initiative (on Combat core). Can’t be surprised while conscious; unseen attackers don’t gain advantage from being hidden (2014 Alert).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Arcanum -->
+  <section class="ccs-section" id="arcanum" aria-labelledby="arc-title">
+    <h3 id="arc-title">5 · Mystic Arcanum</h3>
+    <div class="ccs-superiority">
+      <div class="ccs-superiority-head">
+        <div class="ccs-action-top">
+          <div class="ccs-action-name">Mystic Arcanum</div>
+          <button type="button" class="ccs-use-toggle is-ready" data-ccs-use-toggle data-character="malcolm-sol" data-feature="arcanum-block" aria-pressed="false">Ready</button>
+        </div>
+        <p class="ccs-action-meta">
+          Each arcanum: cast <strong>once without a pact slot</strong>.
+          Regain on a <strong>long rest</strong>. Track each spell below.
+        </p>
+      </div>
+      <div class="ccs-maneuver-grid">
+        <div class="ccs-maneuver">
+          <div class="ccs-action-top">
+            <div class="ccs-action-name">Arcane Gate</div>
+            <button type="button" class="ccs-use-toggle is-ready" data-ccs-use-toggle data-character="malcolm-sol" data-feature="arcanum-6" aria-pressed="false">Ready</button>
+          </div>
+          <div class="ccs-action-meta">6th · 1 / long rest</div>
+          <p class="ccs-action-body">Linked portals within range (see spell).</p>
+        </div>
+        <div class="ccs-maneuver">
+          <div class="ccs-action-top">
+            <div class="ccs-action-name">Etherealness</div>
+            <button type="button" class="ccs-use-toggle is-ready" data-ccs-use-toggle data-character="malcolm-sol" data-feature="arcanum-7" aria-pressed="false">Ready</button>
+          </div>
+          <div class="ccs-action-meta">7th · 1 / long rest · not a pact slot</div>
+          <p class="ccs-action-body">
+            Border Ethereal up to 8 hours · see Material 60 ft · move any direction · objects as difficult terrain.
+          </p>
+        </div>
+        <div class="ccs-maneuver">
+          <div class="ccs-action-top">
+            <div class="ccs-action-name">Befuddlement</div>
+            <button type="button" class="ccs-use-toggle is-ready" data-ccs-use-toggle data-character="malcolm-sol" data-feature="arcanum-8" aria-pressed="false">Ready</button>
+          </div>
+          <div class="ccs-action-meta">8th · 1 / long rest</div>
+          <p class="ccs-action-body">Mind-breaking curse (see spell; formerly Feeblemind-class effect).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <p class="note" style="margin-top:18px">
+    <a href="malcolm-sol-ccs.html">← Combat</a>
+    · Witness play sheet — not CCS
+    ·
+    <a href="../companions/portia-dzuth.html">Portia</a>
+  </p>
+</div>
+</main>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* Pact slots — same keys as Combat */
+  (function () {
+    var root = document.querySelector("[data-ccs-spell-slots]");
+    if (!root) return;
+    var character = root.getAttribute("data-character") || "character";
+    root.querySelectorAll(".ccs-spell-slot-current").forEach(function (input) {
+      var level = input.getAttribute("data-slot-level") || "0";
+      var maxVal = parseInt(input.getAttribute("data-slot-max"), 10) || 0;
+      var key = "ccs-spell-slot:" + character + ":" + level;
+      input.max = String(maxVal);
+      input.min = "0";
+      function clamp(n) {
+        if (isNaN(n)) return maxVal;
+        if (n < 0) return 0;
+        if (n > maxVal) return maxVal;
+        return n;
+      }
+      function load() {
+        try {
+          var raw = localStorage.getItem(key);
+          input.value = (raw === null || raw === "") ? String(maxVal) : String(clamp(parseInt(raw, 10)));
+        } catch (e) {
+          input.value = String(maxVal);
+        }
+      }
+      function save() {
+        var n = clamp(parseInt(input.value, 10));
+        input.value = String(n);
+        try { localStorage.setItem(key, String(n)); } catch (e) { /* private */ }
+      }
+      input.addEventListener("change", save);
+      input.addEventListener("blur", save);
+      input.addEventListener("keydown", function (ev) {
+        if (ev.key === "Enter") { save(); input.blur(); }
+      });
+      load();
+    });
+  })();
+
+  /* Ready / Used */
+  document.querySelectorAll("[data-ccs-use-toggle]").forEach(function (btn) {
+    var character = btn.getAttribute("data-character") || "character";
+    var feature = btn.getAttribute("data-feature") || "feature";
+    var key = "ccs-use:" + character + ":" + feature;
+    function apply(used) {
+      btn.textContent = used ? "Used" : "Ready";
+      btn.setAttribute("aria-pressed", used ? "true" : "false");
+      btn.classList.toggle("is-ready", !used);
+      btn.classList.toggle("is-used", used);
+    }
+    try {
+      apply(localStorage.getItem(key) === "used");
+    } catch (e) {
+      apply(false);
+    }
+    btn.addEventListener("click", function () {
+      var used = btn.getAttribute("aria-pressed") !== "true";
+      apply(used);
+      try { localStorage.setItem(key, used ? "used" : "ready"); } catch (e) { /* private */ }
+    });
+  });
+
+  /* Concentration — same keys as Combat */
+  (function () {
+    var root = document.querySelector("[data-sol-concentration]");
+    var btn = root && root.querySelector("[data-sol-conc-toggle]");
+    var statusEl = root && root.querySelector("[data-sol-conc-status]");
+    var spellInput = root && root.querySelector("[data-sol-conc-spell]");
+    if (!root || !btn || !statusEl || !spellInput) return;
+
+    var character = root.getAttribute("data-character") || "malcolm-sol";
+    var keyOn = "sol-conc-on:" + character;
+    var keySpell = "sol-conc-spell:" + character;
+
+    function apply(on, spell) {
+      root.classList.toggle("is-concentrating", on);
+      btn.textContent = on ? "Yes" : "No";
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+      btn.classList.toggle("is-ready", !on);
+      btn.classList.toggle("is-used", on);
+      if (on) {
+        var label = (spell && spell.trim()) ? spell.trim() : "(name the spell or effect)";
+        statusEl.innerHTML = "Sol <strong>is concentrating</strong> on: <strong></strong>";
+        statusEl.querySelector("strong:last-child").textContent = label;
+      } else {
+        statusEl.innerHTML = "Sol is <strong>not</strong> concentrating.";
+      }
+      spellInput.value = spell || "";
+    }
+
+    function load() {
+      var on = false;
+      var spell = "";
+      try {
+        on = localStorage.getItem(keyOn) === "yes";
+        spell = localStorage.getItem(keySpell) || "";
+      } catch (e) { /* private */ }
+      apply(on, spell);
+    }
+
+    btn.addEventListener("click", function () {
+      var on = btn.getAttribute("aria-pressed") !== "true";
+      apply(on, spellInput.value);
+      try {
+        localStorage.setItem(keyOn, on ? "yes" : "no");
+        localStorage.setItem(keySpell, spellInput.value || "");
+      } catch (e) { /* private */ }
+    });
+
+    spellInput.addEventListener("input", function () {
+      var on = btn.getAttribute("aria-pressed") === "true";
+      if (spellInput.value.trim() && !on) on = true;
+      apply(on, spellInput.value);
+      try {
+        localStorage.setItem(keyOn, on ? "yes" : "no");
+        localStorage.setItem(keySpell, spellInput.value || "");
+      } catch (e) { /* private */ }
+    });
+    spellInput.addEventListener("change", function () {
+      try { localStorage.setItem(keySpell, spellInput.value || ""); } catch (e) { /* private */ }
+    });
+
+    load();
+  })();
+})();
+</script>
+</body>
+</html>

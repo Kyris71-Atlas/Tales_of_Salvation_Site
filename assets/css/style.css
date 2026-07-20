@@ -2341,9 +2341,9 @@ a.nav-advanced:hover {
 }
 
 /*
- * FG 5E Tiered health colors (Campaign option: Combat → Health bar colors → Tiered)
- * Remaining HP: green ≥75% · light green <75% · yellow <50% · orange <25% · red at 0
- * Opt-in only: .ccs-hp-current on pages that call paintFgHpTiered()
+ * FG 5E Tiered health colors (Combat → Health bar colors → Tiered)
+ * Field = WOUNDS (damage taken): 0 = full/green · high = red
+ * Opt-in: Sol / Portia via fg-hp-tiered.js
  */
 .ccs-hp-current.fg-hp-full {
   color: #0a3d0a;
@@ -2631,6 +2631,84 @@ a.nav-advanced:hover {
     inset 0 0 0 1px rgba(155, 127, 212, .4),
     0 0 0 2px rgba(110, 95, 154, .35);
   background: linear-gradient(180deg, rgba(232, 220, 248, .55), rgba(201, 176, 126, .9));
+}
+
+/* Sol · Play sheet tabs (Combat | Magic | Kit later) */
+.sol-play-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 16px;
+  padding: 10px 12px;
+  border: 1px solid #6e5930;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(39, 33, 45, .95), rgba(20, 23, 32, .98));
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .35);
+}
+.sol-play-tabs a {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: .03em;
+  color: var(--ccs-ink);
+  border: 1px solid rgba(110, 89, 48, .45);
+  background: rgba(255, 255, 255, .35);
+}
+.sol-play-tabs a:hover {
+  border-color: var(--gold);
+  color: var(--ccs-ink-strong);
+}
+.sol-play-tabs a.is-current {
+  color: #20180f;
+  background: linear-gradient(180deg, #f0e0a8, #d8b35f);
+  border-color: #6e5930;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .4);
+}
+.sol-play-tabs .sol-play-tabs-note {
+  flex: 1 1 100%;
+  margin: 4px 0 0;
+  font-size: .9rem;
+  color: #f4eddf; /* light parchment ink — readable on dark tab bar */
+  letter-spacing: .02em;
+  line-height: 1.4;
+}
+.sol-play-tabs .sol-play-tabs-note strong {
+  color: var(--gold);
+  font-weight: bold;
+}
+.sol-spell-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+.sol-spell-card {
+  padding: 10px 12px;
+  border: 1px solid rgba(110, 89, 48, .45);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, .32);
+}
+.sol-spell-card h4 {
+  margin: 0 0 4px;
+  color: var(--ccs-ink-strong);
+  font-size: 1rem;
+}
+.sol-spell-card p {
+  margin: 0;
+  font-size: .88rem;
+  color: var(--ccs-ink);
+  line-height: 1.35;
+}
+.sol-magic-strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+@media (max-width: 700px) {
+  .sol-magic-strip { grid-template-columns: 1fr; }
 }
 
 .portrait-frame.is-shadows-up {
