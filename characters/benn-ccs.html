@@ -5,6 +5,159 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Benn - Company Character Sheet</title>
 <link rel="stylesheet" href="../assets/css/style.css">
+<style>
+/* Concentration — same table face as Sol */
+.benn-concentration{
+  margin:0 0 16px;
+  padding:14px 16px;
+  border:2px solid var(--ccs-border);
+  border-radius:12px;
+  background:rgba(255,255,255,.28);
+}
+.benn-concentration-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.benn-concentration.is-concentrating{
+  border-color:#4d8fb3;
+  background:linear-gradient(180deg, rgba(77,143,179,.22), rgba(255,255,255,.28));
+  box-shadow:inset 0 0 0 1px rgba(77,143,179,.45);
+}
+.benn-concentration.is-concentrating .benn-conc-toggle.is-used{
+  color:#0f2a38;
+  background:linear-gradient(180deg, #a8d0e8, #4d8fb3);
+  border-color:#3a7294;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.4);
+}
+.benn-conc-status{margin:8px 0 10px}
+.benn-conc-label{
+  display:block;
+  font-size:.82rem;
+  font-weight:bold;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:var(--ccs-ink-olive);
+  margin:0 0 6px;
+}
+.benn-conc-spell{
+  display:block;
+  width:100%;
+  box-sizing:border-box;
+  margin:0;
+  padding:10px 12px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:1.05rem;
+  color:var(--ccs-ink);
+  border:2px solid var(--ccs-bubble-interactive-border);
+  border-radius:8px;
+  background:var(--ccs-bubble-interactive-fill);
+}
+.benn-conc-spell:focus{
+  outline:2px solid #6e5930;
+  outline-offset:1px;
+  background:#fffef6;
+}
+.benn-concentration:not(.is-concentrating) .benn-conc-spell{opacity:.72}
+
+/* Nature Domain always prepared */
+.benn-domain-strip{
+  margin:0 0 16px;
+  padding:14px 16px;
+  border:2px solid #4a6b3a;
+  border-radius:12px;
+  background:
+    linear-gradient(180deg, rgba(74,107,58,.16), rgba(255,255,255,.28));
+  box-shadow:inset 0 0 0 1px rgba(74,107,58,.28);
+}
+.benn-domain-head{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:8px;
+  margin:0 0 10px;
+}
+.benn-domain-badge{
+  font-size:.78rem;
+  font-weight:bold;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:#2f4a24;
+  background:rgba(180,210,150,.45);
+  border:1px solid #4a6b3a;
+  border-radius:999px;
+  padding:3px 10px;
+}
+.benn-domain-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:8px;
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+.benn-domain-grid li{
+  padding:8px 10px;
+  border:1px solid rgba(74,107,58,.45);
+  border-radius:8px;
+  background:rgba(255,255,248,.55);
+  font-size:.95rem;
+}
+.benn-domain-grid strong{color:var(--ccs-ink-strong)}
+.benn-domain-grid span{
+  display:block;
+  margin-top:2px;
+  font-size:.82rem;
+  color:var(--ccs-ink-olive);
+}
+
+/* Guiding Bolt mark row */
+.benn-weapon-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:4px;
+}
+.benn-weapon-top .ccs-weapon-name{margin:0}
+.ccs-weapon.is-mark-up{
+  border-color:#c9a227;
+  box-shadow:inset 0 0 0 1px rgba(201,162,39,.45);
+  background:linear-gradient(180deg, rgba(216,179,95,.18), rgba(255,255,255,.2));
+}
+
+/* Channel Divinity options */
+.benn-cd-teach{
+  margin:0 0 12px;
+  padding:10px 12px;
+  border-left:3px solid #6e5930;
+  background:rgba(216,179,95,.1);
+  border-radius:0 8px 8px 0;
+  font-size:.95rem;
+}
+.benn-cd-option .ccs-action-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px 10px;
+  align-items:center;
+}
+.benn-cd-cost{
+  display:inline-block;
+  font-size:.75rem;
+  font-weight:bold;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:#3a2410;
+  background:rgba(216,179,95,.35);
+  border:1px solid #6e5930;
+  border-radius:999px;
+  padding:2px 8px;
+}
+</style>
 </head>
 <body>
 <header class="site-header">
@@ -264,7 +417,52 @@
   <!-- 3 · Combat -->
   <section class="ccs-section" id="combat" aria-labelledby="combat-title">
     <h3 id="combat-title">3 · Combat</h3>
-    <p class="ccs-hint">Spell attack <strong>+6</strong> · Spell save DC <strong>14</strong> (WIS). Nature Domain spells always prepared.</p>
+    <p class="ccs-hint">Spell attack <strong>+6</strong> · Spell save DC <strong>14</strong> (WIS). Nature Domain spells are always prepared (strip below).</p>
+
+    <!-- Concentration -->
+    <div class="benn-concentration" data-benn-concentration data-character="benn">
+      <div class="benn-concentration-top">
+        <div class="ccs-action-name">Concentration</div>
+        <button
+          type="button"
+          class="ccs-use-toggle is-ready benn-conc-toggle"
+          data-benn-conc-toggle
+          aria-pressed="false"
+          aria-label="Is Benn concentrating? Click to toggle."
+        >No</button>
+      </div>
+      <p class="ccs-action-meta benn-conc-status" data-benn-conc-status>Benn is <strong>not</strong> concentrating.</p>
+      <label class="benn-conc-label" for="benn-conc-spell">Spell or effect</label>
+      <input
+        type="text"
+        id="benn-conc-spell"
+        class="benn-conc-spell"
+        data-benn-conc-spell
+        placeholder="e.g. Spike Growth · Bless · Barkskin · or leave blank"
+        autocomplete="off"
+        spellcheck="true"
+      >
+    </div>
+
+    <!-- Nature Domain always prepared -->
+    <div class="benn-domain-strip" id="nature-domain-spells">
+      <div class="benn-domain-head">
+        <div class="ccs-action-name">Nature Domain · always prepared</div>
+        <span class="benn-domain-badge">Free · not from your list</span>
+      </div>
+      <p class="ccs-action-meta" style="margin:0 0 10px">
+        These sit on top of Benn’s prepared spells. They do <strong>not</strong> use a preparation slot.
+      </p>
+      <ul class="benn-domain-grid">
+        <li><strong>Animal Friendship</strong><span>1st · charm a beast</span></li>
+        <li><strong>Speak with Animals</strong><span>1st · talk with beasts</span></li>
+        <li><strong>Barkskin</strong><span>2nd · conc · AC floor 16</span></li>
+        <li><strong>Spike Growth</strong><span>2nd · conc · difficult terrain + damage</span></li>
+        <li><strong>Plant Growth</strong><span>3rd · enrich or thicken plants</span></li>
+        <li><strong>Wind Wall</strong><span>3rd · conc · wall of wind</span></li>
+      </ul>
+    </div>
+
     <ul class="ccs-weapon-list">
       <li class="ccs-weapon">
         <div class="ccs-weapon-name">Sacred Flame</div>
@@ -276,10 +474,25 @@
         <div class="ccs-weapon-line"><span class="ccs-weapon-label">Save</span> <span class="ccs-weapon-stat">DC 14</span> <span class="ccs-weapon-detail">CON · cantrip · 5-ft emanation</span></div>
         <div class="ccs-weapon-line"><span class="ccs-weapon-label">Damage</span> <span class="ccs-weapon-stat">2d6</span> <span class="ccs-weapon-detail">radiant · chosen creatures you can see</span></div>
       </li>
-      <li class="ccs-weapon">
-        <div class="ccs-weapon-name">Guiding Bolt</div>
+      <li class="ccs-weapon" data-benn-guiding-bolt>
+        <div class="benn-weapon-top">
+          <div class="ccs-weapon-name">Guiding Bolt</div>
+          <button
+            type="button"
+            class="ccs-use-toggle is-ready"
+            data-ccs-use-toggle
+            data-character="benn"
+            data-feature="guiding-bolt-mark"
+            data-benn-mark-toggle
+            aria-pressed="false"
+            aria-label="Guiding Bolt mark: Ready means no mark. Used means mark is up on a target."
+          >Ready</button>
+        </div>
         <div class="ccs-weapon-line"><span class="ccs-weapon-label">Attack</span> <span class="ccs-weapon-stat">+6</span> <span class="ccs-weapon-detail">1st+ · 120 ft</span></div>
         <div class="ccs-weapon-line"><span class="ccs-weapon-label">Damage</span> <span class="ccs-weapon-stat">4d6</span> <span class="ccs-weapon-detail">radiant · next attack vs target has advantage</span></div>
+        <p class="ccs-action-meta" style="margin:8px 0 0" data-benn-mark-status>
+          Mark: <strong>none</strong> — after a hit, flip to <em>Used</em> so the table remembers advantage is pending.
+        </p>
       </li>
       <li class="ccs-weapon">
         <div class="ccs-weapon-name">Cure Wounds</div>
@@ -316,7 +529,6 @@
 
     <p class="ccs-note">
       Cantrips also: Light, Guidance, Resistance.
-      Domain always prepared: Animal Friendship, Speak with Animals, Barkskin, Spike Growth, Plant Growth, Wind Wall.
       Also prepared (FG): Create/Destroy Water, Purify Food and Drink, Lesser Restoration, Prayer of Healing, Beacon of Hope, Dispel Magic.
     </p>
   </section>
@@ -400,7 +612,7 @@
     <h3 id="actions-title">5 · Actions</h3>
     <p class="ccs-hint">Channel Divinity and faith tools — spend them yourself; no auto rest.</p>
 
-    <div class="ccs-superiority">
+    <div class="ccs-superiority" id="channel-divinity">
       <div class="ccs-superiority-head">
         <div class="ccs-action-top">
           <div class="ccs-action-name">Channel Divinity</div>
@@ -409,9 +621,10 @@
             class="ccs-use-toggle"
             data-ccs-use-toggle
             data-character="benn"
-            data-feature="combat-superiority"
+            data-feature="channel-divinity"
             data-linked-sup-dice="1"
             aria-pressed="false"
+            aria-label="Channel Divinity pool: Ready when uses remain. Used when empty."
           >Ready</button>
         </div>
         <div
@@ -420,7 +633,7 @@
           data-character="benn"
           data-sup-max="2"
         >
-          Uses:
+          Uses left:
           <input
             type="number"
             class="ccs-sup-dice-current"
@@ -430,36 +643,50 @@
             max="2"
             value="2"
             aria-label="Channel Divinity uses remaining"
-            title="Uses remaining"
+            title="Uses remaining — tick down when you channel"
           >
           / 2
         </div>
         <p class="ccs-action-body">
-          FG (2024 Channel Divinity): <strong>2 uses</strong>. Regain <strong>1</strong> on a short rest; regain <strong>all</strong> on a long rest.
-          You mark it — the sheet does not auto-refill.
+          FG (2024): pool of <strong>2 uses</strong>.
+          Regain <strong>1</strong> on a short rest · regain <strong>all</strong> on a long rest.
+          You mark the number — the sheet does not auto-refill.
+        </p>
+        <p class="benn-cd-teach">
+          <strong>How to use:</strong> spend <strong>1 use</strong> from the pool above, then pick <strong>one</strong> option below.
+          Ready/Used on the header tracks whether the pool still has uses (empty = Used).
         </p>
       </div>
       <div class="ccs-maneuver-grid">
-        <div class="ccs-maneuver">
+        <div class="ccs-maneuver benn-cd-option">
           <div class="ccs-action-name">Divine Spark</div>
-          <div class="ccs-action-meta">Magic action · 30 ft · 1 use</div>
+          <div class="ccs-action-meta">
+            <span class="benn-cd-cost">Costs 1 use</span>
+            <span>Magic action · 30 ft</span>
+          </div>
           <p class="ccs-action-body">
-            1d8 + WIS (+3): heal that much, or CON save DC 14 for necrotic/radiant (half on success).
+            Roll <strong>1d8 + 3</strong> (WIS). Choose: heal that much to a creature, <em>or</em> force a CON save DC 14 for necrotic/radiant (half on success).
           </p>
         </div>
-        <div class="ccs-maneuver">
+        <div class="ccs-maneuver benn-cd-option">
           <div class="ccs-action-name">Turn Undead</div>
-          <div class="ccs-action-meta">Magic action · 30 ft · 1 use</div>
+          <div class="ccs-action-meta">
+            <span class="benn-cd-cost">Costs 1 use</span>
+            <span>Magic action · 30 ft</span>
+          </div>
           <p class="ccs-action-body">
             Chosen undead WIS save DC 14 or frightened &amp; incapacitated 1 min (flee).
-            <strong>Destroy Undead:</strong> CR 1/2 or lower that fail are destroyed.
+            <strong>Destroy Undead:</strong> CR ½ or lower that fail are destroyed.
           </p>
         </div>
-        <div class="ccs-maneuver">
+        <div class="ccs-maneuver benn-cd-option">
           <div class="ccs-action-name">Charm Animals and Plants</div>
-          <div class="ccs-action-meta">Nature Domain · 1 use</div>
+          <div class="ccs-action-meta">
+            <span class="benn-cd-cost">Costs 1 use</span>
+            <span>Nature Domain</span>
+          </div>
           <p class="ccs-action-body">
-            Channel Divinity to charm beasts and plants (domain option).
+            Channel to charm beasts and plants in range (domain option). Chauntea’s field work.
           </p>
         </div>
       </div>
@@ -721,16 +948,24 @@
     load();
   })();
 
+  /* Channel Divinity uses pool (keeps ccs-sup-dice key for existing localStorage) */
   (function () {
     var root = document.querySelector("[data-ccs-sup-dice]");
     var input = root && root.querySelector(".ccs-sup-dice-current");
-    var btn = document.querySelector('[data-ccs-use-toggle][data-feature="combat-superiority"]');
+    var btn = document.querySelector('[data-ccs-use-toggle][data-feature="channel-divinity"]');
     if (!root || !input) return;
 
     var character = root.getAttribute("data-character") || "character";
     var maxVal = parseInt(root.getAttribute("data-sup-max"), 10) || 2;
     var diceKey = "ccs-sup-dice:" + character;
-    var useKey = "ccs-use:" + character + ":combat-superiority";
+    var useKey = "ccs-use:" + character + ":channel-divinity";
+    /* Migrate old Thrain-style key if present */
+    try {
+      if (localStorage.getItem(useKey) === null) {
+        var legacy = localStorage.getItem("ccs-use:" + character + ":combat-superiority");
+        if (legacy !== null) localStorage.setItem(useKey, legacy);
+      }
+    } catch (e) { /* private */ }
     input.max = String(maxVal);
     input.min = "0";
 
@@ -758,7 +993,10 @@
       try {
         localStorage.setItem(diceKey, String(n));
       } catch (e) { /* private mode */ }
-      if (!skipToggleSync && n === 0) setToggle(true);
+      if (!skipToggleSync) {
+        if (n === 0) setToggle(true);
+        else setToggle(false);
+      }
     }
 
     function load() {
@@ -773,6 +1011,7 @@
         used = localStorage.getItem(useKey) === "used";
       } catch (e) { /* ignore */ }
       if (dice === 0) used = true;
+      if (dice > 0 && used) used = false;
       setToggle(used);
     }
 
@@ -785,6 +1024,7 @@
     input.addEventListener("input", function () {
       var n = parseInt(input.value, 10);
       if (!isNaN(n) && n === 0) setToggle(true);
+      if (!isNaN(n) && n > 0) setToggle(false);
     });
     input.addEventListener("keydown", function (ev) {
       if (ev.key === "Enter") {
@@ -809,9 +1049,9 @@
   })();
 
   document.querySelectorAll("[data-ccs-use-toggle]").forEach(function (btn) {
-    if (btn.getAttribute("data-feature") === "combat-superiority") return;
-    var character = btn.getAttribute("data-character") || "character";
     var feature = btn.getAttribute("data-feature") || "feature";
+    if (feature === "channel-divinity" || feature === "guiding-bolt-mark") return;
+    var character = btn.getAttribute("data-character") || "character";
     var key = "ccs-use:" + character + ":" + feature;
 
     function apply(used) {
@@ -835,6 +1075,125 @@
       } catch (e) { /* private mode */ }
     });
   });
+
+  /* Guiding Bolt mark — Ready = none · Used = mark up on a target */
+  (function () {
+    var card = document.querySelector("[data-benn-guiding-bolt]");
+    var btn = card && card.querySelector("[data-benn-mark-toggle]");
+    var statusEl = card && card.querySelector("[data-benn-mark-status]");
+    if (!card || !btn || !statusEl) return;
+
+    var character = btn.getAttribute("data-character") || "benn";
+    var key = "ccs-use:" + character + ":guiding-bolt-mark";
+
+    function apply(used) {
+      btn.textContent = used ? "Used" : "Ready";
+      btn.setAttribute("aria-pressed", used ? "true" : "false");
+      btn.classList.toggle("is-ready", !used);
+      btn.classList.toggle("is-used", used);
+      card.classList.toggle("is-mark-up", used);
+      if (used) {
+        statusEl.innerHTML =
+          "Mark: <strong>up</strong> — next attack vs that target has advantage. Flip to Ready when the mark is spent or expires.";
+      } else {
+        statusEl.innerHTML =
+          "Mark: <strong>none</strong> — after a hit, flip to <em>Used</em> so the table remembers advantage is pending.";
+      }
+      btn.setAttribute(
+        "aria-label",
+        used
+          ? "Guiding Bolt mark is up. Click when spent or expired."
+          : "No Guiding Bolt mark. Click after a hit to track the advantage mark."
+      );
+    }
+
+    try {
+      apply(localStorage.getItem(key) === "used");
+    } catch (e) {
+      apply(false);
+    }
+
+    btn.addEventListener("click", function () {
+      var used = btn.getAttribute("aria-pressed") !== "true";
+      apply(used);
+      try {
+        localStorage.setItem(key, used ? "used" : "ready");
+      } catch (e) { /* private mode */ }
+    });
+  })();
+
+  /* Concentration Yes/No + spell name (Sol-style) */
+  (function () {
+    var root = document.querySelector("[data-benn-concentration]");
+    var btn = root && root.querySelector("[data-benn-conc-toggle]");
+    var statusEl = root && root.querySelector("[data-benn-conc-status]");
+    var spellInput = root && root.querySelector("[data-benn-conc-spell]");
+    if (!root || !btn || !statusEl || !spellInput) return;
+
+    var character = root.getAttribute("data-character") || "benn";
+    var keyOn = "benn-conc-on:" + character;
+    var keySpell = "benn-conc-spell:" + character;
+
+    function apply(on, spell) {
+      root.classList.toggle("is-concentrating", on);
+      btn.textContent = on ? "Yes" : "No";
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+      btn.classList.toggle("is-ready", !on);
+      btn.classList.toggle("is-used", on);
+      btn.setAttribute(
+        "aria-label",
+        on
+          ? "Benn is concentrating. Click to set No."
+          : "Benn is not concentrating. Click to set Yes."
+      );
+      if (on) {
+        var label = (spell && spell.trim()) ? spell.trim() : "(name the spell or effect)";
+        statusEl.innerHTML = "Benn <strong>is concentrating</strong> on: <strong></strong>";
+        statusEl.querySelector("strong:last-child").textContent = label;
+      } else {
+        statusEl.innerHTML = "Benn is <strong>not</strong> concentrating.";
+      }
+      spellInput.value = spell || "";
+    }
+
+    function load() {
+      var on = false;
+      var spell = "";
+      try {
+        on = localStorage.getItem(keyOn) === "yes";
+        spell = localStorage.getItem(keySpell) || "";
+      } catch (e) { /* private */ }
+      apply(on, spell);
+    }
+
+    function saveOn(on) {
+      try { localStorage.setItem(keyOn, on ? "yes" : "no"); } catch (e) { /* private */ }
+    }
+    function saveSpell() {
+      try { localStorage.setItem(keySpell, spellInput.value || ""); } catch (e) { /* private */ }
+    }
+
+    btn.addEventListener("click", function () {
+      var on = btn.getAttribute("aria-pressed") !== "true";
+      apply(on, spellInput.value);
+      saveOn(on);
+      saveSpell();
+    });
+
+    spellInput.addEventListener("input", function () {
+      var on = btn.getAttribute("aria-pressed") === "true";
+      if (spellInput.value.trim() && !on) {
+        on = true;
+        saveOn(true);
+      }
+      apply(on, spellInput.value);
+      saveSpell();
+    });
+    spellInput.addEventListener("change", saveSpell);
+    spellInput.addEventListener("blur", saveSpell);
+
+    load();
+  })();
 
   (function () {
     var root = document.querySelector("[data-ccs-inspiration]");
