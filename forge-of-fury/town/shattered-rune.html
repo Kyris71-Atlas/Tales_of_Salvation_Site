@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Shattered Rune · Blasingdell — Tales of Salvation</title>
+<link rel="stylesheet" href="../../assets/css/style.css">
+<style>
+.town-banner{
+  margin:0 0 14px;
+  padding:10px 14px;
+  border:1px solid #6e5930;
+  border-radius:10px;
+  background:rgba(216,179,95,.08);
+  font-size:.95rem;
+  color:#3a3020;
+}
+.book-panel h2{color:#2a2218;margin-bottom:6px}
+.book-panel .section-label,
+.loc-section h3,
+.shop-shelf h3{
+  color:#5a3d0c;
+  text-shadow:0 1px 0 rgba(255,252,240,.4);
+}
+
+/* Arrival — top of page, capped so shop body has room */
+.shop-arrival{margin:0 0 18px}
+.shop-arrival-visual{
+  position:relative;
+  max-width:520px;
+  margin:0 auto;
+  border-radius:12px;
+  overflow:hidden;
+  border:2px solid rgba(110,89,48,.55);
+  box-shadow:0 10px 28px rgba(0,0,0,.28);
+  background:#121018;
+  line-height:0;
+}
+.shop-arrival-visual img{
+  display:block;
+  width:100%;
+  max-height:280px;
+  height:auto;
+  object-fit:cover;
+  object-position:center 40%;
+  margin:0 auto;
+  transform-origin:center center;
+  animation:shopSlowZoom 14s ease-in-out infinite alternate;
+}
+.shop-fx-rune{
+  position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 78%,rgba(80,160,255,.4) 0%,transparent 55%);
+  animation:shopPulseGlow 3.5s ease-in-out infinite;
+  pointer-events:none;
+}
+.shop-fx-smoke{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 30% 70%,rgba(255,255,255,.16) 0%,transparent 40%),
+    radial-gradient(circle at 70% 60%,rgba(255,255,255,.12) 0%,transparent 35%);
+  animation:shopDriftSmoke 7s ease-in-out infinite;
+  pointer-events:none;
+}
+.shop-fx-lantern{
+  position:absolute;inset:0;
+  background:radial-gradient(circle at 75% 22%,rgba(255,190,100,.22) 0%,transparent 45%);
+  animation:shopFlicker 2.4s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes shopSlowZoom{0%{transform:scale(1)}100%{transform:scale(1.06)}}
+@keyframes shopPulseGlow{0%,100%{opacity:.45;transform:scale(1)}50%{opacity:.95;transform:scale(1.04)}}
+@keyframes shopDriftSmoke{
+  0%{transform:translateY(0) translateX(0);opacity:.55}
+  50%{transform:translateY(-14px) translateX(8px);opacity:.9}
+  100%{transform:translateY(0) translateX(0);opacity:.55}
+}
+@keyframes shopFlicker{0%,100%{opacity:.45}25%{opacity:.9}50%{opacity:.3}75%{opacity:.75}}
+
+.shop-welcome{
+  margin:0 0 18px;
+  padding:14px 16px;
+  border:1px solid rgba(180,150,90,.4);
+  border-radius:12px;
+  background:rgba(255,248,220,.06);
+}
+.shop-welcome h3{margin:0 0 8px;font-size:1.1rem;color:#5a3d0c}
+.shop-welcome p{margin:0 0 8px;color:#3a3020;line-height:1.5}
+.shop-welcome p:last-child{margin-bottom:0}
+
+.loc-section{
+  margin:16px 0 0;
+  padding:14px 16px;
+  border:1px solid rgba(180,150,90,.35);
+  border-radius:12px;
+  background:rgba(255,248,220,.03);
+}
+.loc-section h3{margin:0 0 8px;font-size:1.05rem}
+.loc-section p{margin:0;color:#3a3020;line-height:1.5}
+.loc-section ul{margin:8px 0 0;padding-left:1.2rem;color:#3a3020}
+
+/* Three shelves */
+.shop-shelf{
+  margin:16px 0 0;
+  padding:14px 16px;
+  border:1px solid rgba(180,150,90,.45);
+  border-radius:12px;
+  background:rgba(255,248,220,.05);
+}
+.shop-shelf h3{margin:0 0 6px;font-size:1.1rem}
+.shop-shelf .shelf-lead{
+  margin:0 0 12px;
+  font-size:.9rem;
+  color:#3a3020;
+  opacity:.9;
+  line-height:1.4;
+}
+.shop-stock{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  gap:6px;
+  /* Cap width so name ↔ price stay close (not full panel) */
+  max-width:36rem;
+}
+.shop-stock li{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:8px 12px;
+  align-items:baseline;
+  padding:6px 8px;
+  border-radius:8px;
+  background:rgba(255,255,255,.04);
+  border:1px solid transparent;
+  color:#2a2218;
+  font-size:.95rem;
+}
+.shop-stock li:nth-child(even){background:rgba(216,179,95,.06)}
+.shop-stock .item-name{font-weight:bold;color:#4a3210}
+.shop-stock .item-price{
+  font-variant-numeric:tabular-nums;
+  white-space:nowrap;
+  color:#5a3d0c;
+  font-weight:bold;
+  font-size:.9rem;
+}
+.shop-stock .item-note{
+  grid-column:1 / -1;
+  margin:0;
+  font-size:.82rem;
+  color:#3a3020;
+  opacity:.9;
+  line-height:1.35;
+  font-weight:normal;
+}
+.shop-stock-nested{
+  grid-column:1 / -1;
+  margin:4px 0 0;
+  padding:0 0 0 12px;
+  list-style:none;
+  display:grid;
+  gap:4px;
+  border-left:2px solid rgba(110,89,48,.35);
+}
+.shop-stock-nested li{
+  display:block;
+  padding:3px 0;
+  border:none;
+  background:transparent;
+  font-weight:normal;
+  color:#3a3020;
+  font-size:.9rem;
+}
+
+/* Adventurer rows with purpose line */
+.shop-stock.shelf-pause li{
+  grid-template-columns:1fr auto;
+  padding:8px 10px;
+}
+.shop-shelf-counter{
+  border-color:rgba(120,90,40,.55);
+  background:
+    linear-gradient(180deg,rgba(216,179,95,.1),rgba(255,248,220,.04));
+}
+.shop-shelf-counter .curiosity{
+  margin-top:10px;
+  padding:10px 12px;
+  border:1px dashed rgba(110,89,48,.5);
+  border-radius:10px;
+  background:rgba(255,255,255,.05);
+}
+.shop-shelf-counter .curiosity strong{color:#4a3210}
+
+/* Special Orders PLease Tip */
+.shop-special-orders{
+  border-left:4px solid #6e5930;
+  background:rgba(216,179,95,.1);
+}
+.shop-special-orders h3{letter-spacing:.02em}
+.shop-special-orders p{margin:0 0 8px}
+.shop-special-orders p:last-child{margin-bottom:0}
+.shop-special-orders ul{margin:8px 0 0;padding-left:1.2rem}
+
+@media (max-width:640px){
+  .shop-arrival-visual img{max-height:220px}
+}
+@media (prefers-reduced-motion:reduce){
+  .shop-arrival-visual img,
+  .shop-fx-rune,
+  .shop-fx-smoke,
+  .shop-fx-lantern{animation:none}
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <h1 class="site-title">Tales of Salvation</h1>
+  <p class="site-subtitle">Town · Blasingdell · The Shattered Rune</p>
+</header>
+
+<div class="layout">
+<nav>
+  <div class="nav-section">Forge of Fury</div>
+  <a href="../../index.html">Home</a>
+  <a href="../index.html">Campaign Home</a>
+  <a href="index.html">Town · Blasingdell</a>
+  <a href="../index.html#company-character-sheets">Company Character Sheets</a>
+  <a href="../deep-memory.html">Deep Memory · Forge</a>
+
+  <div class="nav-section">Open doors</div>
+  <a href="shattered-rune.html" aria-current="page">The Shattered Rune</a>
+  <a href="ironvein-smithy.html">Ironvein Smithy</a>
+  <a href="the-shrine.html">The Shrine</a>
+  <a href="pick-and-lantern.html">The Pick &amp; Lantern</a>
+  <a href="vellbrandt-manor.html">Vellbrandt Manor</a>
+  <a href="stone-hall.html">Stone Hall</a>
+</nav>
+
+<main>
+<div class="breadcrumbs">
+  <a href="../../index.html">Home</a> &gt;
+  <a href="../index.html">Forge of Fury</a> &gt;
+  <a href="index.html">Town · Blasingdell</a> &gt;
+  The Shattered Rune
+</div>
+
+<div class="book-panel">
+  <p class="town-banner">
+    <strong>The Shattered Rune</strong> · Magical goods and services in Blasingdell.
+    Between sessions — not Deep Memory.
+  </p>
+
+  <h2>The Shattered Rune</h2>
+
+  <section class="shop-arrival" aria-label="Arrival at The Shattered Rune">
+    <div class="shop-arrival-visual">
+      <img
+        src="Shattered%20Rune/gimbles_shop.png"
+        alt="Inside The Shattered Rune — Gimble’s shop"
+        width="520"
+        height="280"
+      >
+      <div class="shop-fx-rune" aria-hidden="true"></div>
+      <div class="shop-fx-smoke" aria-hidden="true"></div>
+      <div class="shop-fx-lantern" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <section class="shop-welcome" aria-labelledby="welcome-title">
+    <h3 id="welcome-title">Welcome</h3>
+    <p>
+      The air smells of old parchment, warm wax, and something faintly electric.
+      Gimble looks up from the glowing circle, chalk still in hand, and offers a quick, distracted smile.
+    </p>
+    <p>
+      <strong>Gimble Wandsplice</strong> — proprietor. Stock is what he has on the shelves
+      <em>this</em> downtime. Gold and final sales live at the table / Fantasy Grounds.
+    </p>
+  </section>
+
+  <!-- 1 · Everyday Arcana -->
+  <section class="shop-shelf" id="everyday-arcana" aria-labelledby="everyday-title">
+    <h3 id="everyday-title">1 · Everyday Arcana</h3>
+    <p class="shelf-lead">Practical, useful, easy to scan. Restock before the mountain calls.</p>
+    <ul class="shop-stock">
+      <li>
+        <span class="item-name">Potion of Healing</span>
+        <span class="item-price">50 gp</span>
+      </li>
+      <li>
+        <span class="item-name">Potion of Greater Healing</span>
+        <span class="item-price">200 gp</span>
+      </li>
+      <li>
+        <span class="item-name">Spell scrolls</span>
+        <span class="item-price">ask Gimble</span>
+        <ul class="shop-stock-nested">
+          <li>Feather Fall · Identify · Shield</li>
+          <li>Misty Step · Invisibility · Web</li>
+          <li>Dispel Magic · Fly</li>
+        </ul>
+      </li>
+      <li>
+        <span class="item-name">Arcane focus</span>
+        <span class="item-price">10–50 gp</span>
+      </li>
+      <li>
+        <span class="item-name">Component pouch</span>
+        <span class="item-price">25 gp</span>
+      </li>
+      <li>
+        <span class="item-name">Ritual chalks</span>
+        <span class="item-price">25 gp</span>
+      </li>
+      <li>
+        <span class="item-name">Scribing inks</span>
+        <span class="item-price">10 gp / vial</span>
+      </li>
+      <li>
+        <span class="item-name">Fine parchment</span>
+        <span class="item-price">5 gp / sheet</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 2 · Adventurer’s Shelf — 10 permanent uncommons -->
+  <section class="shop-shelf" id="adventurers-shelf" aria-labelledby="adventurer-title">
+    <h3 id="adventurer-title">2 · Adventurer’s Shelf</h3>
+    <p class="shelf-lead">Items worth a pause. Ten uncommons on the shelf this season.</p>
+    <ul class="shop-stock shelf-pause">
+      <li>
+        <span class="item-name">Bag of Holding</span>
+        <span class="item-price">400 gp</span>
+        <p class="item-note">Bigger on the inside — pack the mountain out.</p>
+      </li>
+      <li>
+        <span class="item-name">Driftglobe</span>
+        <span class="item-price">300 gp</span>
+        <p class="item-note">Light that follows or floats on command.</p>
+      </li>
+      <li>
+        <span class="item-name">Wand of Secrets</span>
+        <span class="item-price">300 gp</span>
+        <p class="item-note">Hints at nearby secret doors and traps.</p>
+      </li>
+      <li>
+        <span class="item-name">Wand of Magic Detection</span>
+        <span class="item-price">350 gp</span>
+        <p class="item-note">Sniffs out magic in range.</p>
+      </li>
+      <li>
+        <span class="item-name">Immovable Rod</span>
+        <span class="item-price">500 gp</span>
+        <p class="item-note">Press the button and it stays exactly where it is.</p>
+      </li>
+      <li>
+        <span class="item-name">Goggles of Night</span>
+        <span class="item-price">600 gp</span>
+        <p class="item-note">Darkvision for those who lack it.</p>
+      </li>
+      <li>
+        <span class="item-name">Boots of Elvenkind</span>
+        <span class="item-price">700 gp</span>
+        <p class="item-note">Steps that refuse to make a sound.</p>
+      </li>
+      <li>
+        <span class="item-name">Sending Stones</span>
+        <span class="item-price">750 gp</span>
+        <p class="item-note">A matched pair for short messages across distance.</p>
+      </li>
+      <li>
+        <span class="item-name">Pearl of Power</span>
+        <span class="item-price">800 gp</span>
+        <p class="item-note">Recover one expended spell slot (with limits).</p>
+      </li>
+      <li>
+        <span class="item-name">Cloak of Protection</span>
+        <span class="item-price">900 gp</span>
+        <p class="item-note">+1 to AC and saving throws while worn.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 3 · Behind the Counter -->
+  <section class="shop-shelf shop-shelf-counter" id="behind-the-counter" aria-labelledby="counter-title">
+    <h3 id="counter-title">3 · Behind the Counter</h3>
+    <p class="shelf-lead">Rare, limited, a little aspirational. Gimble keeps these under glass.</p>
+    <ul class="shop-stock shelf-pause">
+      <li>
+        <span class="item-name">Wand of Web</span>
+        <span class="item-price">3,000 gp</span>
+        <p class="item-note">Web, from a wand — charges apply.</p>
+      </li>
+      <li>
+        <span class="item-name">Figurine of Wondrous Power: Silver Raven</span>
+        <span class="item-price">3,500 gp</span>
+        <p class="item-note">A silver bird that can become a living messenger.</p>
+      </li>
+    </ul>
+    <div class="curiosity">
+      <strong>Rotating curiosity</strong> — <span class="item-price" style="font-weight:bold">price varies</span>
+      <p class="item-note" style="margin-top:6px">
+        This downtime: <strong>Stone of Good Luck</strong> (luckstone).
+        One curiosity at a time; the rest of Gimble’s private pool stays off the shelf.
+      </p>
+    </div>
+  </section>
+
+  <section class="loc-section" aria-labelledby="special-title">
+    <h3 id="special-title">Special requests</h3>
+    <ul>
+      <li>Identification</li>
+      <li>Magical services</li>
+      <li>Town Portal scrolls</li>
+      <li>Spell-related supplies</li>
+      <li>Commissions and special requests</li>
+    </ul>
+    <p style="margin-top:10px">Costs and turnaround — ask Gimble (or the DM) at the table.</p>
+  </section>
+
+  <section class="loc-section shop-special-orders" aria-labelledby="special-orders-title">
+    <h3 id="special-orders-title">Special Orders, PLease Tip</h3>
+    <p>
+      Gimble takes special orders when the stock on the shelf is not enough —
+      a scroll you need scribed, a focus cut to taste, or something from his quieter contacts.
+    </p>
+    <ul>
+      <li><strong>PLease tip</strong> if the work is rush, risky, or “don’t ask where I found it.”</li>
+      <li>Not everything can be ordered. Nightscale-hunting gear is still mostly courage.</li>
+      <li>Deposit and wait time are set at the table — this board is only the invitation.</li>
+    </ul>
+  </section>
+
+  <p class="note" style="margin-top:18px">
+    <a href="index.html">← Return to Town</a>
+    ·
+    <a href="../index.html">Campaign Home</a>
+  </p>
+</div>
+</main>
+</div>
+</body>
+</html>

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blasingdell · Town — Tales of Salvation</title>
+<link rel="stylesheet" href="../../assets/css/style.css">
+<style>
+.town-banner{
+  margin:0 0 14px;
+  padding:10px 14px;
+  border:1px solid #6e5930;
+  border-radius:10px;
+  background:rgba(216,179,95,.08);
+  font-size:.95rem;
+}
+.town-arrival{
+  margin:0 0 18px;
+  font-size:1.15rem;
+  font-style:italic;
+  color:var(--ccs-ink-strong, #2a2218);
+  max-width:40ch;
+}
+.town-map-wrap{
+  position:relative;
+  max-width:960px;
+  margin:0 auto 20px;
+  border:2px solid var(--line, #6e5930);
+  border-radius:12px;
+  overflow:hidden;
+  background:#1a1510;
+  box-shadow:0 12px 36px rgba(0,0,0,.4);
+  line-height:0;
+}
+.town-map-wrap img.town-map{
+  display:block;
+  width:100%;
+  height:auto;
+}
+/*
+  Map door markers — door_marker.png
+  left/top = tip of the pin on the map (0–100%).
+  Nudge: bigger left → right; bigger top → down.
+*/
+.town-door{
+  position:absolute;
+  z-index:2;
+  display:block;
+  width:5.2rem;
+  margin:0;
+  padding:0;
+  border:none;
+  background:transparent;
+  line-height:0;
+  text-decoration:none;
+  /* Pin tip sits on left/top */
+  transform:translate(-50%,-92%);
+  transition:transform .15s ease, filter .15s ease;
+  filter:drop-shadow(0 2px 4px rgba(0,0,0,.45));
+}
+.town-door:hover,
+.town-door:focus-visible{
+  transform:translate(-50%,-92%) scale(1.12);
+  filter:drop-shadow(0 3px 8px rgba(0,0,0,.55));
+  outline:none;
+  z-index:3;
+}
+.town-door img.town-door-marker{
+  display:block;
+  width:100%;
+  height:auto;
+  pointer-events:none;
+}
+.town-door .town-door-label{
+  position:absolute;
+  left:50%;
+  bottom:calc(100% + 4px);
+  transform:translateX(-50%);
+  white-space:nowrap;
+  padding:4px 8px;
+  border-radius:6px;
+  background:rgba(20,14,8,.92);
+  border:1px solid #6e5930;
+  color:#e8d5a0;
+  font-size:.72rem;
+  font-weight:normal;
+  letter-spacing:.03em;
+  line-height:1.2;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .15s ease;
+}
+.town-door:hover .town-door-label,
+.town-door:focus-visible .town-door-label{
+  opacity:1;
+}
+/* Open doors — tip placement (edit these to adjust) */
+.town-door-rune{left:34%;top:38%}
+.town-door-smithy{left:71%;top:71%}
+.town-door-shrine{left:54%;top:27%}
+.town-door-inn{left:16%;top:46%}
+.town-door-manor{left:19%;top:31%}
+.town-door-hall{left:79%;top:47%}
+
+/* Parked markers — same art, B&W, not clickable */
+.town-seal-parked{
+  position:absolute;
+  z-index:1;
+  display:block;
+  width:4.8rem;
+  margin:0;
+  padding:0;
+  line-height:0;
+  transform:translate(-50%,-92%);
+  filter:grayscale(1) brightness(.85);
+  opacity:.7;
+  cursor:default;
+  pointer-events:none;
+  user-select:none;
+}
+.town-seal-parked img.town-door-marker{
+  display:block;
+  width:100%;
+  height:auto;
+}
+.town-seal-warehouse{left:31%;top:72%}
+.town-seal-quarry{left:78%;top:14%}
+
+/*
+  Easter egg — invisible river door (Mantis’s first cast)
+  .town-egg-fish → near the water by The Shrine (see Fishing/fishing_location.jpg)
+  Nudge left/top/width/height %. No map pin. Focus-visible only for a11y.
+*/
+.town-egg-fish{
+  position:absolute;
+  z-index:4;
+  left:61%;
+  top:29%;
+  width:7%;
+  height:5%;
+  margin:0;
+  padding:0;
+  border:none;
+  background:transparent;
+  transform:translate(-50%,-50%);
+  cursor:default;
+  opacity:0;
+  text-indent:-9999px;
+  overflow:hidden;
+}
+.town-egg-fish:focus-visible{
+  opacity:.4;
+  outline:1px dotted rgba(180,200,220,.7);
+  outline-offset:2px;
+  text-indent:0;
+  font-size:.65rem;
+  color:rgba(200,220,240,.9);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(10,20,40,.35);
+  border-radius:4px;
+  cursor:pointer;
+}
+
+/* Open doors list — 2×3; bold medallions for small screens */
+.town-door-list{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:12px;
+  margin:16px 0 0;
+  padding:0;
+  list-style:none;
+}
+.town-door-list > li{
+  min-width:0;
+  display:flex;
+}
+.town-door-list a{
+  display:grid;
+  grid-template-columns:3.35rem 1fr;
+  gap:10px 12px;
+  align-items:center;
+  width:100%;
+  min-height:5.1rem;
+  box-sizing:border-box;
+  padding:12px 14px;
+  border:1px solid rgba(180,150,90,.45);
+  border-radius:10px;
+  background:rgba(255,248,220,.06);
+  text-decoration:none;
+  color:inherit;
+  transition:border-color .15s ease, background .15s ease, box-shadow .15s ease;
+}
+.town-door-list a:hover,
+.town-door-list a:focus-visible{
+  border-color:#a07830;
+  background:rgba(216,179,95,.14);
+  box-shadow:0 2px 10px rgba(60,40,10,.12);
+  outline:none;
+}
+/* Closed doors in the list — grey, not clickable */
+.town-door-list .door-closed{
+  display:grid;
+  grid-template-columns:3.35rem 1fr;
+  gap:10px 12px;
+  align-items:center;
+  width:100%;
+  min-height:5.1rem;
+  box-sizing:border-box;
+  padding:12px 14px;
+  border:1px solid rgba(100,100,100,.4);
+  border-radius:10px;
+  background:rgba(80,80,80,.08);
+  filter:grayscale(1);
+  opacity:.72;
+  cursor:default;
+  user-select:none;
+}
+.town-door-list .door-closed .list-copy strong{color:#4a4a4a;text-shadow:none}
+.town-door-list .door-closed .list-copy span{color:#5a5a5a;opacity:.9}
+.nav-closed{
+  display:block;
+  padding:0.15rem 0;
+  color:rgba(120,120,120,.85);
+  font-style:italic;
+  cursor:default;
+  pointer-events:none;
+  opacity:.75;
+}
+/* Shared medallion frame */
+.town-door-list .list-glyph{
+  width:3.35rem;
+  height:3.35rem;
+  flex-shrink:0;
+  border-radius:50%;
+  border:2.5px solid #8a6a28;
+  background:
+    radial-gradient(circle at 30% 25%, #3a4a38 0%, #1a2218 55%, #0c100c 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  box-sizing:border-box;
+  box-shadow:
+    inset 0 1px 0 rgba(255,230,160,.2),
+    0 2px 6px rgba(0,0,0,.25);
+}
+/* Soft tint per place — still one size, easier to tell apart */
+.town-door-list a[href="shattered-rune.html"] .list-glyph{
+  background:radial-gradient(circle at 30% 25%, #3d3a58 0%, #1a1830 55%, #0c0a18 100%);
+  border-color:#6a5a9a;
+}
+.town-door-list a[href="ironvein-smithy.html"] .list-glyph{
+  background:radial-gradient(circle at 30% 25%, #5a4030 0%, #2a1810 55%, #120c08 100%);
+  border-color:#a07040;
+}
+.town-door-list a[href="the-shrine.html"] .list-glyph{
+  background:radial-gradient(circle at 30% 25%, #4a5a28 0%, #243018 55%, #101808 100%);
+  border-color:#7a9a40;
+}
+.town-door-list a[href="pick-and-lantern.html"] .list-glyph{
+  background:radial-gradient(circle at 30% 25%, #5a4820 0%, #2a200c 55%, #120e06 100%);
+  border-color:#c09030;
+}
+.town-door-list a[href="vellbrandt-manor.html"] .list-glyph{
+  background:radial-gradient(circle at 30% 25%, #4a4030 0%, #221c14 55%, #0e0c08 100%);
+  border-color:#b8943c;
+  padding:2px;
+}
+.town-door-list a[href="stone-hall.html"] .list-glyph{
+  background:radial-gradient(circle at 30% 25%, #4a4a4a 0%, #242428 55%, #101012 100%);
+  border-color:#8a8a90;
+}
+.town-door-list .list-glyph .town-glyph{
+  width:1.85rem;
+  height:1.85rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.town-door-list .list-glyph .town-glyph svg{
+  display:block;
+  width:100%;
+  height:100%;
+  overflow:visible;
+}
+.town-door-list .list-glyph .town-glyph-seal,
+.town-door-list .list-glyph > img.town-glyph-seal{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  object-fit:cover;
+  object-position:center 40%;
+  box-shadow:0 0 0 1.5px rgba(242,226,180,.85);
+}
+.town-door-list .list-copy{
+  min-width:0;
+}
+/* Parchment panel: light gold washes out — use deep bronze */
+.town-door-list .list-copy strong{
+  display:block;
+  color:#4a3210;
+  margin-bottom:4px;
+  font-size:.95rem;
+  line-height:1.25;
+  font-weight:bold;
+  text-shadow:0 1px 0 rgba(255,252,240,.55);
+}
+.town-door-list .list-copy span{
+  display:block;
+  font-size:.82rem;
+  color:#3a3020;
+  opacity:.92;
+  line-height:1.3;
+}
+.book-panel .section-label{
+  color:#5a3d0c;
+  border-bottom-color:rgba(90,61,12,.35);
+  text-shadow:0 1px 0 rgba(255,252,240,.4);
+}
+.book-panel h2{
+  color:#2a2218;
+}
+.town-note{margin-top:16px;font-size:.92rem;color:#3a3020;opacity:.95}
+.visually-hidden{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
+}
+@media (max-width:720px){
+  .town-door-list{grid-template-columns:repeat(2, 1fr)}
+}
+@media (max-width:640px){
+  .town-door{width:4.3rem}
+  .town-door .town-door-label{font-size:.65rem}
+  .town-seal-parked{width:4rem;opacity:.65}
+  .town-door-list{grid-template-columns:1fr}
+  .town-door-list a{min-height:4.25rem}
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <h1 class="site-title">Tales of Salvation</h1>
+  <p class="site-subtitle">Town · Blasingdell · Between sessions</p>
+</header>
+
+<div class="layout">
+<nav>
+  <div class="nav-section">Forge of Fury</div>
+  <a href="../../index.html">Home</a>
+  <a href="../index.html">Campaign Home</a>
+  <a href="../index.html#company-character-sheets">Company Character Sheets</a>
+  <a href="index.html" aria-current="page">Town · Blasingdell</a>
+  <a href="../deep-memory.html">Deep Memory · Forge</a>
+  <a href="../../deep-memory/index.html">Deep Memory · Site vault</a>
+
+  <div class="nav-section">Open doors</div>
+  <a href="shattered-rune.html">The Shattered Rune</a>
+  <a href="ironvein-smithy.html">Ironvein Smithy</a>
+  <a href="the-shrine.html">The Shrine</a>
+  <span class="nav-closed">The Pick &amp; Lantern</span>
+  <span class="nav-closed">Vellbrandt Manor</span>
+  <span class="nav-closed">Stone Hall</span>
+
+  <div class="nav-section">Companions</div>
+  <a href="../../companions/brennar-tallowick.html">Brennar Tallowick</a>
+  <a href="../../companions/rug-of-smothering.html">Thrain's Rug of Smothering</a>
+  <a href="../../companions/sir-kluth.html">Sir Kluth</a>
+</nav>
+
+<main>
+<div class="breadcrumbs">
+  <a href="../../index.html">Home</a> &gt;
+  <a href="../index.html">Forge of Fury</a> &gt;
+  Town · Blasingdell
+</div>
+
+<div class="book-panel">
+  <p class="town-banner">
+    <strong>Blasingdell Town Hub</strong> · Walk the streets, open a door, and see to Tempest Company’s business before the mountain calls again.
+  </p>
+
+  <h2>The Mining Town of Blasingdell</h2>
+  <p class="town-arrival">Catch your breath. The mountain isn't going anywhere.</p>
+
+  <div class="town-map-wrap" role="region" aria-label="Blasingdell town map with open doors">
+    <img
+      class="town-map"
+      src="../../assets/images/forge-of-fury/THE%20MINING%20TOWN%20OF%20BLASINGDELL%20detailed.jpg"
+      alt="Map of the mining town of Blasingdell. Open doors lead to shops and services the company knows."
+      width="960"
+      height="960"
+    >
+    <a class="town-door town-door-rune" href="shattered-rune.html" title="Enter The Shattered Rune">
+      <span class="town-door-label">Enter The Shattered Rune</span>
+      <img class="town-door-marker" src="../../assets/images/forge-of-fury/door_marker.png" alt="" width="96" height="128">
+      <span class="visually-hidden">Enter The Shattered Rune</span>
+    </a>
+    <a class="town-door town-door-smithy" href="ironvein-smithy.html" title="Enter Ironvein Smithy">
+      <span class="town-door-label">Enter Ironvein Smithy</span>
+      <img class="town-door-marker" src="../../assets/images/forge-of-fury/door_marker.png" alt="" width="96" height="128">
+      <span class="visually-hidden">Enter Ironvein Smithy</span>
+    </a>
+    <a class="town-door town-door-shrine" href="the-shrine.html" title="Enter The Shrine">
+      <span class="town-door-label">Enter The Shrine</span>
+      <img class="town-door-marker" src="../../assets/images/forge-of-fury/door_marker.png" alt="" width="96" height="128">
+      <span class="visually-hidden">Enter The Shrine</span>
+    </a>
+    <!-- Not built yet — grey markers, same treatment as Warehouse / Quarry -->
+    <span class="town-seal-parked town-door-inn" role="img" aria-label="The Pick and Lantern — not open yet">
+      <img class="town-door-marker" src="../../assets/images/forge-of-fury/door_marker.png" alt="" width="96" height="128">
+    </span>
+    <span class="town-seal-parked town-door-manor" role="img" aria-label="Vellbrandt Manor — not open yet">
+      <img class="town-door-marker" src="../../assets/images/forge-of-fury/door_marker.png" alt="" width="96" height="128">
+    </span>
+    <span class="town-seal-parked town-door-hall" role="img" aria-label="Stone Hall — not open yet">
+      <img class="town-door-marker" src="../../assets/images/forge-of-fury/door_marker.png" alt="" width="96" height="128">
+    </span>
+
+    <!-- Parked — map places, not shop doors yet -->
+    <span class="town-seal-parked town-seal-warehouse" role="img" aria-label="Warehouse District — not open yet">
+      <img class="town-door-marker" src="../../assets/images/forge-of-fury/door_marker.png" alt="" width="96" height="128">
+    </span>
+    <span class="town-seal-parked town-seal-quarry" role="img" aria-label="Greytooth Quarry — not open yet">
+      <img class="town-door-marker" src="../../assets/images/forge-of-fury/door_marker.png" alt="" width="96" height="128">
+    </span>
+
+    <!-- Invisible river easter egg — Session 1 first cast (no nav listing) -->
+    <a
+      class="town-egg-fish"
+      href="the-first-cast.html"
+      title=""
+      aria-label="A quiet place by the river"
+    >…</a>
+  </div>
+
+  <h3 class="section-label" style="margin-top:8px">Open doors</h3>
+  <p class="roster-lead">Same destinations as the map — easier on a small screen.</p>
+  <ul class="town-door-list">
+    <li>
+      <a href="shattered-rune.html">
+        <span class="list-glyph" aria-hidden="true">
+          <span class="town-glyph">
+            <!-- Broken rune medallion -->
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <path fill="#c4b0f0" d="M8 5 L15 10 L13 18 L6 14 Z"/>
+              <path fill="#9a88d0" d="M18 9 L26 6 L27 15 L19 17 Z"/>
+              <path fill="none" stroke="#f2e8ff" stroke-width="1.6" stroke-linecap="round" d="M14 16 L17 26 M12 22 L20 20"/>
+              <circle cx="16" cy="16" r="13" fill="none" stroke="#e8d8ff" stroke-width="1.2" opacity=".45"/>
+            </svg>
+          </span>
+        </span>
+        <span class="list-copy"><strong>The Shattered Rune</strong><span>Magic · services · Gimble Wandsplice</span></span>
+      </a>
+    </li>
+    <li>
+      <a href="ironvein-smithy.html">
+        <span class="list-glyph" aria-hidden="true">
+          <span class="town-glyph">
+            <!-- Anvil + hammer hint -->
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <path fill="#e0c090" d="M5 12 H27 V16 H5 Z"/>
+              <path fill="#c89860" d="M8 16 H24 V19 Q24 22 19 22 H13 Q8 22 8 19 Z"/>
+              <path fill="#a87848" d="M13 22 V27 H19 V22"/>
+              <path fill="#f0d8a8" d="M4 12 H11 V9 H15 L18 12"/>
+              <path fill="none" stroke="#fff0d0" stroke-width="1.5" stroke-linecap="round" d="M22 6 L26 10 M24 5 L28 9"/>
+            </svg>
+          </span>
+        </span>
+        <span class="list-copy"><strong>Ironvein Smithy</strong><span>Weapons · armor · repairs · Durnan Ironvein</span></span>
+      </a>
+    </li>
+    <li>
+      <a href="the-shrine.html">
+        <span class="list-glyph" aria-hidden="true">
+          <span class="town-glyph">
+            <!-- Simple sun / growth -->
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <circle cx="16" cy="16" r="6" fill="#e8f090"/>
+              <circle cx="16" cy="16" r="3.5" fill="#f8f8c0"/>
+              <g stroke="#d8e870" stroke-width="2" stroke-linecap="round">
+                <path d="M16 3 V8 M16 24 V29 M3 16 H8 M24 16 H29"/>
+                <path d="M6.5 6.5 L10 10 M22 22 L25.5 25.5 M25.5 6.5 L22 10 M10 22 L6.5 25.5"/>
+              </g>
+            </svg>
+          </span>
+        </span>
+        <span class="list-copy"><strong>The Shrine</strong><span>Healing · blessings · Sister Maerith</span></span>
+      </a>
+    </li>
+    <li>
+      <div class="door-closed" aria-label="The Pick and Lantern — not open yet">
+        <span class="list-glyph" aria-hidden="true">
+          <span class="town-glyph">
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <path fill="#d0a860" d="M11 7 H21 V10 H11 Z"/>
+              <path fill="#e8c878" d="M10 10 H22 V20 Q22 26 16 26 Q10 26 10 20 Z"/>
+              <path fill="#fff0a0" d="M13 13 H19 V19 Q19 21 16 21 Q13 21 13 19 Z"/>
+              <path fill="none" stroke="#f8e0a0" stroke-width="1.5" stroke-linecap="round" d="M16 4 V7"/>
+              <circle cx="16" cy="16" r="1.2" fill="#fff8d0"/>
+            </svg>
+          </span>
+        </span>
+        <span class="list-copy"><strong>The Pick &amp; Lantern</strong><span>Not open yet</span></span>
+      </div>
+    </li>
+    <li>
+      <div class="door-closed" aria-label="Vellbrandt Manor — not open yet">
+        <span class="list-glyph" aria-hidden="true">
+          <img class="town-glyph-seal" src="../../assets/images/forge-of-fury/Vellbrant_Manor_Seal.png" alt="" width="48" height="48">
+        </span>
+        <span class="list-copy"><strong>Vellbrandt Manor</strong><span>Not open yet</span></span>
+      </div>
+    </li>
+    <li>
+      <div class="door-closed" aria-label="Stone Hall — not open yet">
+        <span class="list-glyph" aria-hidden="true">
+          <span class="town-glyph">
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <path fill="#c8c8d0" d="M16 4 L24 12 L21 28 H11 L8 12 Z"/>
+              <path fill="#a8a8b4" d="M12 12 H20 L18.5 26 H13.5 Z"/>
+              <path fill="#e8e8f0" d="M14 8 H18 L17 12 H15 Z"/>
+              <path fill="none" stroke="#f0f0f8" stroke-width="1.3" d="M10 16 H22 M11 21 H21"/>
+            </svg>
+          </span>
+        </span>
+        <span class="list-copy"><strong>Stone Hall</strong><span>Not open yet</span></span>
+      </div>
+    </li>
+  </ul>
+
+  <p class="town-note">
+    <strong>Open now:</strong> The Shattered Rune · Ironvein Smithy · The Shrine.
+    Grey markers (inn, manor, Stone Hall, Warehouse, Quarry) are not open doors yet.
+    Gold truth stays at the table / Fantasy Grounds.
+  </p>
+  <p class="town-note">
+    DM the DM with down time inquiries.
+  </p>
+
+  <p class="note" style="margin-top:18px">
+    <a href="../index.html">← Campaign Home</a>
+    ·
+    <a href="../deep-memory.html">Deep Memory · Forge</a>
+  </p>
+</div>
+</main>
+</div>
+</body>
+</html>

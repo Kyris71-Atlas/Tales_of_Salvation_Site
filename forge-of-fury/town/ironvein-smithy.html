@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ironvein Smithy · Blasingdell — Tales of Salvation</title>
+<link rel="stylesheet" href="../../assets/css/style.css">
+<style>
+.town-banner{
+  margin:0 0 14px;
+  padding:10px 14px;
+  border:1px solid #6e5930;
+  border-radius:10px;
+  background:rgba(216,179,95,.08);
+  font-size:.95rem;
+  color:#3a3020;
+}
+.book-panel h2{color:#2a2218;margin-bottom:6px}
+.book-panel .section-label,
+.loc-section h3,
+.shop-shelf h3,
+.shop-subhead{
+  color:#5a3d0c;
+  text-shadow:0 1px 0 rgba(255,252,240,.4);
+}
+
+/* Arrival — capped postcard */
+.shop-arrival{margin:0 0 18px}
+.shop-arrival-visual{
+  position:relative;
+  max-width:560px;
+  margin:0 auto;
+  border-radius:12px;
+  overflow:hidden;
+  border:2px solid rgba(110,89,48,.55);
+  box-shadow:0 10px 28px rgba(0,0,0,.28);
+  background:#1a1008;
+  line-height:0;
+}
+.shop-arrival-visual img{
+  display:block;
+  width:100%;
+  max-height:280px;
+  height:auto;
+  object-fit:cover;
+  object-position:58% 45%;
+  margin:0 auto;
+  transform-origin:center center;
+  animation:smithySlowZoom 16s ease-in-out infinite alternate;
+}
+/*
+  Smithy banner FX map (left/top % on .shop-arrival-visual):
+  .smithy-fx-fire       → outer forge-fire glow (hearth mouth)
+  .smithy-fx-fire-core  → brighter inner flame core (same hearth)
+  .smithy-fx-heat       → soft heat haze rising over the forge
+  .smithy-fx-shine-a    → magic metal shine on anvil / hot steel (lower right of forge)
+  .smithy-fx-shine-b    → magic metal shine on racked shield (far right)
+  Nudge left/top/width/height when repositioning.
+*/
+.smithy-fx-fire{
+  position:absolute;
+  left:44%;top:48%;width:10%;height:14%;
+  border-radius:50%;
+  background:radial-gradient(
+    ellipse at 50% 60%,
+    rgba(255,200,80,.55) 0%,
+    rgba(255,100,20,.35) 35%,
+    rgba(180,40,0,.12) 60%,
+    transparent 72%
+  );
+  animation:smithyFireFlicker 2.8s ease-in-out infinite;
+  pointer-events:none;
+  mix-blend-mode:screen;
+}
+.smithy-fx-fire-core{
+  position:absolute;
+  left:47%;top:50%;width:8%;height:15%;
+  border-radius:50%;
+  background:radial-gradient(
+    circle at 50% 50%,
+    rgba(255,240,180,.7) 0%,
+    rgba(255,120,30,.35) 45%,
+    transparent 70%
+  );
+  animation:smithyFireCore 2.2s ease-in-out infinite;
+  pointer-events:none;
+  mix-blend-mode:screen;
+}
+.smithy-fx-heat{
+  position:absolute;
+  left:46%;top:30%;width:26%;height:40%;
+  background:linear-gradient(180deg,transparent 0%,rgba(255,180,80,.08) 40%,transparent 100%);
+  animation:smithyHeat 3.2s ease-in-out infinite;
+  pointer-events:none;
+}
+.smithy-fx-shine-a{
+  position:absolute;
+  left:62%;top:68%;width:14%;height:10%;
+  border-radius:4px;
+  background:linear-gradient(105deg,transparent 0%,transparent 40%,rgba(255,255,255,.55) 50%,transparent 60%,transparent 100%);
+  background-size:200% 100%;
+  animation:smithyMetalShine 4.5s ease-in-out infinite;
+  pointer-events:none;
+  mix-blend-mode:soft-light;
+  opacity:.85;
+}
+.smithy-fx-shine-b{
+  position:absolute;
+  left:82%;top:52%;width:10%;height:18%;
+  border-radius:50%;
+  background:linear-gradient(125deg,transparent 0%,transparent 42%,rgba(200,230,255,.5) 50%,transparent 58%,transparent 100%);
+  background-size:220% 100%;
+  animation:smithyMetalShine 5.8s ease-in-out 1.2s infinite;
+  pointer-events:none;
+  mix-blend-mode:soft-light;
+  opacity:.75;
+}
+@keyframes smithySlowZoom{0%{transform:scale(1)}100%{transform:scale(1.05)}}
+@keyframes smithyFireFlicker{
+  0%,100%{opacity:.55;transform:scale(1)}
+  25%{opacity:.88;transform:scale(1.04) translateY(-0.5%)}
+  50%{opacity:.5;transform:scale(.98)}
+  75%{opacity:.78;transform:scale(1.03) translateX(0.5%)}
+}
+@keyframes smithyFireCore{
+  0%,100%{opacity:.55;transform:scale(1)}
+  40%{opacity:.9;transform:scale(1.06)}
+  70%{opacity:.45;transform:scale(.96)}
+}
+@keyframes smithyHeat{
+  0%,100%{opacity:.4;transform:translateY(0)}
+  50%{opacity:.85;transform:translateY(-6%)}
+}
+@keyframes smithyMetalShine{
+  0%{background-position:120% 0;opacity:.2}
+  40%{opacity:.9}
+  55%{background-position:-20% 0;opacity:.7}
+  100%{background-position:-40% 0;opacity:.15}
+}
+
+.shop-welcome{
+  margin:0 0 18px;
+  padding:14px 16px;
+  border:1px solid rgba(180,150,90,.4);
+  border-radius:12px;
+  background:rgba(255,248,220,.06);
+}
+.shop-welcome h3{margin:0 0 8px;font-size:1.1rem;color:#5a3d0c}
+.shop-welcome p{margin:0 0 8px;color:#3a3020;line-height:1.5}
+.shop-welcome p:last-child{margin-bottom:0}
+.shop-welcome .shop-line{
+  margin-top:10px;
+  padding:8px 12px;
+  border-left:3px solid #6e5930;
+  font-style:italic;
+  color:#4a3210;
+}
+.shop-welcome .durnan-quote{
+  margin-top:8px;
+  font-size:.95rem;
+  color:#3a3020;
+}
+
+.loc-section{
+  margin:16px 0 0;
+  padding:14px 16px;
+  border:1px solid rgba(180,150,90,.35);
+  border-radius:12px;
+  background:rgba(255,248,220,.03);
+}
+.loc-section h3{margin:0 0 8px;font-size:1.05rem}
+.loc-section p{margin:0;color:#3a3020;line-height:1.5}
+
+.shop-shelf{
+  margin:16px 0 0;
+  padding:14px 16px;
+  border:1px solid rgba(180,150,90,.45);
+  border-radius:12px;
+  background:rgba(255,248,220,.05);
+}
+.shop-shelf h3{margin:0 0 6px;font-size:1.1rem}
+.shop-shelf .shelf-lead{
+  margin:0 0 12px;
+  font-size:.9rem;
+  color:#3a3020;
+  opacity:.9;
+  line-height:1.4;
+}
+.shop-subhead{
+  margin:14px 0 8px;
+  font-size:.88rem;
+  font-weight:bold;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:#5a3d0c;
+}
+.shop-subhead:first-of-type{margin-top:4px}
+
+.shop-stock{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:grid;
+  gap:6px;
+  max-width:36rem;
+}
+.shop-stock li{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:8px 12px;
+  align-items:baseline;
+  padding:6px 8px;
+  border-radius:8px;
+  background:rgba(255,255,255,.04);
+  color:#2a2218;
+  font-size:.95rem;
+}
+.shop-stock li:nth-child(even){background:rgba(216,179,95,.06)}
+.shop-stock .item-name{font-weight:bold;color:#4a3210}
+.shop-stock .item-price{
+  font-variant-numeric:tabular-nums;
+  white-space:nowrap;
+  color:#5a3d0c;
+  font-weight:bold;
+  font-size:.9rem;
+}
+.shop-stock .item-note{
+  grid-column:1 / -1;
+  margin:0;
+  font-size:.82rem;
+  color:#3a3020;
+  opacity:.9;
+  line-height:1.35;
+  font-weight:normal;
+}
+
+.shop-commission-note{
+  margin-top:12px;
+  padding:10px 12px;
+  border:1px dashed rgba(110,89,48,.5);
+  border-radius:10px;
+  background:rgba(255,255,255,.05);
+  max-width:36rem;
+  color:#3a3020;
+  font-size:.9rem;
+  line-height:1.45;
+}
+.shop-commission-note strong{color:#4a3210}
+
+.shop-shelf-buy{
+  border-color:rgba(120,90,40,.55);
+  background:linear-gradient(180deg,rgba(216,179,95,.1),rgba(255,248,220,.04));
+}
+.shop-shelf-magic{
+  border-color:rgba(140,90,40,.6);
+  background:linear-gradient(180deg,rgba(180,100,40,.08),rgba(255,248,220,.05));
+}
+.shop-stock.shelf-pause li{padding:8px 10px}
+.shop-buy-block{margin-top:10px;max-width:36rem}
+.shop-buy-block h4{
+  margin:0 0 6px;
+  font-size:.88rem;
+  letter-spacing:.03em;
+  text-transform:uppercase;
+  color:#5a3d0c;
+}
+.shop-buy-block ul{
+  margin:0;
+  padding-left:1.2rem;
+  color:#3a3020;
+  font-size:.92rem;
+  line-height:1.45;
+}
+.shop-buy-block + .shop-buy-block{margin-top:14px}
+.shop-buy-rule{
+  margin-top:12px;
+  padding:8px 12px;
+  border-left:3px solid #6e5930;
+  font-style:italic;
+  color:#4a3210;
+  max-width:36rem;
+  font-size:.92rem;
+  line-height:1.45;
+}
+
+.shop-featured{
+  margin-top:12px;
+  padding:10px 12px;
+  border:1px solid rgba(180,150,90,.45);
+  border-radius:10px;
+  background:rgba(216,179,95,.08);
+  max-width:36rem;
+  color:#3a3020;
+  font-size:.92rem;
+  line-height:1.45;
+}
+.shop-featured strong{color:#4a3210}
+
+@media (max-width:640px){
+  .shop-arrival-visual img{max-height:220px}
+}
+@media (prefers-reduced-motion:reduce){
+  .shop-arrival-visual img,
+  .smithy-fx-fire,
+  .smithy-fx-fire-core,
+  .smithy-fx-heat,
+  .smithy-fx-shine-a,
+  .smithy-fx-shine-b{animation:none}
+  .smithy-fx-fire,
+  .smithy-fx-fire-core{opacity:.65}
+  .smithy-fx-shine-a,
+  .smithy-fx-shine-b{opacity:0}
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <h1 class="site-title">Tales of Salvation</h1>
+  <p class="site-subtitle">Town · Blasingdell · Ironvein Smithy</p>
+</header>
+
+<div class="layout">
+<nav>
+  <div class="nav-section">Forge of Fury</div>
+  <a href="../../index.html">Home</a>
+  <a href="../index.html">Campaign Home</a>
+  <a href="index.html">Town · Blasingdell</a>
+  <a href="../index.html#company-character-sheets">Company Character Sheets</a>
+  <a href="../deep-memory.html">Deep Memory · Forge</a>
+
+  <div class="nav-section">Open doors</div>
+  <a href="shattered-rune.html">The Shattered Rune</a>
+  <a href="ironvein-smithy.html" aria-current="page">Ironvein Smithy</a>
+  <a href="the-shrine.html">The Shrine</a>
+  <a href="pick-and-lantern.html">The Pick &amp; Lantern</a>
+  <a href="vellbrandt-manor.html">Vellbrandt Manor</a>
+  <a href="stone-hall.html">Stone Hall</a>
+</nav>
+
+<main>
+<div class="breadcrumbs">
+  <a href="../../index.html">Home</a> &gt;
+  <a href="../index.html">Forge of Fury</a> &gt;
+  <a href="index.html">Town · Blasingdell</a> &gt;
+  Ironvein Smithy
+</div>
+
+<div class="book-panel">
+  <p class="town-banner">
+    <strong>Ironvein Smithy</strong> · Steel for the mine. Iron for the road.
+    Between sessions — not Deep Memory.
+  </p>
+
+  <h2>Ironvein Smithy</h2>
+
+  <section class="shop-arrival" aria-label="Arrival at Ironvein Smithy">
+    <div class="shop-arrival-visual">
+      <img
+        src="Ironvein%20Smithy/durnan_smithy.png"
+        alt="Inside Ironvein Smithy — Durnan at the forge"
+        width="560"
+        height="280"
+      >
+      <!--
+        BANNER FX INDEX (reposition with left / top / width / height %):
+        smithy-fx-fire       = outer forge-fire glow (hearth)
+        smithy-fx-fire-core  = bright inner flame core (hearth)
+        smithy-fx-heat       = soft heat haze over forge
+        smithy-fx-shine-a    = metal shine · anvil / hot steel
+        smithy-fx-shine-b    = metal shine · racked shield (right)
+      -->
+      <div class="smithy-fx-fire" aria-hidden="true" data-fx="fire-outer" title="FX: forge fire (outer)"></div>
+      <div class="smithy-fx-fire-core" aria-hidden="true" data-fx="fire-core" title="FX: forge fire (core)"></div>
+      <div class="smithy-fx-heat" aria-hidden="true" data-fx="heat-haze" title="FX: heat haze"></div>
+      <div class="smithy-fx-shine-a" aria-hidden="true" data-fx="shine-anvil" title="FX: shine anvil steel"></div>
+      <div class="smithy-fx-shine-b" aria-hidden="true" data-fx="shine-shield" title="FX: shine rack shield"></div>
+    </div>
+  </section>
+
+  <section class="shop-welcome" aria-labelledby="welcome-title">
+    <h3 id="welcome-title">Welcome</h3>
+    <p>
+      Heat rolls through the doorway before you cross the threshold.
+      Hammer blows ring from the rear forge, sparks jump against black stone,
+      and <strong>Durnan Ironvein</strong> looks up only after finishing the strike already in motion.
+    </p>
+    <p>
+      Most of the floor is mining gear — picks, chisels, reinforced barrows.
+      Weapons and shields hang ready too; the finer work is commission, not parade.
+    </p>
+    <p class="shop-line">
+      Steel for the mine. Iron for the road. Better work for those who know the difference.
+    </p>
+    <p class="durnan-quote">
+      <strong>Durnan:</strong> “Pretty costs extra. Strong doesn’t.”
+    </p>
+  </section>
+
+  <section class="loc-section" aria-labelledby="host-title">
+    <h3 id="host-title">Smith</h3>
+    <p><strong>Durnan Ironvein</strong> — squat, formidable, more interested in the next strike than small talk.</p>
+    <p style="margin-top:8px">Gimble sells possibilities. Durnan sells things that will still work after something tries to kill you.</p>
+  </section>
+
+  <!-- 1 · Ready from the Rack -->
+  <section class="shop-shelf" id="ready-from-the-rack" aria-labelledby="rack-title">
+    <h3 id="rack-title">1 · Ready from the Rack</h3>
+    <p class="shelf-lead">
+      Practical metal for mine and road — picks, fittings, and everyday steel for Blasingdell and the trail.
+    </p>
+    <div class="shop-featured">
+      <strong>Player’s Handbook items</strong> are also available:
+      standard weapons, armor, shields, ammunition, and common adventuring gear at the usual prices.
+      Ask Durnan (or check the book) — no need to list every dagger on the wall.
+    </div>
+    <div class="shop-featured" style="margin-top:10px">
+      <strong>Featured this downtime:</strong> Silvered Longsword on the rack —
+      ready work, not parade steel. Ask Durnan for the price of the silvering on top of the blade.
+    </div>
+  </section>
+
+  <!-- Forged & Found — L6 magic steel (uncommon + rare), all +1 -->
+  <section class="shop-shelf shop-shelf-magic" id="forged-and-found" aria-labelledby="forged-title">
+    <h3 id="forged-title">2 · Forged &amp; Found</h3>
+    <p class="shelf-lead">
+      Magic steel for Tempest on the road — <strong>+1</strong> work only.
+      Uncommon on the rack; rare pieces stay few. Not a very-rare vault.
+    </p>
+
+    <h4 class="shop-subhead">Uncommon · five on the rack</h4>
+    <ul class="shop-stock shelf-pause">
+      <li>
+        <span class="item-name">+1 Battleaxe</span>
+        <span class="item-price">uncommon</span>
+        <p class="item-note">+1 to attack and damage. Mine-road steel with a bit of true temper.</p>
+      </li>
+      <li>
+        <span class="item-name">+1 Longsword</span>
+        <span class="item-price">uncommon</span>
+        <p class="item-note">+1 to attack and damage. Clean lines; no fancy name needed.</p>
+      </li>
+      <li>
+        <span class="item-name">+1 Warhammer</span>
+        <span class="item-price">uncommon</span>
+        <p class="item-note">+1 to attack and damage. Durnan’s favorite shape of argument.</p>
+      </li>
+      <li>
+        <span class="item-name">+1 Morningstar</span>
+        <span class="item-price">uncommon</span>
+        <p class="item-note">+1 to attack and damage. For when the mountain still has undead in it.</p>
+      </li>
+      <li>
+        <span class="item-name">+1 Shield</span>
+        <span class="item-price">uncommon</span>
+        <p class="item-note">+1 to AC (with the shield’s usual bonus). Holds when pretty paint would peel.</p>
+      </li>
+    </ul>
+
+    <h4 class="shop-subhead">Rare · unique steel (not just plus)</h4>
+    <p class="shelf-lead" style="margin-top:0">
+      Enough odd pieces for fine adventurers to talk about — prices at the table / ask Durnan (DM the DM).
+    </p>
+    <ul class="shop-stock shelf-pause">
+      <li>
+        <span class="item-name">Flame Tongue</span>
+        <span class="item-price">rare</span>
+        <p class="item-note">A sword that can burst into flame on command — forge-fire that answers the wielder.</p>
+      </li>
+      <li>
+        <span class="item-name">Giant Slayer</span>
+        <span class="item-price">rare</span>
+        <p class="item-note">A weapon tempered to hurt giants (and giant-kin) more than ordinary steel.</p>
+      </li>
+      <li>
+        <span class="item-name">Dragon Slayer</span>
+        <span class="item-price">rare</span>
+        <p class="item-note">A weapon made for killing dragons. Nightscale’s name has been muttered near this rack.</p>
+      </li>
+      <li>
+        <span class="item-name">Frost Brand</span>
+        <span class="item-price">rare</span>
+        <p class="item-note">Cold steel from a hot shop — a sword that bites with frost and shrugs fire.</p>
+      </li>
+      <li>
+        <span class="item-name">Sword of Wounding</span>
+        <span class="item-price">rare</span>
+        <p class="item-note">Wounds that keep bleeding. Ugly work. Durnan respects it.</p>
+      </li>
+      <li>
+        <span class="item-name">Animated Shield</span>
+        <span class="item-price">rare</span>
+        <p class="item-note">A shield that can guard you on its own while your hands stay free.</p>
+      </li>
+      <li>
+        <span class="item-name">Arrow-Catching Shield</span>
+        <span class="item-price">rare</span>
+        <p class="item-note">Pulls ranged attacks toward it — and can snatch a missile out of the air.</p>
+      </li>
+      <li>
+        <span class="item-name">Spellguard Shield</span>
+        <span class="item-price">rare</span>
+        <p class="item-note">Shield bonus against spells and advantage on saves against them.</p>
+      </li>
+      <li>
+        <span class="item-name">Armor of Resistance</span>
+        <span class="item-price">rare</span>
+        <p class="item-note">Resistance to one damage type (chosen when found — e.g. fire, necrotic). Ask which suit is on the stand.</p>
+      </li>
+      <li>
+        <span class="item-name">Elven Chain</span>
+        <span class="item-price">rare</span>
+        <p class="item-note">Mithral chain that doesn’t announce itself. Rare mail that still feels like real armor.</p>
+      </li>
+    </ul>
+
+    <div class="shop-commission-note">
+      <strong>Durnan on enchantment:</strong>
+      He can <strong>add a +1</strong> to a suitable weapon, shield, or armor —
+      <strong>350–500 gp</strong>, time and deposit at the table.
+      Turning a <strong>+1 into a +2</strong> costs <strong>a lot more</strong> — commission only,
+      not walk-out stock, and not for every piece of steel that walks in.
+      <em>“Pretty costs extra. Strong doesn’t. True temper costs what it costs.”</em>
+    </div>
+  </section>
+
+  <!-- 3 · Repairs & Commission (summary note) -->
+  <section class="shop-shelf" id="repairs-commission" aria-labelledby="repair-title">
+    <h3 id="repair-title">3 · Repairs &amp; Commission Work</h3>
+    <p class="shelf-lead">
+      Durnan repairs weapons, shields, and armor; replaces straps and fittings; silvers steel;
+      and takes custom commissions (shields, weapons, dwarven detailing) with a deposit and a wait.
+      Strength and balance first — decoration costs more.
+    </p>
+    <div class="shop-commission-note">
+      <strong>At the table:</strong> prices depend on damage, materials, and how soon you need it back.
+      Ask Durnan (or the DM). <em>“Pretty costs extra. Strong doesn’t.”</em>
+    </div>
+  </section>
+
+  <!-- 3 · Durnan Will Buy -->
+  <section class="shop-shelf shop-shelf-buy" id="durnan-will-buy" aria-labelledby="buy-title">
+    <h3 id="buy-title">4 · Durnan Will Buy</h3>
+    <p class="shelf-lead">Useful metalwork, salvage, and gear he can restore or resell. Final prices stay a table call.</p>
+
+    <div class="shop-buy-block">
+      <h4>Usually accepted</h4>
+      <ul>
+        <li>Martial and simple weapons</li>
+        <li>Shields</li>
+        <li>Medium and heavy armor</li>
+        <li>Metal ammunition</li>
+        <li>Mining tools</li>
+        <li>Usable metal salvage</li>
+        <li>Ingots and workable ore</li>
+        <li>Damaged gear with recoverable parts</li>
+      </ul>
+    </div>
+
+    <div class="shop-buy-block">
+      <h4>Requires appraisal</h4>
+      <ul>
+        <li>Dwarven weapons or armor</li>
+        <li>Unusual alloys</li>
+        <li>Durgeddin-marked pieces</li>
+        <li>Magical weapons, armor, or shields</li>
+        <li>Badly damaged relics</li>
+        <li>Items of uncertain origin</li>
+      </ul>
+    </div>
+
+    <div class="shop-buy-block">
+      <h4>Usually refused</h4>
+      <ul>
+        <li>Cloth or leather goods</li>
+        <li>Ordinary jewelry</li>
+        <li>Arcane curios</li>
+        <li>Badly corroded scrap with no workable metal</li>
+        <li>Stolen goods that are obviously identifiable</li>
+      </ul>
+    </div>
+
+    <p class="shop-buy-rule">
+      Durnan pays according to condition, usefulness, and how much work it will take to put an item back on the rack.
+    </p>
+  </section>
+
+  <p class="note" style="margin-top:18px">
+    <a href="index.html">← Return to Town</a>
+    ·
+    <a href="../index.html">Campaign Home</a>
+  </p>
+</div>
+</main>
+</div>
+</body>
+</html>

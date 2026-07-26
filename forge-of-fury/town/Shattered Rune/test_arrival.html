@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Arrival Test - Shattered Rune</title>
+  <style>
+    .arrival-section {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 2rem;
+      align-items: center;
+      margin: 3rem 0;
+    }
+
+    .arrival-visual {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .gimble-image {
+      width: 90%;
+      display: block;
+      margin: 0 auto;
+      border-radius: 12px;
+      transform-origin: center center;
+      animation: slowZoom 14s ease-in-out infinite alternate;
+    }
+
+    .rune-glow {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        circle at 50% 80%,
+        rgba(80, 160, 255, 0.45) 0%,
+        transparent 55%
+      );
+      animation: pulseGlow 3.5s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .incense-smoke {
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.18) 0%, transparent 40%),
+        radial-gradient(circle at 70% 60%, rgba(255, 255, 255, 0.14) 0%, transparent 35%);
+      animation: driftSmoke 7s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .lantern-flicker {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        circle at 75% 25%,
+        rgba(255, 190, 100, 0.25) 0%,
+        transparent 45%
+      );
+      animation: flicker 2.4s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes slowZoom {
+      0%   { transform: scale(1); }
+      100% { transform: scale(1.08); }
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50%      { opacity: 1;    transform: scale(1.05); }
+    }
+
+    @keyframes driftSmoke {
+      0%   { transform: translateY(0) translateX(0); opacity: 0.6; }
+      50%  { transform: translateY(-18px) translateX(10px); opacity: 0.95; }
+      100% { transform: translateY(0) translateX(0); opacity: 0.6; }
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 0.5; }
+      25%      { opacity: 1; }
+      50%      { opacity: 0.35; }
+      75%      { opacity: 0.85; }
+    }
+
+    @media (max-width: 800px) {
+      .arrival-section {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body style="background: #1a1a1a; color: #eee; font-family: system-ui; padding: 2rem;">
+
+  <section class="arrival-section">
+    <div class="arrival-visual">
+      <img 
+        src="gimble_wandsplice.png" 
+        alt="Gimble Wandsplice at the teleportation circle" 
+        class="gimble-image"
+      >
+
+      <div class="rune-glow"></div>
+      <div class="incense-smoke"></div>
+      <div class="lantern-flicker"></div>
+    </div>
+
+    <div class="arrival-text">
+      <h2>Arrival</h2>
+      <p>
+        The air inside the Shattered Rune smells of old parchment, warm wax, and something faintly electric. 
+        Gimble looks up from the glowing circle, chalk still in hand, and offers a quick, distracted smile.
+      </p>
+    </div>
+  </section>
+
+</body>
+</html>

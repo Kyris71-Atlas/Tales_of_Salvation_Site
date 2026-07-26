@@ -3,7 +3,7 @@
 **Project:** Tales of Salvation  
 **Status:** Locked (working model)  
 **Audience of this doc:** Humans + Atrok / Atlas instances working on the website  
-**Last aligned:** 2026-07-18 (hub order + Witness block)  
+**Last aligned:** 2026-07-21 (Town shops product + Deep Memory format)  
 
 
 This document records product and navigation decisions for the **website**.  
@@ -21,11 +21,13 @@ It explains **how the site presents** play tools vs discovery archive.
 |---------|------------|--------------|
 | **Company Character Sheet (CCS)** | Table-facing play sheet for a **company PC** | Active campaign players |
 | **Character Discovery Report / Dossier** | A.D.E. archive page — evidence, story, validation | Archive, ADE, deeper reading |
+| **Town (shops)** | Between-session play place — map + shop doors the party knows | Active campaign players (downtime) |
 | **Deep Memory (site hub)** | Vault **entrance** — orientation + **portals** into chambers | Archive visitors + ongoing discovery |
 | **Deep Memory chamber** | Per-campaign (or circle) room — dossiers, sessions, companions | Exploring one table’s memory |
-| **Campaign Home** | Active table door — last session, sheets, enter Deep Memory | **Primary** visitor path for active play |
+| **Campaign Home** | Active table door — last session, sheets, **town**, enter Deep Memory | **Primary** visitor path for active play |
 
-**Working model:** CCS and dossier are **dual products**. They link to each other; they are not merged into one page.
+**Working model:** CCS and dossier are **dual products**. They link to each other; they are not merged into one page.  
+**Town** is a **third play face** (between sessions), not a vault product.
 
 ---
 
@@ -110,8 +112,9 @@ New campaigns get a **new chamber door on the hub** and a **new chamber page** �
 **Active players (primary):**
 ```text
 Home
- → Forge Campaign Home (last session · Company Character Sheets · Enter Deep Memory)
- → Forge chamber
+ → Forge Campaign Home (last session · CCS · Town · Enter Deep Memory)
+ → Town (map + shop doors)     ← between-session play
+ → Forge chamber               ← archive / stone
 ```
 
 **Vault visitors:**
@@ -122,8 +125,9 @@ Home
       └─ Chamber doors → Forge / Avernus / … campaign chambers
 ```
 
-**Campaign Home** keeps “this week’s breath” and **CCS**.  
-**Deep Memory** keeps the stone: Witness on the hub; campaign memory in **chambers**.
+**Campaign Home** keeps “this week’s breath,” **CCS**, and the door into **Town**.  
+**Deep Memory** keeps the stone: Witness on the hub; campaign memory in **chambers**.  
+**Town** keeps the living street for downtime (shopping, rumors, stock) — same **map / door** language as Deep Memory portals, but it is **play**, not archive.
 
 As more Discovery Reports are added, they **accumulate in the relevant campaign chamber** (or under Witness if Sol-circle only), not as competing “main” products on the site home, and not as ever-growing lists under every door.
 
@@ -210,6 +214,8 @@ Site Home  →  mostly active players
     ├─► Forge Campaign Home (active)
     │      ├─ Last session
     │      ├─ Company Character Sheets (Tempest CCS only)
+    │      ├─ Town (map · shop doors the party knows)
+    │      │      └─ shop pages (stock, prices as you set them)
     │      └─ Enter Deep Memory → Forge chamber
     │
     └─► Deep Memory (site hub — vault entrance)
@@ -226,7 +232,47 @@ Site Home  →  mostly active players
 
 ---
 
-## 12. Open items (implementation / later decisions)
+## 12. Town (between-session play) — direction locked 2026-07-21
+
+**Context:** Active Forge table; possible downtime shopping before next session; company moving toward **level 6**; ~3 weeks until table (as of this alignment). Site “landed well” — Town extends the product, not a random bolt-on.
+
+### Product rule
+
+| | Town (shops) | Deep Memory |
+|--|--------------|-------------|
+| **Job** | Living place to **play between sessions** | Keep what the table **lived** |
+| **Feel** | Map + **active doors** (same family as chamber portals) | Chamber doors into archive |
+| **Home** | Under **active Campaign Home** (`forge-of-fury/`) | Site hub + campaign **chambers** |
+| **Not** | A Deep Memory chamber or dossier substitute | A shopping catalog |
+
+**Format alignment (intentional):**  
+Town uses the **same door language** as Deep Memory (map / image portal / enter a room), so the site teaches one gesture: *see a door, go through it.* Town doors open **shops**; chamber doors open **memory**.
+
+### Planned shape (implementation when ready)
+
+```text
+forge-of-fury/
+  town/                    (or shops/ — name at build time)
+    index.html             ← town map; hotspots / links only for shops the party knows
+    <shop>.html            ← one page per familiar shop
+```
+
+- **Load the town map** on the town hub.  
+- **Active door/link** only to shops Tempest is **already familiar with** (no full fantasy-city phone book on day one).  
+- Shop pages: stock / prices / flavor as DM sets; incomplete OK; FG remains gold truth if needed.  
+- Campaign Home gains a clear **Town** entry (with Last session · CCS · Deep Memory).  
+- Optional later: chamber notes on *what they bought* or shopkeeps who matter — **after** play, under Deep Memory, not as the shop UI.
+
+### Out of scope for v1 (unless asked)
+
+- Full economy sim / every PHB item  
+- Auto-updating gold on CCS  
+- Shops the party has never seen  
+- Putting the town map on the Deep Memory hub
+
+---
+
+## 13. Open items (implementation / later decisions)
 
 | Item | Status |
 |------|--------|
@@ -235,6 +281,7 @@ Site Home  →  mostly active players
 | **Keep Witness hub block** (do not fold into campaign door row) | **Implemented** (local) |
 | **Avernus chamber** to Forge layout language | **Implemented** (`descent-into-avernus/deep-memory.html` + spice-boys-banner) |
 | **Rename public “wing” → chamber / chamber door / portal** | Direction **locked**; sweep copy when implementing hub |
+| **Town hub + map doors + familiar shops** | **Direction locked** (§12); build when map + shop list ready |
 | **Sidebar template field list** | Open |
 | **Tempest Company URL / redirect** | Open (think through; no third hall if Home → Campaign Home → chamber works) |
 | **Future active campaign sheet brand name(s)** | Open |
@@ -244,10 +291,13 @@ Site Home  →  mostly active players
 ## Closing
 
 CCS for the **company at the table**.  
+**Town** for **between sessions** — map and shop doors the party already knows.  
 Deep Memory **hub** for orientation, the **Witness**, and **campaign chamber doors**.  
 Deep Memory **chambers** for each campaign’s **dossiers and the stone**.  
 Companions as **NPCs** who may wear an FG sheet without becoming PCs.  
 Only **Tempest** wears the name **Company Character Sheet** until a new active company earns its own.
+
+Same door craft, two jobs: **Town = play the street · Deep Memory = keep the stone.**
 
 When in doubt about the **site**, return here.  
 When in doubt about **discovery**, return to `atlas-salvation/`.

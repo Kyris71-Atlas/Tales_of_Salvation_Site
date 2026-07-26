@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The First Cast — Tales of Salvation</title>
+<style>
+/* Standalone easter egg — not in main site nav */
+:root{
+  --water-deep:#0a1628;
+  --water-mid:#0f2138;
+  --silver:#c8d4e0;
+  --silver-bright:#e8f0f8;
+  --silver-dim:rgba(200,212,224,.55);
+}
+*{box-sizing:border-box}
+html,body{
+  margin:0;
+  min-height:100%;
+  background:linear-gradient(180deg,var(--water-mid) 0%,var(--water-deep) 45%,#050c14 100%);
+  color:var(--silver);
+  font-family:Georgia,"Times New Roman",serif;
+}
+.cast-page{
+  max-width:920px;
+  margin:0 auto;
+  padding:2rem 1.25rem 3rem;
+}
+.cast-title{
+  margin:0 0 1.75rem;
+  font-size:1.15rem;
+  font-weight:normal;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--silver-dim);
+  text-align:center;
+}
+.cast-banner{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:4px;
+  box-shadow:0 12px 40px rgba(0,0,0,.45);
+}
+.cast-banner-wrap{
+  line-height:0;
+  overflow:hidden;
+  border-radius:4px;
+}
+/*
+  Line-up nudge (fishing line above ↔ below):
+  .cast-banner-above → shift image LEFT  (negative translateX)
+  .cast-banner-below → shift image RIGHT (positive translateX)
+  Edit the % until the line almost meets through the bridge.
+*/
+.cast-banner-above{
+  transform:translateX(-14%);
+  width:112%;
+  max-width:none;
+}
+.cast-banner-below{
+  transform:translateX(14%);
+  width:112%;
+  max-width:none;
+}
+
+/*
+  Bridge lines between above / below:
+  .cast-line-deep  = top line, pans L→R, fade
+  .cast-line-wrong = bottom line, brighter, pans L→R after
+  Full cycle ~36s — uncomfortably long on purpose.
+*/
+.cast-bridge{
+  position:relative;
+  min-height:6.5rem;
+  margin:0;
+  padding:1.75rem 0 2rem;
+  overflow:hidden;
+}
+.cast-line{
+  position:absolute;
+  left:0;
+  right:0;
+  margin:0;
+  padding:0 1rem;
+  font-style:italic;
+  font-size:1.15rem;
+  letter-spacing:.04em;
+  white-space:nowrap;
+  text-align:center;
+  opacity:0;
+  pointer-events:none;
+  will-change:transform,opacity;
+}
+/*
+  Word nudges (match banner line-up):
+  .cast-line-deep  (top / above words)  → bias LEFT
+  .cast-line-wrong (bottom / below words) → bias RIGHT
+  Edit the translateX % in the keyframes to fine-tune.
+*/
+.cast-line-deep{
+  top:0.85rem;
+  color:var(--silver-dim);
+  animation:castPanDeep 36s ease-in-out infinite;
+}
+.cast-line-wrong{
+  top:3.1rem;
+  color:var(--silver-bright);
+  font-size:1.2rem;
+  animation:castPanWrong 36s ease-in-out infinite;
+}
+/* Top line: left-biased pan L→R */
+@keyframes castPanDeep{
+  0%,4%{opacity:0;transform:translateX(-32%)}
+  10%{opacity:.75;transform:translateX(-22%)}
+  22%{opacity:.7;transform:translateX(-8%)}
+  28%{opacity:0;transform:translateX(4%)}
+  100%{opacity:0;transform:translateX(4%)}
+}
+/* Bottom line: right-biased pan L→R */
+@keyframes castPanWrong{
+  0%,32%{opacity:0;transform:translateX(-4%)}
+  38%{opacity:.95;transform:translateX(6%)}
+  50%{opacity:.9;transform:translateX(18%)}
+  56%{opacity:0;transform:translateX(32%)}
+  100%{opacity:0;transform:translateX(32%)}
+}
+
+.cast-body{
+  margin:2.25rem auto 0;
+  max-width:34rem;
+  text-align:center;
+}
+.cast-body p{
+  margin:0 0 1.1rem;
+  line-height:1.65;
+  font-size:1.05rem;
+  color:var(--silver);
+}
+.cast-body p.cast-lead{
+  font-size:1.1rem;
+  color:var(--silver-bright);
+}
+.cast-body p.cast-answer{
+  font-style:italic;
+  color:var(--silver-bright);
+  font-size:1.15rem;
+}
+.cast-questions{
+  list-style:none;
+  margin:1.75rem 0 0;
+  padding:0;
+}
+.cast-questions li{
+  margin:0 0 1rem;
+  font-style:italic;
+  font-size:1rem;
+  color:var(--silver-dim);
+  line-height:1.5;
+}
+.cast-close{
+  margin:2.5rem 0 0;
+  font-size:1.1rem;
+  letter-spacing:.06em;
+  color:var(--silver-bright);
+}
+.cast-return{
+  margin:2.75rem 0 0;
+  text-align:center;
+}
+.cast-return a{
+  color:var(--silver-dim);
+  font-size:.9rem;
+  letter-spacing:.06em;
+  text-decoration:none;
+  border-bottom:1px solid transparent;
+  transition:color .2s ease,border-color .2s ease;
+}
+.cast-return a:hover,
+.cast-return a:focus-visible{
+  color:var(--silver-bright);
+  border-bottom-color:var(--silver-dim);
+  outline:none;
+}
+
+@media (max-width:640px){
+  .cast-line{font-size:1rem;white-space:normal}
+  .cast-bridge{min-height:7rem}
+  .cast-line-wrong{top:3.4rem;font-size:1.05rem}
+}
+@media (prefers-reduced-motion:reduce){
+  .cast-line-deep,
+  .cast-line-wrong{
+    animation:none;
+    opacity:.85;
+    position:relative;
+    top:auto;
+    transform:none;
+    white-space:normal;
+    display:block;
+    margin:0.6rem 0;
+  }
+  .cast-bridge{min-height:0;padding:1.25rem 0}
+}
+</style>
+</head>
+<body>
+<main class="cast-page">
+  <h1 class="cast-title">The First Cast</h1>
+
+  <div class="cast-banner-wrap">
+    <img
+      class="cast-banner cast-banner-above"
+      src="Fishing/above.png"
+      alt="A figure fishing by the river near a small shrine in Blasingdell"
+      width="920"
+      height="400"
+    >
+  </div>
+
+  <div class="cast-bridge" aria-hidden="true">
+    <!--
+      Bridge FX (36s loop — deliberately long):
+      .cast-line-deep  = “His line was deep in the water.”  (top, dimmer silver, pans L→R first)
+      .cast-line-wrong = “Something felt wrong.”           (lower, brighter silver, pans L→R after)
+    -->
+    <p class="cast-line cast-line-deep">His line was deep in the water.</p>
+    <p class="cast-line cast-line-wrong">Something felt wrong.</p>
+  </div>
+
+  <div class="cast-banner-wrap">
+    <img
+      class="cast-banner cast-banner-below"
+      src="Fishing/below.png"
+      alt="Beneath the surface: a fishing hook and disturbed water"
+      width="920"
+      height="400"
+    >
+  </div>
+
+  <div class="cast-body">
+    <p class="cast-lead">What were you doing in Blasingdell before the Company met?</p>
+    <p class="cast-answer">Mantis was fishing.</p>
+    <ul class="cast-questions">
+      <li>What makes a passing choice worth remembering?</li>
+      <li>When does a character begin shaping the world around them?</li>
+      <li>How much can grow from one answer given before anyone knows it matters?</li>
+      <li>What did Mantis feel beneath the water?</li>
+      <li>Was anything there yet?</li>
+    </ul>
+    <p class="cast-close"><strong>Mantis chose the water first.</strong></p>
+  </div>
+
+  <p class="cast-return">
+    <a href="index.html">Return to Blasingdell</a>
+  </p>
+</main>
+</body>
+</html>
