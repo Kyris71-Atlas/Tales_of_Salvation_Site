@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Pick &amp; Lantern — Blasingdell</title>
+<link rel="stylesheet" href="../../assets/css/style.css">
+<style>
+.pick-page{max-width:1050px;margin:auto}
+.pick-banner{position:relative;border:2px solid #6e4a18;border-radius:12px;overflow:hidden;background:#120d09;box-shadow:0 14px 38px rgba(0,0,0,.42);line-height:0}
+.pick-banner img{display:block;width:100%;height:auto}
+.npc-hotspot{--x:50%;--y:50%;position:absolute;left:var(--x);top:var(--y);width:1.3rem;height:1.3rem;transform:translate(-50%,-50%);border:1px solid #ffe092;border-radius:50%;background:rgba(48,28,12,.72);box-shadow:0 0 0 3px rgba(0,0,0,.28),0 0 12px rgba(255,180,62,.5);z-index:3}
+.npc-hotspot:before{content:"";position:absolute;inset:.3rem;border-radius:50%;background:#efc36c}
+.npc-hotspot span{position:absolute;left:50%;bottom:calc(100% + 8px);transform:translateX(-50%);white-space:nowrap;padding:4px 8px;border-radius:6px;border:1px solid #8c6428;background:rgba(20,12,7,.95);color:#f2d99c;font-size:.7rem;line-height:1.2;opacity:0;pointer-events:none}
+.npc-hotspot:hover span,.npc-hotspot:focus-visible span{opacity:1}
+.npc-hotspot:hover,.npc-hotspot:focus-visible{transform:translate(-50%,-50%) scale(1.2);outline:none}
+.arrival-copy{max-width:68ch;margin:1.2rem auto 1.6rem;text-align:center}
+.tavern-line{font-size:1.08rem;font-style:italic;color:#4b3212}
+.rumor-intro{margin:1.5rem 0;padding:1rem 1.15rem;border-left:4px solid #b78635;background:rgba(183,134,53,.09)}
+.rumor-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.rumor-card{scroll-margin-top:1rem;border:1px solid rgba(119,82,30,.38);border-radius:10px;padding:1rem 1.05rem;background:rgba(255,248,220,.055)}
+.rumor-card:target{border-color:#9b6c20;background:rgba(222,177,80,.16);box-shadow:0 0 0 3px rgba(183,134,53,.18)}
+.rumor-card h3{margin:0 0 .55rem;color:#4b3212;font-size:1.02rem}
+.role{display:block;margin-top:.12rem;color:#685336;font-size:.76rem;font-weight:normal}
+.rumor-card blockquote{margin:.45rem 0 0;padding:0;border:none;color:#33271d}
+.rumor-card blockquote p{margin:.48rem 0}
+.rumor-tag{display:inline-block;margin-top:.55rem;padding:.16rem .48rem;border:1px solid rgba(118,79,25,.3);border-radius:999px;color:#62451a;font-size:.7rem;text-transform:uppercase}
+.page-note{margin-top:1rem;font-size:.88rem;color:#55452f}
+.return-row{margin-top:1.4rem;text-align:center}
+@media(max-width:760px){.rumor-grid{grid-template-columns:1fr}.npc-hotspot{width:1.05rem;height:1.05rem}.npc-hotspot:before{inset:.24rem}}
+</style>
+</head>
+<body>
+<header class="site-header">
+<h1 class="site-title">Tales of Salvation</h1>
+<p class="site-subtitle">Blasingdell · The Pick &amp; Lantern · What the town remembers</p>
+</header>
+
+<div class="layout">
+<nav>
+<div class="nav-section">Forge of Fury</div>
+<a href="../../index.html">Home</a>
+<a href="../index.html">Campaign Home</a>
+<a href="index.html">Town · Blasingdell</a>
+<div class="nav-section">Open doors</div>
+<a href="shattered-rune.html">The Shattered Rune</a>
+<a href="ironvein-smithy.html">Ironvein Smithy</a>
+<a href="the-shrine.html">The Shrine</a>
+<a href="pick-and-lantern.html" aria-current="page">The Pick &amp; Lantern</a>
+<a href="vellbrandt-manor.html">Vellbrandt Manor</a>
+<a href="stone-hall.html">Stone Hall</a>
+</nav>
+
+<main>
+<div class="breadcrumbs"><a href="../../index.html">Home</a> &gt; <a href="../index.html">Forge of Fury</a> &gt; <a href="index.html">Blasingdell</a> &gt; The Pick &amp; Lantern</div>
+
+<div class="book-panel pick-page">
+<h2>The Pick &amp; Lantern</h2>
+
+<div class="pick-banner" aria-label="A crowded evening inside The Pick and Lantern">
+<img src="pick-and-lantern-banner.png" alt="A crowded tavern filled with miners, townsfolk, Tempest Company, Marta behind the bar, and quiet conversations in the corners." width="1916" height="821">
+
+<!-- Placeholder hotspot positions: adjust --x and --y after assigning final NPC art. -->
+<a class="npc-hotspot" href="#rufflin-coalhand" style="--x:23%;--y:42%"><span>Rufflin Coalhand</span></a>
+<a class="npc-hotspot" href="#marta-brindle" style="--x:65%;--y:13%"><span>Marta Brindle</span></a>
+<a class="npc-hotspot" href="#brennar-tallwick" style="--x:51%;--y:54%"><span>Brennar Tallwick</span></a>
+<a class="npc-hotspot" href="#bilt-flintcap" style="--x:31%;--y:69%"><span>Bilt Flintcap</span></a>
+<a class="npc-hotspot" href="#orrin-barleycross" style="--x:73%;--y:62%"><span>Orrin Barleycross</span></a>
+<a class="npc-hotspot" href="#edda-bellweather" style="--x:15%;--y:71%"><span>Edda Bellweather</span></a>
+<a class="npc-hotspot" href="#toman-vell" style="--x:76%;--y:27%"><span>Toman Vell</span></a>
+<a class="npc-hotspot" href="#pella-nack" style="--x:10%;--y:33%"><span>Pella Nack</span></a>
+<a class="npc-hotspot" href="#hark-durn" style="--x:81%;--y:49%"><span>Hark Durn</span></a>
+<a class="npc-hotspot" href="#sella-marr" style="--x:89%;--y:36%"><span>Sella Marr</span></a>
+</div>
+
+<div class="arrival-copy">
+<p class="tavern-line">Warm lantern light spills across the common room as mugs strike tables and a dwarven chorus misses the same note together.</p>
+<p>Tempest Company has heard these stories before. That does not mean the town has heard them correctly.</p>
+</div>
+
+<div class="rumor-intro"><strong>How stories travel in Blasingdell:</strong> Mapfoot tells what he saw. Lady Vellbrandt places useful truths and careful half-truths with the right people. Tempest Company returns through the portal carrying scars, strange loot, and incomplete explanations. By morning, the Pick &amp; Lantern has done the rest.</div>
+
+<h3 class="section-label">What Blasingdell Says</h3>
+<div class="rumor-grid">
+
+<section class="rumor-card" id="rufflin-coalhand">
+<h3>Rufflin Coalhand says:<span class="role">Retired shift boss · Northwest wall</span></h3>
+<blockquote>
+<p>“Mantis does the talking, sure. He’s the Voice of Tempest Company.”</p>
+<p>“But watch Bearblood before the little storm-mage answers. Thrain’s already checked the doors, counted the trouble, and decided which road gets everyone home.”</p>
+<p>“He leads from the rear. Smart place to stand when everyone in front keeps finding monsters.”</p>
+</blockquote><span class="rumor-tag">Thrain · Mostly true</span>
+</section>
+
+<section class="rumor-card" id="marta-brindle">
+<h3>Marta “Two-Tankard” Brindle says:<span class="role">Proprietor · Knows which version started where</span></h3>
+<blockquote>
+<p>“Tempest Company comes through that door carrying less food, more scars, and something nobody in town has seen before.”</p>
+<p>“They eat, they drink, they answer three questions out of twenty, and by sunrise everyone in Blasingdell knows seven different versions of what happened.”</p>
+<p>“Mine’s usually the closest.”</p>
+</blockquote><span class="rumor-tag">The Company · Reliable source</span>
+</section>
+
+<section class="rumor-card" id="brennar-tallwick">
+<h3>Brennar “Mapfoot” Tallwick says:<span class="role">Cartographer · Eyewitness · Crossbow enthusiast</span></h3>
+<blockquote>
+<p>“Qiran and Thrain listened when I described what I saw. Properly listened. You remember that when you are underground and everyone else is deciding whether the cartographer counts as an adventurer.”</p>
+<p>“And the crossbow? Well, yes. I have finished off a few creatures.”</p>
+<p>“It happens all the time.”</p>
+</blockquote><span class="rumor-tag">Mapfoot · Eyewitness</span>
+</section>
+
+<section class="rumor-card" id="bilt-flintcap">
+<h3>Bilt Flintcap says:<span class="role">Greytooth miner · Survived the Cracked Vein</span></h3>
+<blockquote>
+<p>“Twenty-six of us went down at once. Not staggered. Not one after another. One breath we were working, and the next—nothing.”</p>
+<p>“Some woke where they fell. Some dreamed. Some still disagree about what they remember.”</p>
+<p>“Tempest Company went below while everyone else was deciding how far away to stand.”</p>
+</blockquote><span class="rumor-tag">The Cracked Vein · Firsthand</span>
+</section>
+
+<section class="rumor-card" id="orrin-barleycross">
+<h3>Orrin Barleycross says:<span class="role">Produce hauler · Farmer Benn enthusiast</span></h3>
+<blockquote>
+<p>“Farmer Benn looks harmless until somebody needs help.”</p>
+<p>“Then he walks toward the thing everyone else is backing away from.”</p>
+<p>“Five adventurers keep entering that mountain, and five keep coming back. That little farmer must be the finest healer north of the river.”</p>
+</blockquote><span class="rumor-tag">Benn · Brave truth, faulty arithmetic</span>
+</section>
+
+<section class="rumor-card" id="edda-bellweather">
+<h3>Edda Bellweather says:<span class="role">Shrine regular · Evening bell volunteer</span></h3>
+<blockquote>
+<p>“Sister Maerith includes Tempest Company in her daily blessings.”</p>
+<p>“Every morning.”</p>
+<p>“Health for the wounded. Courage for those below. Wisdom enough to know when to return.”</p>
+<p>“She says the last part a little louder.”</p>
+</blockquote><span class="rumor-tag">The Shrine · Well known</span>
+</section>
+
+<section class="rumor-card" id="toman-vell">
+<h3>Toman Vell says:<span class="role">Caravan hand · Has heard Gimble tell this many times</span></h3>
+<blockquote>
+<p>“Gimble Wandsplice had a shipment disappear on the road—rare chalks, strange inks, gemstones ground down for some magical business.”</p>
+<p>“Tempest Company brought it back.”</p>
+<p>“The gnome has been grateful ever since. Loudly grateful. Frequently grateful. Usually while trying to sell them something.”</p>
+</blockquote><span class="rumor-tag">The Shattered Rune · Confirmed</span>
+</section>
+
+<section class="rumor-card" id="pella-nack">
+<h3>Pella Nack says:<span class="role">Alehouse bookkeeper · Notices who checks their pockets</span></h3>
+<blockquote>
+<p>“Mantis put Rilkin Shadecloak to sleep. Just dropped him.”</p>
+<p>“When Rilkin woke, he checked every pocket, started making a scene, then looked around and decided perhaps he had misplaced nothing after all.”</p>
+<p>“Nobody knows what went missing.”</p>
+<p>“That has not stopped anyone from naming it.”</p>
+</blockquote><span class="rumor-tag">Mantis &amp; Rilkin · Uncertain ending</span>
+</section>
+
+<section class="rumor-card" id="hark-durn">
+<h3>Hark Durn says:<span class="role">Tunnel-brace carpenter · Lard scholar</span></h3>
+<blockquote>
+<p>“Lard once held up a collapsing tunnel while six miners escaped.”</p>
+<p>“Someone says it was twelve.”</p>
+<p>“Someone else says the tunnel apologized.”</p>
+<p>“I believe the last one.”</p>
+</blockquote><span class="rumor-tag">Lard · Increasingly impossible</span>
+</section>
+
+<section class="rumor-card" id="sella-marr">
+<h3>Sella Marr says:<span class="role">Traveling cloth merchant · Collects stories with her orders</span></h3>
+<blockquote>
+<p>“Qiran came back carrying a blade that belonged to a dead knight.”</p>
+<p>“Or the knight came back carrying Qiran. Depends who tells it.”</p>
+<p>“Either way, there are moments when he looks toward empty space like someone has just offered him advice.”</p>
+</blockquote><span class="rumor-tag">Qiran · Nobody agrees</span>
+</section>
+
+</div>
+
+<p class="page-note">These are player-facing recaps, tavern stories, and public reputations—not a complete or authoritative account of what happened beneath Stone Tooth.</p>
+<div class="return-row"><a href="index.html">← Return to the Blasingdell Town Hub</a></div>
+</div>
+</main>
+</div>
+</body>
+</html>

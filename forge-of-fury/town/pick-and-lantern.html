@@ -6,12 +6,234 @@
 <title>The Pick &amp; Lantern · Blasingdell — Tales of Salvation</title>
 <link rel="stylesheet" href="../../assets/css/style.css">
 <style>
-.town-banner{margin:0 0 14px;padding:10px 14px;border:1px solid #6e5930;border-radius:10px;background:rgba(216,179,95,.08);font-size:.95rem}
-.loc-art-placeholder{margin:0 0 16px;padding:28px 16px;min-height:140px;border:1px dashed rgba(180,150,90,.55);border-radius:12px;background:rgba(255,248,220,.04);text-align:center;color:rgba(232,213,160,.75);font-size:.9rem;letter-spacing:.04em;text-transform:uppercase}
-.loc-section{margin:18px 0 0;padding:14px 16px;border:1px solid rgba(180,150,90,.35);border-radius:12px;background:rgba(255,248,220,.03)}
-.loc-section h3{margin:0 0 8px;font-size:1.05rem;color:var(--gold,#d8b35f)}
-.loc-section .placeholder{margin:0;font-style:italic;opacity:.85}
-.loc-section ul{margin:8px 0 0;padding-left:1.2rem}
+.town-banner{
+  margin:0 0 14px;
+  padding:10px 14px;
+  border:1px solid #6e5930;
+  border-radius:10px;
+  background:rgba(216,179,95,.08);
+  font-size:.95rem;
+  color:#3a3020;
+}
+.book-panel h2{color:#2a2218;margin-bottom:10px}
+.book-panel .section-label{
+  color:#5a3d0c;
+  text-shadow:0 1px 0 rgba(255,252,240,.4);
+}
+
+.pick-banner{
+  position:relative;
+  max-width:1000px;
+  margin:0 auto;
+  border:2px solid #6e4a18;
+  border-radius:12px;
+  overflow:hidden;
+  background:#120d09;
+  box-shadow:0 14px 38px rgba(0,0,0,.42);
+  line-height:0;
+}
+.pick-banner img{
+  display:block;
+  width:100%;
+  height:auto;
+}
+/*
+  NPC hit boxes — invisible until hover/focus (option C).
+  Nudge with --x / --y / --w / --h (percent of banner).
+  Click fills the story stage. Door clears to default welcome.
+*/
+.npc-hotspot{
+  --x:50%;
+  --y:50%;
+  --w:4.5%;
+  --h:8%;
+  position:absolute;
+  left:var(--x);
+  top:var(--y);
+  width:var(--w);
+  height:var(--h);
+  min-width:1.6rem;
+  min-height:1.6rem;
+  transform:translate(-50%,-50%);
+  margin:0;
+  padding:0;
+  border:1px solid transparent;
+  border-radius:8px;
+  background:transparent;
+  box-shadow:none;
+  z-index:3;
+  cursor:pointer;
+  appearance:none;
+  -webkit-appearance:none;
+}
+.npc-hotspot span{
+  position:absolute;
+  left:50%;
+  bottom:calc(100% + 6px);
+  transform:translateX(-50%);
+  white-space:nowrap;
+  padding:4px 8px;
+  border-radius:6px;
+  border:1px solid #8c6428;
+  background:rgba(20,12,7,.95);
+  color:#f2d99c;
+  font-size:.7rem;
+  line-height:1.2;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .15s ease;
+}
+/* Soft reveal only on hover / keyboard / active speaker */
+.npc-hotspot:hover,
+.npc-hotspot:focus-visible{
+  border-color:rgba(255,220,140,.55);
+  background:rgba(255,200,100,.1);
+  box-shadow:0 0 0 1px rgba(0,0,0,.2);
+  outline:none;
+}
+.npc-hotspot:hover span,
+.npc-hotspot:focus-visible span{
+  opacity:1;
+}
+/* Active speaker only — never paint the door as a permanent marker */
+.npc-hotspot.is-active:not(.npc-hotspot-door){
+  border-color:rgba(255,220,140,.4);
+  background:rgba(255,200,100,.08);
+}
+.npc-hotspot.is-active:not(.npc-hotspot-door) span{
+  opacity:1;
+}
+/* Door: same soft-hover as people (invisible until hover/focus) */
+.npc-hotspot.npc-hotspot-door{
+  --w:10%;
+  --h:5%;
+  border-radius:6px;
+  border-color:transparent;
+  background:transparent;
+  box-shadow:none;
+}
+.npc-hotspot.npc-hotspot-door:hover,
+.npc-hotspot.npc-hotspot-door:focus-visible{
+  border-color:rgba(255,220,140,.55);
+  background:rgba(255,200,100,.1);
+  box-shadow:0 0 0 1px rgba(0,0,0,.2);
+}
+/* Landscape label — one horizontal line, not stacked portrait */
+.npc-hotspot.npc-hotspot-door span{
+  white-space:nowrap;
+  max-width:none;
+  text-align:center;
+  padding:5px 12px;
+}
+
+.arrival-copy{
+  max-width:68ch;
+  margin:1.2rem auto 1.6rem;
+  text-align:center;
+  color:#3a3020;
+}
+.tavern-line{
+  font-size:1.08rem;
+  font-style:italic;
+  color:#4b3212;
+  margin:0 0 .75rem;
+}
+.arrival-copy p{margin:0 0 .65rem;line-height:1.5}
+.arrival-copy p:last-child{margin-bottom:0}
+
+.rumor-intro{
+  margin:1.5rem 0 1rem;
+  padding:1rem 1.15rem;
+  border-left:4px solid #b78635;
+  background:rgba(183,134,53,.09);
+  color:#3a3020;
+  line-height:1.5;
+}
+
+/* Story stage — one tale at a time */
+.story-stage{
+  margin:0 0 1.5rem;
+  min-height:11rem;
+  padding:1.15rem 1.25rem 1.25rem;
+  border:1px solid rgba(119,82,30,.45);
+  border-radius:12px;
+  background:
+    linear-gradient(180deg,rgba(40,28,14,.06),rgba(255,248,220,.08));
+  box-shadow:inset 0 0 0 1px rgba(255,248,220,.12);
+}
+.story-stage-prompt{
+  margin:0;
+  padding:1.5rem 0.5rem;
+  text-align:center;
+  font-style:italic;
+  color:#5a4a32;
+  line-height:1.55;
+  font-size:1.05rem;
+}
+.story-stage-prompt[hidden],
+.story-panel[hidden]{display:none !important}
+.story-panel h3{
+  margin:0 0 .55rem;
+  color:#4b3212;
+  font-size:1.08rem;
+}
+.role{
+  display:block;
+  margin-top:.12rem;
+  color:#685336;
+  font-size:.76rem;
+  font-weight:normal;
+}
+.story-panel blockquote{
+  margin:.45rem 0 0;
+  padding:0;
+  border:none;
+  color:#33271d;
+}
+.story-panel blockquote p{margin:.48rem 0}
+.rumor-tag{
+  display:inline-block;
+  margin-top:.65rem;
+  padding:.16rem .48rem;
+  border:1px solid rgba(118,79,25,.3);
+  border-radius:999px;
+  color:#62451a;
+  font-size:.7rem;
+  text-transform:uppercase;
+}
+.story-stage-hint{
+  margin:.75rem 0 0;
+  font-size:.82rem;
+  color:#685336;
+  text-align:center;
+}
+.page-note{
+  margin-top:1rem;
+  font-size:.88rem;
+  color:#55452f;
+  line-height:1.45;
+}
+.nav-closed{
+  display:block;
+  padding:0.15rem 0;
+  color:rgba(120,120,120,.85);
+  font-style:italic;
+  cursor:default;
+  pointer-events:none;
+  opacity:.75;
+}
+@media(max-width:760px){
+  .npc-hotspot{
+    --w:7%;
+    --h:11%;
+    min-width:2rem;
+    min-height:2rem;
+  }
+  /* Touch: brief hint of hit area so phones can still discover seats */
+  .npc-hotspot{
+    background:rgba(255,200,100,.04);
+  }
+}
 </style>
 </head>
 <body>
@@ -33,9 +255,9 @@
   <a href="shattered-rune.html">The Shattered Rune</a>
   <a href="ironvein-smithy.html">Ironvein Smithy</a>
   <a href="the-shrine.html">The Shrine</a>
-  <a href="pick-and-lantern.html">The Pick &amp; Lantern</a>
-  <a href="vellbrandt-manor.html">Vellbrandt Manor</a>
-  <a href="stone-hall.html">Stone Hall</a>
+  <a href="pick-and-lantern.html" aria-current="page">The Pick &amp; Lantern</a>
+  <span class="nav-closed">Vellbrandt Manor</span>
+  <span class="nav-closed">Stone Hall</span>
 </nav>
 
 <main>
@@ -48,58 +270,279 @@
 
 <div class="book-panel">
   <p class="town-banner">
-    <strong>Location · Between sessions</strong> — downtime business in Blasingdell.
-    Stock and prices appear when the DM posts them. Not Deep Memory.
+    <strong>The Pick &amp; Lantern</strong> · Rooms, meals, strong drink, and stronger stories.
   </p>
 
   <h2>The Pick &amp; Lantern</h2>
-  <p>Primary lodging, food, rumor, and common-room destination.</p>
 
-  <div class="loc-art-placeholder" role="img" aria-label="Art forthcoming for The Pick &amp; Lantern">
-    Art forthcoming · The Pick &amp; Lantern
+  <div class="pick-banner" aria-label="A crowded evening inside The Pick and Lantern">
+    <img
+      src="Pick_N_Lantern/PNL_Banner.png"
+      alt="A crowded tavern: miners and townsfolk at tables, Marta behind the bar, lantern light and firelight."
+      width="1916"
+      height="821"
+    >
+    <!-- Hotspots: one story per table (+ Marta, + lone bar stool). Nudge --x/--y as needed.
+         data-story matches a .story-panel. Door clears to default welcome.
+         Center company table is left alone (the heroes are eating). -->
+    <button type="button" class="npc-hotspot npc-hotspot-door" data-story="" style="--x:55%;--y:88%;--w:12%;--h:4.5%" aria-controls="story-stage" aria-label="Tavern door — default welcome">
+      <span>The door · pull up a chair</span>
+    </button>
+
+    <!-- Bar -->
+    <button type="button" class="npc-hotspot" data-story="marta-brindle" style="--x:65%;--y:13%" aria-controls="story-stage"><span>Marta Two-Tankard</span></button>
+    <button type="button" class="npc-hotspot" data-story="garrick-lowbar" style="--x:44%;--y:20%" aria-controls="story-stage"><span>Garrick Lowbar</span></button>
+
+    <!-- Left tables -->
+    <button type="button" class="npc-hotspot" data-story="pell-nack" style="--x:9%;--y:33%" aria-controls="story-stage"><span>Pell Nack</span></button>
+    <button type="button" class="npc-hotspot" data-story="rufflin-coalhand" style="--x:21%;--y:42%" aria-controls="story-stage"><span>Rufflin Coalhand</span></button>
+    <button type="button" class="npc-hotspot" data-story="brann-copperkettle" style="--x:36%;--y:22%" aria-controls="story-stage"><span>Brann Copperkettle</span></button>
+    <button type="button" class="npc-hotspot" data-story="hollis-chartwick" style="--x:31%;--y:56%" aria-controls="story-stage"><span>Hollis Chartwick</span></button>
+    <button type="button" class="npc-hotspot" data-story="edd-bellweather" style="--x:15%;--y:68%" aria-controls="story-stage"><span>Edd Bellweather</span></button>
+    <button type="button" class="npc-hotspot" data-story="bilt-flintcap" style="--x:83%;--y:34%" aria-controls="story-stage"><span>Bilt Flintcap</span></button>
+    <button type="button" class="npc-hotspot" data-story="cobber-flint" style="--x:37%;--y:34%" aria-controls="story-stage"><span>Cobber Flint</span></button>
+
+    <!-- Lower / mid tables (not the company) -->
+    <button type="button" class="npc-hotspot" data-story="torren-vask" style="--x:45%;--y:71%" aria-controls="story-stage"><span>Torren Vask</span></button>
+    <button type="button" class="npc-hotspot" data-story="noll-dowsing" style="--x:60%;--y:68%" aria-controls="story-stage"><span>Noll Dowsing</span></button>
+    <button type="button" class="npc-hotspot" data-story="jorren-pike" style="--x:65%;--y:45%" aria-controls="story-stage"><span>Jorren Pike</span></button>
+
+    <!-- Right tables -->
+    <button type="button" class="npc-hotspot" data-story="toman-vell" style="--x:55%;--y:18%" aria-controls="story-stage"><span>Toman Vell</span></button>
+    <button type="button" class="npc-hotspot" data-story="fenric-ash" style="--x:71%;--y:17%" aria-controls="story-stage"><span>Fenric Ash</span></button>
+    <button type="button" class="npc-hotspot" data-story="hark-durn" style="--x:26%;--y:31%" aria-controls="story-stage"><span>Hark Durn</span></button>
+    <button type="button" class="npc-hotspot" data-story="orrin-barleycross" style="--x:74%;--y:45%" aria-controls="story-stage"><span>Orrin Barleycross</span></button>
+    <button type="button" class="npc-hotspot" data-story="grus-thistlewick" style="--x:94%;--y:54%" aria-controls="story-stage"><span>Grus Thistlewick</span></button>
+    <button type="button" class="npc-hotspot" data-story="sellen-marr" style="--x:14%;--y:33%" aria-controls="story-stage"><span>Sellen Marr</span></button>
   </div>
 
-  <section class="loc-section" aria-labelledby="arrival-title">
-    <h3 id="arrival-title">Arrival</h3>
-    <p class="placeholder">Atmosphere forthcoming.</p>
+  <div class="arrival-copy">
+    <p class="tavern-line">
+      Warm lantern light spills across the common room as mugs strike tables
+      and a dwarven chorus misses the same note together.
+    </p>
+    <p>
+      Tempest Company has heard these stories before.
+      That does not mean the town has heard them correctly.
+    </p>
+  </div>
+
+  <div class="rumor-intro">
+    <strong>How stories travel in Blasingdell:</strong>
+    Mapfoot tells what he saw. Tempest Company returns through the portal carrying scars, strange loot, and incomplete explanations.
+    Someone hears part of it, someone improves it, and by morning the Pick &amp; Lantern has done the rest.
+  </div>
+
+  <h3 class="section-label">What Blasingdell Says</h3>
+
+  <!-- Stage: one story at a time -->
+  <section class="story-stage" id="story-stage" aria-live="polite" aria-atomic="true">
+    <p class="story-stage-prompt" data-stage-empty>
+      Pull up a chair.<br>
+      Hover a figure in the common room — click to hear who is talking.<br>
+      The door returns you here.
+    </p>
+
+    <article class="story-panel" id="panel-marta-brindle" data-story-panel="marta-brindle" hidden>
+      <h3>Marta “Two-Tankard” Brindle says:<span class="role">Proprietor · Knows which version started where</span></h3>
+      <blockquote>
+        <p>“Tempest Company comes through that door carrying less food, more scars, and something nobody in town has seen before.”</p>
+        <p>“They eat, they drink, they answer three questions out of twenty, and by sunrise everyone in Blasingdell knows seven different versions of what happened.”</p>
+        <p>“Mine’s usually the closest.”</p>
+      </blockquote>
+      <span class="rumor-tag">The Company · Reliable source</span>
+    </article>
+
+    <article class="story-panel" id="panel-garrick-lowbar" data-story-panel="garrick-lowbar" hidden>
+      <h3>Garrick Lowbar says:<span class="role">Bar fixture · Alone with his mug</span></h3>
+      <blockquote>
+        <p>“The elf has two voices.”</p>
+        <p>“One belongs to Qiran. The other belongs to that knight in his sword.”</p>
+        <p>“I have never heard the second one myself, but my cousin’s friend heard him say, ‘Stand firm.’”</p>
+        <p>“Might have been Qiran. Might have been Marta telling someone to stop leaning on a table.”</p>
+      </blockquote>
+      <span class="rumor-tag">Qiran · Thirdhand · Possibly furniture</span>
+    </article>
+
+    <article class="story-panel" id="panel-pell-nack" data-story-panel="pell-nack" hidden>
+      <h3>Pell Nack says:<span class="role">Alehouse bookkeeper · Notices who checks their pockets</span></h3>
+      <blockquote>
+        <p>“Mantis put Rilkin Shadecloak to sleep. Just dropped him.”</p>
+        <p>“When Rilkin woke, he checked every pocket, started making a scene, then looked around and decided perhaps he had misplaced nothing after all.”</p>
+        <p>“Nobody knows what went missing.”</p>
+        <p>“That has not stopped anyone from naming it.”</p>
+      </blockquote>
+      <span class="rumor-tag">Mantis &amp; Rilkin · Uncertain ending</span>
+    </article>
+
+    <article class="story-panel" id="panel-rufflin-coalhand" data-story-panel="rufflin-coalhand" hidden>
+      <h3>Rufflin Coalhand says:<span class="role">Retired shift boss · Northwest wall</span></h3>
+      <blockquote>
+        <p>“Mantis does the talking, sure. He’s the Voice of Tempest Company.”</p>
+        <p>“But watch Bearblood before the little storm-mage answers. Thrain’s already checked the doors, counted the trouble, and decided which road gets everyone home.”</p>
+        <p>“He leads from the rear. Smart place to stand when everyone in front keeps finding monsters.”</p>
+      </blockquote>
+      <span class="rumor-tag">Thrain · Mostly true</span>
+    </article>
+
+    <article class="story-panel" id="panel-brann-copperkettle" data-story-panel="brann-copperkettle" hidden>
+      <h3>Brann Copperkettle says:<span class="role">Market regular · Tracks Lady Vellbrandt’s tone</span></h3>
+      <blockquote>
+        <p>“Lady Vellbrandt never boasts about them. That’s how you know she’s impressed.”</p>
+        <p>“She just mentions, very casually, that Tempest Company recovered a shipment, cleared a road, rescued some miners, or survived something nobody else would enter.”</p>
+        <p>“Then she leaves before anyone can ask questions.”</p>
+        <p>“By supper, the story has doubled.”</p>
+      </blockquote>
+      <span class="rumor-tag">Lady Vellbrandt · Useful half-truths</span>
+    </article>
+
+    <article class="story-panel" id="panel-hollis-chartwick" data-story-panel="hollis-chartwick" hidden>
+      <h3>Hollis Chartwick says:<span class="role">Night clerk · Collects maps he will never walk</span></h3>
+      <blockquote>
+        <p>“Mapfoot was in last week—Brennar Tallowick, the little cartographer who runs with Tempest Company.”</p>
+        <p>“Said Qiran and Thrain actually listened when he described what he saw. Properly listened. He said you remember that when you are underground and everyone else is deciding whether the cartographer counts as an adventurer.”</p>
+        <p>“And the crossbow? Well, yes. He has finished off a few creatures. Happens all the time—so he claims.”</p>
+      </blockquote>
+      <span class="rumor-tag">Mapfoot · Eyewitness · Secondhand at the inn</span>
+    </article>
+
+    <article class="story-panel" id="panel-edd-bellweather" data-story-panel="edd-bellweather" hidden>
+      <h3>Edd Bellweather says:<span class="role">Shrine regular · Evening bell volunteer</span></h3>
+      <blockquote>
+        <p>“Sister Maerith includes Tempest Company in her daily blessings.”</p>
+        <p>“Every morning.”</p>
+        <p>“Health for the wounded. Courage for those below. Wisdom enough to know when to return.”</p>
+        <p>“She says the last part a little louder.”</p>
+      </blockquote>
+      <span class="rumor-tag">The Shrine · Well known</span>
+    </article>
+
+    <article class="story-panel" id="panel-bilt-flintcap" data-story-panel="bilt-flintcap" hidden>
+      <h3>Bilt Flintcap says:<span class="role">Greytooth miner · Survived the Cracked Vein</span></h3>
+      <blockquote>
+        <p>“Twenty-six of us went down at once. Not staggered. Not one after another. One breath we were working, and the next—nothing.”</p>
+        <p>“Some woke where they fell. Some dreamed. Some still disagree about what they remember.”</p>
+        <p>“Tempest Company went below while everyone else was deciding how far away to stand.”</p>
+      </blockquote>
+      <span class="rumor-tag">The Cracked Vein · Firsthand</span>
+    </article>
+
+    <article class="story-panel" id="panel-cobber-flint" data-story-panel="cobber-flint" hidden>
+      <h3>Cobber Flint says:<span class="role">Field hand · Farming experience school of theology</span></h3>
+      <blockquote>
+        <p>“Farmer Benn told a ghost to get on its knees.”</p>
+        <p>“And it did.”</p>
+        <p>“You can call that divine power if you like.”</p>
+        <p>“Where I come from, that is farming experience.”</p>
+      </blockquote>
+      <span class="rumor-tag">Benn · Possibly both</span>
+    </article>
+
+    <article class="story-panel" id="panel-torren-vask" data-story-panel="torren-vask" hidden>
+      <h3>Torren Vask says:<span class="role">Portal-watcher · Too close to the Rune too often</span></h3>
+      <blockquote>
+        <p>“I saw them come through the portal once. One moment the Rune was empty, next moment Tempest Company was standing there covered in soot, blood, and something that might have been mushroom.”</p>
+        <p>“Mantis looked around and said, ‘We’re fine.’”</p>
+        <p>“Nobody who says ‘we’re fine’ that quickly has ever been fine.”</p>
+      </blockquote>
+      <span class="rumor-tag">Portal arrival · Eyewitness</span>
+    </article>
+
+    <article class="story-panel" id="panel-noll-dowsing" data-story-panel="noll-dowsing" hidden>
+      <h3>Noll Dowsing says:<span class="role">Well-digger · Settles arguments by watching who nods</span></h3>
+      <blockquote>
+        <p>“Tempest Company never agrees on what happened.”</p>
+        <p>“Mantis tells the story. Benn corrects the dangerous parts. Qiran corrects the magical parts. Thrain adds one sentence that changes the whole account.”</p>
+        <p>“Lard nods.”</p>
+        <p>“Then everyone believes Lard’s version.”</p>
+      </blockquote>
+      <span class="rumor-tag">The Company · Truer than it sounds</span>
+    </article>
+
+    <article class="story-panel" id="panel-jorren-pike" data-story-panel="jorren-pike" hidden>
+      <h3>Jorren Pike says:<span class="role">Night watch · Does not like furniture that watches back</span></h3>
+      <blockquote>
+        <p>“Bearblood has a rug now.”</p>
+        <p>“Not owns a rug. Travels with one.”</p>
+        <p>“It sits on his shoulder, moves when nobody touches it, and watches people without having eyes.”</p>
+        <p>“Thrain seems comfortable with this. That concerns me more than the rug.”</p>
+      </blockquote>
+      <span class="rumor-tag">The Rug · Confirmed · Still wrong</span>
+    </article>
+
+    <article class="story-panel" id="panel-toman-vell" data-story-panel="toman-vell" hidden>
+      <h3>Toman Vell says:<span class="role">Caravan hand · Has heard Gimble tell this many times</span></h3>
+      <blockquote>
+        <p>“Gimble Wandsplice had a shipment disappear on the road—rare chalks, strange inks, gemstones ground down for some magical business.”</p>
+        <p>“Tempest Company brought it back.”</p>
+        <p>“The gnome has been grateful ever since. Loudly grateful. Frequently grateful. Usually while trying to sell them something.”</p>
+      </blockquote>
+      <span class="rumor-tag">The Shattered Rune · Confirmed</span>
+    </article>
+
+    <article class="story-panel" id="panel-fenric-ash" data-story-panel="fenric-ash" hidden>
+      <h3>Fenric Ash says:<span class="role">Smelter hand · Believes the lightning</span></h3>
+      <blockquote>
+        <p>“They say Mantis can call lightning underground.”</p>
+        <p>“They also say he once threw a healing potion directly into somebody’s mouth from across a room.”</p>
+        <p>“I believe the lightning.”</p>
+        <p>“The potion story sounds exaggerated.”</p>
+      </blockquote>
+      <span class="rumor-tag">Mantis · Half right, half funnier</span>
+    </article>
+
+    <article class="story-panel" id="panel-hark-durn" data-story-panel="hark-durn" hidden>
+      <h3>Hark Durn says:<span class="role">Tunnel-brace carpenter · Lard scholar</span></h3>
+      <blockquote>
+        <p>“Lard once held up a collapsing tunnel while six miners escaped.”</p>
+        <p>“Someone says it was twelve.”</p>
+        <p>“Someone else says the tunnel apologized.”</p>
+        <p>“I believe the last one.”</p>
+      </blockquote>
+      <span class="rumor-tag">Lard · Increasingly impossible</span>
+    </article>
+
+    <article class="story-panel" id="panel-orrin-barleycross" data-story-panel="orrin-barleycross" hidden>
+      <h3>Orrin Barleycross says:<span class="role">Produce hauler · Farmer Benn enthusiast</span></h3>
+      <blockquote>
+        <p>“Farmer Benn looks harmless until somebody needs help.”</p>
+        <p>“Then he walks toward the thing everyone else is backing away from.”</p>
+        <p>“Five adventurers keep entering that mountain, and five keep coming back. That little farmer must be the finest healer north of the river.”</p>
+      </blockquote>
+      <span class="rumor-tag">Benn · Brave truth, faulty arithmetic</span>
+    </article>
+
+    <article class="story-panel" id="panel-grus-thistlewick" data-story-panel="grus-thistlewick" hidden>
+      <h3>Grus Thistlewick says:<span class="role">Fence-adjacent · Knows what sells by morning</span></h3>
+      <blockquote>
+        <p>“They sell the strangest things.”</p>
+        <p>“Orc armor. Old blades. Black stone. Jewelry nobody wants to touch until someone else has touched it first.”</p>
+        <p>“You can learn a great deal about an adventure by what the heroes bring home.”</p>
+        <p>“You can learn even more by what they refuse to sell.”</p>
+      </blockquote>
+      <span class="rumor-tag">Spoils · Market wisdom</span>
+    </article>
+
+    <article class="story-panel" id="panel-sellen-marr" data-story-panel="sellen-marr" hidden>
+      <h3>Sellen Marr says:<span class="role">Traveling cloth merchant · Collects stories with his orders</span></h3>
+      <blockquote>
+        <p>“Qiran came back carrying a blade that belonged to a dead knight.”</p>
+        <p>“Or the knight came back carrying Qiran. Depends who tells it.”</p>
+        <p>“Either way, there are moments when he looks toward empty space like someone has just offered him advice.”</p>
+      </blockquote>
+      <span class="rumor-tag">Qiran · Nobody agrees</span>
+    </article>
   </section>
 
-  <section class="loc-section" aria-labelledby="host-title">
-    <h3 id="host-title">Host</h3>
-    <p><strong>Marta Two-Tankard</strong></p>
-    <p class="placeholder">Voice and detail forthcoming — no invented dialogue.</p>
-  </section>
+  <p class="story-stage-hint">
+    Speakers are quiet until you find them. Hover a person (or the door), then click.
+    The door clears the stage.
+  </p>
 
-  <section class="loc-section" aria-labelledby="goods-title">
-    <h3 id="goods-title">Goods and Services</h3>
-    <p class="placeholder">Categories and offerings forthcoming.</p>
-  </section>
-
-  <section class="loc-section" aria-labelledby="buy-title">
-    <h3 id="buy-title">Buying</h3>
-    <p class="placeholder">Rooms, meals, common fare — rates forthcoming.</p>
-  </section>
-
-  <section class="loc-section" aria-labelledby="sell-title">
-    <h3 id="sell-title">Selling</h3>
-    <p class="placeholder">Not a general fence — forthcoming if anything applies.</p>
-  </section>
-
-  <section class="loc-section" aria-labelledby="special-title">
-    <h3 id="special-title">Special Requests</h3>
-    <ul>
-      <li>Rooms and meals</li>
-      <li>Local rumors</li>
-      <li>Notices and informal opportunities</li>
-      <li>Meeting townsfolk</li>
-    </ul>
-    <p class="placeholder" style="margin-top:10px">Costs and availability forthcoming.</p>
-  </section>
-
-  <section class="loc-section" aria-labelledby="opp-title">
-    <h3 id="opp-title">Current Opportunities</h3>
-    <p class="placeholder">None posted this downtime.</p>
-  </section>
+  <p class="page-note">
+    These are player-facing recaps, tavern stories, and public reputations—
+    not a complete or authoritative account of what happened beneath Stone Tooth.
+  </p>
 
   <p class="note" style="margin-top:18px">
     <a href="index.html">← Return to Town</a>
@@ -109,5 +552,45 @@
 </div>
 </main>
 </div>
+
+<script>
+(function () {
+  "use strict";
+  var stage = document.getElementById("story-stage");
+  if (!stage) return;
+  var empty = stage.querySelector("[data-stage-empty]");
+  var panels = stage.querySelectorAll("[data-story-panel]");
+  var hotspots = document.querySelectorAll(".npc-hotspot[data-story]");
+
+  function showStory(id) {
+    var showDefault = !id;
+    var found = false;
+    panels.forEach(function (panel) {
+      var match = !showDefault && panel.getAttribute("data-story-panel") === id;
+      panel.hidden = !match;
+      if (match) found = true;
+    });
+    if (empty) empty.hidden = found;
+    hotspots.forEach(function (btn) {
+      var btnId = btn.getAttribute("data-story") || "";
+      var isDoor = btn.classList.contains("npc-hotspot-door");
+      /* Only speakers stay “active”; door stays invisible until hover */
+      var on = !showDefault && !isDoor && btnId === id;
+      btn.classList.toggle("is-active", on);
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+  }
+
+  hotspots.forEach(function (btn) {
+    btn.setAttribute("aria-pressed", "false");
+    btn.addEventListener("click", function () {
+      showStory(btn.getAttribute("data-story") || "");
+      stage.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+  });
+
+  showStory("");
+})();
+</script>
 </body>
 </html>
