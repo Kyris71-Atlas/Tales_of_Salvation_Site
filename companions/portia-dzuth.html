@@ -170,13 +170,26 @@
       <img src="../assets/images/characters/Portia%20Dzuth.jpg" alt="Portia Dzuth">
     </div>
     <div class="nameplate">
+      <div class="ccs-inspiration" data-ccs-inspiration data-character="portia">
+        <span class="ccs-inspiration-label">Inspiration</span>
+        <button
+          type="button"
+          class="ccs-inspiration-toggle is-none"
+          data-ccs-inspiration-toggle
+          data-state="none"
+          aria-label="Inspiration: None. Click to change."
+          title="DM granted — Portia can hold and spend inspiration"
+        >None</button>
+      </div>
       <h2>Portia Dzuth</h2>
       <div class="subtitle">Companion of Malcolm Sol Moonstar · Champion (reference)</div>
       <span class="badge">Companion</span>
       <span class="badge">Sol’s orbit</span>
       <span class="badge">Deep Memory Witness circle</span>
+      <span class="badge">Inspiration OK</span>
       <p class="ccs-note" style="margin-top:12px">
         Not a Forge of Fury company companion — walks with the Witness.
+        DM allows her to use <strong>inspiration</strong> (click upper right).
       </p>
     </div>
   </div>
@@ -555,6 +568,45 @@
     input.addEventListener("blur", save);
     input.addEventListener("keydown", function (ev) {
       if (ev.key === "Enter") { save(); input.blur(); }
+    });
+    load();
+  })();
+
+  /* Inspiration — None / Single / Double (same language as CCS) */
+  (function () {
+    var root = document.querySelector("[data-ccs-inspiration]");
+    var btn = root && root.querySelector("[data-ccs-inspiration-toggle]");
+    if (!root || !btn) return;
+    var character = root.getAttribute("data-character") || "portia";
+    var key = "ccs-inspiration:" + character;
+    var order = ["none", "single", "double"];
+    var labels = {
+      double: "Double Inspiration!",
+      single: "Single Inspiration",
+      none: "None"
+    };
+    function apply(state) {
+      if (order.indexOf(state) === -1) state = "none";
+      btn.textContent = labels[state];
+      btn.classList.remove("is-double", "is-single", "is-none");
+      btn.classList.add("is-" + state);
+      btn.setAttribute("data-state", state);
+      btn.setAttribute("aria-label", "Inspiration: " + labels[state] + ". Click to change.");
+    }
+    function load() {
+      var state = "none";
+      try {
+        var raw = localStorage.getItem(key);
+        if (raw && order.indexOf(raw) !== -1) state = raw;
+      } catch (e) { /* private */ }
+      apply(state);
+    }
+    btn.addEventListener("click", function () {
+      var i = order.indexOf(btn.getAttribute("data-state") || "none");
+      if (i < 0) i = 0;
+      var next = order[(i + 1) % order.length];
+      apply(next);
+      try { localStorage.setItem(key, next); } catch (e) { /* private */ }
     });
     load();
   })();
