@@ -173,6 +173,52 @@
   resize:vertical;
   min-height:4rem;
 }
+.sol-helm-gems{
+  margin:12px 0 0;
+  padding:12px;
+  border-radius:10px;
+  background:rgba(255,255,255,.22);
+  border:1px solid rgba(110,89,48,.35);
+}
+.sol-helm-gem-row{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:10px;
+}
+@media (max-width:700px){
+  .sol-helm-gem-row{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+.sol-helm-gem{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  font-size:.78rem;
+  font-weight:bold;
+  letter-spacing:.03em;
+  text-transform:uppercase;
+  color:var(--ccs-ink-olive);
+}
+.sol-helm-gem input{
+  width:100%;
+  box-sizing:border-box;
+  padding:6px 8px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:1.15rem;
+  font-weight:bold;
+  text-align:center;
+  color:var(--ccs-ink);
+  border:2px solid var(--ccs-bubble-interactive-border);
+  border-radius:8px;
+  background:var(--ccs-bubble-interactive-fill);
+}
+.sol-helm-gem input:focus{
+  outline:2px solid #6e5930;
+  outline-offset:1px;
+}
+.sol-helm-gem input::placeholder{
+  color:#9a8b6a;
+  font-weight:normal;
+}
 .sol-bag-notes:focus{
   outline:2px solid #6e5930;
   outline-offset:1px;
@@ -639,9 +685,12 @@
         <h4 class="sol-gear-heading">Attuned <span class="sol-gear-count">3 / 3</span></h4>
         <ul class="ccs-list sol-gear-list">
           <li><span class="ccs-item-name">Rod of the Pact Keeper +3</span><span class="ccs-item-meta">Always on · spell atk +13 · DC 21</span></li>
-          <li><span class="ccs-item-name">Necklace of Adaptation</span><span class="ccs-item-meta">Breathe anywhere · ignore some inhaled hazards</span></li>
           <li><span class="ccs-item-name">Ring of Spell Storing</span><span class="ccs-item-meta">Attuned · track contents beside portrait ↓</span></li>
+          <li><span class="ccs-item-name">Helm of Brilliance</span><span class="ccs-item-meta">Worn · attuned · see below</span></li>
         </ul>
+        <p class="ccs-note" style="margin:10px 0 0">
+          Necklace of Adaptation moved to <a href="../companions/portia-dzuth.html">Portia</a> (she attunes it).
+        </p>
       </div>
       <div class="sol-gear-card">
         <h4 class="sol-gear-heading">Equipped <span class="sol-gear-count">no attunement</span></h4>
@@ -667,6 +716,45 @@
           <li><span class="ccs-item-name">Bag of Holding</span><span class="ccs-item-meta">Worn / carried · extradimensional storage · no attunement</span></li>
         </ul>
       </div>
+    </div>
+
+    <div class="ccs-action-block" style="margin-top:14px" data-sol-helm data-character="malcolm-sol">
+      <div class="ccs-action-top">
+        <div class="ccs-action-name">Helm of Brilliance</div>
+        <button
+          type="button"
+          class="ccs-shadows-toggle is-down"
+          data-sol-helm-flame
+          data-character="malcolm-sol"
+          aria-pressed="false"
+          title="Blazing weapon (fire opal) — click to light or douse"
+        >Flame Off</button>
+      </div>
+      <div class="ccs-action-meta">Very rare · attuned · worn · save DC 18 (gem spells)</div>
+      <p class="ccs-action-body">
+        <strong>While gems remain:</strong>
+        ≥1 ruby → <strong>resistance to fire</strong>;
+        ≥1 diamond → dim light 30 ft vs undead in range (undead start turn: 1d6 radiant);
+        ≥1 fire opal → action + command word: weapon you hold blazes (+1d6 fire on hit; bright 10 / dim +10). Toggle flame with the button (bonus action to douse / drop ends it).
+      </p>
+      <p class="ccs-action-body">
+        <strong>Gem spells (action · consumes gem · DC 18):</strong>
+        <em>Daylight</em> (opal) · <em>Fireball</em> (fire opal) · <em>Wall of Fire</em> (ruby) · <em>Prismatic Spray</em> (diamond).
+      </p>
+      <div class="sol-helm-gems" data-sol-helm-gems aria-label="Helm of Brilliance gem counts">
+        <p class="ccs-action-meta" style="margin:0 0 8px">
+          <strong>Gems remaining</strong> — leave blank until rolled / set at the table. Ranges when found: diamonds 1d10 · rubies 2d10 · fire opals 3d10 · opals 4d10.
+        </p>
+        <div class="sol-helm-gem-row">
+          <label class="sol-helm-gem"><span>Diamonds</span><input type="number" inputmode="numeric" min="0" max="99" data-gem="diamonds" placeholder="—" aria-label="Diamonds remaining"></label>
+          <label class="sol-helm-gem"><span>Rubies</span><input type="number" inputmode="numeric" min="0" max="99" data-gem="rubies" placeholder="—" aria-label="Rubies remaining"></label>
+          <label class="sol-helm-gem"><span>Fire opals</span><input type="number" inputmode="numeric" min="0" max="99" data-gem="fire-opals" placeholder="—" aria-label="Fire opals remaining"></label>
+          <label class="sol-helm-gem"><span>Opals</span><input type="number" inputmode="numeric" min="0" max="99" data-gem="opals" placeholder="—" aria-label="Opals remaining"></label>
+        </div>
+      </div>
+      <p class="ccs-action-body">
+        <strong>Risk:</strong> if you take fire damage from failing a spell save while wearing the helm, roll d20; on a <strong>1</strong> the helm beams (DC 17 DEX, radiant = gems left) then is destroyed.
+      </p>
     </div>
 
     <div class="sol-bag" data-sol-bag data-character="malcolm-sol">
@@ -1204,6 +1292,56 @@
     }
 
     render(load());
+  })();
+
+  /* Helm of Brilliance — blazing weapon on/off + pending gem counts */
+  (function () {
+    var helm = document.querySelector("[data-sol-helm]");
+    var btn = document.querySelector("[data-sol-helm-flame]");
+    var character = (helm && helm.getAttribute("data-character")) || "malcolm-sol";
+    if (btn) {
+      var key = "sol-helm-flame:" + character;
+      function apply(on) {
+        btn.textContent = on ? "Flame On" : "Flame Off";
+        btn.setAttribute("aria-pressed", on ? "true" : "false");
+        btn.classList.toggle("is-up", on);
+        btn.classList.toggle("is-down", !on);
+        btn.setAttribute(
+          "aria-label",
+          on
+            ? "Blazing weapon active (+1d6 fire). Click to douse."
+            : "Blazing weapon off. Click to ignite (fire opal)."
+        );
+      }
+      var on = false;
+      try { on = localStorage.getItem(key) === "1"; } catch (e) { on = false; }
+      apply(on);
+      btn.addEventListener("click", function () {
+        on = btn.getAttribute("aria-pressed") !== "true";
+        apply(on);
+        try { localStorage.setItem(key, on ? "1" : "0"); } catch (e) { /* private */ }
+      });
+    }
+    var gemsRoot = document.querySelector("[data-sol-helm-gems]");
+    if (gemsRoot) {
+      gemsRoot.querySelectorAll("input[data-gem]").forEach(function (input) {
+        var gem = input.getAttribute("data-gem") || "gem";
+        var gkey = "sol-helm-gem:" + character + ":" + gem;
+        try {
+          var raw = localStorage.getItem(gkey);
+          if (raw !== null && raw !== "") input.value = raw;
+        } catch (e) { /* private */ }
+        function saveGem() {
+          var v = input.value;
+          try {
+            if (v === "" || v === null) localStorage.removeItem(gkey);
+            else localStorage.setItem(gkey, String(Math.max(0, parseInt(v, 10) || 0)));
+          } catch (e) { /* private */ }
+        }
+        input.addEventListener("change", saveGem);
+        input.addEventListener("blur", saveGem);
+      });
+    }
   })();
 
   document.querySelectorAll("[data-ccs-use-toggle]").forEach(function (btn) {
