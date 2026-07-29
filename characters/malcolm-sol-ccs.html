@@ -743,14 +743,17 @@
       </p>
       <div class="sol-helm-gems" data-sol-helm-gems aria-label="Helm of Brilliance gem counts">
         <p class="ccs-action-meta" style="margin:0 0 8px">
-          <strong>Gems remaining</strong> — leave blank until rolled / set at the table. Ranges when found: diamonds 1d10 · rubies 2d10 · fire opals 3d10 · opals 4d10.
+          <strong>Gems remaining</strong> — from FG (2026-07-29). Decrement when you spend a gem; saves on this device.
         </p>
         <div class="sol-helm-gem-row">
-          <label class="sol-helm-gem"><span>Diamonds</span><input type="number" inputmode="numeric" min="0" max="99" data-gem="diamonds" placeholder="—" aria-label="Diamonds remaining"></label>
-          <label class="sol-helm-gem"><span>Rubies</span><input type="number" inputmode="numeric" min="0" max="99" data-gem="rubies" placeholder="—" aria-label="Rubies remaining"></label>
-          <label class="sol-helm-gem"><span>Fire opals</span><input type="number" inputmode="numeric" min="0" max="99" data-gem="fire-opals" placeholder="—" aria-label="Fire opals remaining"></label>
-          <label class="sol-helm-gem"><span>Opals</span><input type="number" inputmode="numeric" min="0" max="99" data-gem="opals" placeholder="—" aria-label="Opals remaining"></label>
+          <label class="sol-helm-gem"><span>Diamonds</span><input type="number" inputmode="numeric" min="0" max="99" data-gem="diamonds" data-default="9" value="9" aria-label="Diamonds remaining"></label>
+          <label class="sol-helm-gem"><span>Rubies</span><input type="number" inputmode="numeric" min="0" max="99" data-gem="rubies" data-default="13" value="13" aria-label="Rubies remaining"></label>
+          <label class="sol-helm-gem"><span>Fire opals</span><input type="number" inputmode="numeric" min="0" max="99" data-gem="fire-opals" data-default="16" value="16" aria-label="Fire opals remaining"></label>
+          <label class="sol-helm-gem"><span>Opals</span><input type="number" inputmode="numeric" min="0" max="99" data-gem="opals" data-default="23" value="23" aria-label="Opals remaining"></label>
         </div>
+        <p class="ccs-note" style="margin:8px 0 0;text-align:center">
+          Prismatic Spray · Wall of Fire · Fireball · Daylight — each cast spends one matching gem.
+        </p>
       </div>
       <p class="ccs-action-body">
         <strong>Risk:</strong> if you take fire damage from failing a spell save while wearing the helm, roll d20; on a <strong>1</strong> the helm beams (DC 17 DEX, radiant = gems left) then is destroyed.
@@ -1327,10 +1330,14 @@
       gemsRoot.querySelectorAll("input[data-gem]").forEach(function (input) {
         var gem = input.getAttribute("data-gem") || "gem";
         var gkey = "sol-helm-gem:" + character + ":" + gem;
+        var def = input.getAttribute("data-default");
         try {
           var raw = localStorage.getItem(gkey);
           if (raw !== null && raw !== "") input.value = raw;
-        } catch (e) { /* private */ }
+          else if (def !== null && def !== "") input.value = def;
+        } catch (e) {
+          if (def !== null && def !== "") input.value = def;
+        }
         function saveGem() {
           var v = input.value;
           try {

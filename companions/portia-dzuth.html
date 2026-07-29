@@ -65,6 +65,28 @@
   line-height:1.4;
   color:#20180f;
 }
+.portia-flight-field{
+  display:block;
+  width:100%;
+  box-sizing:border-box;
+  margin-top:6px;
+  padding:8px 10px;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:1.05rem;
+  color:#20180f;
+  border:2px solid rgba(110,89,48,.55);
+  border-radius:8px;
+  background:rgba(255,255,255,.55);
+}
+.portia-flight-field:focus{
+  outline:2px solid #6e5930;
+  outline-offset:1px;
+  background:#fffef6;
+}
+.portia-flight-field::placeholder{
+  color:#7a6a4a;
+  font-size:.92rem;
+}
 @media (max-width:700px){
   .portia-board{
     grid-template-columns:1fr;
@@ -215,10 +237,11 @@
         <div class="ccs-tile ccs-tile-ac portia-cell-ac">
           <span class="ccs-label">Armor Class</span>
           <div class="ccs-ac-row">
-            <span class="ccs-ac-total" aria-label="Total armor class">18</span>
+            <span class="ccs-ac-total" aria-label="Total armor class">21</span>
           </div>
           <ul class="ccs-ac-breakdown">
-            <li><span class="ccs-ac-part">Plate</span><span class="ccs-ac-num">18</span></li>
+            <li><span class="ccs-ac-part">Plate +2</span><span class="ccs-ac-num">20</span></li>
+            <li><span class="ccs-ac-part">Cloak of Protection</span><span class="ccs-ac-num">+1</span></li>
           </ul>
         </div>
 
@@ -226,15 +249,15 @@
           <span class="ccs-label">Speed · Prof · PP</span>
           <div class="ccs-value" style="font-size:1.1rem;margin-top:10px;line-height:1.45">
             30 ft<br>
-            Prof +4<br>
-            Passive Perc 16
+            Fly 30 (boots)<br>
+            Prof +4 · PP 16
           </div>
         </div>
 
         <!-- Row 2: Role · Skills · Challenge -->
         <div class="portia-info-tile portia-cell-role">
           <h4>Role</h4>
-          <p>Champion-frame combatant — steel and grit beside Sol’s warlock craft. Saves: STR +9, CON +6.</p>
+          <p>Champion-frame combatant — steel and grit beside Sol’s warlock craft. Saves: STR +10, CON +7 (cloak +1).</p>
         </div>
         <div class="portia-info-tile portia-cell-skills">
           <h4>Skills</h4>
@@ -297,8 +320,8 @@
         <p>Three attacks with greatsword or shortbow.</p>
       </div>
       <div class="discovery-card portia-weapon-outline" data-portia-weapon-outline>
-        <h4>Greatsword</h4>
-        <p>+9 to hit · 2d6 + 5 slashing · plus 2d6 while <strong>wounds &lt; 72</strong> (more than half HP left).</p>
+        <h4>Greatsword +2</h4>
+        <p>+11 to hit · 2d6 + 7 slashing · plus 2d6 while <strong>wounds &lt; 72</strong> (more than half HP left).</p>
       </div>
       <div class="discovery-card portia-weapon-outline" data-portia-weapon-outline>
         <h4>Shortbow</h4>
@@ -306,14 +329,54 @@
       </div>
     </div>
 
-    <div class="ccs-action-block" style="margin-top:14px">
+    <p class="ccs-hint" style="margin-top:16px"><strong>Attuned (3 / 3)</strong> — FG companion kit</p>
+    <div class="ccs-action-block" style="margin-top:8px">
       <div class="ccs-action-top">
         <div class="ccs-action-name">Necklace of Adaptation</div>
       </div>
-      <div class="ccs-action-meta">Rare · requires attunement · from Sol’s kit</div>
+      <div class="ccs-action-meta">Uncommon · attuned · from Sol’s kit</div>
       <p class="ccs-action-body">
-        While wearing and attuned: breathe normally in any environment; advantage on saves against harmful gases and vapors
+        Breathe normally in any environment; advantage on saves against harmful gases and vapors
         (e.g. cloudkill, stinking cloud, inhaled poison, some breath weapons).
+      </p>
+    </div>
+    <div class="ccs-action-block" data-portia-winged-boots data-character="portia">
+      <div class="ccs-action-top">
+        <div class="ccs-action-name">Winged Boots</div>
+      </div>
+      <div class="ccs-action-meta">Rare · attuned · fly = walk speed</div>
+      <p class="ccs-action-body">
+        Fly speed equal to walking speed (30 ft). Up to <strong>4 hours</strong> of flight (5e: <strong>2,400 rounds</strong>), used all at once or in shorter spurts (minimum 1 minute). Regains 2 hours of flight for every 12 hours not used.
+      </p>
+      <label class="ccs-action-meta" for="portia-flight-remaining" style="display:block;margin-top:10px">
+        Flight remaining <span style="font-weight:normal;letter-spacing:0;text-transform:none">(open — rounds, hours, whatever you’ll actually track)</span>
+      </label>
+      <input
+        type="text"
+        id="portia-flight-remaining"
+        class="portia-flight-field"
+        data-portia-flight
+        placeholder="e.g. 2400 rounds · or 4h · tick down in combat"
+        aria-label="Winged Boots flight remaining"
+        autocomplete="off"
+      >
+    </div>
+    <div class="ccs-action-block">
+      <div class="ccs-action-top">
+        <div class="ccs-action-name">Cloak of Protection</div>
+      </div>
+      <div class="ccs-action-meta">Uncommon · attuned · always on while worn</div>
+      <p class="ccs-action-body">
+        +1 to AC and saving throws (already in AC 21 and save numbers above).
+      </p>
+    </div>
+    <div class="ccs-action-block">
+      <div class="ccs-action-top">
+        <div class="ccs-action-name">Plate Armor +2 · Greatsword +2</div>
+      </div>
+      <div class="ccs-action-meta">Magic gear · no attunement</div>
+      <p class="ccs-action-body">
+        Plate +2 sets base AC 20 before cloak. Greatsword +2 is her main melee (see attack card).
       </p>
     </div>
   </div>
@@ -463,6 +526,32 @@
     }
     input.addEventListener("change", save);
     input.addEventListener("input", paintZero);
+    input.addEventListener("blur", save);
+    input.addEventListener("keydown", function (ev) {
+      if (ev.key === "Enter") { save(); input.blur(); }
+    });
+    load();
+  })();
+
+  /* Winged Boots — open flight remaining field (rounds, hours, free text) */
+  (function () {
+    var root = document.querySelector("[data-portia-winged-boots]");
+    var input = root && root.querySelector("[data-portia-flight]");
+    if (!root || !input) return;
+    var character = root.getAttribute("data-character") || "portia";
+    var key = "portia-flight:" + character;
+    function load() {
+      try {
+        var raw = localStorage.getItem(key);
+        input.value = raw === null ? "2400 rounds (4h full)" : raw;
+      } catch (e) {
+        input.value = "2400 rounds (4h full)";
+      }
+    }
+    function save() {
+      try { localStorage.setItem(key, input.value); } catch (e) { /* private */ }
+    }
+    input.addEventListener("change", save);
     input.addEventListener("blur", save);
     input.addEventListener("keydown", function (ev) {
       if (ev.key === "Enter") { save(); input.blur(); }
