@@ -767,62 +767,66 @@ a.campaign-banner-door:focus {
   margin: 18px 0 28px;
 }
 
-/* Open-book page: near full-column frame; text overlays parchment */
+/* Open-book page — restored original (0b193b3) layout; local only */
 .page-witness-open .layout-witness-open {
   max-width: none;
-  width: 100%;
 }
 .page-witness-open .layout-witness-open main {
-  /* Fill the main column — only chrome (header/nav/chrome) limits size */
-  max-width: none;
-  width: 100%;
-  margin: 0;
-  padding: 8px 10px 16px;
-  box-sizing: border-box;
+  max-width: min(1280px, 100%);
 }
 .witness-open-bar {
-  margin: 0 0 8px;
+  margin: 0 0 16px;
   text-align: center;
 }
 .witness-open-bar-title {
   margin: 0;
   color: var(--gold);
-  font-size: 1.15rem;
+  font-size: 1.35rem;
   letter-spacing: .05em;
 }
 .witness-open-bar-sub {
-  margin: 2px 0 0;
+  margin: 4px 0 0;
   color: #c8bca8;
-  font-size: .88rem;
+  font-size: .95rem;
   font-style: italic;
 }
 .witness-open-bar-links {
-  margin: 6px 0 0;
+  margin: 10px 0 0;
 }
 .page-witness-open .witness-tome {
-  margin-top: 2px;
-  margin-bottom: 10px;
+  margin-top: 8px;
 }
 .page-witness-open .witness-tome-open {
   display: block;
-  /* Use nearly all of main width; only shrink if height would clip the spread */
-  width: 100%;
-  max-width: min(100%, calc((100vh - 140px) * 1448 / 1086));
-  margin: 0 auto;
+  max-width: min(1100px, 100%);
+}
+/* Open book art — target green box from frame misalignment shot */
+.page-witness-open .witness-tome-spread {
+  left: 14.2%;
+  right: 14.3%;
+  top: 17%;
+  bottom: 14%;
+  grid-template-columns: 1fr 1fr;
+  gap: 3%;
+  min-height: 0;
+}
+.page-witness-open .witness-tome-page {
+  max-height: 100%;
+  background:
+    linear-gradient(180deg, rgba(243, 230, 200, .88) 0%, rgba(232, 212, 168, .9) 100%);
+  box-shadow: none;
+  border-radius: 2px;
+}
+.page-witness-open .witness-tome-page-left {
+  border-right: none;
 }
 .page-witness-open .witness-tome-nav {
-  max-width: min(100%, calc((100vh - 140px) * 1448 / 1086));
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: min(1100px, 100%);
   display: flex;
 }
 .page-witness-open .witness-tome-close {
   display: block;
-  max-width: min(100%, calc((100vh - 140px) * 1448 / 1086));
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: min(1100px, 100%);
 }
 .page-witness-open .witness-tome-close a {
   color: #c8bca8 !important;
@@ -907,11 +911,10 @@ button.witness-tome-cover-hit:focus-visible .witness-tome-open-label {
   color: #f5e6b8;
 }
 
-/* Open book: aspect-ratio box + background art; text absolutely over pages */
+/* Open — frame art + parchment panels (original 0b193b3) */
 .witness-tome-open {
   display: none;
-  width: 100%;
-  max-width: min(100%, calc((100vh - 140px) * 1448 / 1086));
+  max-width: min(1200px, 100%);
   margin: 0 auto;
   animation: witness-tome-open .4s ease;
 }
@@ -937,71 +940,70 @@ button.witness-tome-cover-hit:focus-visible .witness-tome-open-label {
 
 .witness-tome-frame-wrap {
   position: relative;
-  isolation: isolate;
   width: 100%;
-  max-width: none;
-  margin: 0 auto;
-  /* Match leaf_frame_full.png 1448×1086 — height from ratio, not from <img> */
-  aspect-ratio: 1448 / 1086;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 22px 55px rgba(0, 0, 0, .55);
-  background-color: #05060a;
-  background-image: url("../images/deep%20memory%20ledger/leaf_frame_full.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100% 100%;
+  background: #05060a;
 }
 
-/* Keep <img> out of layout so it cannot push text below the book */
 .witness-tome-frame-img {
-  position: absolute;
-  inset: 0;
+  display: block;
   width: 100%;
-  height: 100%;
-  object-fit: fill;
-  z-index: 0;
+  height: auto;
+  vertical-align: middle;
   pointer-events: none;
   user-select: none;
-  /* Prefer CSS background; img is decorative fallback only */
-  opacity: 0;
 }
 
-/*
- * HTML leaves over blank parchment (leaf_frame_full 1448×1086).
- * Measured inner beige faces (not cover/spine/ornament):
- *   left page  ~18.7–48.3% x, right ~55–81.3% x, top ~19%, bottom ~22–24%.
- * Left face is slightly wider; gutter ~6.5% of the full frame.
- */
+/* Safe zone: green target box (red was current; green is desired) */
 .witness-tome-spread {
   position: absolute;
-  z-index: 2;
-  left: 19.2%;
-  right: 18.2%;
-  top: 20%;
-  bottom: 23.5%;
+  left: 14.2%;
+  right: 14.3%;
+  top: 17%;
+  bottom: 14%;
   display: grid;
-  grid-template-columns: 1.12fr 1fr;
-  gap: 10.8%;
+  grid-template-columns: 1fr 1fr;
+  gap: 3%;
   min-height: 0;
+  z-index: 1;
   box-sizing: border-box;
-  pointer-events: auto;
 }
 
 .witness-tome-page {
   position: relative;
-  z-index: 2;
   min-height: 0;
   height: 100%;
   max-height: 100%;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
-  padding: 0.55rem 0.65rem 0.7rem;
+  padding: 0.7rem 0.8rem 0.75rem;
   border-radius: 2px;
-  /* Light wash — let the painted parchment show through */
-  background: rgba(243, 230, 200, .18);
+  background:
+    linear-gradient(180deg, rgba(243, 230, 200, .88) 0%, rgba(232, 212, 168, .9) 100%);
   color: var(--tome-ink);
   box-shadow: none;
+  /* Quiet scrollbar — no bright white track */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(90, 61, 12, .4) transparent;
+}
+
+.witness-tome-page::-webkit-scrollbar {
+  width: 7px;
+}
+
+.witness-tome-page::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.witness-tome-page::-webkit-scrollbar-thumb {
+  background: rgba(90, 61, 12, .38);
+  border-radius: 4px;
+}
+
+.witness-tome-page::-webkit-scrollbar-thumb:hover {
+  background: rgba(90, 61, 12, .55);
 }
 
 .witness-tome-page-left {
@@ -1026,8 +1028,8 @@ button.witness-tome-cover-hit:focus-visible .witness-tome-open-label {
 .witness-tome-page p {
   margin: 0 0 .75rem;
   color: var(--tome-ink);
-  font-size: .98rem;
-  line-height: 1.52;
+  font-size: .92rem;
+  line-height: 1.5;
 }
 
 .witness-tome-page p:last-child {
@@ -1154,39 +1156,22 @@ button.witness-tome-cover-hit:focus-visible .witness-tome-open-label {
 }
 
 @media (max-width: 900px) {
-  .page-witness-open .layout-witness-open main {
-    max-width: 100%;
-    padding-left: 8px;
-    padding-right: 8px;
-  }
-
-  .page-witness-open .witness-tome-open,
-  .page-witness-open .witness-tome-nav,
-  .page-witness-open .witness-tome-close,
-  .witness-tome-open {
-    max-width: 100%;
-  }
-
   .witness-tome-spread {
-    left: 18.5%;
-    right: 17.5%;
-    top: 19.5%;
-    bottom: 23%;
-    gap: 9.5%;
-    grid-template-columns: 1.1fr 1fr;
+    left: 13.5%;
+    right: 13.5%;
+    top: 16%;
+    bottom: 13.5%;
+    gap: 2.8%;
   }
 
   .witness-tome-page {
-    padding: 0.5rem 0.55rem 0.65rem;
-    font-size: .9rem;
-  }
-
-  .witness-tome-page p {
+    padding: 0.6rem 0.7rem 0.7rem;
     font-size: .9rem;
   }
 }
 
 @media (max-width: 760px) {
+  /* Keep modest cover (not original 360–520px door) */
   .witness-tome-cover,
   a.witness-tome-cover-hit,
   button.witness-tome-cover-hit {
@@ -1198,35 +1183,28 @@ button.witness-tome-cover-hit:focus-visible .witness-tome-open-label {
     max-height: min(240px, 50vh);
   }
 
-  /* Stacked leaves — still overlay text; drop full-spread art if too tight */
-  .witness-tome-frame-wrap {
-    aspect-ratio: auto;
-    min-height: 0;
-    height: auto;
-    background-image: none;
-    background: linear-gradient(180deg, #1a1528, #0a0810);
-    border: 2px solid #6a4a8a;
-  }
-
-  .witness-tome-frame-img {
-    display: none;
-  }
-
   .witness-tome-spread {
     position: relative;
     left: auto;
     right: auto;
     top: auto;
     bottom: auto;
-    z-index: auto;
     grid-template-columns: 1fr;
-    padding: 12px;
-    gap: 12px;
-    height: auto;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .witness-tome-frame-img {
+    display: none;
+  }
+
+  .witness-tome-frame-wrap {
+    background:
+      linear-gradient(180deg, #1a1528, #0a0810);
+    border: 2px solid #6a4a8a;
   }
 
   .witness-tome-page {
-    height: auto;
     max-height: 50vh;
     background:
       linear-gradient(180deg, var(--tome-parchment) 0%, var(--tome-parchment-deep) 100%);
