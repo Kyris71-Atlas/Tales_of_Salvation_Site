@@ -967,17 +967,22 @@ button.witness-tome-cover-hit:focus-visible .witness-tome-open-label {
   opacity: 0;
 }
 
-/* HTML leaves sit ON the blank parchment faces — never under the art */
+/*
+ * HTML leaves over blank parchment (leaf_frame_full 1448×1086).
+ * Measured inner beige faces (not cover/spine/ornament):
+ *   left page  ~18.7–48.3% x, right ~55–81.3% x, top ~19%, bottom ~22–24%.
+ * Left face is slightly wider; gutter ~6.5% of the full frame.
+ */
 .witness-tome-spread {
   position: absolute;
   z-index: 2;
-  left: 13%;
-  right: 13%;
-  top: 18%;
-  bottom: 16%;
+  left: 19.2%;
+  right: 18.2%;
+  top: 20%;
+  bottom: 23.5%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4%;
+  grid-template-columns: 1.12fr 1fr;
+  gap: 10.8%;
   min-height: 0;
   box-sizing: border-box;
   pointer-events: auto;
@@ -991,10 +996,10 @@ button.witness-tome-cover-hit:focus-visible .witness-tome-open-label {
   max-height: 100%;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
-  padding: 0.85rem 0.95rem 1rem;
+  padding: 0.55rem 0.65rem 0.7rem;
   border-radius: 2px;
-  /* Soft wash so ink reads on the painted parchment */
-  background: rgba(243, 230, 200, .42);
+  /* Light wash — let the painted parchment show through */
+  background: rgba(243, 230, 200, .18);
   color: var(--tome-ink);
   box-shadow: none;
 }
@@ -1163,15 +1168,16 @@ button.witness-tome-cover-hit:focus-visible .witness-tome-open-label {
   }
 
   .witness-tome-spread {
-    left: 11%;
-    right: 11%;
-    top: 16%;
-    bottom: 14%;
-    gap: 2.5%;
+    left: 18.5%;
+    right: 17.5%;
+    top: 19.5%;
+    bottom: 23%;
+    gap: 9.5%;
+    grid-template-columns: 1.1fr 1fr;
   }
 
   .witness-tome-page {
-    padding: 0.65rem 0.75rem 0.8rem;
+    padding: 0.5rem 0.55rem 0.65rem;
     font-size: .9rem;
   }
 
