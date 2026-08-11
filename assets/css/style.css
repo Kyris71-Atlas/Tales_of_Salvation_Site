@@ -767,49 +767,51 @@ a.campaign-banner-door:focus {
   margin: 18px 0 28px;
 }
 
-/* Open-book page: large frame; text overlays parchment */
+/* Open-book page: near full-column frame; text overlays parchment */
 .page-witness-open .layout-witness-open {
   max-width: none;
+  width: 100%;
 }
 .page-witness-open .layout-witness-open main {
-  /* Room for a wide open tome (art is 1448×1086) */
-  max-width: min(1440px, 100%);
-  margin: 0 auto;
-  padding-left: 12px;
-  padding-right: 12px;
+  /* Fill the main column — only chrome (header/nav/chrome) limits size */
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 8px 10px 16px;
   box-sizing: border-box;
 }
 .witness-open-bar {
-  margin: 0 0 12px;
+  margin: 0 0 8px;
   text-align: center;
 }
 .witness-open-bar-title {
   margin: 0;
   color: var(--gold);
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   letter-spacing: .05em;
 }
 .witness-open-bar-sub {
-  margin: 4px 0 0;
+  margin: 2px 0 0;
   color: #c8bca8;
-  font-size: .92rem;
+  font-size: .88rem;
   font-style: italic;
 }
 .witness-open-bar-links {
-  margin: 10px 0 0;
+  margin: 6px 0 0;
 }
 .page-witness-open .witness-tome {
-  margin-top: 4px;
+  margin-top: 2px;
+  margin-bottom: 10px;
 }
 .page-witness-open .witness-tome-open {
   display: block;
-  /* Prefer near-full main column; cap by height so the whole book fits */
+  /* Use nearly all of main width; only shrink if height would clip the spread */
   width: 100%;
-  max-width: min(1360px, 100%, calc((100vh - 200px) * 1448 / 1086));
+  max-width: min(100%, calc((100vh - 140px) * 1448 / 1086));
   margin: 0 auto;
 }
 .page-witness-open .witness-tome-nav {
-  max-width: min(1360px, 100%, calc((100vh - 200px) * 1448 / 1086));
+  max-width: min(100%, calc((100vh - 140px) * 1448 / 1086));
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -817,7 +819,7 @@ a.campaign-banner-door:focus {
 }
 .page-witness-open .witness-tome-close {
   display: block;
-  max-width: min(1360px, 100%, calc((100vh - 200px) * 1448 / 1086));
+  max-width: min(100%, calc((100vh - 140px) * 1448 / 1086));
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -909,7 +911,7 @@ button.witness-tome-cover-hit:focus-visible .witness-tome-open-label {
 .witness-tome-open {
   display: none;
   width: 100%;
-  max-width: min(1360px, 100%, calc((100vh - 200px) * 1448 / 1086));
+  max-width: min(100%, calc((100vh - 140px) * 1448 / 1086));
   margin: 0 auto;
   animation: witness-tome-open .4s ease;
 }
@@ -1146,30 +1148,11 @@ button.witness-tome-cover-hit:focus-visible .witness-tome-open-label {
   to { opacity: 1; transform: none; }
 }
 
-@media (max-width: 1100px) {
-  .page-witness-open .layout-witness-open main {
-    max-width: min(100%, 1100px);
-  }
-
-  .page-witness-open .witness-tome-open,
-  .page-witness-open .witness-tome-nav,
-  .page-witness-open .witness-tome-close,
-  .witness-tome-open {
-    max-width: min(100%, calc((100vh - 180px) * 1448 / 1086));
-  }
-
-  .witness-tome-spread {
-    left: 12%;
-    right: 12%;
-    top: 17%;
-    bottom: 15%;
-    gap: 3%;
-  }
-}
-
 @media (max-width: 900px) {
   .page-witness-open .layout-witness-open main {
     max-width: 100%;
+    padding-left: 8px;
+    padding-right: 8px;
   }
 
   .page-witness-open .witness-tome-open,
