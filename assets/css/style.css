@@ -767,65 +767,48 @@ a.campaign-banner-door:focus {
   margin: 18px 0 28px;
 }
 
-/* Open-book page: more room for the frame */
+/* Open-book page: frame owns the viewport; text overlays parchment */
 .page-witness-open .layout-witness-open {
   max-width: none;
 }
 .page-witness-open .layout-witness-open main {
-  max-width: min(1280px, 100%);
+  max-width: min(960px, 100%);
+  margin: 0 auto;
 }
 .witness-open-bar {
-  margin: 0 0 16px;
+  margin: 0 0 12px;
   text-align: center;
 }
 .witness-open-bar-title {
   margin: 0;
   color: var(--gold);
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   letter-spacing: .05em;
 }
 .witness-open-bar-sub {
   margin: 4px 0 0;
   color: #c8bca8;
-  font-size: .95rem;
+  font-size: .92rem;
   font-style: italic;
 }
 .witness-open-bar-links {
   margin: 10px 0 0;
 }
 .page-witness-open .witness-tome {
-  margin-top: 8px;
+  margin-top: 4px;
 }
 .page-witness-open .witness-tome-open {
-  max-width: min(1100px, 100%);
-}
-/* Open book art 1448×1086 — align HTML leaves to parchment faces */
-.page-witness-open .witness-tome-spread {
-  left: 11%;
-  right: 11%;
-  top: 15%;
-  bottom: 14%;
-  grid-template-columns: 1fr 1fr;
-  gap: 2.5%;
-  min-height: 0;
-}
-.page-witness-open .witness-tome-page {
-  max-height: 100%;
-  background:
-    linear-gradient(180deg, rgba(243, 230, 200, .88) 0%, rgba(232, 212, 168, .9) 100%);
-  box-shadow: none;
-  border-radius: 2px;
-}
-.page-witness-open .witness-tome-page-left {
-  border-right: none;
+  display: block;
+  max-width: min(920px, 100%);
+  margin: 0 auto;
 }
 .page-witness-open .witness-tome-nav {
-  max-width: min(1100px, 100%);
+  max-width: min(920px, 100%);
   display: flex;
 }
 .page-witness-open .witness-tome-close {
   display: block;
-  max-width: min(1100px, 100%);
+  max-width: min(920px, 100%);
 }
 .page-witness-open .witness-tome-close a {
   color: #c8bca8 !important;
@@ -841,9 +824,10 @@ a.campaign-banner-door:focus {
   border-bottom-color: var(--gold) !important;
 }
 
-/* Closed — art cover */
+/* Closed cover door — modest door, never full 1448px art */
 .witness-tome-cover {
-  max-width: min(520px, 100%);
+  width: min(320px, 100%);
+  max-width: 320px;
   margin: 0 auto;
   text-align: center;
 }
@@ -851,8 +835,10 @@ a.campaign-banner-door:focus {
 a.witness-tome-cover-hit,
 button.witness-tome-cover-hit {
   display: block;
+  box-sizing: border-box;
   width: 100%;
-  margin: 0;
+  max-width: 320px;
+  margin: 0 auto;
   padding: 0;
   border: 2px solid #6a4a8a;
   border-radius: 12px;
@@ -880,8 +866,13 @@ button.witness-tome-cover-hit:focus-visible {
 
 .witness-tome-cover-hit img {
   display: block;
-  width: 100%;
-  height: auto;
+  box-sizing: border-box;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: min(300px, 55vh);
+  object-fit: contain;
+  margin: 0 auto;
   vertical-align: middle;
 }
 
@@ -902,10 +893,11 @@ button.witness-tome-cover-hit:focus-visible .witness-tome-open-label {
   color: #f5e6b8;
 }
 
-/* Open — frame art + parchment panels (always shown on witness-open.html) */
+/* Open book: aspect-ratio box + background art; text absolutely over pages */
 .witness-tome-open {
   display: none;
-  max-width: min(1200px, 100%);
+  width: 100%;
+  max-width: min(920px, 100%);
   margin: 0 auto;
   animation: witness-tome-open .4s ease;
 }
@@ -931,45 +923,64 @@ button.witness-tome-cover-hit:focus-visible .witness-tome-open-label {
 
 .witness-tome-frame-wrap {
   position: relative;
+  isolation: isolate;
   width: 100%;
+  max-width: min(920px, 100%);
+  margin: 0 auto;
+  /* Match leaf_frame_full.png 1448×1086 — height from ratio, not from <img> */
+  aspect-ratio: 1448 / 1086;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 22px 55px rgba(0, 0, 0, .55);
-  background: #05060a;
+  background-color: #05060a;
+  background-image: url("../images/deep%20memory%20ledger/leaf_frame_full.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
 }
 
+/* Keep <img> out of layout so it cannot push text below the book */
 .witness-tome-frame-img {
-  display: block;
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: auto;
-  vertical-align: middle;
+  height: 100%;
+  object-fit: fill;
+  z-index: 0;
   pointer-events: none;
   user-select: none;
+  /* Prefer CSS background; img is decorative fallback only */
+  opacity: 0;
 }
 
-/* Safe zone over open-book parchment (leaf_frame_full 1448×1086) */
+/* HTML leaves sit ON the blank parchment faces — never under the art */
 .witness-tome-spread {
   position: absolute;
-  left: 11%;
-  right: 11%;
-  top: 15%;
-  bottom: 14%;
+  z-index: 2;
+  left: 13%;
+  right: 13%;
+  top: 18%;
+  bottom: 16%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2.5%;
+  gap: 4%;
   min-height: 0;
-  z-index: 1;
+  box-sizing: border-box;
+  pointer-events: auto;
 }
 
 .witness-tome-page {
   position: relative;
+  z-index: 2;
   min-height: 0;
+  height: 100%;
   max-height: 100%;
   overflow: auto;
-  padding: 0.9rem 1.05rem 1.05rem;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.85rem 0.95rem 1rem;
   border-radius: 2px;
-  background:
-    linear-gradient(180deg, rgba(243, 230, 200, .88) 0%, rgba(232, 212, 168, .9) 100%);
+  /* Soft wash so ink reads on the painted parchment */
+  background: rgba(243, 230, 200, .42);
   color: var(--tome-ink);
   box-shadow: none;
 }
@@ -1124,23 +1135,50 @@ button.witness-tome-cover-hit:focus-visible .witness-tome-open-label {
 }
 
 @media (max-width: 900px) {
+  .page-witness-open .layout-witness-open main,
+  .page-witness-open .witness-tome-open,
+  .witness-tome-frame-wrap {
+    max-width: min(100%, 720px);
+  }
+
   .witness-tome-spread {
-    left: 9%;
-    right: 9%;
-    top: 14%;
-    bottom: 13%;
-    gap: 2%;
+    left: 11%;
+    right: 11%;
+    top: 16%;
+    bottom: 14%;
+    gap: 2.5%;
   }
 
   .witness-tome-page {
-    padding: 0.7rem 0.8rem 0.85rem;
-    font-size: .9rem;
+    padding: 0.65rem 0.75rem 0.8rem;
+    font-size: .88rem;
   }
 }
 
 @media (max-width: 760px) {
-  .witness-tome-cover {
-    max-width: min(360px, 100%);
+  .witness-tome-cover,
+  a.witness-tome-cover-hit,
+  button.witness-tome-cover-hit {
+    width: min(260px, 100%);
+    max-width: 260px;
+  }
+
+  .witness-tome-cover-hit img {
+    max-height: min(240px, 50vh);
+  }
+
+  /* Stacked leaves — still overlay text; drop full-spread art if too tight */
+  .witness-tome-frame-wrap {
+    aspect-ratio: auto;
+    min-height: 0;
+    height: auto;
+    background-image: none;
+    background: linear-gradient(180deg, #1a1528, #0a0810);
+    border: 2px solid #6a4a8a;
+  }
+
+  .witness-tome-frame-img {
+    display: none;
   }
 
   .witness-tome-spread {
@@ -1149,22 +1187,15 @@ button.witness-tome-cover-hit:focus-visible .witness-tome-open-label {
     right: auto;
     top: auto;
     bottom: auto;
+    z-index: auto;
     grid-template-columns: 1fr;
-    padding: 10px;
-    gap: 10px;
-  }
-
-  .witness-tome-frame-img {
-    display: none;
-  }
-
-  .witness-tome-frame-wrap {
-    background:
-      linear-gradient(180deg, #1a1528, #0a0810);
-    border: 2px solid #6a4a8a;
+    padding: 12px;
+    gap: 12px;
+    height: auto;
   }
 
   .witness-tome-page {
+    height: auto;
     max-height: 50vh;
     background:
       linear-gradient(180deg, var(--tome-parchment) 0%, var(--tome-parchment-deep) 100%);
