@@ -59,7 +59,17 @@ They are tied to **Deep Memory** (Witness chamber / other tables), not the Tempe
 
 ## 4. Deep Memory — vault layout (locked direction)
 
-**Vision:** Deep Memory is the home of **Dossier / Discovery Report** pages and related archive (sessions, companions).
+**Vision:** Deep Memory is a **Far Realm entity / site vault** that encompasses **all** campaigns — not a submenu of Forge of Fury.  
+Campaigns are **chambers** inside the vault. Canonical path: **Home → Deep Memory → chamber**. Campaign Home may still offer a shortcut into the active chamber.
+
+**Session recaps** live **inside chambers**.
+
+| Chamber type | Session voices |
+|---|---|
+| **Forge of Fury (exception)** | **Two voices:** (1) table notes from in-game AI MD and/or recordings; (2) player-provided recap when one exists |
+| **All other chambers (norm)** | **One voice** (table notes; player recap only if later supplied) |
+
+**Vision (content):** Deep Memory is the home of **session recaps**, **Dossier / Discovery Report** pages, companions, and related archive.
 
 ### Hybrid language (public copy)
 
@@ -103,7 +113,7 @@ Listing every character for every campaign on the hub **does not scale** and is 
 | Chamber | Scope | Notes |
 |---------|--------|--------|
 | **Forge** | Tempest Company · Forge of Fury | Template chamber; active table’s archive |
-| **Avernus** | Descent into Avernus · Spice Boys | Archived; dossiers only; sheets upon request |
+| **Avernus** | Descent into Avernus · Spice Boys | Archived; dossiers now; session recaps may backfill from recordings (single voice); sheets upon request |
 
 New campaigns get a **new chamber door on the hub** and a **new chamber page** — not a longer hub roster.
 

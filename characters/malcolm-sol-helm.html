@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Malcolm Sol Moonstar — Play Sheet · Helm</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+.sol-helm-page-intro{margin:0 0 1rem;line-height:1.5}
+.sol-helm-spell-card{
+  border:1px solid rgba(110,89,48,.55);
+  border-radius:12px;
+  padding:14px 16px 16px;
+  background:rgba(255,255,255,.28);
+  margin:0 0 14px;
+}
+.sol-helm-spell-card h4{
+  margin:0 0 6px;
+  color:#4b3212;
+  font-size:1.12rem;
+}
+.sol-helm-spell-meta{
+  margin:0 0 10px;
+  font-size:.88rem;
+  color:#5a4a32;
+  line-height:1.4;
+}
+.sol-helm-spell-card p{margin:.4rem 0;line-height:1.45;color:#33271d}
+.sol-helm-spell-card ul{margin:.35rem 0 0;padding-left:1.2rem;color:#33271d}
+.sol-helm-spell-card li{margin:.25rem 0}
+.sol-helm-gem-tag{
+  display:inline-block;
+  margin-left:.35rem;
+  padding:.1rem .45rem;
+  border-radius:999px;
+  border:1px solid rgba(118,79,25,.4);
+  font-size:.72rem;
+  text-transform:uppercase;
+  letter-spacing:.03em;
+  color:#62451a;
+  vertical-align:middle;
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <h1 class="site-title">Tales of Salvation</h1>
+  <p class="site-subtitle">Play sheet · Helm of Brilliance · Witness of the Deep Memory</p>
+</header>
+
+<div class="layout">
+<nav>
+  <div class="nav-section">Tales of Salvation</div>
+  <a href="../index.html">Home</a>
+  <a href="../deep-memory/index.html">Deep Memory</a>
+  <a href="../deep-memory/witness.html">Witness ledger</a>
+
+  <div class="nav-section">Sol · Play (not CCS)</div>
+  <a href="malcolm-sol-ccs.html">Combat</a>
+  <a href="malcolm-sol-magic.html">Magic</a>
+  <a href="malcolm-sol-helm.html">Helm</a>
+
+  <div class="nav-section">Companions</div>
+  <a href="../companions/portia-dzuth.html">Portia Dzuth</a>
+
+  <div class="nav-section">Active table</div>
+  <a href="../forge-of-fury/index.html">Forge Campaign Home</a>
+</nav>
+
+<main>
+<div class="breadcrumbs">
+  <a href="../index.html">Home</a> &gt;
+  <a href="../deep-memory/index.html">Deep Memory</a> &gt;
+  <a href="malcolm-sol-ccs.html">Sol · Combat</a> &gt;
+  Helm
+</div>
+
+<nav class="sol-play-tabs" aria-label="Sol play pages">
+  <a href="malcolm-sol-ccs.html">Combat</a>
+  <a href="malcolm-sol-magic.html">Magic</a>
+  <a class="is-current" href="malcolm-sol-helm.html" aria-current="page">Helm</a>
+  <p class="sol-play-tabs-note">Helm spells use <strong>DC 18</strong> (item) · not Sol’s warlock DC 21</p>
+</nav>
+
+<div class="sheet-source" style="margin-bottom:14px">
+  <span><strong>Item</strong> Helm of Brilliance</span>
+  <span><strong>Very rare</strong> · attuned · worn</span>
+  <span><strong>Gem spell DC</strong> 18</span>
+  <span><strong>Page</strong> 3 of 3 · room for spell text</span>
+</div>
+
+<div class="book-panel">
+  <p class="sol-helm-page-intro">
+    <strong>Combat</strong> keeps attack, AC, gems, and flame toggle.
+    <strong>Magic</strong> keeps pact spells and invocations.
+    <strong>This page</strong> is the Helm of Brilliance spell book — full text so Combat stays playable.
+  </p>
+
+  <!-- Passives + gems + flame (shared localStorage with Combat) -->
+  <section class="ccs-section" aria-labelledby="helm-passives">
+    <h3 id="helm-passives">1 · Helm at a glance</h3>
+    <div class="ccs-action-block" data-sol-helm data-character="malcolm-sol">
+      <div class="ccs-action-top">
+        <div class="ccs-action-name">Helm of Brilliance</div>
+        <button
+          type="button"
+          class="ccs-shadows-toggle is-down"
+          data-sol-helm-flame
+          data-character="malcolm-sol"
+          aria-pressed="false"
+          title="Blazing weapon (fire opal)"
+        >Flame Off</button>
+      </div>
+      <div class="ccs-action-meta">Very rare · attuned · worn · gem-spell save <strong>DC 18</strong></div>
+      <p class="ccs-action-body">
+        <strong>While gems remain:</strong>
+        ≥1 <strong>ruby</strong> → resistance to <strong>fire</strong>;
+        ≥1 <strong>diamond</strong> → dim light 30 ft; undead that start turn in that light take <strong>1d6 radiant</strong>;
+        ≥1 <strong>fire opal</strong> → action + command: weapon you hold <strong>blazes</strong> (+1d6 fire on hit; bright 10 / dim +10). Toggle with Flame; bonus action to douse / drop ends it.
+      </p>
+      <div class="sol-helm-gems" data-sol-helm-gems aria-label="Helm of Brilliance gem counts">
+        <p class="ccs-action-meta" style="margin:0 0 8px">
+          <strong>Gems remaining</strong> — shared with Combat (same device / browser). Decrement when you cast.
+        </p>
+        <div class="sol-helm-gem-row">
+          <label class="sol-helm-gem"><span>Diamonds</span><input type="number" inputmode="numeric" min="0" max="99" data-gem="diamonds" data-default="9" value="9" aria-label="Diamonds remaining"></label>
+          <label class="sol-helm-gem"><span>Rubies</span><input type="number" inputmode="numeric" min="0" max="99" data-gem="rubies" data-default="13" value="13" aria-label="Rubies remaining"></label>
+          <label class="sol-helm-gem"><span>Fire opals</span><input type="number" inputmode="numeric" min="0" max="99" data-gem="fire-opals" data-default="16" value="16" aria-label="Fire opals remaining"></label>
+          <label class="sol-helm-gem"><span>Opals</span><input type="number" inputmode="numeric" min="0" max="99" data-gem="opals" data-default="23" value="23" aria-label="Opals remaining"></label>
+        </div>
+      </div>
+      <p class="ccs-action-body">
+        <strong>Risk:</strong> if you take <strong>fire</strong> damage from failing a <strong>spell save</strong> while wearing the helm, roll <strong>d20</strong>; on a <strong>1</strong> the remaining gems flash outward (each creature within 60 ft: DC 17 DEX save, radiant damage = number of gems left, half on success) and the helm is destroyed.
+      </p>
+    </div>
+  </section>
+
+  <section class="ccs-section" aria-labelledby="helm-spells-title">
+    <h3 id="helm-spells-title">2 · Gem spells <span style="font-weight:normal;font-size:.9rem">(action · consumes 1 gem · DC 18)</span></h3>
+    <p class="ccs-hint">
+      Cast as an action using the listed gem as the material component (the gem is destroyed).
+      These are <strong>item spells</strong> — save DC <strong>18</strong>, not Sol’s warlock DC 21.
+    </p>
+
+    <article class="sol-helm-spell-card" id="daylight">
+      <h4>Daylight <span class="sol-helm-gem-tag">Opal</span></h4>
+      <p class="sol-helm-spell-meta">
+        3rd-level evocation · Action · Range 60 ft · V S M (opal) · Duration 1 hour
+      </p>
+      <p>
+        A 60-foot-radius sphere of light spreads out from a point you choose within range.
+        The sphere is <strong>bright light</strong> and sheds <strong>dim light</strong> for an additional 60 feet.
+      </p>
+      <p>
+        If you chose a point on an object you are holding or one that isn’t worn or carried, the light shines from the object and moves with it.
+        Completely covering the object with something opaque blocks the light.
+      </p>
+      <p>
+        If any of this spell’s area overlaps with an area of darkness created by a spell of 3rd level or lower, the spell that created the darkness is dispelled.
+      </p>
+    </article>
+
+    <article class="sol-helm-spell-card" id="fireball">
+      <h4>Fireball <span class="sol-helm-gem-tag">Fire opal</span></h4>
+      <p class="sol-helm-spell-meta">
+        3rd-level evocation · Action · Range 150 ft · V S M (fire opal) · Instantaneous · <strong>DEX save DC 18</strong>
+      </p>
+      <p>
+        A bright streak flashes from you to a point you choose within range and then blossoms with a low roar into an explosion of flame.
+        Each creature in a <strong>20-foot-radius sphere</strong> centered on that point must make a <strong>Dexterity saving throw</strong>.
+      </p>
+      <p>
+        <strong>Fail:</strong> <strong>8d6 fire</strong> damage.<br>
+        <strong>Success:</strong> half damage.
+      </p>
+      <p>
+        The fire spreads around corners. It ignites flammable objects in the area that aren’t being worn or carried.
+      </p>
+      <p class="ccs-note" style="margin-top:8px">
+        At higher levels the spell deals more dice — the helm casts it as listed (base fireball).
+      </p>
+    </article>
+
+    <article class="sol-helm-spell-card" id="wall-of-fire">
+      <h4>Wall of Fire <span class="sol-helm-gem-tag">Ruby</span></h4>
+      <p class="sol-helm-spell-meta">
+        4th-level evocation · Action · Range 120 ft · V S M (ruby) · Concentration, up to 1 minute · <strong>DEX save DC 18</strong>
+      </p>
+      <p>
+        You create a wall of fire on a solid surface within range. You can make the wall up to <strong>60 feet long, 20 feet high, and 1 foot thick</strong>,
+        or a ringed wall up to <strong>20 feet in diameter, 20 feet high, and 1 foot thick</strong>. The wall is opaque and lasts for the duration.
+      </p>
+      <p>
+        When the wall appears, each creature within its area must make a <strong>Dexterity saving throw</strong>.
+        <strong>Fail:</strong> <strong>5d8 fire</strong>. <strong>Success:</strong> half.
+      </p>
+      <p>
+        One side of the wall (chosen when you cast) deals <strong>5d8 fire</strong> to each creature that ends its turn within <strong>10 feet</strong> of that side or inside the wall.
+        A creature takes the same damage when it enters the wall for the first time on a turn or ends its turn there.
+        The other side of the wall deals no damage.
+      </p>
+      <p class="ccs-note" style="margin-top:8px">
+        Concentration — track on Combat or Magic concentration line if needed.
+      </p>
+    </article>
+
+    <article class="sol-helm-spell-card" id="prismatic-spray">
+      <h4>Prismatic Spray <span class="sol-helm-gem-tag">Diamond</span></h4>
+      <p class="sol-helm-spell-meta">
+        7th-level evocation · Action · Self (60-ft cone) · V S · Instantaneous · <strong>DEX save DC 18</strong>
+      </p>
+      <p>
+        Eight multicolored rays of light flash from your hand. Each ray is a different color and has a different power and purpose.
+        Each creature in a <strong>60-foot cone</strong> must make a <strong>Dexterity saving throw</strong>. For each target, roll a <strong>d8</strong> to determine which color ray affects it.
+      </p>
+      <ul>
+        <li><strong>1 · Red:</strong> 10d6 fire (half on success).</li>
+        <li><strong>2 · Orange:</strong> 10d6 acid (half on success).</li>
+        <li><strong>3 · Yellow:</strong> 10d6 lightning (half on success).</li>
+        <li><strong>4 · Green:</strong> 10d6 poison (half on success).</li>
+        <li><strong>5 · Blue:</strong> 10d6 cold (half on success).</li>
+        <li><strong>6 · Indigo:</strong> Restrained. Then CON save end of each turn: fail 3× → petrified; succeed → ends. On a 1 on the d20 for that save, also becomes petrified (per spell). <em>Table: restrained on fail; CON saves to end.</em></li>
+        <li><strong>7 · Violet:</strong> Blinded. Then WIS save start of next turn: fail → transported to another plane (banished-style); success → blindness ends.</li>
+        <li><strong>8 · Special:</strong> Target is struck by two rays. Roll twice more, rerolling any 8.</li>
+      </ul>
+      <p class="ccs-note" style="margin-top:8px">
+        Full indigo/violet edge cases: DMG / PHB spell text if a corner case comes up mid-table.
+      </p>
+    </article>
+  </section>
+
+  <p class="note" style="margin-top:18px">
+    <a href="malcolm-sol-ccs.html">← Combat</a>
+    ·
+    <a href="malcolm-sol-magic.html">Magic</a>
+    ·
+    <a href="../deep-memory/witness.html">Witness ledger</a>
+  </p>
+</div>
+</main>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  /* Same keys as Combat page so gems/flame stay in sync */
+  var character = "malcolm-sol";
+  var btn = document.querySelector("[data-sol-helm-flame]");
+  if (btn) {
+    var key = "sol-helm-flame:" + character;
+    function apply(on) {
+      btn.textContent = on ? "Flame On" : "Flame Off";
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+      btn.classList.toggle("is-up", on);
+      btn.classList.toggle("is-down", !on);
+    }
+    var on = false;
+    try { on = localStorage.getItem(key) === "1"; } catch (e) { on = false; }
+    apply(on);
+    btn.addEventListener("click", function () {
+      on = btn.getAttribute("aria-pressed") !== "true";
+      apply(on);
+      try { localStorage.setItem(key, on ? "1" : "0"); } catch (e) { /* private */ }
+    });
+  }
+  var gemsRoot = document.querySelector("[data-sol-helm-gems]");
+  if (gemsRoot) {
+    gemsRoot.querySelectorAll("input[data-gem]").forEach(function (input) {
+      var gem = input.getAttribute("data-gem") || "gem";
+      var gkey = "sol-helm-gem:" + character + ":" + gem;
+      var def = input.getAttribute("data-default");
+      try {
+        var raw = localStorage.getItem(gkey);
+        if (raw !== null && raw !== "") input.value = raw;
+        else if (def !== null && def !== "") input.value = def;
+      } catch (e) {
+        if (def !== null && def !== "") input.value = def;
+      }
+      function saveGem() {
+        var v = input.value;
+        try {
+          if (v === "" || v === null) localStorage.removeItem(gkey);
+          else localStorage.setItem(gkey, String(Math.max(0, parseInt(v, 10) || 0)));
+        } catch (e) { /* private */ }
+      }
+      input.addEventListener("change", saveGem);
+      input.addEventListener("blur", saveGem);
+    });
+  }
+})();
+</script>
+</body>
+</html>

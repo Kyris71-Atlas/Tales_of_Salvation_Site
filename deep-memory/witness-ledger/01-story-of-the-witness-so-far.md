@@ -1,0 +1,17 @@
+# Story of the Witness — so far
+
+**Leaf:** 01  
+**Status:** On the virtual tome (`deep-memory/witness-open.html` · page 1)  
+**Source:** Moved from `AI talk/Sols Story.md`
+
+---
+
+No one at the table ever truly knew where Sol came from. He appeared carrying more questions than answers, a warlock whose power came from an entity known only as the Deep Memory. Unlike other patrons that demanded worship or promised ambition, the Deep Memory whispered in fragments—echoes of forgotten truths, warnings without explanations, and reminders of events that seemed older than history itself. Sol himself often understood little more than those around him, and that uncertainty became part of his identity. He walked the world not as someone seeking power, but as someone quietly searching for the meaning behind the voice that had chosen him.
+
+As the journey descended into the depths of Undermountain and eventually the shadowed halls of Vanrakdoom, the relationship between Sol and the Deep Memory began to reveal its true nature. The whispers were never commands to conquer, but invitations to perceive differently: count choices instead of enemies, respect forgotten places, do not mistake fear for victory. While companions saw monsters and battles, Sol increasingly saw echoes of forgotten histories and wounds left upon the world. His patron seemed less interested in victory than in remembrance, as though preserving meaning was more important than winning any single fight.
+
+Within the Temple of Shar and the corrupted halls of Vanrakdoom, Sol witnessed both terrible darkness and extraordinary redemption. Vampires long trapped by curses met final peace beneath the light of a Sun Blade. Cultists unknowingly sustained ancient memories that had twisted into nightmares. A bronze dragon thought forever lost to shadow was restored to himself, proving that corruption need not be the end of every story. Throughout these trials Sol remained at the edge of events—rarely the loudest hero, but often the one whose perspective allowed the party to understand what they were truly facing.
+
+Yet for all that was revealed, Sol himself remained a mystery. The Deep Memory hinted at a relationship that predated the pact itself, whispering, "I remember you... You do not remember me." Those words transformed the patron from a source of magical power into an unresolved question at the heart of Sol's existence. Whether the Deep Memory was preserving Sol, guiding him toward a forgotten destiny, or recovering something that had once been lost between them remained unanswered. Every revelation seemed only to deepen the mystery rather than resolve it.
+
+The last chapters currently known leave Sol standing not at the end of his journey, but at the edge of a greater one. The redemption of Glister, the unraveling of Vanrakdoom's ancient tragedy, and the whispers of the Deep Memory have shown that memory itself can shape the fate of worlds. Sol has become more than a warlock bound to an unknowable patron; he has become a traveler between forgotten histories and living choices. His greatest battles may still lie ahead—not against monsters alone, but against the forgotten truths hidden within his own past. Until those memories are finally reclaimed, his story remains unfinished, carried forward one whisper at a time.

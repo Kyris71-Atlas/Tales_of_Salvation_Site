@@ -6,6 +6,10 @@ dm-private/
 Thumbs.db
 desktop.ini
 
+# Session Chronicle Records — internal only, never publish
+deep-memory/Deeper Memory witness notes/
+DiA on the Rise/
+
 # Python
 __pycache__/
 *.py[cod]

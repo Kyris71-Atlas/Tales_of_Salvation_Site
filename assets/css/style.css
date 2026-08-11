@@ -635,7 +635,7 @@ a.campaign-banner-door:focus {
  * gold lettering on deep purple — readable on dark gray panels.
  * Exclude full-card anchors (session/roster/companion/chamber doors keep their own look).
  */
-.page-deep-memory main a:not(.session-index-card):not(.roster-card):not(.companion-card):not(.deep-memory-card):not(.chamber-door):not(.campaign-banner-door) {
+.page-deep-memory main a:not(.session-index-card):not(.roster-card):not(.companion-card):not(.deep-memory-card):not(.chamber-door):not(.campaign-banner-door):not(.witness-block-cta):not(.witness-tome-cover-hit) {
   color: var(--gold);
   background: linear-gradient(180deg, #4a2d6b 0%, #2a183f 100%);
   border: 1px solid #7a5a9e;
@@ -650,19 +650,19 @@ a.campaign-banner-door:focus {
   transition: background .15s ease, border-color .15s ease, color .15s ease, box-shadow .15s ease;
 }
 
-.page-deep-memory main a:not(.session-index-card):not(.roster-card):not(.companion-card):not(.deep-memory-card):not(.chamber-door):not(.campaign-banner-door):visited {
+.page-deep-memory main a:not(.session-index-card):not(.roster-card):not(.companion-card):not(.deep-memory-card):not(.chamber-door):not(.campaign-banner-door):not(.witness-block-cta):not(.witness-tome-cover-hit):visited {
   color: var(--gold);
 }
 
-.page-deep-memory main a:not(.session-index-card):not(.roster-card):not(.companion-card):not(.deep-memory-card):not(.chamber-door):not(.campaign-banner-door):hover,
-.page-deep-memory main a:not(.session-index-card):not(.roster-card):not(.companion-card):not(.deep-memory-card):not(.chamber-door):not(.campaign-banner-door):focus-visible {
+.page-deep-memory main a:not(.session-index-card):not(.roster-card):not(.companion-card):not(.deep-memory-card):not(.chamber-door):not(.campaign-banner-door):not(.witness-block-cta):not(.witness-tome-cover-hit):hover,
+.page-deep-memory main a:not(.session-index-card):not(.roster-card):not(.companion-card):not(.deep-memory-card):not(.chamber-door):not(.campaign-banner-door):not(.witness-block-cta):not(.witness-tome-cover-hit):focus-visible {
   color: #f5e6b8;
   background: linear-gradient(180deg, #5c3a82 0%, #3a2460 100%);
   border-color: var(--gold);
   box-shadow: 0 0 0 1px rgba(216, 179, 95, .4);
 }
 
-.page-deep-memory main a:not(.session-index-card):not(.roster-card):not(.companion-card):not(.deep-memory-card):not(.chamber-door):not(.campaign-banner-door) strong {
+.page-deep-memory main a:not(.session-index-card):not(.roster-card):not(.companion-card):not(.deep-memory-card):not(.chamber-door):not(.campaign-banner-door):not(.witness-block-cta):not(.witness-tome-cover-hit) strong {
   color: inherit;
   font-weight: bold;
 }
@@ -733,6 +733,446 @@ a.campaign-banner-door:focus {
   flex-wrap: wrap;
   gap: 8px 12px;
   margin: 14px 0 0;
+}
+
+.witness-block-cta {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--gold);
+  background: linear-gradient(180deg, #4a2d6b 0%, #2a183f 100%);
+  color: var(--gold) !important;
+  text-decoration: none !important;
+  font-size: .95rem;
+  letter-spacing: .02em;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .35);
+}
+
+.witness-block-cta:hover,
+.witness-block-cta:focus-visible {
+  color: #f5e6b8 !important;
+  border-color: #f5e6b8;
+  box-shadow: 0 0 0 1px rgba(216, 179, 95, .45);
+}
+
+/* —— Witness ledger (hybrid: illustrated cover + open frame) ——
+   Cover door on witness.html; open book room on witness-open.html. */
+.witness-tome {
+  --tome-parchment: #f3e6c8;
+  --tome-parchment-deep: #e8d4a8;
+  --tome-ink: #2a2118;
+  --tome-ink-soft: #4a3c2a;
+  --tome-gold: #8a6a28;
+  margin: 18px 0 28px;
+}
+
+/* Open-book page: more room for the frame */
+.page-witness-open .layout-witness-open {
+  max-width: none;
+}
+.page-witness-open .layout-witness-open main {
+  max-width: min(1280px, 100%);
+}
+.witness-open-bar {
+  margin: 0 0 16px;
+  text-align: center;
+}
+.witness-open-bar-title {
+  margin: 0;
+  color: var(--gold);
+  font-size: 1.35rem;
+  letter-spacing: .05em;
+}
+.witness-open-bar-sub {
+  margin: 4px 0 0;
+  color: #c8bca8;
+  font-size: .95rem;
+  font-style: italic;
+}
+.witness-open-bar-links {
+  margin: 10px 0 0;
+}
+.page-witness-open .witness-tome {
+  margin-top: 8px;
+}
+.page-witness-open .witness-tome-open {
+  max-width: min(1100px, 100%);
+}
+/* Open book art 1448×1086 — align HTML leaves to parchment faces */
+.page-witness-open .witness-tome-spread {
+  left: 11%;
+  right: 11%;
+  top: 15%;
+  bottom: 14%;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5%;
+  min-height: 0;
+}
+.page-witness-open .witness-tome-page {
+  max-height: 100%;
+  background:
+    linear-gradient(180deg, rgba(243, 230, 200, .88) 0%, rgba(232, 212, 168, .9) 100%);
+  box-shadow: none;
+  border-radius: 2px;
+}
+.page-witness-open .witness-tome-page-left {
+  border-right: none;
+}
+.page-witness-open .witness-tome-nav {
+  max-width: min(1100px, 100%);
+  display: flex;
+}
+.page-witness-open .witness-tome-close {
+  display: block;
+  max-width: min(1100px, 100%);
+}
+.page-witness-open .witness-tome-close a {
+  color: #c8bca8 !important;
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid rgba(122, 90, 158, .5) !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+.page-witness-open .witness-tome-close a:hover {
+  color: var(--gold) !important;
+  border-bottom-color: var(--gold) !important;
+}
+
+/* Closed — art cover */
+.witness-tome-cover {
+  max-width: min(520px, 100%);
+  margin: 0 auto;
+  text-align: center;
+}
+
+a.witness-tome-cover-hit,
+button.witness-tome-cover-hit {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 2px solid #6a4a8a;
+  border-radius: 12px;
+  background: #05060a;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none !important;
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, .55),
+    inset 0 0 0 1px rgba(216, 179, 95, .2);
+  transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease;
+}
+
+a.witness-tome-cover-hit:hover,
+a.witness-tome-cover-hit:focus-visible,
+button.witness-tome-cover-hit:hover,
+button.witness-tome-cover-hit:focus-visible {
+  border-color: var(--gold);
+  box-shadow:
+    0 22px 56px rgba(0, 0, 0, .6),
+    0 0 0 1px rgba(216, 179, 95, .45);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.witness-tome-cover-hit img {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.witness-tome-open-label {
+  display: block;
+  padding: 12px 16px 14px;
+  background: linear-gradient(180deg, #1c1628, #0c0a12);
+  color: var(--gold);
+  font-size: 1.02rem;
+  letter-spacing: .04em;
+  border-top: 1px solid rgba(122, 90, 158, .45);
+}
+
+a.witness-tome-cover-hit:hover .witness-tome-open-label,
+a.witness-tome-cover-hit:focus-visible .witness-tome-open-label,
+button.witness-tome-cover-hit:hover .witness-tome-open-label,
+button.witness-tome-cover-hit:focus-visible .witness-tome-open-label {
+  color: #f5e6b8;
+}
+
+/* Open — frame art + parchment panels (always shown on witness-open.html) */
+.witness-tome-open {
+  display: none;
+  max-width: min(1200px, 100%);
+  margin: 0 auto;
+  animation: witness-tome-open .4s ease;
+}
+
+.witness-tome.is-open .witness-tome-cover {
+  display: none;
+}
+
+.witness-tome.is-open .witness-tome-open {
+  display: block;
+}
+
+@keyframes witness-tome-open {
+  from {
+    opacity: 0;
+    transform: scale(.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.witness-tome-frame-wrap {
+  position: relative;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 22px 55px rgba(0, 0, 0, .55);
+  background: #05060a;
+}
+
+.witness-tome-frame-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Safe zone over open-book parchment (leaf_frame_full 1448×1086) */
+.witness-tome-spread {
+  position: absolute;
+  left: 11%;
+  right: 11%;
+  top: 15%;
+  bottom: 14%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5%;
+  min-height: 0;
+  z-index: 1;
+}
+
+.witness-tome-page {
+  position: relative;
+  min-height: 0;
+  max-height: 100%;
+  overflow: auto;
+  padding: 0.9rem 1.05rem 1.05rem;
+  border-radius: 2px;
+  background:
+    linear-gradient(180deg, rgba(243, 230, 200, .88) 0%, rgba(232, 212, 168, .9) 100%);
+  color: var(--tome-ink);
+  box-shadow: none;
+}
+
+.witness-tome-page-left {
+  border-right: none;
+}
+
+.witness-tome-page h3 {
+  margin: 0 0 .55rem;
+  color: var(--tome-gold);
+  font-size: 1.08rem;
+  letter-spacing: .03em;
+}
+
+.witness-tome-page h4 {
+  margin: 0.9rem 0 .35rem;
+  color: #5a3d0c;
+  font-size: .88rem;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.witness-tome-page p {
+  margin: 0 0 .75rem;
+  color: var(--tome-ink);
+  font-size: .92rem;
+  line-height: 1.5;
+}
+
+.witness-tome-page p:last-child {
+  margin-bottom: 0;
+}
+
+.witness-tome-page .tome-kicker {
+  margin: 0 0 .55rem;
+  color: var(--tome-ink-soft);
+  font-size: .78rem;
+  font-style: italic;
+}
+
+.witness-tome-page .tome-link-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.witness-tome-page .tome-link-list li {
+  margin: 0 0 .4rem;
+}
+
+.witness-tome-page a {
+  color: #5a3d0c !important;
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid rgba(138, 106, 40, .45) !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+}
+
+.witness-tome-page a:hover,
+.witness-tome-page a:focus-visible {
+  color: #3a2808 !important;
+  border-bottom-color: #3a2808 !important;
+}
+
+.witness-tome-nav {
+  display: none;
+  max-width: min(1200px, 100%);
+  margin: 14px auto 0;
+  padding: 0 4px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.witness-tome.is-open .witness-tome-nav {
+  display: flex;
+}
+
+.witness-tome-nav button,
+.witness-tome-nav .tome-page-mark {
+  font-size: .9rem;
+}
+
+.witness-tome-nav button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #8a6a35;
+  background: linear-gradient(180deg, #2a183f, #14101c);
+  color: var(--gold);
+  cursor: pointer;
+}
+
+.witness-tome-nav button:disabled {
+  opacity: .35;
+  cursor: default;
+}
+
+.witness-tome-nav button:not(:disabled):hover,
+.witness-tome-nav button:not(:disabled):focus-visible {
+  border-color: var(--gold);
+  color: #f5e6b8;
+  outline: none;
+}
+
+.tome-page-mark {
+  color: #c8bca8;
+  letter-spacing: .04em;
+}
+
+.witness-tome-close {
+  display: none;
+  margin: 12px auto 0;
+  max-width: min(1200px, 100%);
+  text-align: center;
+}
+
+.witness-tome.is-open .witness-tome-close {
+  display: block;
+}
+
+.witness-tome-close button {
+  padding: 6px 12px;
+  border: 1px solid #6a4a8a;
+  border-radius: 8px;
+  background: transparent;
+  color: #c8bca8;
+  cursor: pointer;
+  font-size: .85rem;
+}
+
+.witness-tome-close button:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+.witness-entry {
+  display: none;
+}
+
+.witness-entry.is-active {
+  display: block;
+  animation: witness-page-fade .35s ease;
+}
+
+@keyframes witness-page-fade {
+  from { opacity: 0; transform: translateX(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (max-width: 900px) {
+  .witness-tome-spread {
+    left: 9%;
+    right: 9%;
+    top: 14%;
+    bottom: 13%;
+    gap: 2%;
+  }
+
+  .witness-tome-page {
+    padding: 0.7rem 0.8rem 0.85rem;
+    font-size: .9rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .witness-tome-cover {
+    max-width: min(360px, 100%);
+  }
+
+  .witness-tome-spread {
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    grid-template-columns: 1fr;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .witness-tome-frame-img {
+    display: none;
+  }
+
+  .witness-tome-frame-wrap {
+    background:
+      linear-gradient(180deg, #1a1528, #0a0810);
+    border: 2px solid #6a4a8a;
+  }
+
+  .witness-tome-page {
+    max-height: 50vh;
+    background:
+      linear-gradient(180deg, var(--tome-parchment) 0%, var(--tome-parchment-deep) 100%);
+  }
+
+  .witness-tome-page-left {
+    max-height: none;
+  }
 }
 
 /* —— Chamber doors (campaign portals on hub) —— */
