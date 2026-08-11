@@ -977,6 +977,7 @@ button.witness-tome-cover-hit:focus-visible .witness-tome-open-label {
   height: 100%;
   max-height: 100%;
   overflow: auto;
+  overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
   padding: 0.7rem 0.8rem 0.75rem;
   border-radius: 2px;
@@ -984,26 +985,50 @@ button.witness-tome-cover-hit:focus-visible .witness-tome-open-label {
     linear-gradient(180deg, rgba(243, 230, 200, .88) 0%, rgba(232, 212, 168, .9) 100%);
   color: var(--tome-ink);
   box-shadow: none;
-  /* Quiet scrollbar — no bright white track */
+  /* Quiet scrollbar — parchment track (transparent often falls back to white on Edge/GH) */
+  color-scheme: only light;
   scrollbar-width: thin;
-  scrollbar-color: rgba(90, 61, 12, .4) transparent;
+  scrollbar-color: rgba(90, 61, 12, .5) rgba(232, 212, 168, .85);
 }
 
 .witness-tome-page::-webkit-scrollbar {
-  width: 7px;
+  width: 8px;
+  height: 8px;
+  background: rgba(232, 212, 168, .85);
+}
+
+.witness-tome-page::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 .witness-tome-page::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.witness-tome-page::-webkit-scrollbar-thumb {
-  background: rgba(90, 61, 12, .38);
+  background: rgba(232, 212, 168, .9);
   border-radius: 4px;
 }
 
+.witness-tome-page::-webkit-scrollbar-thumb {
+  background: rgba(90, 61, 12, .42);
+  border-radius: 4px;
+  border: 2px solid rgba(232, 212, 168, .9);
+  background-clip: padding-box;
+}
+
 .witness-tome-page::-webkit-scrollbar-thumb:hover {
-  background: rgba(90, 61, 12, .55);
+  background: rgba(90, 61, 12, .58);
+  border: 2px solid rgba(232, 212, 168, .9);
+  background-clip: padding-box;
+}
+
+.witness-tome-page::-webkit-scrollbar-corner {
+  background: rgba(232, 212, 168, .9);
+}
+
+/* Stronger selectors for GitHub Pages / Edge */
+.page-witness-open .witness-tome-page {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(90, 61, 12, .5) rgba(232, 212, 168, .85);
 }
 
 .witness-tome-page-left {
