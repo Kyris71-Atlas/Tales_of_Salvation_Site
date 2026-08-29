@@ -21,6 +21,8 @@ While Sol is an active character, this folder keeps growing. Each new leaf can b
 |---|---|---|
 | 01 | `01-story-of-the-witness-so-far.md` | `witness-open.html` · leaf I |
 | 02 | `Leaf_02 Session_06.md` | `witness-open.html` · leaf II *The Memory That Traveled* |
+| 03 | `Leaf_03_Session_07.md` | `witness-open.html` · leaf III *Stay Close* |
+| 04 | `Leaf_04_Session_08.md` | `witness-open.html` · leaf IV *Where the Light Fell* |
 
 ## SCR (do not publish)
 
