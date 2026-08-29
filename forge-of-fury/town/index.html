@@ -101,6 +101,7 @@
 .town-door-inn{left:16%;top:46%}
 .town-door-manor{left:19%;top:31%}
 .town-door-hall{left:79%;top:47%}
+.town-door-warehouse{left:31%;top:72%}
 
 /* Parked markers — same art, B&W, not clickable */
 .town-seal-parked{
@@ -123,7 +124,6 @@
   width:100%;
   height:auto;
 }
-.town-seal-warehouse{left:31%;top:72%}
 .town-seal-quarry{left:78%;top:14%}
 
 /*
@@ -263,6 +263,10 @@
   background:radial-gradient(circle at 30% 25%, #5a4820 0%, #2a200c 55%, #120e06 100%);
   border-color:#c09030;
 }
+.town-door-list a[href="warehouse-district.html"] .list-glyph{
+  background:radial-gradient(circle at 30% 25%, #3a4550 0%, #1a2228 55%, #0c1014 100%);
+  border-color:#7a90a0;
+}
 .town-door-list a[href="vellbrandt-manor.html"] .list-glyph{
   background:radial-gradient(circle at 30% 25%, #4a4030 0%, #221c14 55%, #0e0c08 100%);
   border-color:#b8943c;
@@ -360,6 +364,7 @@
   <a href="ironvein-smithy.html">Ironvein Smithy</a>
   <a href="the-shrine.html">The Shrine</a>
   <a href="pick-and-lantern.html">The Pick &amp; Lantern</a>
+  <a href="warehouse-district.html">Warehouse District</a>
   <span class="nav-closed">Vellbrandt Manor</span>
   <span class="nav-closed">Stone Hall</span>
 
@@ -412,6 +417,11 @@
       <img class="town-door-marker" src="../../assets/images/forge-of-fury/door_marker.png" alt="" width="96" height="128">
       <span class="visually-hidden">Enter The Pick and Lantern</span>
     </a>
+    <a class="town-door town-door-warehouse" href="warehouse-district.html" title="Enter Warehouse District">
+      <span class="town-door-label">Enter Warehouse District</span>
+      <img class="town-door-marker" src="../../assets/images/forge-of-fury/door_marker.png" alt="" width="96" height="128">
+      <span class="visually-hidden">Enter Warehouse District</span>
+    </a>
     <!-- Not built yet — grey markers -->
     <span class="town-seal-parked town-door-manor" role="img" aria-label="Vellbrandt Manor — not open yet">
       <img class="town-door-marker" src="../../assets/images/forge-of-fury/door_marker.png" alt="" width="96" height="128">
@@ -421,9 +431,6 @@
     </span>
 
     <!-- Parked — map places, not shop doors yet -->
-    <span class="town-seal-parked town-seal-warehouse" role="img" aria-label="Warehouse District — not open yet">
-      <img class="town-door-marker" src="../../assets/images/forge-of-fury/door_marker.png" alt="" width="96" height="128">
-    </span>
     <span class="town-seal-parked town-seal-quarry" role="img" aria-label="Greytooth Quarry — not open yet">
       <img class="town-door-marker" src="../../assets/images/forge-of-fury/door_marker.png" alt="" width="96" height="128">
     </span>
@@ -508,6 +515,23 @@
       </a>
     </li>
     <li>
+      <a href="warehouse-district.html">
+        <span class="list-glyph" aria-hidden="true">
+          <span class="town-glyph">
+            <!-- Crate / GW mark -->
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <path fill="#8a9aa8" d="M6 12 L16 7 L26 12 L26 22 L16 27 L6 22 Z"/>
+              <path fill="#6a7a88" d="M6 12 L16 17 L16 27 L6 22 Z"/>
+              <path fill="#a8b8c4" d="M16 17 L26 12 L26 22 L16 27 Z"/>
+              <path fill="none" stroke="#e8f0f8" stroke-width="1.4" d="M10 15 L16 18 L22 15"/>
+              <path fill="#d0e0ec" d="M14 14 H18 V16 H14 Z"/>
+            </svg>
+          </span>
+        </span>
+        <span class="list-copy"><strong>Warehouse District</strong><span>GrifterWare · merch · odds · Needle &amp; Mara</span></span>
+      </a>
+    </li>
+    <li>
       <div class="door-closed" aria-label="Vellbrandt Manor — not open yet">
         <span class="list-glyph" aria-hidden="true">
           <img class="town-glyph-seal" src="../../assets/images/forge-of-fury/Vellbrant_Manor_Seal.png" alt="" width="48" height="48">
@@ -533,8 +557,8 @@
   </ul>
 
   <p class="town-note">
-    <strong>Open now:</strong> The Shattered Rune · Ironvein Smithy · The Shrine · The Pick &amp; Lantern.
-    Grey markers (manor, Stone Hall, Warehouse, Quarry) are not open doors yet.
+    <strong>Open now:</strong> The Shattered Rune · Ironvein Smithy · The Shrine · The Pick &amp; Lantern · Warehouse District.
+    Grey markers (manor, Stone Hall, Quarry) are not open doors yet.
     Gold truth stays at the table / Fantasy Grounds.
   </p>
   <p class="town-note">

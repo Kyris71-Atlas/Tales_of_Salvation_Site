@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Warehouse District · GrifterWare — Tales of Salvation</title>
+<link rel="stylesheet" href="../../assets/css/style.css">
+<style>
+.town-banner{
+  margin:0 0 14px;
+  padding:10px 14px;
+  border:1px solid #6e5930;
+  border-radius:10px;
+  background:rgba(216,179,95,.08);
+  font-size:.95rem;
+  color:#3a3020;
+}
+.book-panel h2{color:#2a2218;margin-bottom:6px}
+.book-panel .section-label,
+.loc-section h3,
+.shop-shelf h3{
+  color:#5a3d0c;
+  text-shadow:0 1px 0 rgba(255,252,240,.4);
+}
+
+.shop-arrival{margin:0 0 18px}
+.shop-arrival-visual{
+  position:relative;
+  max-width:640px;
+  margin:0 auto;
+  border-radius:12px;
+  overflow:hidden;
+  border:2px solid rgba(110,89,48,.55);
+  box-shadow:0 10px 28px rgba(0,0,0,.28);
+  background:#121018;
+  line-height:0;
+}
+.shop-arrival-visual img{
+  display:block;
+  width:100%;
+  max-height:340px;
+  height:auto;
+  object-fit:cover;
+  object-position:center 45%;
+  margin:0 auto;
+  transform-origin:center center;
+  animation:gwSlowZoom 16s ease-in-out infinite alternate;
+}
+.gw-fx-haze{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 20% 70%,rgba(255,180,80,.12) 0%,transparent 45%),
+    radial-gradient(circle at 75% 30%,rgba(120,160,200,.14) 0%,transparent 40%);
+  animation:gwHaze 6s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes gwSlowZoom{0%{transform:scale(1)}100%{transform:scale(1.05)}}
+@keyframes gwHaze{0%,100%{opacity:.55}50%{opacity:.95}}
+
+.shop-welcome{
+  margin:0 0 18px;
+  padding:14px 16px;
+  border:1px solid rgba(180,150,90,.4);
+  border-radius:12px;
+  background:rgba(255,248,220,.06);
+}
+.shop-welcome h3{margin:0 0 8px;font-size:1.1rem;color:#5a3d0c}
+.shop-welcome p{margin:0 0 8px;color:#3a3020;line-height:1.5}
+.shop-welcome p:last-child{margin-bottom:0}
+
+.loc-section{
+  margin:16px 0 0;
+  padding:14px 16px;
+  border:1px solid rgba(180,150,90,.35);
+  border-radius:12px;
+  background:rgba(255,248,220,.03);
+}
+.loc-section h3{margin:0 0 8px;font-size:1.05rem}
+.loc-section p{margin:0;color:#3a3020;line-height:1.5}
+.loc-section ul{margin:8px 0 0;padding-left:1.2rem;color:#3a3020}
+
+.shop-shelf{
+  margin:18px 0 0;
+  padding:14px 16px;
+  border:1px solid rgba(180,150,90,.35);
+  border-radius:12px;
+  background:rgba(255,248,220,.03);
+}
+.shop-shelf h3{margin:0 0 6px;font-size:1.1rem}
+.shop-shelf .shelf-lead{
+  margin:0 0 12px;
+  color:#3a3020;
+  line-height:1.45;
+  font-size:.95rem;
+}
+
+.gw-faces{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:12px;
+  margin-top:10px;
+}
+.gw-face{
+  padding:12px;
+  border:1px solid rgba(110,89,48,.4);
+  border-radius:10px;
+  background:rgba(216,179,95,.06);
+}
+.gw-face img{
+  display:block;
+  width:100%;
+  max-height:220px;
+  object-fit:cover;
+  object-position:center top;
+  border-radius:8px;
+  margin:0 0 10px;
+  border:1px solid rgba(110,89,48,.35);
+}
+.gw-face-portrait{
+  display:flex;
+  justify-content:center;
+  margin:0 0 10px;
+}
+.gw-face-portrait img{
+  width:42%;
+  max-width:140px;
+  max-height:140px;
+  margin:0;
+  object-fit:cover;
+  object-position:center top;
+  border-radius:50%;
+  box-shadow:0 4px 14px rgba(0,0,0,.25);
+}
+.gw-face h4{
+  margin:0 0 4px;
+  color:#4a3210;
+  font-size:1rem;
+}
+.gw-face .role{
+  display:block;
+  margin:0 0 8px;
+  font-size:.85rem;
+  color:#6e5930;
+  font-style:italic;
+}
+.gw-face p{
+  margin:0;
+  font-size:.92rem;
+  color:#3a3020;
+  line-height:1.4;
+}
+
+.shop-figure{
+  margin:0 0 14px;
+  border-radius:10px;
+  overflow:hidden;
+  border:1px solid rgba(110,89,48,.45);
+  background:#121018;
+  line-height:0;
+}
+.shop-figure img{
+  display:block;
+  width:100%;
+  max-height:420px;
+  height:auto;
+  object-fit:contain;
+  background:#1a1814;
+}
+.shop-figure figcaption{
+  padding:8px 12px;
+  font-size:.88rem;
+  color:#3a3020;
+  background:rgba(216,179,95,.1);
+  line-height:1.35;
+  border-top:1px solid rgba(110,89,48,.3);
+}
+
+/* Hover enlarge in place — Tempest Styles & Catalog (cursor-follow origin via JS) */
+.shop-figure-zoom .shop-figure-zoom-frame{
+  overflow:hidden;
+  line-height:0;
+  cursor:zoom-in;
+  background:#1a1814;
+}
+.shop-figure-zoom .shop-figure-zoom-frame img{
+  transition:transform .25s ease-out;
+  transform-origin:50% 50%;
+  will-change:transform;
+}
+.shop-figure-zoom:hover .shop-figure-zoom-frame img,
+.shop-figure-zoom:focus-within .shop-figure-zoom-frame img,
+.shop-figure-zoom.is-zooming .shop-figure-zoom-frame img{
+  transform:scale(1.85);
+}
+
+.shop-stock{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+.shop-stock li{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:4px 12px;
+  padding:10px 10px;
+  border-bottom:1px solid rgba(110,89,48,.2);
+  color:#3a3020;
+}
+.shop-stock li:last-child{border-bottom:0}
+.shop-stock li:nth-child(even){background:rgba(216,179,95,.06)}
+.shop-stock .item-name{font-weight:bold;color:#4a3210}
+.shop-stock .item-price{
+  font-weight:bold;
+  color:#6e5930;
+  white-space:nowrap;
+}
+.shop-stock .item-note{
+  grid-column:1 / -1;
+  margin:0;
+  font-size:.9rem;
+  line-height:1.4;
+  color:#3a3020;
+  opacity:.92;
+}
+.shop-stock .item-status{
+  display:inline-block;
+  margin-left:6px;
+  padding:1px 7px;
+  border-radius:999px;
+  font-size:.75rem;
+  font-weight:bold;
+  letter-spacing:.02em;
+  background:rgba(110,89,48,.18);
+  color:#4a3210;
+}
+
+.gw-coming{
+  margin-top:12px;
+  padding:12px;
+  border:1px dashed rgba(180,60,40,.55);
+  border-radius:10px;
+  background:rgba(180,60,40,.06);
+}
+.gw-coming strong{color:#6a2a18}
+.gw-coming p{margin:6px 0 0;color:#3a3020;line-height:1.45;font-size:.95rem}
+
+.dock-tease{
+  margin:10px 0 0;
+  padding:8px 12px;
+  border-radius:8px;
+  border:1px dashed rgba(110,89,48,.45);
+  background:rgba(58,69,80,.08);
+  color:#3a3020;
+  font-size:.92rem;
+  line-height:1.4;
+}
+@media (max-width:640px){
+  .shop-arrival-visual img{max-height:220px}
+  .gw-faces{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  .shop-arrival-visual img,
+  .gw-fx-haze{animation:none}
+  .shop-figure-zoom .shop-figure-zoom-frame img,
+  .shop-figure-zoom:hover .shop-figure-zoom-frame img,
+  .shop-figure-zoom:focus-within .shop-figure-zoom-frame img{
+    transition:none;
+    transform:none;
+  }
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <h1 class="site-title">Tales of Salvation</h1>
+  <p class="site-subtitle">Town · Blasingdell · Warehouse District</p>
+</header>
+
+<div class="layout">
+<nav>
+  <div class="nav-section">Forge of Fury</div>
+  <a href="../../index.html">Home</a>
+  <a href="../index.html">Campaign Home</a>
+  <a href="index.html">Town · Blasingdell</a>
+  <a href="../index.html#company-character-sheets">Company Character Sheets</a>
+  <a href="../deep-memory.html">Deep Memory · Forge</a>
+
+  <div class="nav-section">Open doors</div>
+  <a href="shattered-rune.html">The Shattered Rune</a>
+  <a href="ironvein-smithy.html">Ironvein Smithy</a>
+  <a href="the-shrine.html">The Shrine</a>
+  <a href="pick-and-lantern.html">The Pick &amp; Lantern</a>
+  <a href="warehouse-district.html" aria-current="page">Warehouse District</a>
+  <a href="vellbrandt-manor.html">Vellbrandt Manor</a>
+  <a href="stone-hall.html">Stone Hall</a>
+</nav>
+
+<main>
+<div class="breadcrumbs">
+  <a href="../../index.html">Home</a> &gt;
+  <a href="../index.html">Forge of Fury</a> &gt;
+  <a href="index.html">Town · Blasingdell</a> &gt;
+  Warehouse District
+</div>
+
+<div class="book-panel">
+  <p class="town-banner">
+    <strong>Warehouse District · GrifterWare</strong> · Merch, odds, and “found” goods by the canal.
+    Between sessions — not Deep Memory.
+  </p>
+
+  <h2>Warehouse District</h2>
+
+  <section class="shop-arrival" aria-label="Arrival at the Warehouse District">
+    <div class="shop-arrival-visual">
+      <img
+        src="Warehouse%20District/Gritty%20Dockside%20Warehouse%20District.png"
+        alt="Crowded dockside warehouse street with stalls, crates, and canal boats"
+        width="640"
+        height="360"
+      >
+      <div class="gw-fx-haze" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <section class="shop-welcome" aria-labelledby="welcome-title">
+    <h3 id="welcome-title">Welcome to GrifterWare</h3>
+    <p>
+      Heat off the canal, chalk dust on crate lids, and someone yelling <strong>“GW!”</strong>
+      like it’s both a greeting and a receipt. Tempest Company already made an impression here —
+      shirts sold, scarves worn, tonics tasted, and one very public sword display that the stalls
+      have not forgotten.
+    </p>
+    <p>
+      Gold and final trades live at the table / Fantasy Grounds. This board is what the district
+      is pushing <em>this</em> downtime.
+    </p>
+    <p class="dock-tease">
+      Down by the waterline, the <strong>Dock Boys</strong> are watching — lower edge of the map,
+      male tokens on the boards, not in the deal… yet.
+    </p>
+  </section>
+
+  <figure class="shop-figure" aria-label="Inside a GrifterWare stall">
+    <img
+      src="Warehouse%20District/Warehose%20Disrict.png"
+      alt="Inside a GrifterWare stall — merchant behind a crate counter"
+      width="720"
+      height="400"
+    >
+    <figcaption>Step off the street. The stall smells like chalk, cheap dye, and opportunity.</figcaption>
+  </figure>
+
+  <!-- Faces -->
+  <section class="shop-shelf" id="faces" aria-labelledby="faces-title">
+    <h3 id="faces-title">1 · Faces of the District</h3>
+    <p class="shelf-lead">
+      Names Tempest already knows from the floor.
+    </p>
+    <div class="gw-faces">
+      <article class="gw-face">
+        <img
+          src="Warehouse%20District/Silver%20Raven.png"
+          alt="Needle in front of the Warehouse District women after the Silver Raven trade"
+          width="400"
+          height="400"
+        >
+        <div class="gw-face-portrait">
+          <img
+            src="Warehouse%20District/Needle.jpg"
+            alt="Portrait of Kell Needle Voss"
+            width="140"
+            height="140"
+          >
+        </div>
+        <h4>Kell “Needle” Voss</h4>
+        <span class="role">Sharp trader · deal closer</span>
+        <p>
+          Talks fast, cuts cleaner.
+          Learn all about the cost of Friendship with Needle.
+        </p>
+      </article>
+      <article class="gw-face">
+        <img
+          src="Warehouse%20District/Mara%20_Quickcoin_%20Vale.png"
+          alt="Mara Quickcoin Vale with coin scales and ledger"
+          width="400"
+          height="400"
+        >
+        <h4>Mara “Quickcoin” Vale</h4>
+        <span class="role">Weights · ledgers · interesting jewelry</span>
+        <p>
+          Thrilled she had the chance to meet Tempest Company <em>First Hand</em>.
+          Now she’s chalking a new board: Dragon Slayer merchandise, coming soon.
+        </p>
+      </article>
+      <article class="gw-face">
+        <img
+          src="Warehouse%20District/The%20NPC%20running%20the%20Deadpool.png"
+          alt="Dex Dead Heat Marr — character concept"
+          width="400"
+          height="400"
+        >
+        <img
+          src="Warehouse%20District/DeadPool.png"
+          alt="Dex Dead Heat Marr at a GrifterWare betting stall"
+          width="400"
+          height="400"
+        >
+        <h4>Dex “Dead Heat” Marr</h4>
+        <span class="role">Odds booth · bets taken, results debated</span>
+        <p>
+          Mask, mouth, and a book that never quite balances. If there’s a wager on the
+          district floor, Dead Heat is probably holding the chalk.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Tempest Styles -->
+  <section class="shop-shelf" id="tempest-styles" aria-labelledby="tempest-title">
+    <h3 id="tempest-title">2 · Tempest Styles</h3>
+    <p class="shelf-lead">
+      Tempest bought a T-shirt, a scarf, and a tonic off the rack — not the first of each,
+      and not the last. The shelf was <strong>restocked during the purchase</strong>.
+      New and <em>Approved</em>.
+    </p>
+    <figure class="shop-figure shop-figure-zoom" tabindex="0" title="Hover and move to inspect">
+      <div class="shop-figure-zoom-frame">
+        <img
+          src="Warehouse%20District/GrifterWare%20Tempest%20Styles.png"
+          alt="GrifterWare Tempest Styles display: Lard shirt, Qiran scarf, Farmer Benn Recovery Tonic"
+          width="720"
+          height="480"
+        >
+      </div>
+      <figcaption>Same crate. Fresh stack. New stamp. Totally Approved. · Hover and move to inspect</figcaption>
+    </figure>
+    <ul class="shop-stock">
+      <li>
+        <span class="item-name">“Lard Lifts the Mountain” shirt <span class="item-status">Approved</span></span>
+        <span class="item-price">ask stall</span>
+        <p class="item-note">Lard bought one. The stall put three more up before he’d finished flexing.</p>
+      </li>
+      <li>
+        <span class="item-name">Qiran-themed scarf <span class="item-status">Approved</span></span>
+        <span class="item-price">ask stall</span>
+        <p class="item-note">Benn wore his. The rack never went empty.</p>
+      </li>
+      <li>
+        <span class="item-name">Farmer Benn Recovery Tonic <span class="item-status">Approved</span></span>
+        <span class="item-price">ask stall</span>
+        <p class="item-note">Benn bought a bottle. Another bottle appeared. The label still promises recovery; the shelf promises inventory.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Odds Booth -->
+  <section class="shop-shelf" id="odds-booth" aria-labelledby="odds-title">
+    <h3 id="odds-title">3 · The Odds Booth</h3>
+    <p class="shelf-lead">
+      Dex “Dead Heat” Marr takes the action. Chalk lines change with the crowd — place your coin, argue the terms.
+    </p>
+    <ul class="shop-stock">
+      <li>
+        <span class="item-name">Nightscale still breathing by Days End?</span>
+        <span class="item-price">long odds</span>
+        <p class="item-note">Dead Heat’s favorite line. Pays loud if the mountain stays hungry.</p>
+      </li>
+      <li>
+        <span class="item-name">How many times does Lard flex before sundown?</span>
+        <span class="item-price">over / under</span>
+        <p class="item-note">The shirt alone moved the line. Reprints don’t count as flexes. Probably.</p>
+      </li>
+      <li>
+        <span class="item-name">“Curse that Scarf” — how many have been sold?</span>
+        <span class="item-price">guess the jar</span>
+        <p class="item-note">
+          Closest number without going over. The Qiran scarves are the top seller on the wall —
+          everyone sees them, nobody agrees on the count. Dead Heat keeps the tally under the crate.
+        </p>
+      </li>
+      <li>
+        <span class="item-name">Open book</span>
+        <span class="item-price">name your stakes</span>
+        <p class="item-note">Anything else the chalk can hold. Dead Heat keeps the slate; the district keeps the opinions.</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Mara's Counter + Coming Soon -->
+  <section class="shop-shelf" id="maras-counter" aria-labelledby="mara-title">
+    <h3 id="mara-title">4 · Mara’s Counter</h3>
+    <p class="shelf-lead">
+      Jewelry, ledgers, and whatever just became fashionable because an adventurer wouldn’t shut up about it.
+    </p>
+    <figure class="shop-figure">
+      <img
+        src="Warehouse%20District/Coming%20Soon%20Dragon%20Slayer.png"
+        alt="Mara Quickcoin Vale beside a Coming Soon Dragon Slayer merchandise chalkboard"
+        width="720"
+        height="480"
+      >
+      <figcaption>After Lard showed the real Dragon Slayer on the floor, Mara’s chalk moved fast.</figcaption>
+    </figure>
+    <div class="gw-coming">
+      <strong>Coming Soon — Dragon Slayer merch</strong>
+      <p>
+        Knockoff steel, souvenir tags, and rack prices chalked for tourists.
+        Not the blade Tempest carries — the <em>idea</em> of the blade, boxed for impulse buys.
+        Ask Mara (or the DM) when the first crate lands.
+      </p>
+    </div>
+  </section>
+
+  <!-- Catalog -->
+  <section class="shop-shelf" id="catalog" aria-labelledby="catalog-title">
+    <h3 id="catalog-title">5 · GrifterWare Catalog</h3>
+    <p class="shelf-lead">
+      Wider junk wall — shirts, scarves, dubious tonics, and crate-specials. Prices flex with charm,
+      bulk, and whether Needle is watching.
+    </p>
+    <figure class="shop-figure shop-figure-zoom" tabindex="0" title="Hover and move to inspect">
+      <div class="shop-figure-zoom-frame">
+        <img
+          src="Warehouse%20District/GrifterWare%20Catalog%20.png"
+          alt="GrifterWare catalog wall packed with Tempest-themed merchandise"
+          width="720"
+          height="480"
+        >
+      </div>
+      <figcaption>If it fits on a crate and fits on a torso, it’s probably here. · Hover and move to inspect</figcaption>
+    </figure>
+    <ul class="shop-stock">
+      <li>
+        <span class="item-name">District shirts &amp; scarves</span>
+        <span class="item-price">ask stall</span>
+        <p class="item-note">Tempest faces optional. Taste optional.</p>
+      </li>
+      <li>
+        <span class="item-name">Recovery tonics &amp; “cures”</span>
+        <span class="item-price">ask stall</span>
+        <p class="item-note">Sister Maerith’s shelf is safer. This shelf is louder.</p>
+      </li>
+      <li>
+        <span class="item-name">Crate specials</span>
+        <span class="item-price">varies</span>
+        <p class="item-note">Labeled vaguely. Sold confidently. Identify at your own risk — or walk to Gimble.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="loc-section" aria-labelledby="special-title">
+    <h3 id="special-title">Special requests</h3>
+    <ul>
+      <li>Trades and “found” goods</li>
+      <li>Rush reprints of Tempest Styles</li>
+      <li>Odds and side bets (Dead Heat)</li>
+      <li>Whatever Mara’s ledger can justify before sundown</li>
+      <li>Whatever Needle’s people can “find” before the Dock Boys notice</li>
+    </ul>
+    <p style="margin-top:10px">
+      Deposit, wait time, and whether Needle’s people like you — settled at the table.
+      The Dock Boys are still just watching from the waterline.
+    </p>
+  </section>
+
+  <p class="note" style="margin-top:18px">
+    <a href="index.html">← Return to Town</a>
+    ·
+    <a href="../index.html">Campaign Home</a>
+  </p>
+</div>
+</main>
+</div>
+<script>
+(function () {
+  "use strict";
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    return;
+  }
+  document.querySelectorAll(".shop-figure-zoom").forEach(function (figure) {
+    var frame = figure.querySelector(".shop-figure-zoom-frame");
+    var img = frame && frame.querySelector("img");
+    if (!frame || !img) return;
+
+    function setOrigin(clientX, clientY) {
+      var rect = frame.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+      var x = ((clientX - rect.left) / rect.width) * 100;
+      var y = ((clientY - rect.top) / rect.height) * 100;
+      if (x < 0) x = 0;
+      if (x > 100) x = 100;
+      if (y < 0) y = 0;
+      if (y > 100) y = 100;
+      img.style.transformOrigin = x.toFixed(2) + "% " + y.toFixed(2) + "%";
+    }
+
+    frame.addEventListener("mouseenter", function (ev) {
+      figure.classList.add("is-zooming");
+      setOrigin(ev.clientX, ev.clientY);
+    });
+    frame.addEventListener("mousemove", function (ev) {
+      setOrigin(ev.clientX, ev.clientY);
+    });
+    frame.addEventListener("mouseleave", function () {
+      figure.classList.remove("is-zooming");
+      img.style.transformOrigin = "50% 50%";
+    });
+  });
+})();
+</script>
+</body>
+</html>

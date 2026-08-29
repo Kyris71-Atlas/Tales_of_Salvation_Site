@@ -200,6 +200,23 @@
 .shop-special-orders p{margin:0 0 8px}
 .shop-special-orders p:last-child{margin-bottom:0}
 .shop-special-orders ul{margin:8px 0 0;padding-left:1.2rem}
+.shop-be-advised{
+  margin-top:14px;
+  padding:12px 14px;
+  border:1px solid #6e5930;
+  border-radius:8px;
+  background:rgba(74,50,16,.06);
+}
+.shop-be-advised strong{
+  display:block;
+  margin-bottom:8px;
+  color:#4a3210;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  font-size:.92rem;
+}
+.shop-be-advised p{margin:0 0 8px;font-size:.95rem;line-height:1.45}
+.shop-be-advised p:last-child{margin-bottom:0}
 
 @media (max-width:640px){
   .shop-arrival-visual img{max-height:220px}
@@ -232,6 +249,7 @@
   <a href="ironvein-smithy.html">Ironvein Smithy</a>
   <a href="the-shrine.html">The Shrine</a>
   <a href="pick-and-lantern.html">The Pick &amp; Lantern</a>
+  <a href="warehouse-district.html">Warehouse District</a>
   <a href="vellbrandt-manor.html">Vellbrandt Manor</a>
   <a href="stone-hall.html">Stone Hall</a>
 </nav>
@@ -282,22 +300,19 @@
   <section class="shop-shelf" id="everyday-arcana" aria-labelledby="everyday-title">
     <h3 id="everyday-title">1 · Everyday Arcana</h3>
     <p class="shelf-lead">Practical, useful, easy to scan. Restock before the mountain calls.</p>
+    <p class="shelf-lead" style="margin-top:0">
+      <strong>Potions?</strong> Gimble openly admits he doesn’t keep Sister Maerith’s full kit of ingredients.
+      Healing draughts and the rest live at <a href="the-shrine.html">The Shrine</a>.
+    </p>
     <ul class="shop-stock">
-      <li>
-        <span class="item-name">Potion of Healing</span>
-        <span class="item-price">50 gp</span>
-      </li>
-      <li>
-        <span class="item-name">Potion of Greater Healing</span>
-        <span class="item-price">200 gp</span>
-      </li>
       <li>
         <span class="item-name">Spell scrolls</span>
         <span class="item-price">ask Gimble</span>
         <ul class="shop-stock-nested">
-          <li>Feather Fall · Identify · Shield</li>
-          <li>Misty Step · Invisibility · Web</li>
-          <li>Dispel Magic · Fly</li>
+          <li>Feather Fall · Identify · Shield · Detect Magic</li>
+          <li>Misty Step · Invisibility · Web · Knock</li>
+          <li>Dispel Magic · Fly · Water Breathing · See Invisibility</li>
+          <li>Counterspell · Remove Curse · Tongues</li>
         </ul>
       </li>
       <li>
@@ -323,10 +338,10 @@
     </ul>
   </section>
 
-  <!-- 2 · Adventurer’s Shelf — 10 permanent uncommons -->
+  <!-- 2 · Adventurer’s Shelf — uncommons this season -->
   <section class="shop-shelf" id="adventurers-shelf" aria-labelledby="adventurer-title">
     <h3 id="adventurer-title">2 · Adventurer’s Shelf</h3>
-    <p class="shelf-lead">Items worth a pause. Ten uncommons on the shelf this season.</p>
+    <p class="shelf-lead">Items worth a pause. Nine uncommons on the shelf this season.</p>
     <ul class="shop-stock shelf-pause">
       <li>
         <span class="item-name">Bag of Holding</span>
@@ -369,11 +384,6 @@
         <p class="item-note">A matched pair for short messages across distance.</p>
       </li>
       <li>
-        <span class="item-name">Pearl of Power</span>
-        <span class="item-price">800 gp</span>
-        <p class="item-note">Recover one expended spell slot (with limits).</p>
-      </li>
-      <li>
         <span class="item-name">Cloak of Protection</span>
         <span class="item-price">900 gp</span>
         <p class="item-note">+1 to AC and saving throws while worn.</p>
@@ -390,11 +400,6 @@
         <span class="item-name">Wand of Web</span>
         <span class="item-price">3,000 gp</span>
         <p class="item-note">Web, from a wand — charges apply.</p>
-      </li>
-      <li>
-        <span class="item-name">Figurine of Wondrous Power: Silver Raven</span>
-        <span class="item-price">3,500 gp</span>
-        <p class="item-note">A silver bird that can become a living messenger.</p>
       </li>
     </ul>
     <div class="curiosity">
@@ -428,7 +433,14 @@
       <li><strong>PLease tip</strong> if the work is rush, risky, or “don’t ask where I found it.”</li>
       <li>Not everything can be ordered. Nightscale-hunting gear is still mostly courage.</li>
       <li>Deposit and wait time are set at the table — this board is only the invitation.</li>
+      <li>Potions can be found at <a href="the-shrine.html">The Shrine</a>.</li>
     </ul>
+    <div class="shop-be-advised" role="note">
+      <strong>Be Advised</strong>
+      <p>
+        Spell scrolls are keyed to established magical disciplines. If the inscribed formula does not resonate with a tradition the reader is already trained to channel, the binding will not release.
+      </p>
+    </div>
   </section>
 
   <p class="note" style="margin-top:18px">
