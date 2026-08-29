@@ -74,7 +74,7 @@
         >Single Inspiration</button>
       </div>
       <h2>Mantis</h2>
-      <div class="subtitle">Halfling (Lightfoot) · Storm Sorcerer 5 · Urchin</div>
+      <div class="subtitle">Halfling (Lightfoot) · Storm Sorcerer 6 · Urchin</div>
       <span class="badge">Tempest Company</span>
       <span class="badge">Company Character Sheet</span>
       <span class="badge">Storm Sorcery</span>
@@ -88,15 +88,16 @@
   <div class="sheet-source">
     <span><strong>Source</strong> Fantasy Grounds character record</span>
     <span><strong>Campaign</strong> Forge of Fury · Active</span>
-    <span><strong>Sheet reviewed</strong> 2026-07-15</span>
-    <span><strong>Confidence</strong> Verified from FG unless noted</span>
+    <span><strong>Sheet reviewed</strong> 2026-08-23</span>
+    <span><strong>XP</strong> Milestone (ignore FG exp)</span>
+    <span><strong>Confidence</strong> Verified from FG L6 export unless noted</span>
   </div>
 
   <!-- 1 · Core Stats (no combat outline) -->
   <section class="ccs-section" id="core-stats" aria-labelledby="core-stats-title">
     <h3 id="core-stats-title">1 · Core Stats</h3>
     <div class="ccs-core-board">
-      <div class="ccs-tile ccs-tile-hp ccs-core-hp" data-ccs-hp data-character="mantis" data-hp-max="32">
+      <div class="ccs-tile ccs-tile-hp ccs-core-hp" data-ccs-hp data-character="mantis" data-hp-max="38">
         <span class="ccs-label">Hit Points</span>
         <span class="ccs-sublabel">Wounds / Max</span>
         <div class="ccs-hp-row" role="group" aria-label="Hit points">
@@ -106,13 +107,13 @@
             name="hp-current"
             inputmode="numeric"
             min="0"
-            max="32"
-            value="32"
+            max="38"
+            value="38"
             aria-label="Wounds"
             title="Tap to edit wounds (Fantasy Grounds)"
           >
           <span class="ccs-hp-sep" aria-hidden="true">/</span>
-          <span class="ccs-hp-max" aria-label="Maximum hit points">32</span>
+          <span class="ccs-hp-max" aria-label="Maximum hit points">38</span>
         </div>
         <div class="ccs-hp-temp-row" role="group" aria-label="Temporary hit points">
           <span class="ccs-hp-temp-label">Temp</span>
@@ -135,9 +136,10 @@
           <span class="ccs-ac-total" aria-label="Total armor class">15</span>
         </div>
         <ul class="ccs-ac-breakdown">
-          <li><span class="ccs-ac-part">Unarmored (10 + DEX)</span><span class="ccs-ac-num">12</span></li>
+          <li><span class="ccs-ac-part">Base</span><span class="ccs-ac-num">10</span></li>
+          <li><span class="ccs-ac-part">Dex</span><span class="ccs-ac-num">+2</span></li>
           <li><span class="ccs-ac-part">Bracers of Defense</span><span class="ccs-ac-num">+2</span></li>
-          <li><span class="ccs-ac-part">Cloak of Protection</span><span class="ccs-ac-num">+1</span></li>
+          <li><span class="ccs-ac-part">Robe of Deep Protection</span><span class="ccs-ac-num">+1</span></li>
           <li class="ccs-ac-misc-row">
             <span class="ccs-ac-part">Misc</span>
             <input
@@ -168,7 +170,7 @@
       <div class="ccs-tile ccs-core-prof">
         <span class="ccs-label">Proficiency</span>
         <span class="ccs-value">+3</span>
-        <span class="ccs-why">Level 5</span>
+        <span class="ccs-why">Level 6</span>
       </div>
     </div>
   </section>
@@ -263,7 +265,7 @@
       </div>
     </div>
     <p class="ccs-note">
-      Saves include <strong>Cloak of Protection (+1 to all saves)</strong> while the cloak is worn (also +1 AC, already in Core Stats).
+      Saves include <strong>Robe of Deep Protection (+1 to all saves)</strong> while worn (also +1 AC, already in Core Stats).
     </p>
   </section>
 
@@ -271,7 +273,7 @@
   <section class="ccs-section mantis-zone mantis-zone-skills" id="mantis-skills" aria-labelledby="skills-title">
     <h3 id="skills-title">3 · Skills (proficient)</h3>
     <div class="ccs-skills-header">
-      <p class="ccs-skills-lead">Mantis’s level 5 proficiency bonus is <strong>+3</strong></p>
+      <p class="ccs-skills-lead">Mantis’s level 6 proficiency bonus is <strong>+3</strong></p>
       <span class="ccs-skills-colhead ccs-skills-colhead-abil">Ability modifier</span>
       <span class="ccs-skills-colhead ccs-skills-colhead-prof">Proficiency bonus</span>
       <span class="ccs-skills-colhead ccs-skills-colhead-total"></span>
@@ -443,14 +445,14 @@
             type="number"
             class="ccs-spell-slot-current"
             data-slot-level="3"
-            data-slot-max="2"
+            data-slot-max="3"
             inputmode="numeric"
             min="0"
-            max="2"
-            value="2"
+            max="3"
+            value="3"
             aria-label="3rd-level spell slots remaining"
           >
-          <span class="ccs-spell-slot-max">/ 2</span>
+          <span class="ccs-spell-slot-max">/ 3</span>
         </label>
       </div>
     </div>
@@ -480,7 +482,7 @@
       </div>
       <div class="ccs-maneuver" style="margin:0">
         <div class="ccs-action-name">2 · Sorcery points</div>
-        <div class="ccs-action-meta">This section · max 5 at level 5</div>
+        <div class="ccs-action-meta">This section · max 6 at level 6</div>
         <p class="ccs-action-body">
           Spend points for <strong>metamagic</strong> (cooler casts) or
           <strong>Flexible Casting</strong> (trade points ↔ slots).
@@ -498,7 +500,7 @@
           class="ccs-action-meta ccs-sup-dice-line"
           data-ccs-sup-dice
           data-character="mantis"
-          data-sup-max="5"
+          data-sup-max="6"
         >
           Points left:
           <input
@@ -507,16 +509,16 @@
             name="sorcery-points"
             inputmode="numeric"
             min="0"
-            max="5"
-            value="5"
+            max="6"
+            value="6"
             aria-label="Sorcery points remaining"
             title="Spend for metamagic or Flexible Casting"
           >
-          / 5
+          / 6
         </div>
         <p class="ccs-action-body">
-          Start each day at <strong>5</strong>. Tap the number down when you spend.
-          <strong>Long rest → set back to 5.</strong>
+          Start each day at <strong>6</strong>. Tap the number down when you spend.
+          <strong>Long rest → set back to 6.</strong>
           (No Ready/Used button — the number <em>is</em> the track.)
         </p>
       </div>
@@ -550,14 +552,14 @@
             <li><span class="ccs-item-name">3rd-level slot</span><span class="ccs-item-meta">gives <strong>5</strong> points</span></li>
           </ul>
           <p class="ccs-note" style="margin-top:8px">
-            Lower the slot track above, raise sorcery points here (max 5).
-            You can’t go over 5 points.
+            Lower the slot track above, raise sorcery points here (max 6).
+            You can’t go over 6 points.
           </p>
         </div>
       </div>
 
       <p class="ccs-hint" style="margin-top:14px">
-        <strong>Quick recipes (level 5)</strong><br>
+        <strong>Quick recipes (level 6)</strong><br>
         · Need one more 1st-level cast? <strong>−2 points → +1 1st slot → cast</strong><br>
         · Need points for Twinned 1st? <strong>burn a 1st slot (+2 pts) or 2nd (+3)</strong><br>
         · Want Empowered Lightning Bolt? Cast with a 3rd slot, then spend <strong>1 point</strong> to reroll damage dice
@@ -590,6 +592,22 @@
             This is storm sorcerer, not Font of Magic — no sorcery points.
           </p>
         </div>
+        <div class="ccs-maneuver">
+          <div class="ccs-action-name">Heart of the Storm</div>
+          <div class="ccs-action-meta">6th level · lightning/thunder resistance · free eruption</div>
+          <p class="ccs-action-body">
+            Resistance to <strong>lightning</strong> and <strong>thunder</strong>.
+            When you start casting a 1st+ spell that deals lightning or thunder damage, creatures you choose within <strong>10 ft</strong> take lightning or thunder damage (your choice) equal to <strong>half your sorcerer level</strong> (currently <strong>3</strong>).
+          </p>
+        </div>
+        <div class="ccs-maneuver">
+          <div class="ccs-action-name">Storm Guide</div>
+          <div class="ccs-action-meta">6th level · weather control</div>
+          <p class="ccs-action-body">
+            <strong>Rain:</strong> action to stop rain in a 20-ft sphere (bonus action to end).
+            <strong>Wind:</strong> bonus action to choose wind direction in a 100-ft sphere until the end of your next turn (does not change wind speed).
+          </p>
+        </div>
       </div>
     </div>
 
@@ -618,7 +636,7 @@
     <h3 id="senses-title">6 · Senses &amp; notes</h3>
     <ul class="ccs-list">
       <li><span class="ccs-item-name">Darkvision</span><span class="ccs-item-meta">60 ft (FG · Goggles of Night equipped)</span></li>
-      <li><span class="ccs-item-name">Hit dice</span><span class="ccs-item-meta">5d6 (FG: 0 used at last read)</span></li>
+      <li><span class="ccs-item-name">Hit dice</span><span class="ccs-item-meta">6d6 (FG L6 export)</span></li>
       <li><span class="ccs-item-name">Languages</span><span class="ccs-item-meta">Common · Halfling · Primordial (Wind Speaker)</span></li>
       <li><span class="ccs-item-name">Brooch of Shielding</span><span class="ccs-item-meta">Resistance to force · immune to magic missile</span></li>
     </ul>
@@ -692,7 +710,7 @@
     load();
   }
 
-  bindCounter("[data-ccs-hp]", ".ccs-hp-current", "ccs-hp-current:", "data-hp-max", 32);
+  bindCounter("[data-ccs-hp]", ".ccs-hp-current", "ccs-hp-current:", "data-hp-max", 38);
 
   (function () {
     var root = document.querySelector("[data-ccs-hp]");
@@ -847,7 +865,7 @@
     if (!root || !input) return;
 
     var character = root.getAttribute("data-character") || "character";
-    var maxVal = parseInt(root.getAttribute("data-sup-max"), 10) || 5;
+    var maxVal = parseInt(root.getAttribute("data-sup-max"), 10) || 6;
     var diceKey = "ccs-sup-dice:" + character;
     input.max = String(maxVal);
     input.min = "0";
