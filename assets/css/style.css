@@ -93,6 +93,20 @@ nav a:hover {
   color: #fff;
 }
 
+/* Current page — gold so it doesn’t vanish into the sidebar */
+nav a[aria-current="page"] {
+  color: var(--gold);
+  background: rgba(216, 179, 95, .14);
+  border: 1px solid rgba(216, 179, 95, .45);
+  font-weight: bold;
+}
+
+nav a[aria-current="page"]:hover {
+  color: #f5e6b8;
+  background: rgba(216, 179, 95, .22);
+  border-color: var(--gold);
+}
+
 main {
   padding: 28px;
   max-width: 1200px;
@@ -122,8 +136,11 @@ main {
 
 .hero {
   display: grid;
-  grid-template-columns: 250px 1fr;
+  /* Portrait + compact nameplate — don’t stretch blank parchment across the page */
+  grid-template-columns: 250px minmax(260px, 28rem);
   gap: 22px;
+  align-items: start;
+  max-width: 46rem;
 }
 
 .portrait-frame {
@@ -132,11 +149,23 @@ main {
   padding: 5px;
   box-shadow: 0 6px 20px rgba(0,0,0,.45);
   transition: border-color .2s ease, box-shadow .2s ease;
+  align-self: start;
 }
 
 .portrait-frame img {
   width: 100%;
   display: block;
+}
+
+.portrait-frame-damien img {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.roster-card-damien img {
+  object-fit: cover;
+  object-position: center top;
 }
 
 .nameplate {
@@ -471,6 +500,21 @@ main {
   display: block;
   /* Full mural — no crop */
   object-fit: contain;
+}
+
+/* Portrait / personal murals — don’t dominate the page */
+.campaign-banner.campaign-banner-compact {
+  max-width: min(432px, 60%);
+}
+
+/* On the Rise lore page — wide chapter art */
+.adventure-lore-art {
+  max-width: 920px;
+  margin-top: 10px;
+}
+
+.adventure-lore-block .book-panel {
+  max-width: 920px;
 }
 
 /* Tempest Company mural = clickable door to session recaps */
@@ -1468,6 +1512,11 @@ a.chamber-door:hover .chamber-door-cta {
   font-size: 1.35rem;
   color: var(--gold);
   letter-spacing: .04em;
+}
+
+/* Gold on parchment blends — use deep ink inside book panels */
+.book-panel .section-label {
+  color: var(--ccs-ink-strong);
 }
 
 .roster-lead {
