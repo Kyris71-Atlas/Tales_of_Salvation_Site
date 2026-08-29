@@ -517,6 +517,66 @@ main {
   max-width: 920px;
 }
 
+/* Quiet “about this image” side note (collapsed by default) */
+.image-aside {
+  max-width: min(432px, 60%);
+  margin: 10px auto 0;
+  color: var(--muted);
+  font-size: .88rem;
+  line-height: 1.45;
+}
+
+.image-aside summary {
+  cursor: pointer;
+  color: #c4b48a;
+  letter-spacing: .03em;
+  list-style: none;
+  padding: 4px 2px;
+  user-select: none;
+}
+
+.image-aside summary::-webkit-details-marker {
+  display: none;
+}
+
+.image-aside summary::before {
+  content: "▸ ";
+  color: var(--gold);
+  font-size: .8em;
+}
+
+.image-aside[open] summary::before {
+  content: "▾ ";
+}
+
+.image-aside summary:hover {
+  color: var(--gold);
+}
+
+.image-aside-body {
+  margin-top: 8px;
+  padding: 10px 12px 12px;
+  border-left: 3px solid rgba(216, 179, 95, .35);
+  background: rgba(19, 22, 30, .55);
+  border-radius: 0 8px 8px 0;
+}
+
+.image-aside-title {
+  margin: 0 0 8px;
+  font-size: .95rem;
+  color: #c4b48a;
+  letter-spacing: .04em;
+  font-weight: normal;
+}
+
+.image-aside-body p {
+  margin: 0 0 .7em;
+}
+
+.image-aside-body p:last-child {
+  margin-bottom: 0;
+}
+
 /* Tempest Company mural = clickable door to session recaps */
 a.campaign-banner-door {
   display: block;
