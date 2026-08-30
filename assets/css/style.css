@@ -2900,6 +2900,69 @@ a.nav-advanced:hover {
   border-radius: 10px;
 }
 
+/* Compact item / ability art under an action (e.g. Dawnbreaker door) */
+.ccs-item-art {
+  margin: 12px 0 0;
+  max-width: 14rem;
+  border: 2px solid var(--ccs-border-soft);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #111;
+  line-height: 0;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, .25);
+  text-decoration: none;
+  display: block;
+  transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+
+.ccs-item-art img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+a.ccs-item-art-door:hover,
+a.ccs-item-art-door:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--ccs-border);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, .35);
+  outline: none;
+}
+
+.ccs-item-art-hint {
+  display: block;
+  padding: 8px 10px;
+  background: linear-gradient(180deg, #f1e4c8, #cbb688);
+  border-top: 1px solid var(--ccs-border-soft);
+  color: var(--ccs-ink-strong);
+  font-size: .85rem;
+  letter-spacing: .04em;
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* Campaign home — gear/companions nested under a PC, not a roster seat */
+.with-character-strip {
+  margin-top: 16px;
+  max-width: 220px;
+}
+
+.with-character-kicker {
+  margin: 0 0 8px;
+  color: var(--gold);
+  font-size: .82rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.with-character-card img {
+  height: 160px;
+  object-fit: contain;
+  object-position: center;
+  background: #0a0a0c;
+}
+
 .ccs-action-top {
   display: flex;
   flex-wrap: wrap;
