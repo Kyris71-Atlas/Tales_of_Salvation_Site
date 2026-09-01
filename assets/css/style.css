@@ -2963,6 +2963,85 @@ a.ccs-item-art-door:focus-visible {
   background: #0a0a0c;
 }
 
+/* Companion dossier cards — show full art, don’t crop to a black postage stamp */
+.companion-roster-grid {
+  max-width: 480px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.companion-roster-card img {
+  height: 200px;
+  object-fit: contain;
+  object-position: center;
+  background: #0d0d0e;
+}
+
+/* Ravenloft Journey — Tarokka progress tracker */
+.tarokka-track {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tarokka-row {
+  display: grid;
+  grid-template-columns: 72px 48px 1fr;
+  align-items: center;
+  gap: 12px 16px;
+  padding: 10px 14px;
+  background: rgba(19, 22, 30, .72);
+  border: 1px solid #3d3423;
+  border-radius: 12px;
+}
+
+.tarokka-seal {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, .45));
+}
+
+.tarokka-ominous {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  border: 1px dashed rgba(216, 179, 95, .45);
+  background: rgba(0, 0, 0, .35);
+  color: #c4b48a;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.55rem;
+  font-weight: bold;
+  letter-spacing: .04em;
+  text-shadow: 0 0 12px rgba(180, 40, 40, .35);
+}
+
+.tarokka-slot {
+  min-height: 1.4em;
+  color: var(--muted);
+  font-size: .92rem;
+  font-style: italic;
+  border-bottom: 1px solid rgba(110, 89, 48, .35);
+}
+
+@media (max-width: 560px) {
+  .tarokka-row {
+    grid-template-columns: 56px 40px 1fr;
+    gap: 8px 10px;
+  }
+  .tarokka-seal {
+    width: 52px;
+    height: 52px;
+  }
+}
+
 .ccs-action-top {
   display: flex;
   flex-wrap: wrap;
