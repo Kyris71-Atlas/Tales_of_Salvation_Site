@@ -2214,6 +2214,51 @@ a.nav-advanced:hover {
   border-color: #5a6a7a;
 }
 
+/*
+ * Sessions 19+ (Ravenloft’s Fury) — gothic dual-voice.
+ * Put class "session-era-ravenloft" on the session book-panel / index card.
+ * Sessions 1–18 keep Forge green + slate above.
+ */
+.session-era-ravenloft .session-voice-recap,
+.session-index-card.session-era-ravenloft .session-voice-recap {
+  color: #f3e6d8;
+  background: linear-gradient(180deg, #6e2e36, #3d181c);
+  border-color: #8a4a52;
+}
+
+.session-era-ravenloft .session-voice-notes,
+.session-index-card.session-era-ravenloft .session-voice-notes {
+  color: #e6e4ef;
+  background: linear-gradient(180deg, #3a3548, #1e1c28);
+  border-color: #6a6280;
+}
+
+.session-era-ravenloft .session-panel-recap {
+  border-color: #7a3a42;
+}
+
+.session-era-ravenloft .session-panel-notes {
+  border-color: #5a5470;
+}
+
+.session-era-ravenloft .session-panel-recap .session-panel-head {
+  background: linear-gradient(180deg, rgba(110, 46, 54, .55), rgba(0, 0, 0, .28));
+  border-bottom-color: #5a2a30;
+}
+
+.session-era-ravenloft .session-panel-notes .session-panel-head {
+  background: linear-gradient(180deg, rgba(58, 53, 72, .65), rgba(0, 0, 0, .28));
+  border-bottom-color: #3a3548;
+}
+
+.session-era-ravenloft .session-panel-recap .session-panel-head h3 {
+  color: #e8c4a8;
+}
+
+.session-era-ravenloft .session-panel-notes .session-panel-head h3 {
+  color: #c8c4d8;
+}
+
 .session-index-blurb {
   margin: 10px 0 0;
   font-size: .9rem;
