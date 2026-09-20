@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Herman the Recluse — Rising Character Sheet</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+.ccs-ac-feature-row {
+  grid-column: 1 / -1;
+  background: rgba(216, 179, 95, .18) !important;
+  border: 1px solid rgba(110, 89, 48, .45);
+  border-radius: 6px;
+}
+.ccs-ac-feature-row .ccs-ac-part {
+  color: #4a3210;
+}
+.ccs-ac-feature-row .ccs-ac-num {
+  font-size: .92rem;
+  letter-spacing: .02em;
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <h1 class="site-title">Tales of Salvation</h1>
+  <p class="site-subtitle">Rising Character Sheet · On the Rise</p>
+</header>
+
+<div class="layout">
+<nav>
+  <div class="nav-section">Tales of Salvation</div>
+  <a href="../index.html">Home</a>
+  <a href="../On%20the%20Rise/index.html">Campaign Home</a>
+  <a href="../On%20the%20Rise/index.html#rising-character-sheets">Rising Character Sheets</a>
+  <a href="../deep-memory/index.html">Deep Memory</a>
+
+  <div class="nav-section">Rising Character Sheets</div>
+  <a href="damien-lightshadow-ccs.html">Damien Lightshadow</a>
+  <a href="herman-the-recluse-ccs.html" aria-current="page">Herman the Recluse</a>
+  <a href="tokaninaka-ccs.html">Tokaninaka</a>
+</nav>
+
+<main>
+<div class="breadcrumbs">
+  <a href="../index.html">Home</a> &gt;
+  <a href="../On%20the%20Rise/index.html">On the Rise</a> &gt;
+  <a href="../On%20the%20Rise/index.html#rising-character-sheets">Rising Character Sheets</a> &gt;
+  Herman the Recluse (RCS)
+</div>
+
+<div class="book-panel">
+<p class="ccs-product-banner" style="margin:0 0 14px;padding:10px 14px;border:1px solid #6e5930;border-radius:10px;background:rgba(216,179,95,.08);font-size:.95rem"><strong>Rising Character Sheet (RCS)</strong> — table play sheet for On the Rise. Not a Discovery Report.</p>
+
+  <div class="hero">
+    <div class="portrait-frame portrait-frame-dorpond">
+      <img src="../assets/images/characters/Herman%20the%20Recluse.png" alt="Herman the Recluse">
+    </div>
+    <div class="nameplate">
+      <div class="ccs-inspiration" data-ccs-inspiration data-character="herman">
+        <span class="ccs-inspiration-label">Inspiration</span>
+        <button
+          type="button"
+          class="ccs-inspiration-toggle is-none"
+          data-ccs-inspiration-toggle
+          data-state="none"
+          aria-label="Inspiration: None. Click to change."
+        >None</button>
+      </div>
+      <h2>Herman the Recluse</h2>
+      <div class="subtitle">Variant Human · Monk 1 · Acolyte</div>
+      <span class="badge">On the Rise</span>
+      <span class="badge">Rising Character Sheet</span>
+      <span class="badge">Neutral Good</span>
+      <p class="ccs-note" style="margin-top:12px">
+        A field guide to your hero. Fast at the table, easy to read, and always ready for the next roll:<br>
+        <em>designed by Atrok</em>
+      </p>
+    </div>
+  </div>
+
+  <div class="sheet-source">
+    <span><strong>Source</strong> Fantasy Grounds character record</span>
+    <span><strong>Campaign</strong> On the Rise · Active</span>
+    <span><strong>Sheet reviewed</strong> 2026-09-15</span>
+    <span><strong>XP</strong> Milestone (ignore FG exp)</span>
+    <span><strong>Confidence</strong> Verified from FG L1 export · L3 DDB is wishlist only</span>
+  </div>
+
+  <section class="ccs-section" id="core-stats" aria-labelledby="core-stats-title">
+    <h3 id="core-stats-title">1 · Core Stats</h3>
+    <div class="ccs-core-board">
+      <div class="ccs-tile ccs-tile-hp ccs-core-hp" data-ccs-hp data-character="herman" data-hp-max="9">
+        <span class="ccs-label">Hit Points</span>
+        <span class="ccs-sublabel">Current / Max</span>
+        <div class="ccs-hp-row" role="group" aria-label="Hit points">
+          <input type="number" class="ccs-hp-current" name="hp-current" inputmode="numeric" min="0" max="9" value="9" aria-label="Current hit points">
+          <span class="ccs-hp-sep" aria-hidden="true">/</span>
+          <span class="ccs-hp-max" aria-label="Maximum hit points">9</span>
+        </div>
+        <div class="ccs-hp-temp-row" role="group" aria-label="Temporary hit points">
+          <span class="ccs-hp-temp-label">Temp</span>
+          <input type="number" class="ccs-hp-temp" name="hp-temp" inputmode="numeric" min="0" value="0" aria-label="Temporary hit points">
+        </div>
+      </div>
+
+      <div class="ccs-tile ccs-tile-ac ccs-core-ac" data-ccs-ac data-character="herman" data-ac-base="16">
+        <span class="ccs-label">Armor Class</span>
+        <div class="ccs-ac-row">
+          <span class="ccs-ac-total" aria-label="Total armor class">16</span>
+        </div>
+        <ul class="ccs-ac-breakdown">
+          <li class="ccs-ac-feature-row" title="Monk feature: Unarmored Defense">
+            <span class="ccs-ac-part"><strong>Unarmored Defense</strong></span>
+            <span class="ccs-ac-num">10 + DEX + WIS</span>
+          </li>
+          <li class="ccs-ac-misc-row">
+            <span class="ccs-ac-part">Misc</span>
+            <input type="number" class="ccs-ac-misc" name="ac-misc" inputmode="numeric" value="0" aria-label="Miscellaneous armor class bonus">
+          </li>
+        </ul>
+        <p class="ccs-why" style="margin-top:8px">10 + 3 + 3 = <strong>16</strong> · no armor, no shield</p>
+      </div>
+
+      <div class="ccs-tile ccs-core-speed">
+        <span class="ccs-label">Speed</span>
+        <span class="ccs-value">30</span>
+        <span class="ccs-why">Base</span>
+      </div>
+
+      <div class="ccs-tile ccs-core-init">
+        <span class="ccs-label">Initiative</span>
+        <span class="ccs-value">+3</span>
+        <span class="ccs-why">DEX +3</span>
+      </div>
+
+      <div class="ccs-tile ccs-core-prof">
+        <span class="ccs-label">Proficiency</span>
+        <span class="ccs-value">+2</span>
+        <span class="ccs-why">Level 1</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="ccs-section" id="abilities" aria-labelledby="abilities-title">
+    <h3 id="abilities-title">2 · Abilities</h3>
+    <div class="ccs-abilities">
+      <div class="ccs-ability"><div class="ccs-ability-top"><span class="ccs-ability-label">STR</span><span class="ccs-ability-score">9</span></div><div class="ccs-ability-row"><span class="ccs-ability-row-label">Modifier</span><span class="ccs-ability-mod">−1</span></div><div class="ccs-ability-row"><span class="ccs-ability-row-label">Save</span><span class="ccs-ability-save">+1</span></div></div>
+      <div class="ccs-ability"><div class="ccs-ability-top"><span class="ccs-ability-label">DEX</span><span class="ccs-ability-score">16</span></div><div class="ccs-ability-row"><span class="ccs-ability-row-label">Modifier</span><span class="ccs-ability-mod">+3</span></div><div class="ccs-ability-row"><span class="ccs-ability-row-label">Save</span><span class="ccs-ability-save">+5</span></div></div>
+      <div class="ccs-ability"><div class="ccs-ability-top"><span class="ccs-ability-label">CON</span><span class="ccs-ability-score">12</span></div><div class="ccs-ability-row"><span class="ccs-ability-row-label">Modifier</span><span class="ccs-ability-mod">+1</span></div><div class="ccs-ability-row"><span class="ccs-ability-row-label">Save</span><span class="ccs-ability-save">+1</span></div></div>
+      <div class="ccs-ability"><div class="ccs-ability-top"><span class="ccs-ability-label">INT</span><span class="ccs-ability-score">10</span></div><div class="ccs-ability-row"><span class="ccs-ability-row-label">Modifier</span><span class="ccs-ability-mod">+0</span></div><div class="ccs-ability-row"><span class="ccs-ability-row-label">Save</span><span class="ccs-ability-save">+0</span></div></div>
+      <div class="ccs-ability"><div class="ccs-ability-top"><span class="ccs-ability-label">WIS</span><span class="ccs-ability-score">16</span></div><div class="ccs-ability-row"><span class="ccs-ability-row-label">Modifier</span><span class="ccs-ability-mod">+3</span></div><div class="ccs-ability-row"><span class="ccs-ability-row-label">Save</span><span class="ccs-ability-save">+3</span></div></div>
+      <div class="ccs-ability"><div class="ccs-ability-top"><span class="ccs-ability-label">CHA</span><span class="ccs-ability-score">10</span></div><div class="ccs-ability-row"><span class="ccs-ability-row-label">Modifier</span><span class="ccs-ability-mod">+0</span></div><div class="ccs-ability-row"><span class="ccs-ability-row-label">Save</span><span class="ccs-ability-save">+0</span></div></div>
+    </div>
+    <p class="ccs-note">Proficiency on <strong>Strength</strong> and <strong>Dexterity</strong> saves (Monk).</p>
+  </section>
+
+  <section class="ccs-section" id="combat" aria-labelledby="combat-title">
+    <h3 id="combat-title">3 · Combat</h3>
+    <ul class="ccs-weapon-list">
+      <li class="ccs-weapon">
+        <div class="ccs-weapon-name">Unarmed Strike</div>
+        <div class="ccs-weapon-line"><span class="ccs-weapon-label">Attack</span> <span class="ccs-weapon-stat">+5</span> <span class="ccs-weapon-detail">to hit · Martial Arts · DEX</span></div>
+        <div class="ccs-weapon-line"><span class="ccs-weapon-label">Damage</span> <span class="ccs-weapon-stat">1d4 + 3</span> <span class="ccs-weapon-detail">bludgeoning</span></div>
+      </li>
+      <li class="ccs-weapon">
+        <div class="ccs-weapon-name">Quarterstaff</div>
+        <div class="ccs-weapon-line"><span class="ccs-weapon-label">Attack</span> <span class="ccs-weapon-stat">+5</span> <span class="ccs-weapon-detail">to hit · Martial Arts · DEX · versatile</span></div>
+        <div class="ccs-weapon-line"><span class="ccs-weapon-label">Damage</span> <span class="ccs-weapon-stat">1d6 + 3</span> <span class="ccs-weapon-detail">bludgeoning · 1d8 + 3 two-handed</span></div>
+      </li>
+      <li class="ccs-weapon">
+        <div class="ccs-weapon-name">Dart</div>
+        <div class="ccs-weapon-line"><span class="ccs-weapon-label">Attack</span> <span class="ccs-weapon-stat">+5</span> <span class="ccs-weapon-detail">to hit · finesse · thrown 20/60</span></div>
+        <div class="ccs-weapon-line"><span class="ccs-weapon-label">Damage</span> <span class="ccs-weapon-stat">1d4 + 3</span> <span class="ccs-weapon-detail">piercing</span></div>
+      </li>
+    </ul>
+    <p class="ccs-note">Martial Arts: after the Attack action with an unarmed strike or monk weapon, make one unarmed strike as a <strong>bonus action</strong>.</p>
+  </section>
+
+  <section class="ccs-section" id="skills" aria-labelledby="skills-title">
+    <h3 id="skills-title">4 · Skills (proficient)</h3>
+    <div class="ccs-skills-header">
+      <p class="ccs-skills-lead">Level 1 proficiency bonus is <strong>+2</strong></p>
+      <span class="ccs-skills-colhead ccs-skills-colhead-abil">Ability modifier</span>
+      <span class="ccs-skills-colhead ccs-skills-colhead-prof">Proficiency bonus</span>
+      <span class="ccs-skills-colhead ccs-skills-colhead-total"></span>
+    </div>
+    <ul class="ccs-skill-list">
+      <li class="ccs-skill-row"><span class="ccs-skill-name">Acrobatics</span><span class="ccs-skill-modpair"><span class="ccs-skill-abil">(DEX)</span><span class="ccs-skill-abilmod">+3</span></span><span class="ccs-skill-prof">+2</span><span class="ccs-skill-result"><span class="ccs-skill-eq">=</span><span class="ccs-skill-total">+5</span></span></li>
+      <li class="ccs-skill-row"><span class="ccs-skill-name">History</span><span class="ccs-skill-modpair"><span class="ccs-skill-abil">(INT)</span><span class="ccs-skill-abilmod">+0</span></span><span class="ccs-skill-prof">+2</span><span class="ccs-skill-result"><span class="ccs-skill-eq">=</span><span class="ccs-skill-total">+2</span></span></li>
+      <li class="ccs-skill-row"><span class="ccs-skill-name">Insight</span><span class="ccs-skill-modpair"><span class="ccs-skill-abil">(WIS)</span><span class="ccs-skill-abilmod">+3</span></span><span class="ccs-skill-prof">+2</span><span class="ccs-skill-result"><span class="ccs-skill-eq">=</span><span class="ccs-skill-total">+5</span></span></li>
+      <li class="ccs-skill-row"><span class="ccs-skill-name">Perception</span><span class="ccs-skill-modpair"><span class="ccs-skill-abil">(WIS)</span><span class="ccs-skill-abilmod">+3</span></span><span class="ccs-skill-prof">+2</span><span class="ccs-skill-result"><span class="ccs-skill-eq">=</span><span class="ccs-skill-total">+5</span></span></li>
+      <li class="ccs-skill-row"><span class="ccs-skill-name">Religion</span><span class="ccs-skill-modpair"><span class="ccs-skill-abil">(INT)</span><span class="ccs-skill-abilmod">+0</span></span><span class="ccs-skill-prof">+2</span><span class="ccs-skill-result"><span class="ccs-skill-eq">=</span><span class="ccs-skill-total">+2</span></span></li>
+    </ul>
+    <p class="ccs-note">Skills without proficiency: Roll 1d20 + Ability Modifier. Passive Perception <strong>15</strong>.</p>
+  </section>
+
+  <section class="ccs-section" id="actions" aria-labelledby="actions-title">
+    <h3 id="actions-title">5 · Actions</h3>
+    <p class="ccs-hint">What you can spend on your turn — same spirit as Fantasy Grounds powers.</p>
+
+    <div class="ccs-action-block">
+      <div class="ccs-action-top"><div class="ccs-action-name">Martial Arts</div></div>
+      <div class="ccs-action-meta">Always · unarmed or monk weapons · no armor / no shield</div>
+      <p class="ccs-action-body">Use DEX for attack and damage. Martial Arts die is <strong>1d4</strong>. After the Attack action, one unarmed strike as a bonus action.</p>
+    </div>
+
+    <div class="ccs-action-block">
+      <div class="ccs-action-top"><div class="ccs-action-name">Unarmored Defense</div></div>
+      <div class="ccs-action-meta">Always · no armor / no shield</div>
+      <p class="ccs-action-body">AC = 10 + DEX modifier + WIS modifier (<strong>16</strong>).</p>
+    </div>
+
+    <div class="ccs-action-block">
+      <div class="ccs-action-top">
+        <div class="ccs-action-name">Healing Word</div>
+        <button type="button" class="ccs-use-toggle is-ready" data-ccs-use-toggle data-character="herman" data-feature="healing-word" aria-pressed="false">Ready</button>
+      </div>
+      <div class="ccs-action-meta">Magic Initiate (Cleric) · Bonus action · 1 / long rest · 60 ft</div>
+      <p class="ccs-action-body">Creature you can see regains <strong>1d4 + 3</strong> hit points (WIS). Cast at 1st level only from this feat.</p>
+    </div>
+
+    <div class="ccs-action-block">
+      <div class="ccs-action-top"><div class="ccs-action-name">Sacred Flame</div></div>
+      <div class="ccs-action-meta">Cantrip · Magic Initiate (Cleric) · Action · 60 ft · DEX save</div>
+      <p class="ccs-action-body">Target must succeed on a DEX save (DC <strong>13</strong>) or take <strong>1d8</strong> radiant damage. No cover bonus to the save.</p>
+    </div>
+
+    <div class="ccs-action-block">
+      <div class="ccs-action-top"><div class="ccs-action-name">Shelter of the Faithful</div></div>
+      <div class="ccs-action-meta">Acolyte · background</div>
+      <p class="ccs-action-body">Free healing and care at temples of your faith; priests support you (and companions) with lodging and aid when they can.</p>
+    </div>
+  </section>
+
+  <section class="ccs-section" id="senses" aria-labelledby="senses-title">
+    <h3 id="senses-title">6 · Senses &amp; notes</h3>
+    <ul class="ccs-list">
+      <li><span class="ccs-item-name">Faith</span><span class="ccs-item-meta">Torm</span></li>
+      <li><span class="ccs-item-name">Languages</span><span class="ccs-item-meta">Common · Draconic · Elvish · Infernal</span></li>
+      <li><span class="ccs-item-name">Armor / weapons</span><span class="ccs-item-meta">No armor worn · Simple weapons · Shortswords</span></li>
+      <li><span class="ccs-item-name">Tools</span><span class="ccs-item-meta">Calligrapher’s supplies (per DDB/FG notes)</span></li>
+      <li><span class="ccs-item-name">Spell save DC</span><span class="ccs-item-meta">13 (8 + PB + WIS) · Magic Initiate</span></li>
+      <li><span class="ccs-item-name">Hit dice</span><span class="ccs-item-meta">1d8</span></li>
+    </ul>
+    <p class="ccs-note">Monastic tradition not chosen yet (starts at level 3). Gary’s L3 DDB sketch is wishlist only — not on this launch sheet.</p>
+  </section>
+</div>
+
+<p class="note" style="margin-top:18px">
+  <a href="../On%20the%20Rise/index.html">← On the Rise campaign home</a>
+  ·
+  <a href="../index.html">Home</a>
+</p>
+
+</main>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  function bindCounter(rootSel, inputSel, keyPrefix, defaultMaxAttr, fallbackMax) {
+    var root = document.querySelector(rootSel);
+    if (!root) return;
+    var input = root.querySelector(inputSel);
+    if (!input) return;
+    var character = root.getAttribute("data-character") || "character";
+    var maxVal = parseInt(root.getAttribute(defaultMaxAttr), 10);
+    if (isNaN(maxVal)) maxVal = fallbackMax;
+    var key = keyPrefix + character;
+    input.max = String(maxVal);
+    input.min = "0";
+    function clamp(n) {
+      if (isNaN(n)) return maxVal;
+      if (n < 0) return 0;
+      if (n > maxVal) return maxVal;
+      return n;
+    }
+    function load() {
+      try {
+        var raw = localStorage.getItem(key);
+        input.value = (raw === null || raw === "") ? String(maxVal) : String(clamp(parseInt(raw, 10)));
+      } catch (e) {
+        input.value = String(maxVal);
+      }
+    }
+    function save() {
+      var n = clamp(parseInt(input.value, 10));
+      input.value = String(n);
+      try { localStorage.setItem(key, String(n)); } catch (e) { /* private */ }
+    }
+    input.addEventListener("change", save);
+    input.addEventListener("blur", save);
+    input.addEventListener("keydown", function (ev) {
+      if (ev.key === "Enter") { save(); input.blur(); }
+    });
+    load();
+  }
+
+  bindCounter("[data-ccs-hp]", ".ccs-hp-current", "ccs-hp-current:", "data-hp-max", 9);
+
+  (function () {
+    var root = document.querySelector("[data-ccs-hp]");
+    var input = root && root.querySelector(".ccs-hp-temp");
+    if (!root || !input) return;
+    var character = root.getAttribute("data-character") || "character";
+    var key = "ccs-hp-temp:" + character;
+    function clamp(n) { if (isNaN(n) || n < 0) return 0; return n; }
+    function load() {
+      try {
+        var raw = localStorage.getItem(key);
+        input.value = (raw === null || raw === "") ? "0" : String(clamp(parseInt(raw, 10)));
+      } catch (e) { input.value = "0"; }
+    }
+    function save() {
+      var n = clamp(parseInt(input.value, 10));
+      input.value = String(n);
+      try { localStorage.setItem(key, String(n)); } catch (e) { /* private */ }
+    }
+    input.addEventListener("change", save);
+    input.addEventListener("blur", save);
+    load();
+  })();
+
+  (function () {
+    var root = document.querySelector("[data-ccs-ac]");
+    if (!root) return;
+    var totalEl = root.querySelector(".ccs-ac-total");
+    var miscInput = root.querySelector(".ccs-ac-misc");
+    if (!totalEl || !miscInput) return;
+    var character = root.getAttribute("data-character") || "character";
+    var baseAc = parseInt(root.getAttribute("data-ac-base"), 10) || 16;
+    var key = "ccs-ac-misc:" + character;
+    function parseMisc(raw) {
+      if (raw === null || raw === "" || raw === "-") return 0;
+      var n = parseInt(raw, 10);
+      return isNaN(n) ? 0 : n;
+    }
+    function formatMisc(n) { return n > 0 ? "+" + n : String(n); }
+    function refresh() {
+      var misc = parseMisc(miscInput.value);
+      miscInput.value = formatMisc(misc);
+      totalEl.textContent = String(baseAc + misc);
+      try { localStorage.setItem(key, String(misc)); } catch (e) { /* private */ }
+    }
+    function load() {
+      try {
+        var raw = localStorage.getItem(key);
+        miscInput.value = (raw === null || raw === "") ? "0" : formatMisc(parseMisc(raw));
+      } catch (e) { miscInput.value = "0"; }
+      totalEl.textContent = String(baseAc + parseMisc(miscInput.value));
+    }
+    miscInput.addEventListener("change", refresh);
+    miscInput.addEventListener("blur", refresh);
+    miscInput.addEventListener("input", function () {
+      totalEl.textContent = String(baseAc + parseMisc(miscInput.value));
+    });
+    load();
+  })();
+
+  document.querySelectorAll("[data-ccs-use-toggle]").forEach(function (btn) {
+    var character = btn.getAttribute("data-character") || "character";
+    var feature = btn.getAttribute("data-feature") || "feature";
+    var key = "ccs-use:" + character + ":" + feature;
+    function apply(used) {
+      btn.textContent = used ? "Used" : "Ready";
+      btn.setAttribute("aria-pressed", used ? "true" : "false");
+      btn.classList.toggle("is-ready", !used);
+      btn.classList.toggle("is-used", used);
+    }
+    try { apply(localStorage.getItem(key) === "used"); } catch (e) { apply(false); }
+    btn.addEventListener("click", function () {
+      var used = btn.getAttribute("aria-pressed") !== "true";
+      apply(used);
+      try { localStorage.setItem(key, used ? "used" : "ready"); } catch (e) { /* private */ }
+    });
+  });
+
+  (function () {
+    var root = document.querySelector("[data-ccs-inspiration]");
+    var btn = root && root.querySelector("[data-ccs-inspiration-toggle]");
+    if (!root || !btn) return;
+    var character = root.getAttribute("data-character") || "character";
+    var key = "ccs-inspiration:" + character;
+    var order = ["none", "single", "double"];
+    var labels = { double: "Double Inspiration!", single: "Single Inspiration", none: "None" };
+    function apply(state) {
+      if (order.indexOf(state) === -1) state = "none";
+      btn.textContent = labels[state];
+      btn.classList.remove("is-double", "is-single", "is-none");
+      btn.classList.add("is-" + state);
+      btn.setAttribute("data-state", state);
+      btn.setAttribute("aria-label", "Inspiration: " + labels[state] + ". Click to change.");
+    }
+    function load() {
+      var state = "none";
+      try {
+        var raw = localStorage.getItem(key);
+        if (raw && order.indexOf(raw) !== -1) state = raw;
+      } catch (e) { /* ignore */ }
+      apply(state);
+    }
+    btn.addEventListener("click", function () {
+      var i = order.indexOf(btn.getAttribute("data-state") || "none");
+      if (i < 0) i = 0;
+      var next = order[(i + 1) % order.length];
+      apply(next);
+      try { localStorage.setItem(key, next); } catch (e) { /* private */ }
+    });
+    load();
+  })();
+})();
+</script>
+</body>
+</html>
