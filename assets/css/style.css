@@ -3109,6 +3109,138 @@ a.ccs-item-art-door:focus-visible {
   filter: drop-shadow(0 4px 10px rgba(0, 0, 0, .45));
 }
 
+a.tarokka-door {
+  display: block;
+  border-radius: 10px;
+  line-height: 0;
+  text-decoration: none;
+  transition: transform .15s ease, filter .15s ease;
+}
+
+a.tarokka-door:hover,
+a.tarokka-door:focus-visible {
+  transform: translateY(-2px) scale(1.04);
+  outline: none;
+  filter: drop-shadow(0 0 10px rgba(216, 179, 95, .45));
+}
+
+a.tarokka-door:focus-visible {
+  box-shadow: 0 0 0 2px rgba(216, 179, 95, .65);
+}
+
+.tarokka-ominous-open {
+  border-style: solid;
+  border-color: rgba(216, 179, 95, .7);
+  color: #e8d090;
+  text-shadow: 0 0 12px rgba(216, 179, 95, .4);
+}
+
+.tarokka-slot a {
+  color: #d8b35f;
+  font-style: normal;
+  text-decoration: none;
+}
+
+.tarokka-slot a:hover,
+.tarokka-slot a:focus-visible {
+  color: #f0d890;
+  text-decoration: underline;
+  outline: none;
+}
+
+/* Tome of Strahd — cover, video, handout */
+.tome-feature {
+  max-width: 920px;
+}
+
+.tome-still {
+  margin: 12px 0 0;
+  padding: 0;
+  border: 1px solid #3d3423;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #05060a;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, .45);
+}
+
+.tome-still img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.tome-still-cover {
+  max-width: 420px;
+}
+
+.tome-still-handout {
+  max-width: 720px;
+}
+
+.tome-lightbox-trigger {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+  line-height: 0;
+}
+
+.tome-lightbox-trigger:focus-visible {
+  outline: 2px solid rgba(216, 179, 95, .75);
+  outline-offset: 3px;
+}
+
+.tome-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 16px;
+  background: rgba(4, 5, 8, .94);
+  cursor: zoom-out;
+}
+
+.tome-lightbox[hidden] {
+  display: none;
+}
+
+.tome-lightbox img {
+  width: min(100%, 960px);
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid #3d3423;
+  border-radius: 8px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .55);
+  cursor: zoom-out;
+}
+
+body.tome-lightbox-open {
+  overflow: hidden;
+}
+
+.tome-video-wrap {
+  margin-top: 12px;
+  border: 1px solid #3d3423;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #05060a;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, .45);
+}
+
+.tome-video-wrap video {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #000;
+}
+
 .tarokka-ominous {
   display: flex;
   align-items: center;

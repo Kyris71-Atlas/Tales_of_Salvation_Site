@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sunsword — Tales of Salvation</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+/* Parchment companion page — dark ink only (no site-gold on cream) */
+.discovery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}
+.discovery-card{
+  border:1px solid rgba(110,89,48,.45);
+  border-radius:10px;
+  padding:1rem;
+  background:rgba(255,255,255,.4);
+  color:#20180f;
+}
+.discovery-card h4{
+  margin:0 0 .5rem;
+  color:#3D2E14;
+  font-size:1.05rem;
+  letter-spacing:.03em;
+}
+.discovery-card p{margin:0;color:#20180f}
+.discovery-card a{color:#3D2E14;font-weight:bold}
+.note-box{
+  margin-top:1rem;
+  padding:1rem;
+  border-radius:10px;
+  background:rgba(255,255,255,.35);
+  border:1px dashed rgba(110,89,48,.5);
+  color:#20180f;
+}
+.note-box strong{color:#3D2E14}
+.source-strip{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:12px;font-size:.88rem;color:#4a3f30}
+.source-strip strong{color:#20180f}
+.sheet-card p{color:#20180f}
+.sheet-title{color:#3D2E14;font-weight:bold;letter-spacing:.03em;margin:0 0 .6rem}
+.legacy-passage{
+  margin:22px auto 0;
+  max-width:690px; /* 75% of the 920px Dawnbreaker-style frame */
+  width:75%;
+  border:2px solid #6e5930;
+  border-radius:12px;
+  overflow:hidden;
+  background:#05060a;
+  line-height:0;
+  box-shadow:0 12px 36px rgba(0,0,0,.35);
+}
+.legacy-passage img{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:contain;
+}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <h1 class="site-title">Tales of Salvation</h1>
+  <p class="site-subtitle">Legacy weapon · Ravenloft’s Fury · Card 3 — The Wizard</p>
+</header>
+
+<div class="layout">
+<nav>
+  <div class="nav-section">Tales of Salvation</div>
+  <a href="../index.html">Home</a>
+
+  <div class="nav-section">Ravenloft’s Fury</div>
+  <a href="../Ravenloft%27s%20Fury/index.html">Campaign Home</a>
+  <a href="../Ravenloft%27s%20Fury/the-journey.html">The Ravenloft Journey</a>
+  <a href="../Ravenloft%27s%20Fury/tome-of-strahd.html">The Tome of Strahd</a>
+  <a href="davian-martikov.html">Davian Martikov</a>
+  <a href="../Ravenloft%27s%20Fury/eyes-of-the-devil.html">Eyes of the Devil</a>
+
+  <div class="nav-section">Legacy weapons</div>
+  <a href="sunsword.html" aria-current="page">Sunsword</a>
+  <a href="dawnbreaker-claymore.html">Dawnbreaker Claymore</a>
+
+  <div class="nav-section">Other companions</div>
+  <a href="sir-kluth.html">Sir Kluth</a>
+  <a href="brennar-tallowick.html">Brennar Tallowick</a>
+</nav>
+
+<main>
+<div class="breadcrumbs">
+  <a href="../index.html">Home</a> &gt;
+  <a href="../Ravenloft%27s%20Fury/index.html">Ravenloft’s Fury</a> &gt;
+  <a href="../Ravenloft%27s%20Fury/the-journey.html">The Ravenloft Journey</a> &gt;
+  Sunsword
+</div>
+
+<div class="book-panel">
+  <div class="nameplate">
+    <h2>Sunsword</h2>
+    <div class="subtitle">Sentient sun blade · Sergei’s sword · Van Richten’s Tower</div>
+    <span class="badge">Legacy weapon</span>
+    <span class="badge">Ravenloft’s Fury</span>
+    <span class="badge">Card 3 — The Wizard</span>
+    <span class="badge">Rare · Attunement</span>
+  </div>
+
+  <div class="source-strip">
+    <span><strong>Reading</strong> Wizard — Sunsword → Van Richten’s Tower</span>
+    <span><strong>Form</strong> Longsword hilt · blade of radiance · finesse</span>
+    <span><strong>FG</strong> 001 Ravenloft’s Fury (campaigns) Atrok</span>
+  </div>
+
+  <div class="sheet-card" style="margin-top:16px">
+    <div class="sheet-title">What it is</div>
+    <p>
+      To the eye it is only a <strong>longsword hilt</strong>. Grasp it, and a bonus action calls a blade of
+      <strong>pure radiance</strong> into being — or banishes it again. While the blade exists, this is a magic longsword
+      with the <strong>finesse</strong> property. Proficiency with shortswords or longswords covers the Sunsword.
+    </p>
+    <p>
+      It was once Sergei von Zarovich’s crystal blade. The hilt survived. The crystal did not.
+      What remains has taken on the nature of a <em>sun blade</em>.
+    </p>
+  </div>
+
+  <div class="sheet-card" style="margin-top:16px">
+    <div class="sheet-title">How the Reading Points Here</div>
+    <p>
+      The Wizard card named this weapon and placed it at <strong>Van Richten’s Tower</strong>.
+      Tempest Company has reached the place. The hunter has kept the blade close — and used it sparingly —
+      because sunlight in Barovia is both shield and beacon. The sword wants Strahd destroyed.
+      Revenge for a broken crystal matters more to it than freeing the land.
+    </p>
+  </div>
+
+  <div class="discovery-grid">
+    <div class="discovery-card">
+      <h4>In the hand</h4>
+      <p>
+        <strong>+2</strong> to attack and damage. Deals <strong>radiant</strong> damage instead of slashing.
+        Against undead, an extra <strong>1d8 radiant</strong>. Versatile (1d10) when the blade is present.
+      </p>
+    </div>
+    <div class="discovery-card">
+      <h4>Sunlight</h4>
+      <p>
+        The luminous blade sheds <strong>bright light 15 ft.</strong> and <strong>dim light 15 ft. more</strong>.
+        That light is <strong>sunlight</strong>. An action expands or reduces each radius by 5 feet
+        (min 10 / max 30).
+      </p>
+    </div>
+    <div class="discovery-card">
+      <h4>Sentience</h4>
+      <p>
+        Chaotic good. Int 11 · Wis 17 · Cha 16. Hearing and normal vision 60 ft.
+        Speaks in <strong>emotions</strong> to whoever carries or wields it.
+        It fears its own destruction even as it hungers for Strahd’s.
+      </p>
+    </div>
+  </div>
+
+  <div class="note-box">
+    <strong>Lore from the FG record</strong>
+    <p style="margin:.5rem 0 0">
+      Strahd ordered the wizard Khazan to destroy Sergei’s sword. Khazan separated hilt from crystal blade;
+      an apprentice stole the hilt and died in the Svalich Woods. Khazan told Strahd the whole weapon was gone.
+      The hilt knows the crystal is lost forever — and still burns for what comes next.
+    </p>
+  </div>
+
+  <div class="legacy-passage" style="margin-top:22px">
+    <img src="../assets/images/Ravenloft%27s%20Fury/Sunsword.png" alt="The Sunsword — radiant blade of sunlight">
+  </div>
+</div>
+
+<p class="note" style="margin-top:18px">
+  <a href="../Ravenloft%27s%20Fury/the-journey.html">← The Ravenloft Journey</a>
+  ·
+  <a href="../Ravenloft%27s%20Fury/index.html">Campaign Home</a>
+  ·
+  <a href="../index.html">Home</a>
+</p>
+</main>
+</div>
+</body>
+</html>

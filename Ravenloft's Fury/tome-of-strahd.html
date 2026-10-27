@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Tome of Strahd · Ravenloft’s Fury — Tales of Salvation</title>
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <h1 class="site-title">Tales of Salvation</h1>
+  <p class="site-subtitle">Ravenloft’s Fury · The Reading · Card 1 — The Druid</p>
+</header>
+
+<div class="layout">
+<nav>
+  <div class="nav-section">Ravenloft’s Fury</div>
+  <a href="index.html">Campaign Home</a>
+  <a href="the-journey.html">The Ravenloft Journey</a>
+  <a href="tome-of-strahd.html" aria-current="page">The Tome of Strahd</a>
+  <a href="eyes-of-the-devil.html">Eyes of the Devil</a>
+  <a href="index.html#last-time">Last time…</a>
+  <a href="index.html#company-character-sheets">Company Character Sheets</a>
+
+  <div class="nav-section">Deep Memory</div>
+  <a href="../deep-memory/index.html">Vault entrance</a>
+  <a href="../forge-of-fury/deep-memory.html">Tempest Chambers</a>
+
+  <div class="nav-section">Previous chapter</div>
+  <a href="../forge-of-fury/index.html">Forge of Fury (archived)</a>
+</nav>
+
+<main>
+<div class="breadcrumbs">
+  <a href="../index.html">Home</a> &gt;
+  <a href="index.html">Ravenloft’s Fury</a> &gt;
+  <a href="the-journey.html">The Ravenloft Journey</a> &gt;
+  The Tome of Strahd
+</div>
+
+<div class="book-panel">
+  <h2>The Tome of Strahd</h2>
+  <p>
+    The Druid card opened this door. What follows is the book itself — pages Tempest Company
+    can turn when the table is ready.
+  </p>
+</div>
+
+<section class="tome-feature" aria-labelledby="tome-cover-title" style="margin-top:18px">
+  <h2 id="tome-cover-title" class="section-label">The cover</h2>
+  <figure class="tome-still tome-still-cover">
+    <img
+      src="../assets/images/Ravenloft%27s%20Fury/Tome%20of%20Strahd%20image.png"
+      alt="The Tome of Strahd — black leather cover with a crimson S seal"
+    >
+  </figure>
+
+  <h2 id="tome-video-title" class="section-label" style="margin-top:22px">The pages turn</h2>
+  <p class="roster-lead">Watch the Tome. Controls are on the player.</p>
+
+  <div class="tome-video-wrap">
+    <video
+      controls
+      playsinline
+      preload="metadata"
+      poster="../assets/images/Ravenloft%27s%20Fury/Tome%20of%20Strahd%20image.png"
+      aria-label="The Tome of Strahd — page-turning video"
+    >
+      <source src="../assets/Media/Tome%20of%20Strahd.mp4" type="video/mp4">
+      Your browser does not play this video file. Open
+      <a href="../assets/Media/Tome%20of%20Strahd.mp4">Tome of Strahd.mp4</a>
+      directly instead.
+    </video>
+  </div>
+
+  <h2 id="tome-handout-title" class="section-label" style="margin-top:22px">The handout</h2>
+  <p class="roster-lead">The words of the Tome — readable at the table. Click the handout for full screen; click again to return.</p>
+  <figure class="tome-still tome-still-handout">
+    <button
+      type="button"
+      class="tome-lightbox-trigger"
+      aria-expanded="false"
+      aria-controls="tome-handout-lightbox"
+      aria-label="Open handout full screen"
+    >
+      <img
+        src="../assets/images/Ravenloft%27s%20Fury/Handout_Tome_of_Strahd.png"
+        alt="Handout of the Tome of Strahd — parchment pages of Strahd’s account"
+      >
+    </button>
+  </figure>
+</section>
+
+<p class="note" style="margin-top:18px">
+  <a href="the-journey.html">← The Ravenloft Journey</a>
+  ·
+  <a href="index.html">Campaign Home</a>
+  ·
+  <a href="../index.html">Home</a>
+</p>
+</main>
+</div>
+
+<div
+  class="tome-lightbox"
+  id="tome-handout-lightbox"
+  hidden
+  role="dialog"
+  aria-modal="true"
+  aria-label="Tome of Strahd handout — full screen"
+>
+  <img
+    src="../assets/images/Ravenloft%27s%20Fury/Handout_Tome_of_Strahd.png"
+    alt="Handout of the Tome of Strahd — parchment pages of Strahd’s account"
+  >
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var trigger = document.querySelector(".tome-lightbox-trigger");
+  var lightbox = document.getElementById("tome-handout-lightbox");
+  if (!trigger || !lightbox) return;
+
+  function setOpen(open) {
+    lightbox.hidden = !open;
+    trigger.setAttribute("aria-expanded", open ? "true" : "false");
+    trigger.setAttribute(
+      "aria-label",
+      open ? "Close handout full screen" : "Open handout full screen"
+    );
+    document.body.classList.toggle("tome-lightbox-open", open);
+  }
+
+  trigger.addEventListener("click", function () {
+    setOpen(lightbox.hidden);
+  });
+
+  lightbox.addEventListener("click", function () {
+    setOpen(false);
+  });
+
+  document.addEventListener("keydown", function (ev) {
+    if (ev.key === "Escape" && !lightbox.hidden) {
+      setOpen(false);
+    }
+  });
+})();
+</script>
+</body>
+</html>
