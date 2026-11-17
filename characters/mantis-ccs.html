@@ -74,7 +74,7 @@
         >Single Inspiration</button>
       </div>
       <h2>Mantis</h2>
-      <div class="subtitle">Halfling (Lightfoot) · Storm Sorcerer 6 · Urchin</div>
+      <div class="subtitle">Halfling (Lightfoot) · Storm Sorcerer 7 · Urchin</div>
       <span class="badge">Tempest Company</span>
       <span class="badge">Company Character Sheet</span>
       <span class="badge">Storm Sorcery</span>
@@ -88,16 +88,16 @@
   <div class="sheet-source">
     <span><strong>Source</strong> Fantasy Grounds character record</span>
     <span><strong>Campaign</strong> Forge of Fury · Active</span>
-    <span><strong>Sheet reviewed</strong> 2026-08-23</span>
+    <span><strong>Sheet reviewed</strong> 2026-11-17</span>
     <span><strong>XP</strong> Milestone (ignore FG exp)</span>
-    <span><strong>Confidence</strong> Verified from FG L6 export unless noted</span>
+    <span><strong>Confidence</strong> Verified from FG L7 export unless noted</span>
   </div>
 
   <!-- 1 · Core Stats (no combat outline) -->
   <section class="ccs-section" id="core-stats" aria-labelledby="core-stats-title">
     <h3 id="core-stats-title">1 · Core Stats</h3>
     <div class="ccs-core-board">
-      <div class="ccs-tile ccs-tile-hp ccs-core-hp" data-ccs-hp data-character="mantis" data-hp-max="38">
+      <div class="ccs-tile ccs-tile-hp ccs-core-hp" data-ccs-hp data-character="mantis" data-hp-max="44">
         <span class="ccs-label">Hit Points</span>
         <span class="ccs-sublabel">Wounds / Max</span>
         <div class="ccs-hp-row" role="group" aria-label="Hit points">
@@ -107,13 +107,13 @@
             name="hp-current"
             inputmode="numeric"
             min="0"
-            max="38"
-            value="38"
+            max="44"
+            value="44"
             aria-label="Wounds"
             title="Tap to edit wounds (Fantasy Grounds)"
           >
           <span class="ccs-hp-sep" aria-hidden="true">/</span>
-          <span class="ccs-hp-max" aria-label="Maximum hit points">38</span>
+          <span class="ccs-hp-max" aria-label="Maximum hit points">44</span>
         </div>
         <div class="ccs-hp-temp-row" role="group" aria-label="Temporary hit points">
           <span class="ccs-hp-temp-label">Temp</span>
@@ -170,7 +170,7 @@
       <div class="ccs-tile ccs-core-prof">
         <span class="ccs-label">Proficiency</span>
         <span class="ccs-value">+3</span>
-        <span class="ccs-why">Level 6</span>
+        <span class="ccs-why">Level 7</span>
       </div>
     </div>
   </section>
@@ -273,7 +273,7 @@
   <section class="ccs-section mantis-zone mantis-zone-skills" id="mantis-skills" aria-labelledby="skills-title">
     <h3 id="skills-title">3 · Skills (proficient)</h3>
     <div class="ccs-skills-header">
-      <p class="ccs-skills-lead">Mantis’s level 6 proficiency bonus is <strong>+3</strong></p>
+      <p class="ccs-skills-lead">Mantis’s level 7 proficiency bonus is <strong>+3</strong></p>
       <span class="ccs-skills-colhead ccs-skills-colhead-abil">Ability modifier</span>
       <span class="ccs-skills-colhead ccs-skills-colhead-prof">Proficiency bonus</span>
       <span class="ccs-skills-colhead ccs-skills-colhead-total"></span>
@@ -454,11 +454,27 @@
           >
           <span class="ccs-spell-slot-max">/ 3</span>
         </label>
+        <label class="ccs-spell-slot">
+          <span class="ccs-spell-slot-level">4th</span>
+          <input
+            type="number"
+            class="ccs-spell-slot-current"
+            data-slot-level="4"
+            data-slot-max="1"
+            inputmode="numeric"
+            min="0"
+            max="1"
+            value="1"
+            aria-label="4th-level spell slots remaining"
+          >
+          <span class="ccs-spell-slot-max">/ 1</span>
+        </label>
       </div>
     </div>
 
     <p class="ccs-note">
       Other known (utility): Frostbite, Infestation, Prestidigitation, Witch Bolt.
+      FG L7 adds a <strong>4th-level slot</strong>; the new known spell is not named on the export yet.
     </p>
   </section>
 
@@ -482,7 +498,7 @@
       </div>
       <div class="ccs-maneuver" style="margin:0">
         <div class="ccs-action-name">2 · Sorcery points</div>
-        <div class="ccs-action-meta">This section · max 6 at level 6</div>
+        <div class="ccs-action-meta">This section · max 7 at level 7</div>
         <p class="ccs-action-body">
           Spend points for <strong>metamagic</strong> (cooler casts) or
           <strong>Flexible Casting</strong> (trade points ↔ slots).
@@ -500,7 +516,7 @@
           class="ccs-action-meta ccs-sup-dice-line"
           data-ccs-sup-dice
           data-character="mantis"
-          data-sup-max="6"
+          data-sup-max="7"
         >
           Points left:
           <input
@@ -509,16 +525,16 @@
             name="sorcery-points"
             inputmode="numeric"
             min="0"
-            max="6"
-            value="6"
+            max="7"
+            value="7"
             aria-label="Sorcery points remaining"
             title="Spend for metamagic or Flexible Casting"
           >
-          / 6
+          / 7
         </div>
         <p class="ccs-action-body">
-          Start each day at <strong>6</strong>. Tap the number down when you spend.
-          <strong>Long rest → set back to 6.</strong>
+          Start each day at <strong>7</strong>. Tap the number down when you spend.
+          <strong>Long rest → set back to 7.</strong>
           (No Ready/Used button — the number <em>is</em> the track.)
         </p>
       </div>
@@ -534,6 +550,7 @@
             <li><span class="ccs-item-name">1st-level slot</span><span class="ccs-item-meta">costs <strong>2</strong> points</span></li>
             <li><span class="ccs-item-name">2nd-level slot</span><span class="ccs-item-meta">costs <strong>3</strong> points</span></li>
             <li><span class="ccs-item-name">3rd-level slot</span><span class="ccs-item-meta">costs <strong>5</strong> points</span></li>
+            <li><span class="ccs-item-name">4th-level slot</span><span class="ccs-item-meta">costs <strong>6</strong> points</span></li>
           </ul>
           <p class="ccs-note" style="margin-top:8px">
             Then cast your spell and spend that new slot as usual.
@@ -550,16 +567,17 @@
             <li><span class="ccs-item-name">1st-level slot</span><span class="ccs-item-meta">gives <strong>2</strong> points</span></li>
             <li><span class="ccs-item-name">2nd-level slot</span><span class="ccs-item-meta">gives <strong>3</strong> points</span></li>
             <li><span class="ccs-item-name">3rd-level slot</span><span class="ccs-item-meta">gives <strong>5</strong> points</span></li>
+            <li><span class="ccs-item-name">4th-level slot</span><span class="ccs-item-meta">gives <strong>6</strong> points</span></li>
           </ul>
           <p class="ccs-note" style="margin-top:8px">
-            Lower the slot track above, raise sorcery points here (max 6).
-            You can’t go over 6 points.
+            Lower the slot track above, raise sorcery points here (max 7).
+            You can’t go over 7 points.
           </p>
         </div>
       </div>
 
       <p class="ccs-hint" style="margin-top:14px">
-        <strong>Quick recipes (level 6)</strong><br>
+        <strong>Quick recipes (level 7)</strong><br>
         · Need one more 1st-level cast? <strong>−2 points → +1 1st slot → cast</strong><br>
         · Need points for Twinned 1st? <strong>burn a 1st slot (+2 pts) or 2nd (+3)</strong><br>
         · Want Empowered Lightning Bolt? Cast with a 3rd slot, then spend <strong>1 point</strong> to reroll damage dice
@@ -636,7 +654,7 @@
     <h3 id="senses-title">6 · Senses &amp; notes</h3>
     <ul class="ccs-list">
       <li><span class="ccs-item-name">Darkvision</span><span class="ccs-item-meta">60 ft (FG · Goggles of Night equipped)</span></li>
-      <li><span class="ccs-item-name">Hit dice</span><span class="ccs-item-meta">6d6 (FG L6 export)</span></li>
+      <li><span class="ccs-item-name">Hit dice</span><span class="ccs-item-meta">7d6 (FG L7 export)</span></li>
       <li><span class="ccs-item-name">Languages</span><span class="ccs-item-meta">Common · Halfling · Primordial (Wind Speaker)</span></li>
       <li><span class="ccs-item-name">Brooch of Shielding</span><span class="ccs-item-meta">Resistance to force · immune to magic missile</span></li>
     </ul>
@@ -710,7 +728,7 @@
     load();
   }
 
-  bindCounter("[data-ccs-hp]", ".ccs-hp-current", "ccs-hp-current:", "data-hp-max", 38);
+  bindCounter("[data-ccs-hp]", ".ccs-hp-current", "ccs-hp-current:", "data-hp-max", 44);
 
   (function () {
     var root = document.querySelector("[data-ccs-hp]");
@@ -865,7 +883,7 @@
     if (!root || !input) return;
 
     var character = root.getAttribute("data-character") || "character";
-    var maxVal = parseInt(root.getAttribute("data-sup-max"), 10) || 6;
+    var maxVal = parseInt(root.getAttribute("data-sup-max"), 10) || 7;
     var diceKey = "ccs-sup-dice:" + character;
     input.max = String(maxVal);
     input.min = "0";

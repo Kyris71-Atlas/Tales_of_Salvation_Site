@@ -68,7 +68,7 @@
         >Double Inspiration!</button>
       </div>
       <h2>Thrain Bearblood</h2>
-      <div class="subtitle">Mountain Dwarf · Fighter 6 (Battle Master) · Folk Hero</div>
+      <div class="subtitle">Mountain Dwarf · Fighter 7 (Battle Master) · Folk Hero</div>
       <span class="badge">Tempest Company</span>
       <span class="badge">Company Character Sheet</span>
       <span class="badge">Battle Master</span>
@@ -82,16 +82,16 @@
   <div class="sheet-source">
     <span><strong>Source</strong> Fantasy Grounds character record</span>
     <span><strong>Campaign</strong> Forge of Fury · Active</span>
-    <span><strong>Sheet reviewed</strong> 2026-08-18</span>
+    <span><strong>Sheet reviewed</strong> 2026-11-17</span>
     <span><strong>XP</strong> Milestone (ignore FG exp)</span>
-    <span><strong>Confidence</strong> Verified from FG L6 export unless noted</span>
+    <span><strong>Confidence</strong> Re-verified from updated FG L7 export (2026-11-17)</span>
   </div>
 
   <!-- Stable section order — same on every company sheet -->
   <section class="ccs-section" id="core-stats" aria-labelledby="core-stats-title">
     <h3 id="core-stats-title">1 · Core Stats</h3>
     <div class="ccs-core-board">
-      <div class="ccs-tile ccs-tile-hp ccs-core-hp" data-ccs-hp data-character="thrain" data-hp-max="58">
+      <div class="ccs-tile ccs-tile-hp ccs-core-hp" data-ccs-hp data-character="thrain" data-hp-max="67">
         <span class="ccs-label">Hit Points</span>
         <span class="ccs-sublabel">Wounds / Max</span>
         <div class="ccs-hp-row" role="group" aria-label="Hit points">
@@ -101,13 +101,13 @@
             name="hp-current"
             inputmode="numeric"
             min="0"
-            max="58"
-            value="58"
+            max="67"
+            value="67"
             aria-label="Wounds"
             title="Tap to edit wounds (Fantasy Grounds)"
           >
           <span class="ccs-hp-sep" aria-hidden="true">/</span>
-          <span class="ccs-hp-max" aria-label="Maximum hit points">58</span>
+          <span class="ccs-hp-max" aria-label="Maximum hit points">67</span>
         </div>
         <div class="ccs-hp-temp-row" role="group" aria-label="Temporary hit points">
           <span class="ccs-hp-temp-label">Temp</span>
@@ -124,14 +124,14 @@
         </div>
       </div>
 
-      <div class="ccs-tile ccs-tile-ac ccs-core-ac" data-ccs-ac data-character="thrain" data-ac-base="19">
+      <div class="ccs-tile ccs-tile-ac ccs-core-ac" data-ccs-ac data-character="thrain" data-ac-base="21">
         <span class="ccs-label">Armor Class</span>
         <div class="ccs-ac-row">
-          <span class="ccs-ac-total" aria-label="Total armor class">19</span>
+          <span class="ccs-ac-total" aria-label="Total armor class">21</span>
         </div>
         <ul class="ccs-ac-breakdown">
-          <li><span class="ccs-ac-part">Chain mail</span><span class="ccs-ac-num">16</span></li>
-          <li><span class="ccs-ac-part">Shield</span><span class="ccs-ac-num">+2</span></li>
+          <li><span class="ccs-ac-part">Chain mail +1</span><span class="ccs-ac-num">17</span></li>
+          <li><span class="ccs-ac-part">Shield +1</span><span class="ccs-ac-num">+3</span></li>
           <li><span class="ccs-ac-part">Fighting Style (Defense)</span><span class="ccs-ac-num">+1</span></li>
           <li class="ccs-ac-misc-row">
             <span class="ccs-ac-part">Misc</span>
@@ -163,7 +163,7 @@
       <div class="ccs-tile ccs-core-prof">
         <span class="ccs-label">Proficiency</span>
         <span class="ccs-value">+3</span>
-        <span class="ccs-why">Level 6</span>
+        <span class="ccs-why">Level 7</span>
       </div>
     </div>
   </section>
@@ -290,7 +290,7 @@
   <section class="ccs-section" id="skills" aria-labelledby="skills-title">
     <h3 id="skills-title">4 · Skills (proficient)</h3>
     <div class="ccs-skills-header">
-      <p class="ccs-skills-lead">Thrain’s level 6 proficiency bonus is <strong>+3</strong></p>
+      <p class="ccs-skills-lead">Thrain’s level 7 proficiency bonus is <strong>+3</strong></p>
       <span class="ccs-skills-colhead ccs-skills-colhead-abil">Ability modifier</span>
       <span class="ccs-skills-colhead ccs-skills-colhead-prof">Proficiency bonus</span>
       <span class="ccs-skills-colhead ccs-skills-colhead-total"></span>
@@ -352,7 +352,7 @@
     <h3 id="actions-title">5 · Actions</h3>
     <p class="ccs-hint">What you can spend on your turn (and reactions) — same spirit as FG's Actions list under the weapons.</p>
 
-    <!-- Combat Superiority = one unit: header + three maneuvers -->
+    <!-- Combat Superiority = header + five maneuvers (FG L7) -->
     <div class="ccs-superiority">
       <div class="ccs-superiority-head">
         <div class="ccs-action-top">
@@ -371,7 +371,7 @@
           class="ccs-action-meta ccs-sup-dice-line"
           data-ccs-sup-dice
           data-character="thrain"
-          data-sup-max="4"
+          data-sup-max="5"
         >
           Battle Master:
           <input
@@ -380,8 +380,8 @@
             name="sup-dice"
             inputmode="numeric"
             min="0"
-            max="4"
-            value="4"
+            max="5"
+            value="5"
             aria-label="Superiority dice remaining"
             title="Dice remaining"
           >
@@ -390,6 +390,7 @@
         <p class="ccs-action-body">
           Spend <strong>1 die</strong> to use a maneuver below.
           <strong>You regain all expended superiority dice when you finish a short or long rest.</strong>
+          Fighter 7: <strong>5</strong> dice.
         </p>
         <p class="ccs-action-body">Maneuver save DC = <strong>16</strong> (8 + proficiency + Strength).</p>
       </div>
@@ -415,7 +416,33 @@
             Add the die to your <strong>AC until you stop moving</strong>.
           </p>
         </div>
+        <div class="ccs-maneuver">
+          <div class="ccs-action-name">Grappling Strike</div>
+          <div class="ccs-action-meta">On hit with a melee weapon · 1 die · bonus action</div>
+          <p class="ccs-action-body">
+            Add the die to damage, then attempt to <strong>grapple</strong> the target as a bonus action
+            (contest uses the superiority die).
+          </p>
+        </div>
+        <div class="ccs-maneuver">
+          <div class="ccs-action-name">Parry</div>
+          <div class="ccs-action-meta">Reaction · when damaged by a melee attack · 1 die</div>
+          <p class="ccs-action-body">
+            Reduce the damage by the number you roll on your superiority die + your Dexterity modifier (<strong>+2</strong>).
+          </p>
+        </div>
       </div>
+    </div>
+
+    <div class="ccs-action-block">
+      <div class="ccs-action-top">
+        <div class="ccs-action-name">Know Your Enemy</div>
+      </div>
+      <div class="ccs-action-meta">Fighter 7 · 1 minute observing or interacting · outside combat</div>
+      <p class="ccs-action-body">
+        The DM tells you if the creature is your equal, superior, or inferior in up to two of:
+        Strength, Dexterity, Constitution, Armor Class, current hit points, total class levels (if any), fighter levels (if any).
+      </p>
     </div>
 
     <div class="ccs-action-block">
@@ -431,7 +458,7 @@
         >Ready</button>
       </div>
       <div class="ccs-action-meta">Bonus action · <strong>1 / short or long rest</strong></div>
-      <p class="ccs-action-body">Regain hit points equal to <strong>1d10 + 6</strong> (fighter level).</p>
+      <p class="ccs-action-body">Regain hit points equal to <strong>1d10 + 7</strong> (fighter level).</p>
     </div>
 
     <div class="ccs-action-block">
@@ -455,7 +482,7 @@
     <h3 id="senses-title">6 · Senses &amp; notes</h3>
     <ul class="ccs-list">
       <li><span class="ccs-item-name">Darkvision</span><span class="ccs-item-meta">60 ft</span></li>
-      <li><span class="ccs-item-name">Hit dice</span><span class="ccs-item-meta">6d10</span></li>
+      <li><span class="ccs-item-name">Hit dice</span><span class="ccs-item-meta">7d10</span></li>
       <li><span class="ccs-item-name">Attuned</span><span class="ccs-item-meta">Runemarked Smith’s Warhammer · Hat of Disguised Intellect · Ring of Acid Resistance — while worn, resistance to acid damage</span></li>
       <li><span class="ccs-item-name">Bag of Holding</span><span class="ccs-item-meta">Carried</span></li>
       <li><span class="ccs-item-name">Potion of Invisibility</span><span class="ccs-item-meta">Carried (FG)</span></li>
@@ -528,7 +555,7 @@
     load();
   }
 
-  bindCounter("[data-ccs-hp]", ".ccs-hp-current", "ccs-hp-current:", "data-hp-max", 58);
+  bindCounter("[data-ccs-hp]", ".ccs-hp-current", "ccs-hp-current:", "data-hp-max", 67);
 
   /* Temporary HP — default 0; player tracks */
   (function () {
@@ -571,7 +598,7 @@
     if (!totalEl || !miscInput) return;
 
     var character = root.getAttribute("data-character") || "character";
-    var baseAc = parseInt(root.getAttribute("data-ac-base"), 10) || 19;
+    var baseAc = parseInt(root.getAttribute("data-ac-base"), 10) || 21;
     var key = "ccs-ac-misc:" + character;
 
     function parseMisc(raw) {
@@ -631,7 +658,7 @@
     if (!root || !input) return;
 
     var character = root.getAttribute("data-character") || "character";
-    var maxVal = parseInt(root.getAttribute("data-sup-max"), 10) || 4;
+    var maxVal = parseInt(root.getAttribute("data-sup-max"), 10) || 5;
     var diceKey = "ccs-sup-dice:" + character;
     var useKey = "ccs-use:" + character + ":combat-superiority";
     input.max = String(maxVal);

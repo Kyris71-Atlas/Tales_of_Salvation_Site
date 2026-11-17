@@ -221,7 +221,7 @@
         >Single Inspiration</button>
       </div>
       <h2>Benn</h2>
-      <div class="subtitle">Halfling · Nature Domain Cleric 6 · Farmer · Chauntea</div>
+      <div class="subtitle">Halfling · Nature Domain Cleric 7 · Farmer · Chauntea</div>
       <span class="badge">Tempest Company</span>
       <span class="badge">Company Character Sheet</span>
       <span class="badge">Nature Domain</span>
@@ -235,16 +235,16 @@
   <div class="sheet-source">
     <span><strong>Source</strong> Fantasy Grounds character record</span>
     <span><strong>Campaign</strong> Forge of Fury · Active</span>
-    <span><strong>Sheet reviewed</strong> 2026-08-18</span>
+    <span><strong>Sheet reviewed</strong> 2026-11-17</span>
     <span><strong>XP</strong> Milestone (ignore FG exp)</span>
-    <span><strong>Confidence</strong> Verified from FG L6 export unless noted</span>
+    <span><strong>Confidence</strong> Verified from FG L7 export unless noted</span>
   </div>
 
   <!-- 1 · Core Stats -->
   <section class="ccs-section" id="core-stats" aria-labelledby="core-stats-title">
     <h3 id="core-stats-title">1 · Core Stats</h3>
     <div class="ccs-core-board">
-      <div class="ccs-tile ccs-tile-hp ccs-core-hp" data-ccs-hp data-character="benn" data-hp-max="57">
+      <div class="ccs-tile ccs-tile-hp ccs-core-hp" data-ccs-hp data-character="benn" data-hp-max="66">
         <span class="ccs-label">Hit Points</span>
         <span class="ccs-sublabel">Wounds / Max</span>
         <div class="ccs-hp-row" role="group" aria-label="Hit points">
@@ -254,13 +254,13 @@
             name="hp-current"
             inputmode="numeric"
             min="0"
-            max="57"
-            value="57"
+            max="66"
+            value="66"
             aria-label="Wounds"
             title="Tap to edit wounds (Fantasy Grounds)"
           >
           <span class="ccs-hp-sep" aria-hidden="true">/</span>
-          <span class="ccs-hp-max" aria-label="Maximum hit points">57</span>
+          <span class="ccs-hp-max" aria-label="Maximum hit points">66</span>
         </div>
         <div class="ccs-hp-temp-row" role="group" aria-label="Temporary hit points">
           <span class="ccs-hp-temp-label">Temp</span>
@@ -317,7 +317,7 @@
       <div class="ccs-tile ccs-core-prof">
         <span class="ccs-label">Proficiency</span>
         <span class="ccs-value">+3</span>
-        <span class="ccs-why">Level 6</span>
+        <span class="ccs-why">Level 7</span>
       </div>
     </div>
   </section>
@@ -528,12 +528,17 @@
           <input type="number" class="ccs-spell-slot-current" data-slot-level="3" data-slot-max="3" inputmode="numeric" min="0" max="3" value="3" aria-label="3rd-level spell slots remaining">
           <span class="ccs-spell-slot-max">/ 3</span>
         </label>
+        <label class="ccs-spell-slot">
+          <span class="ccs-spell-slot-level">4th</span>
+          <input type="number" class="ccs-spell-slot-current" data-slot-level="4" data-slot-max="1" inputmode="numeric" min="0" max="1" value="1" aria-label="4th-level spell slots remaining">
+          <span class="ccs-spell-slot-max">/ 1</span>
+        </label>
       </div>
     </div>
 
     <p class="ccs-note">
       Cantrips also: Light, Guidance, Resistance.
-      Also prepared (FG): Create/Destroy Water, Purify Food and Drink, Lesser Restoration, Prayer of Healing, Beacon of Hope, Dispel Magic.
+      Also prepared (FG): Create/Destroy Water, Purify Food and Drink, Lesser Restoration, Prayer of Healing, Beacon of Hope, Dispel Magic, <strong>Divination</strong> (4th).
     </p>
   </section>
 
@@ -541,7 +546,7 @@
   <section class="ccs-section" id="skills" aria-labelledby="skills-title">
     <h3 id="skills-title">4 · Skills (proficient)</h3>
     <div class="ccs-skills-header">
-      <p class="ccs-skills-lead">Benn’s level 6 proficiency bonus is <strong>+3</strong></p>
+      <p class="ccs-skills-lead">Benn’s level 7 proficiency bonus is <strong>+3</strong></p>
       <span class="ccs-skills-colhead ccs-skills-colhead-abil">Ability modifier</span>
       <span class="ccs-skills-colhead ccs-skills-colhead-prof">Proficiency bonus</span>
       <span class="ccs-skills-colhead ccs-skills-colhead-total"></span>
@@ -745,7 +750,7 @@
       </div>
       <div class="ccs-action-meta">Feat · maximum HP increases by twice your character level</div>
       <p class="ccs-action-body">
-        Extra hit points: <strong>+12</strong> (2 × level 6) — included in HP 57.
+        Extra hit points: <strong>+14</strong> (2 × level 7) — included in HP 66.
       </p>
     </div>
   </section>
@@ -754,7 +759,7 @@
   <section class="ccs-section" id="senses" aria-labelledby="senses-title">
     <h3 id="senses-title">6 · Senses &amp; notes</h3>
     <ul class="ccs-list">
-      <li><span class="ccs-item-name">Hit dice</span><span class="ccs-item-meta">6d8</span></li>
+      <li><span class="ccs-item-name">Hit dice</span><span class="ccs-item-meta">7d8</span></li>
       <li><span class="ccs-item-name">Languages</span><span class="ccs-item-meta">Common · Halfling · Elvish</span></li>
       <li><span class="ccs-item-name">Deity</span><span class="ccs-item-meta">Chauntea: goddess of growth and renewal.</span></li>
       <li><span class="ccs-item-name">Attuned</span><span class="ccs-item-meta">Ouroboros Ring · Slippers of Spider Climbing · Cloak of Protection</span></li>
@@ -830,7 +835,7 @@
     load();
   }
 
-  bindCounter("[data-ccs-hp]", ".ccs-hp-current", "ccs-hp-current:", "data-hp-max", 57);
+  bindCounter("[data-ccs-hp]", ".ccs-hp-current", "ccs-hp-current:", "data-hp-max", 66);
 
   (function () {
     var root = document.querySelector("[data-ccs-hp]");
